@@ -1,0 +1,82 @@
+% --------------- PACOTES -----------------%
+
+% Pacotes fundamentais
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecão de códigos de fonte. hifenação correta.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{xcolor}				% Controle das cores
+\usepackage[pdftex]{graphicx}	% Inclusão de gráficos
+\usepackage{epstopdf}           % Pacote que converte as figuras em eps para pdf
+
+
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+\usepackage{nomencl}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[chapter]{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{pdfpages}       % insere páginas pdf no arquivo
+\usepackage{siunitx}        % pacote para padronizar display de números e unidades
+
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citacões na bibl
+
+% Pacote que faz Citações padrão ABNT
+\usepackage[alf,abnt-etal-cite=2,abnt-etal-list=0,abnt-etal-text=emph]{abntex2cite}
+
+% Pacote de customização - Unicamp
+\usepackage{unicamp}
+
+
+% Pacotes de Debbuging:
+\usepackage{lipsum}     % Pacote que gera texto dummy
+%\usepackage{blindtext}  % Pacote que gera texto dummy
+\usepackage{showlabels} % Pacote que mostra os labels das equações no pdf
+\usepackage{todonotes}  % Pacote que insere notas no pdf 
+
+% Posso criar definições de acrônimos e ele automaticamente coloca o nome completo
+% no texto na primeira ocorrência ou o acrônimo nas referências subsequentes
+%\usepackage[toc,acronym,nomain,nogroupskip,nonumberlist]{glossaries}%nonumberlist
+%\makenoidxglossaries
+%\frenchspacing
+%\renewcommand{\finalnamedelim}{\ \&\ }
+%\input{glossary}
+% comando \gls
+
+
+%---------------CONFIGURAÇÕES------------%
+
+% informações do PDF. O pacote hyperref já foi incluido em abntex2, eu acho
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
+		hidelinks,					% desabilita as bordas dos links
+		colorlinks=false,       	% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      	% color of file links
+		urlcolor=blue,
+%		linkbordercolor={1 1 1},	% set to white
+		bookmarksdepth=4
+}
+\makeatother
+
+
+% Espaçamentos entre linhas e parágrafos
+\setlength{\parindent}{1.3cm} % Tamanho da identação do parágrafo
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+
+% Compila o índice
+\makeindex
+\makenomenclature

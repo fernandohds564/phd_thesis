@@ -1,0 +1,292 @@
+\chapter{\engw{Wakes} e Impedâncias}\label{cap:wake_impedances}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\engw{Wake Fields}}
+
+Nesta seção vamos introduzir o conceito de \engw{wake field} em aceleradores de partículas e entender os fundamentos de suas principais propriedades para a consequente análise de sua influência sobre o movimento de partículas carregadas. Boa parte desse texto foi baseada na apresentação feita pela referência \cite{Stupakov2000a}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Partículas no Espaço Livre}\label{ssec:particles_free_space}
+
+Para iniciar a análise do problema vamos estudar as interações entre partículas carregadas no espaço livre. que se movem com velocidade constante no espaço livre. Se o material das paredes está longe das partículas, seu efeito em primeira aproximação pode ser negligenciado.
+
+Consideremos uma partícula fonte de carga $q$ se movendo com velocidade $v$, e uma partícula teste com carga unitária se movendo atrás da partícula fonte em um caminho paralelo a uma distância $s$ com um deslocamento $x$, como mostrado na figura \ref{fig:wake1}. Nós queremos determinar a força que a partícula fonte exerce na partícula teste.
+Nós usaremos as seguintes expressões para o campo elétrico e magnético de uma partícula se movendo com velocidade constante \todo{derivar esses campos}:
+
+\begin{equation}
+ \label{eq:fields_free_particle}
+ \vect{E} = \frac{q\vect{R}}{\gamma^2 R^{*3}}, \quad \vect{H} = \frac1c\vect{v} \times \vect{E} 
+\end{equation}
+onde $\vect{R}$ é o vetor posição que liga as duas partículas, partindo da partícula fonte, $R^{*2} = s^2 + x^2/\gamma^2$, e $\gamma = (1-v^2/c^2)$.
+
+Combinando a equação \ref{eq:fields_free_particle} com a equação de Lorentz, descobrimos que a força longitudinal sobre a partícula teste é
+\begin{equation}
+ F_l = E_z = -\frac{qs}{\gamma^2\left(s^2+x^3/\gamma^2\right)^{3/2}}
+\end{equation}
+ e a força transversal é 
+ \begin{equation}
+  F_t = E_x - \frac{v}{c}B_y = -\frac{qx}{\gamma^4\left(s^2+x^3/\gamma^2\right)^{3/2}}
+ \end{equation}
+ 
+Em física de aceleradores a força $\vect{F}$ é comumente chamada de \engw{space charge force}.
+É fácil ver que para qualquer posição dada por $s$ e $x$, a força longitudinal é proporcional a $\gamma^{-2}$. Para a força transversal, se $s \gg x/\gamma$, $F_t \sim \gamma^{-4}$, mas para $s=0$, $F_t \sim \gamma^{-1}$. Desse modo, no limite ultra-relativístico,$\gamma \to \infty$, a interação eletromagnética entre partículas se movendo paralelamente umas as outras em espaço livre é nula.
+
+Nesse trabalho nós vamos analisar o caso de partículas ultra-relativísticas, onde $v \to c$. Os efeitos de \engw{space charge} discutidos acima desaparecem nesse limite, e a interação entre as partículas é devida apenas à presença das paredes materiais da câmara de vácuo.
+Note que, tomando o limite $v \to c$ na equação \ref{eq:fields_free_particle} e relembrando que $s = vt - z$, podemos escrever o campo eletromagnético de uma carga ultra-relativística no espaço livre como
+
+\begin{equation}
+\vect{E} = \frac{2q\vect{r}}{r^2}\delta(z-ct),\quad \quad \vect{H} =\vect{\hat{z}}\times\vect{E},
+\end{equation}
+onde $\vect{r} = \vect{\hat{x}}x + \vect{\hat{y}}y$ é um vetor radial bidimensional em coordenadas cilíndricas ($\vect{\hat{x}}$ e $\vect{\hat{y}}$ são vetores unitários nas direções $x$ e $y$, respectivamente).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Partículas em um tubo condutor perfeito}
+
+Se as partículas do exemplo acima se movem paralelas ao eixo em um tudo cilíndrico condutor perfeito de seção transversal arbitrária, elas induzirão cargas imagem na superfície da parede que anulam o campo eletromagnético das partículas dentro do metal. As cargas imagem viajam com a mesma velocidade $v$ das partículas (veja a figura \ref{fig:2}). Como as partículas no interior do tudo e as cargas imagem na superfície da parede se movem em caminhos paralelos, no limite $v\to c$, de acordo com os resultados da seção \ref{ssec:particles_free_space}, elas não interagem umas com as outras independentemente de quão perto estejam umas das outras.
+
+Interação entre partículas no limite ultra-relativístico pode acontecer por dois motivos:
+% \begin{itemize}
+%     \item A parede não é perfeitamente condutora, ou
+%     \item O tudo não é cilíndrico (o que geralmente é devido a presença de cavidades de RF, flanges, \engw{bellows}, monitores de posição de feixe, bombas de vácuo, etc, na câmara de vácuo).
+% \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Causalidade e a distância de alcance}
+
+Se um feixe de partículas se move em uma linha reta com a velocidade da luz, o campo eletromagnético dessa partícula espalhado pela pelas descontinuidades da câmara não poderão alcança-la e não afetará as cargas viajando à frente dela. O campo poderá apenas interagir com as cargas do feixe que se movem atrás dela. Tal propriedade constitui o princípio de causalidade na teoria de \engw{wakefields}, que diz que a interação com uma carga pontual se movendo com a velocidade da luz se propaga apenas a jusante e nunca alcança a parte do feixe à montante de tal partícula.
+
+Podemos estimar a distância a qual o campo eletromagnético produzido por uma partícula alcança as partículas a uma distancia $s$ atrás dela. Vamos assumir que uma descontinuidade na superfície de um tubo de raio $b$ na coordenada $z=0$ é passada por uma partícula no tempo $t=0$, veja a figura \ref{fig:3}. Se o campo espalhado alcança o ponto $s$ em um tempo $t$, então $ct = \sqrt{(z-s)^2 + b^2}$, onde $z$ é a coordenada da partícula no tempo $t$, $z=ct$. Assumindo que $s \ll b$, dessas duas equações, descobrimos que
+
+\begin{equation}
+    z \approx \frac{b^2}{2s}.
+\end{equation}
+
+A distância $z$ dada por esta equação é comumente chamada de "distância de alcance". Apenas após a partícula fonte ter viajado essa distância da descontinuidade, a partícula a uma distância $s$ atrás dela sentirá o \engw{wakefield} gerado pela descontinuidade.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Definição de Wake}\label{ssec:wake_definition}
+
+A interação eletromagnética de partículas carregadas em aceleradores com o ambiente normalmente tem um efeito pequeno quando comparado com o efeito de campos elétricos e magnéticos externos e pode ser considerada com uma perturbação. Em uma aproximação de ordem zero, podemos assumir que o feixe se move com velocidade constante em uma linha reta, e então resolvemos as equações de Maxwell, encontramos os campos e computamos o efeitos desses campos no movimento das partículas. Com essa abordagem negligenciamos efeitos de segunda ordem porque o movimento em uma órbita perturbada podem gerar apenas uma pequena mudança nos campos computados pela aproximação de ordem zero. Essas correções são geralmente pequenas, especialmente para partículas ultra-relativísticas.
+
+Outra importante característica da interação entre o campo eletromagnético gerado e as partículas é que em muitos casos de importância prática eles estão localizados em uma região pequena comparada com o tamanho da órbita do feixe. Ela também ocorre uma escala de tempo muito menor que a de oscilação do feixe no acelerador (como os períodos bétatron e síncrotron). Isso nos permite considerar essa interação dentro da aproximação de impulso e caracterizá-la pelo momento transferido para a partícula.
+
+Dessa forma, podemos introduzir a noção de \engw{wake} da seguinte maneira. Considere a partícula 1, com carga $q$ se movendo ao longo do eixo $z$ com uma velocidade próxima à da luz, $v\approx c$, de modo que $z=ct$ (veja a figura \ref{fig:4}). Uma partícula 2 com carga unitária se move paralelamente à partícula 1, com a mesma velocidade, a uma distância $s$ com deslocamento transversal $\vect{\rho}$ relativo ao eixo $z$. O vetor $\vect{\rho}$ é um vetor bi-dimensional perpendicular ao eixo $z$, $\vect{\rho} = (x,y)$. Apesar de as partículas viajarem no vácuo, há contornos materiais no problema que espalham o campo eletromagnético que gera uma interação entre as partículas.
+
+Assumindo que as equações de Maxwell foram resolvidas e que os campos gerados pela partícula 1 foram encontrados, podemos calcular a mudança no momento $\Delta \vect{p}$ da segunda partícula causada por esse campo como uma função do deslocamento $\vect{\rho}$ e da distância $s$,
+
+\begin{equation}
+ \Delta \vect{p}(\vect{\rho},s) = \defint{t}{\left[\vect{E}(\vect{\rho},z,t) + \vect{\hat{z}}\times \vect{B}(\vect{\rho},z,t)\right]_{z=ct-s}}{-\infty}{\infty}.
+\end{equation}
+
+Note que a integral é feita sobre uma linha reta \textemdash \, a órbita não perturbada da segunda partícula. Os limites de integração são estendidos de menos para mais infinito assumindo que a integral converge.
+
+Como a dinâmica do feixe é diferente nas direções longitudinal e transversal, é útil separar o momento longitudinal $\Delta p_z$ da componente transversal $\vect{\Delta p}_\perp$. Dessa forma, com uma convenção de sinal e um fator de normalização $c/q$, podemos definir as chamadas \engw{wake functions}, ou simplesmente \engw{wakes} longitudinal e transversal,
+
+\begin{equation}\label{eq:wake_definition}\begin{aligned}
+    w_l(\vect{\rho},s) &= -\frac{c}{q} \Delta p_z = -\frac{c}{q} \udefint{t}{E_z|_{z=ct-s}}, \\
+    \vect{w}_t(\vect{\rho},s) &= \frac{c}{q} \vect{\Delta p}_\perp = \frac{c}{q} \udefint{t}{\left[\vect{E}_\perp + \vect{\hat{z}}\times \vect{B}\right]_{z=ct-s}}
+\end{aligned}\end{equation}
+
+Note o sinal de menos na definição de $w_l$ --- ele é introduzido para que um \engw{wake} longitudinal positivo corresponda a uma perda de energia da partícula teste (caso ambas a partícula fonte e teste tenham o mesmo sinal de carga). Os \engw{wakes} definidos tem dimensão de \si{\volt\per\coulomb} no Sistema Internacional de Unidades.
+
+Por causa do princípio de causalidade o \engw{wakefield} não se propaga a frente da partícula fonte, então
+\begin{equation}
+    w_l(\vect{\rho},s) \equiv 0, \qquad \vect{w}_t(\vect{\rho},s) \equiv \vect{0}, \qquad \mathrm{para } \quad s < 0.
+\end{equation}
+
+Na definição acima foi assumido que o campo eletromagnético estava localizado no espaço e no tempo e que a integral na equação \ref{eq:wake_definition} converge. Contudo, há casos em que isso não é verdade e a fonte do \engw{wake} é distribuida uniformemente ao longo de um longo caminho, como é o caso do \engw{wake} de parede resistiva de um longo tubo. Nesse caso é mais conveniente introduzir o \engw{wake} por unidade de comprimento, descartando a integração na equação \ref{eq:wake_definition}:
+
+\begin{equation}\begin{aligned}
+    w_l(\vect{\rho},s) &= -\frac1q E_z|_{z=ct-s}, \\
+    \vect{w}_t(\vect{\rho},s) &= \frac1q\left[\vect{E}_\perp + \vect{\hat{z}}\times \vect{B}\right]_{z=ct-s}.
+\end{aligned}\end{equation}
+
+Nessa definição os \engw{wakes} adquirem uma dimensão adicional de inverso de comprimento e tem dimensão \si{\volt\per\coulomb\per\meter} no Sistema Internacional de Unidades.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Teorema de Panofsky-Wenzel}
+
+Várias relações gerais entre os \engw{wakes} longitudinal e transversal podem ser obtidos das equações de Maxwell sem que seja necessário especificar as condições de contorno para os campos.
+
+Vamos introduzir o vetor $\vect{R} =(\vect{\rho},-s)$ (o sinal de menos na frente do $s$ é devido ao fato de $s$ ser positivo para posições atrás da partícula fonte) e considerar o momento $\vect{\Delta p}$ na equação \ref{eq:wake_definition} como uma função de $\vect{R}$. Vamos assumir que o campo eletromagnético é especificado através do potencial vetor $\vect{A}(\vect{r},t)$ e o potencial escalar $\phi(\vect{r},t)$, e computar
+$\vect{\Delta p}$ para os dados campos. É conveniente usar a formulação Lagrangiana para as equações de movimento,
+
+\begin{equation}\label{eq:euler_lagrange}
+    \dertot{}{t}\derpar{L}{\vect{v}} = \derpar{L}{\vect{r}} = \vect{\nabla}L,
+\end{equation}
+com a Lagrangiana para a partícula teste com carga unitária é
+\begin{equation}\label{eq:lagrangiana_charged_part}
+   L = -mc^2 \sqrt{1 - \frac{v^2}{c^2}} + \frac1c \vect{Av} - \phi
+\end{equation}
+substituindo a equação \ref{eq:lagrangiana_charged_part} na equação \ref{eq:euler_lagrange} obtemos:
+
+\begin{equation}
+ \dertot{}{t} \left(\vect{p} + \frac1c \vect{A}\right) = \vect{\nabla}\left(\frac1c \vect{Av} - \phi\right).
+\end{equation}
+onde $\vect{p} = m\gamma\vect{v}$.
+
+Agora, integrando esta equação ao longo da órbita da partícula teste, $x=\mathrm{const}$, $y=\mathrm{const}$ e $z = ct-s$, e assumindo que os campos $\vect{A}$ e $\phi$ vão a zero no infinito, encontramos
+
+\begin{equation}
+ \vect{\Delta p}(\vect{R}) = \udefint{t}{\vect{\nabla}\left(\frac1c\vect{Av} - \phi \right) = \frac{q}{c} \vect{\nabla_R}W(\mathrm{R})}.
+\end{equation}
+onde introduzimos o \engw{wake potential} $W$,
+\begin{equation}
+ W(\vect{R}) = \frac{c}{q}\udefint{t}{\left(\frac1c \vect{Av} -\phi\right)}
+      \overset{\vect{v} \approx c\vect{\hat{z}}}{=}
+                 \frac{c}{q}\udefint{t}{\left(A_z -\phi\right)}.
+\end{equation}
+
+Assim, provamos uma relação que estabelece que todas as três componentes do vetor $\vect{\Delta p}$ podem ser obtidas derivando uma única função escalar $W$. Relembrando a relação entre os componentes de $\vect{\Delta p}$ e os \engw{wakes}, \ref{eq:wake_definition}, descobrimos que
+
+\begin{equation}\label{eq:wake_function_definition}
+ w_l = - \derpar{W}{(-s)} = \derpar{W}{s},\qquad \vect{w}_l = \vect{\nabla_\rho}W,
+\end{equation}
+e, consequentemente
+\begin{equation}\label{eq:panofsky_wenzel_theorem}
+ \derpar{\vect{w}_t}{s} = \vect{\nabla_\rho}w_l.
+\end{equation}
+
+Esta relação é comumente chamada de teorema de Panofsky-Wenzel. Note que $\nabla_\rho$ é um gradiente bidimensional com respeito às coordenadas $x$ e $y$.
+
+Uma das aplicações computacionais mais importantes do teorema de Panofsky-Wenzel é que o conhecimento do \engw{wake function}, $w_l$, longitudinal nos permite encontrar o \engw{wake} transversal,$\vect{w}_t$ por meio de uma integração simples da equação \ref{eq:panofsky_wenzel_theorem}.
+
+Outra propriedade importante de $W$ é que ele é uma função harmônica das variáveis $x$ e $y$,
+\begin{equation}\label{eq:wake_potential_harmonic}
+ \Delta_\perp W \equiv \derpar[2]{W}{x} + \derpar[2]{W}{y} = 0.
+\end{equation}
+Para provar isso vamos usar o fato que ambos $\vect{A}$ e $\phi$ satisfazem a equação de onda no espaço livre, $(\partial^2/\partial t^2 - c^2 \Delta)\vect{A} = \vect{0}$ e $(\partial^2/\partial t^2 - c^2 \Delta)\phi = 0$. Dessa forma,
+
+\begin{equation}\begin{aligned}
+0
+&=\frac{c}{q}\udefint{t}{\left(\derpar[2]{}{t}-c^2\Delta\right)\!\!(A_z-\phi)}\\
+&=\frac{c}{q}\left[\udefint{t}{\left(\derpar[2]{}{t} - c^2\derpar[2]{}{z}\right)} -
+	            c^2\udefint{t}{\left(\derpar[2]{}{x} + \derpar[2]{}{y}\right)}\right]\!\!(A_z-\phi)\\
+&=\frac{c}{q}\udefint{t}{\left(\derpar{}{t}+c\derpar{}{z}\right)
+				     \!\!\left(\derpar{}{t}-c\derpar{}{z}\right)\!\!(A_z -\phi)}
+   -c^2\!\left(\derpar[2]{W}{x} + \derpar[2]{W}{y}\right)
+\end{aligned}\end{equation}
+
+A última integral nessa equação é nula porque
+\begin{equation}
+    \derpar{}{t} + c\derpar{}{z} \approx \derpar{}{t} + \vect{v\nabla} = \dertot{}{t}
+\end{equation}
+e
+\begin{equation}
+  \udefint{t}{\left(\derpar{}{t} + c\derpar{}{z}\right)\!\!
+             \left(\derpar{}{t} - c\derpar{}{z}\right)\!\!(A_z - \phi)}
+  = \udefint{t}{\dertot{}{t}\!\!\left(\derpar{}{t}-c\derpar{}{z}\right)\!\!(A_z - \phi)}
+  =  0.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sistemas Com Um Eixo de Simetria}
+Na seção \ref{ssec:wake_definition} nós definimos o \engw{wake} como uma função do deslocamento da partícula teste relativo ao caminho da partícula fonte. Em aplicações práticas nós também estamos interessados em saber como o \engw{wake} depende da trajetória da partícula fonte. Assumiremos que o sistema em consideração tem um eixo de simetria e vamos escolhe-lo como o eixo $z$ do sistema de coordenadas, veja \ref{fig:5}. Agora a partícula fonte, $1$, se move na direção $z$ com um deslocamento dado pelo vetor $\vect{\rho'}$, e a partícula teste viaja paralelamente à partícula fonte, com a mesma velocidade, a uma distância $s$ atrás da fonte com um deslocamento $\vect{\rho}$ relativo ao eixo. Os vetores $\vect{\rho'}$ e $\vect{\rho}$ são os vetores bidimensionais perpendiculares ao eixo $z$. O \engw{wake} ainda é definido pela equação \eqref{eq:wake_definition} mas agora ele será considerado como uma função de $\vect{\rho'}$, $\vect{\rho}$ e $s$
+\begin{equation}\begin{aligned}
+w_l &= w_l(\vect{\rho},\vect{\rho'},s), \\
+\vect{w}_t &= \vect{w}_t(\vect{\rho},\vect{\rho'},s).
+\end{aligned}\end{equation}
+
+Normalmente a câmara de vácuo é projetada de forma que os eixo do sistema serve como uma órbita ideal para o feixe. Assim, desvios desse eixo são relativamente pequenos e ambos os vetores $\vect{\rho'}$ e $\vect{\rho}$ são tipicamente muito menores que a câmara de vácuo, de forma que em $w_l$ podemos negligenciá-los e introduzir um \engw{wake} longitudinal que só depende de $s$,
+
+\begin{equation}
+	w_l(s) = w_l(\vect{0},\vect{0},s).
+\end{equation}
+
+Se os elementos que formam a câmara de vácuo também tem alguma simetria (por exemplo, se eles tem seção transversal circular, elíptica ou retangular), o \engw{wake} transverso no eixo, onde $(\vect{\rho},\vect{\rho'}) = (\vect{0},\vect{0})$, é nula, $\vect{w}_t(\vect{0},\vect{0},s)=\vect{0}$. Para pequenos valores de $(\vect{\rho},\vect{\rho'})$ nós podemos expandir $\vect{w}_t(\vect{\rho},\vect{\rho'},s)$ mantendo apenas os termos lineares. Dessa forma, obtemos uma relação tensorial entre os \engw{wakes} transversos e os deslocamentos,
+
+\begin{equation}
+	\vect{w}_t(\vect{\rho},\vect{\rho'},s) = \overleftrightarrow{\vect{W}_1}(s)\vect{\rho} +
+    										 \overleftrightarrow{\vect{W}_2}(s)\vect{\rho'},
+\end{equation}
+onde $\overleftrightarrow{\vect{W}_1}$ e $\overleftrightarrow{\vect{W}_2}$ são tensores bidimensionais de ordem 2. 
+
+\subsection{Sistemas com Simetria axial}
+
+Em um sistema com simetria axial, o \engw{wake potential}, $W$, depende apenas dos módulos de $\vect{\rho}$ e $\vect{\rho'}$ e do ângulo, $\theta$ entre eles. Sempre podemos escolher um sistema de coordenadas tal que o vetor $\vect{\rho'}$ fique no plano $xz$, veja a figura \ref{fig:6}, de forma que $W$ será uma função periódica e par \todo{entender porque é par} do ângulo $\theta$ em um sistema de coordenadas cilíndrico. Decompondo $W$ em séries de Fourier em $\theta$ temos:
+
+\begin{equation}
+	W(\rho,\rho',\theta,s) = \sum_{m=0}^\infty W_m (\rho,\rho',s) \cos(m\theta).
+\end{equation}
+
+Inserindo essa equação na equação \eqref{eq:wake_potential_harmonic}, temos
+
+\begin{equation}
+	\sum_{m=0}^\infty \left(\frac1\rho\derpar{}{\rho}\rho\derpar{W_m}{\rho} - 
+    					    \frac{m^2}{\rho^2}W_m\right)\cos(m\theta) = 0
+\end{equation}
+de onde podemos encontrar a dependência explícita em $\rho$ de $W$,
+\begin{equation}\label{eq:wake_potential_of_rho}
+	W_m(\rho,\rho',s) = A_m(\rho',s)\rho^m.
+\end{equation}
+Na equação \eqref{eq:wake_potential_of_rho} a solução singular na origem, $W_m \propto \rho^{-m}$ foi descartada.
+
+Também é possível encontrar a dependência de $W_m$ em função de $\rho'$, \todo{Achar essa derivação e incluir aqui} ver \cite{Bane_PAC1983}, que é
+\begin{equation}
+	A_m(\rho',s) = F_m(s)\rho'^m.
+\end{equation}
+
+Usando a equação \eqref{eq:wake_function_definition} podemos calcular os \engw{wake functions}
+\begin{equation}
+	w_l = \sum w_l^{(m)}, \qquad \vect{w}_t = \sum \vect{w}_t^{(m)}
+\end{equation}
+onde
+\begin{equation}\label{eq:wake_function_cylindrical}\begin{aligned}
+w_l^{(m)} &= \rho'^m\rho^mF'_m(s)\cos(m\theta),\\
+\vect{w}_t^{(m)} &= m\rho'^m\rho^{m-1} F_m(s)\left[\vect{\hat{r}}\cos(m\theta) - 
+												  \vect{\hat{\theta}}\sin(m\theta)\right]
+\end{aligned}\end{equation}
+onde $\vect{\hat{r}}$ e $\vect{\hat{\theta}}$ são vetores unitários nas direções radial e azimutal no sistema cilíndrico de coordenadas e $F'_m$ é a derivada de $F_m$ em relação à $s$. Lembre que nessas equações nós assumimos que a partícula fonte está em $\theta = 0$.
+
+As equações \eqref{eq:wake_function_cylindrical} são válidas para valores arbitrários de $\rho$ e $\rho'$. Próximo ao eixo, onde s deslocamentos são pequenos, os termos de ordem mais alta, com valores grandes de $m$, também ficam pequenos. Nesse caso podemos manter apenas os termos não nulos de mais baixa ordem,
+\begin{equation}\label{eq:wake_function_expanded}\begin{aligned}
+	w_l & \equiv w_l^{(0)} = F'_0(s), \\
+    \vect{w}_t & \equiv \vect{w}_t^{(1)} = F_1(s)\rho'\left(\vect{\hat{r}}\cos(\theta) - \vect{\hat{\theta}}\sin(\theta)\right) = \vect{\rho'} F_1(s)
+\end{aligned}\end{equation}
+onde a última igualdade da última equação é justificada porque $\vect{\hat{r}}\cos(\theta) - \vect{\hat{\theta}}\sin(\theta) = \vect{\hat{x}}$, que é a direção em que está a partícula fonte, de acordo com nossa definição inicial. 
+
+Geralmente o \engw{wake} transversal definido na equação \eqref{eq:wake_function_expanded} é redefinido como
+\begin{equation}
+	w_t(s) \equiv \frac{|\vect{w}_t|}{|\vect{\rho'}|} = F_1(s)
+\end{equation}
+e adquire a unidade \si{\volt\per\coulomb\per\meter}. De acordo com essa definição, um \engw{wake} transversal positivo significa um impulso na direção do deslocamento da partícula fonte (caso ambas cargas tenham o mesmo sinal).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Impedâncias}
+
+Nesta seção vamos definir o conceito de impedância e derivar algumas de suas propriedades.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Definição de Impedância}
+O conhecimento dos \engw{wake functions} longitudinal e transversal nos dá uma informação completa, dentro da aproximação de feixe rígido, sobre a interação eletromagnética do feixe com o seu ambiente. Contudo, em muitos casos, especialmente no estudo de instabilidades do feixe, é mais conveniente usar a Transformada de Fourier dos \engw{wake functions} ou as impedâncias. Também, geralmente é mais fácil calcula a impedância para uma dada geometria da câmara de vácuo ao invés da \engw{wake function}.
+
+Por razões históricas a impedâncias longitudinal, $Z_l$, e transversal, $Z_t$, são definidas como a Transformada de Fourier dos \engw{wakes} com fatores multiplicativos diferentes,
+\begin{equation}\label{eq:impedances_definition}\begin{aligned}
+Z_l(\omega) &= \frac1c \defint{s}{w_l(s)e^{i\omega s/c}}{0}{\infty},\\
+Z_t(\omega) &= -\frac{i}{c} \defint{s}{w_t(s)e^{i\omega s/c}}{0}{\infty}.
+\end{aligned}\end{equation}
+Note que a integração na equação \eqref{eq:impedances_definition} pode ser estendida para a região de valores negativos de $s$, porque $w_l$ e $w_t$ são nulos naquela região. Além disso, a impedância pode ser definida para valores complexos de $\omega$, desde que $\Im(\omega) > 0 $ para que a integral convirja. Dessa forma, a impedância é uma função analítica no plano superior da variável complexa $\omega$.
+
+Um aspecto importante a respeito da definição de impedância é que há divergências em sua definição na literatura. Por exemplo, as referências \cite{Zotter1993} e \cite{Wilson1987} definem a impedância longitudinal como o complexo conjugado da equação \eqref{eq:impedances_definition}. Nesse trabalho estamos seguindo a definição das referências \cite{CHao1993,Stupakov2000a,Heifets1991}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Panofski-Wenzel}
+
+O conceito de wake-function e impedância tem seu surgimento motivado pelo teorema de Panofski-Wenzel. Esse teorema é resultado de duas aproximações feitas na análise do problema de duas partículas relativísticas interagindo entre si por meio de campos eletromagnéticos espalhados pela câmara de vácuo do anel de armazenamento. Por sua central importância para o subsequente desenvolvimento desse trabalho, vamos olhar esse teorema com um pouco mais de detalhe.
+
+Primeiro, vamos considerar a imagem apresentada na figura X, ou seja, consideremos uma situação em que temos uma partícula de carga $Q$ atravessando a estrutura ilustrada com velocidade $\vec{v}$ ao longo da câmara de vácuo de um anel de armazenamento. A uma distância longitudinal $z$ dela, uma partícula de prova com carga $q$ também atravessa a estrutura na mesma direção. Estamos interessados em saber qual é a força que essa carga de prova sentirá ao longo de sua passagem por toda a estrutura. Pela equação de Lorentz, temos a todo instante:
+\begin{equation}
+ \vec{F} = q\left(\vec{E} + \vec{v} \times \vec{B}\right)
+\end{equation}
+onde $\vec{E}$ e $\vec{B}$ é o campo eletromagnético na posição da partícula que está sentindo a força. Esse campo pode ser decomposto como a soma de vários campos com origem e interpretação física diferentes: O campo externo, gerado pelos ímãs e cavidades de RF que guiam o feixe e o campo de interação, que foi gerado pela partícula fonte, de carga $Q$. O campo de interação ainda pode ser decomposto em duas contribuições distintas: o campo direto, que existiria mesmo sem a presença da câmara de vácuo e o campo indireto, resultado da interação dessa carga com a câmara de vácuo. Para obter a transferência de momento total sentida pela carga de prova ao longo de toda estrutura, temos que integrar a equação acima na trajetória da partícula. Ao realizarmos esse procedimento, logo vemos que a solução auto-consistente desse problema é muito complexa, pois a trajetória da partícula prova depende da força que ela sentiu nos tempos anteriores, assim como da trajetória da carga fonte, devido à dependência dos campos eletromagnéticos que são gerados por ela.
+
+Assim, para conseguir seguir mais adiante na análise desse problema devemos fazer aproximações. A primeira delas é considerar que ambas as partículas são rígidas e possuem velocidades paralelas uma com a outra e paralelas ao eixo de simetria da câmara de vácuo (caso a câmara de vácuo não tenha simetria, considera-se a velocidade das partículas paralelas à direção em que o feixe de elétrons deverá passar). Essa consideração simplifica drasticamente a análise do problema, como veremos logo a seguir.
+
+Antes de seguir com a demonstração do teorema, vamos justificar essa aproximação. Na maioria dos aceleradores de partículas as partículas estão no limite ultra-relativístico, em que sua velocidade é aproximadamente a da luz e varia muito pouco com variação de momento. Isso implica que nesse limite as partículas são bastante rígidas
+

@@ -1,0 +1,101 @@
+%Capa
+\imprimircapa
+
+
+%Folha de rosto sem número de página
+\setcounter{page}{3}
+\imprimirfolhaderosto*
+
+
+% Ficha Catalográfica
+% Não sei o que é ainda, mas parece que a universidade vai me fornecer uma
+%após a defesa da minha tese. Quando ela fizer isso, tenho que comentar as
+%linhas abaixo e descomentar o \includepdf:
+\begin{fichacatalografica}
+    \vspace*{\fill}
+    \begin{center}
+        \textsc{Inclua aqui o pdf com a ficha catalográfica fornecida pela BAE.}
+    \end{center}
+    \vspace*{\fill}
+    %\includepdf{ficha-catalografica.pdf}
+\end{fichacatalografica}
+
+
+% Folha de aprovação
+% Na versão final, tenho que excluir essas linhas e incluir o \includepdf
+\newpage
+\vspace*{\fill}
+\begin{center}
+    \textsc{Inclua aqui a folha de assinaturas.}
+\end{center}
+\vspace*{\fill}
+\newpage
+%\includepdf[pagecommand={\thispagestyle{plain}}]{folha-assinaturas.pdf}
+\cleardoublepage
+
+
+% Dedicatória
+\begin{dedicatoria}
+    \vspace*{\fill}
+    \centering
+    \noindent
+    \textit{Dedico esta tese à todo mundo.}
+    \vspace*{\fill}
+\end{dedicatoria}
+
+% Agradecimentos
+\begin{agradecimentos}
+    \input{content/Chap0-agradecimentos}
+\end{agradecimentos}
+
+% Epígrafe
+\begin{epigrafe}
+    \vspace*{\fill}
+    \begin{flushright}
+        \textit{``Aqui jaz quatro anos da minha vida.''\\
+        (Fernando Henrique de Sá)}
+    \end{flushright}
+\end{epigrafe}
+
+% Resumos em português
+\begin{resumo}
+    \input{content/Chap0-resumo}
+    \vspace{\onelineskip}
+    \noindent\textbf{Palavras-chaves}: palavra-chave 1; palavra-chave 2; palavra-chave 3.
+    \vspace{\fill}
+\end{resumo}
+
+% Resumo em Inglês
+\begin{otherlanguage*}{english}
+    \begin{center}{\ABNTEXchapterfont\huge Abstract}\end{center}
+    \input{content/Chap0-abstract}
+    \vspace{\onelineskip}
+    \noindent\textbf{Keywords}: keyword 1; keyword 2; keyword 3.
+    \vspace{\fill}
+\end{otherlanguage*}
+\cleardoublepage
+
+
+% Lista de ilustrações
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+
+% Lista de tabelas
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+
+% Lista de Acronimos e Abreviações
+\renewcommand{\nomname}{Lista de Acrônimos e Abreviações}
+\pdfbookmark[0]{\nomname}{las}
+\printnomenclature
+\cleardoublepage
+
+
+% Sumário
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage

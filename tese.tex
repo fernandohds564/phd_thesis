@@ -1,0 +1,79 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em páginas ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,		% tamanho do papel.
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	%french,			% idioma adicional para hifenização
+	%spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	sumario=tradicional,
+	]{abntex2}
+
+%%%%%% IMPORTAÇÃO DOS PACOTES %%%%%%
+\input{preamble/preambulo}
+
+% Informacoes de dados para CAPA e FOLHA DE ROSTO:
+\titulo{Estudo de Impedâncias e Instabilidades Coletivas aplicadas aos aceleradores do LNLS.}
+\autor{Fernando Henrique de Sá}
+\local{Campinas}
+\data{2016}
+\orientador{Prof. Dr. Antônio Rubens Britto de Castro}
+\coorientador[Co-orientador]{Prof. Dr. Sílvio}
+\instituicao{%
+    UNIVERSIDADE ESTADUAL DE CAMPINAS
+    \par
+    Instituto de Física Gleb Wataghin (IFGW)
+    }
+\tipotrabalho{Tese (Doutorado)}
+% O preambulo deve conter o tipo do trabalho, o objetivo, o nome da instituição
+% e a área de concentração
+\preambulo{Tese apresentada ao Instituto de Física da Universidade Estadual
+           de Campinas como parte dos requisitos exigidos para a obtenção do
+		   título de Doutor em Física, com ênfase em Física de Aceleradores.}
+
+\input{preamble/comandos}
+
+\includeonly{content/Chap1-introducao,
+content/Chap3-impedancias_e_wakes
+}
+
+\begin{document}
+	% Retira espaço extra obsoleto entre as frases
+	\frenchspacing
+
+	%---------- Elementos pré-textuais --------------%
+	\pretextual
+	\input{preamble/pretextuais}
+	
+	%---------- Elementos textuais ------------------%
+	\textual
+	
+	\include{content/Chap1-introducao}
+	\part{Fundamentos}
+    \include{content/Chap2-fisica_aceleradores}
+    \include{content/Chap3-impedancias_e_wakes}
+	\part{Contribuições}
+	\include{content/Chap4-modelo_impedancia}
+    \include{content/Chap5-instabilidades}
+    
+	% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+	\bookmarksetup{startatroot}%
+
+	\chapter*[Conclusão]{Conclusão}
+	\addcontentsline{toc}{chapter}{Conclusão}
+	\lipsum[1-5]
+
+
+	% --------- Elementos pós-textuais --------------&
+	\postextual
+	\input{preamble/postextuais}
+	
+\end{document}
