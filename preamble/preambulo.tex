@@ -14,7 +14,8 @@
 
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 \usepackage{nomencl}
-\usepackage{amsmath}
+\usepackage{amsmath}   % usado para ter o environment pmatrix, align
+\usepackage{mathtools} % usado para ter o environment pmatrix* 
 \usepackage{bbm}
 \usepackage[chapter]{algorithm}
 \usepackage{algorithmic}
@@ -30,6 +31,11 @@
 
 % Pacote de customização - Unicamp
 \usepackage{unicamp}
+
+% Pacote para fazer desenhos
+\usepackage{tikz}
+%\usetikzlibrary{⟨list of libraries separated by commas⟩} % carrega bibliotecas adicionais
+\usetikzlibrary{calc,arrows.meta}
 
 
 % Pacotes de Debbuging:
@@ -76,6 +82,7 @@
 % Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
 
+%\setlength{\mathindent}{0cm}
 
 % Compila o índice
 \makeindex

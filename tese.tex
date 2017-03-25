@@ -10,10 +10,10 @@
 	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
 	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
 	% -- opções do pacote babel --
+    brazil,				% o último idioma é o principal do documento
 	english,			% idioma adicional para hifenização
 	%french,			% idioma adicional para hifenização
 	%spanish,			% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
 	sumario=tradicional,
 	]{abntex2}
 
@@ -41,8 +41,10 @@
 
 \input{preamble/comandos}
 
-\includeonly{content/Chap1-introducao,
-content/Chap3-impedancias_e_wakes
+\includeonly{
+%content/Chap1-introducao,
+content/Chap3-impedancias_e_wakes,
+%content/App1-derivacoes,
 }
 
 \begin{document}
@@ -56,20 +58,162 @@ content/Chap3-impedancias_e_wakes
 	%---------- Elementos textuais ------------------%
 	\textual
 	
-	\include{content/Chap1-introducao}
-	\part{Fundamentos}
+%	\include{content/Chap1-introducao}
+
+\chapter{Introduction}
+  \section{Synchrotron Light and Applications}
+    \subsection{Experimental Techniques}
+  \section{Synchrotron light sources}
+    \subsection{Types of Light Sources}
+    \subsection{Light Source Generations}    
+  \section{Brazilian Synchrotron Light Laboratory}
+    \subsection{UVX}
+    \subsection{Sirius}
+  \section{Collective Effects}
+    \subsection{Direct Interaction}
+    \subsection{Interaction throught medium}
+  \section{Description of the work}
+  
+\chapter{Concepts of Single Particle Dynamics}
+  \section{Storage Ring Main Devices}
+    \subsection{Dipoles}
+    \subsection{Quadrupoles}
+    \subsection{Sextupoles}
+    \subsection{RF Cavity}
+    \subsection{Vacuum System}
+  \section{Reference Orbit}
+  \section{Transverse Dynamics}
+    \subsection{Hamiltonean Approximation}
+    \subsection{Linear Equations of Motion}
+    \subsection{Betatron Function and Phase Advance}
+    \subsection{Dispersion Function}
+    \subsection{Envelope Equations}
+    \subsection{Chromaticity and Action Dependent Tune-shift}
+  \section{Longitudinal Dynamics}
+    \subsection{Phase Stability Principle}
+    \subsection{The Potential-Well}
+    \subsection{Linear equations of motion}
+  \section{Radiation Damping and Equilibrium Parameters}
+    \subsection{Longitudinal Damping}
+    \subsection{Transverse Damping}
+    \subsection{Quantum Excitation and Equilibrium parameters}
+    \subsection{Fokker-Planck Equation}
+
+\chapter{Wake-Fields and Impedances}
+  \section{Wake-Fields}
+    \subsection{Interaction Mechanisms}
+    \subsection{Causality and Catch-up Distance}
+    \subsection{Wake-function Definition}
+    \subsection{Panofsky-Wenzel Theorem}
+    \subsection{Symmetry Analysis}
+    \subsection{Potential of Bunch of particles}
+  \section{Impedances}
+    \subsection{Impedance Definition}
+    \subsection{Impedance Properties}
+      \subsubsection{Causality}
+      \subsubsection{Passivity}
+      \subsubsection{Energy Loss}
+  \section{Classification of Impedances and Wake-functions}
+    \subsection{As Resonators}
+      \subsubsection{Broad-band}
+      \subsubsection{Narrow-Band}
+    \subsection{As circuit components}
+      \subsubsection{Inductive}
+      \subsubsection{Capacitive}
+      \subsubsection{Resistive}
+    \subsection{According to its origin}
+      \subsubsection{Resistive Wall}
+      \subsubsection{Geometric}
+      \subsubsection{Coherent Synchrotron Radiation}
+  \section{Impedance Calculation}
+    \subsection{Analytic Methods}
+      \subsubsection{Field Matching Technique}
+      \subsubsection{Perturbative Method}
+      \subsubsection{Parabolic Equation}
+    \subsection{Numeric Methods}
+      \subsubsection{Frequency Domain Solvers}
+      \subsubsection{Time domain 2D Solvers}
+      \subsubsection{Time domain 3D Solvers}
+
+\chapter{Collective Effects}
+  \section{Energy Loss}
+  \section{Potential-Well Distortion}
+  \section{Tune-shifts}
+    \subsection{Coherent Tune-shifts}
+    \subsection{Incoherent Tune-shifts}
+  \section{Instabilities}
+    \subsection{Multi-Turn Instabilities}
+    \subsection{Single-Turn Instabilities}
+  \section{Landau damping}
+  \section{Analytical Treatment}
+    \subsection{The Linearized Fokker-Planck Equation}
+      \subsubsection{Stationary Solution: Haissinski Equation}
+      \subsubsection{Modal expantion}
+        \paragraph{Head-tail modes}
+      \subsubsection{Solution for Gaussian Bunches}
+      \subsubsection{Low Current Limit: Multi-Turn Instabilities}
+      \subsubsection{High Current Limit: Mode Coupling Instabilities}
+    \subsection{The Microwave Instability}
+    \subsection{}
+
+\chapter{Methodology}
+
+\chapter{Results}
+  \section{Components Impedance Modelling}
+    \subsection{Multi-Layer Resistive Wall}
+      \subsubsection{Pipe}
+      \subsubsection{Ceramic Chambers}
+      \subsubsection{Thin Chambers}
+    \subsection{Geometric Transitions}
+      \subsubsection{2D-Calculations}
+        \paragraph{BC Chamber}
+        \paragraph{RF Cavity taper}
+        \paragraph{Undulators Tapers}
+      \subsubsection{3D-Calculations}
+        \paragraph{BPMs}
+        \paragraph{Bellows}
+        \paragraph{Radiation Masks}
+    \subsection{Coherent Synchrotron Radiation (CSR)}
+  \section{Impedance Budget}
+    \subsection{Longitudinal Impedance}
+      \subsubsection{Effective Z/n}
+      \subsubsection{Multi-bunch Kloss and Dissipated Power}
+    \subsection{Vertical Impedance}
+    \subsection{Horizontal Impedance}
+  \section{Simulations and Instabilities Thresholds}
+    \subsection{Frequency Domain Calculations}
+      \subsubsection{Vertical Plane}
+        \paragraph{Single-bunch Tune-Shifts}
+        \paragraph{Multi-bunch Tune-Shifts}
+        \paragraph{Coupled-Bunch Instabilities}
+        \paragraph{Single-Bunch Instabilities}
+      \subsubsection{Horizontal Plane}
+        \paragraph{Single-bunch Tune-Shifts}
+        \paragraph{Multi-bunch Tune-Shifts}
+        \paragraph{Coupled-Bunch Instabilities}
+        \paragraph{Single-Bunch Instabilities}
+      \subsubsection{Longitudinal Plane}
+        \paragraph{Multi-bunch Instabilities}
+        \paragraph{Single-Bunch Instabilities}
+    \subsection{Time Domain Calculations}
+      \subsubsection{Longitudinal Plane}
+      \subsubsection{Vertical Plane}
+      \subsubsection{Horizontal Plane}
+
+
+	%\part{Fundamentos}
     \include{content/Chap2-fisica_aceleradores}
     \include{content/Chap3-impedancias_e_wakes}
-	\part{Contribuições}
+	%\part{Contribuições}
 	\include{content/Chap4-modelo_impedancia}
     \include{content/Chap5-instabilidades}
     
 	% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
 	\bookmarksetup{startatroot}%
 
-	\chapter*[Conclusão]{Conclusão}
-	\addcontentsline{toc}{chapter}{Conclusão}
-	\lipsum[1-5]
+	%\chapter*[Conclusão]{Conclusão}
+	%\addcontentsline{toc}{chapter}{Conclusão}
+	%\lipsum[1-5]
 
 
 	% --------- Elementos pós-textuais --------------&
