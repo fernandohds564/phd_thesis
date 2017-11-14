@@ -21,7 +21,7 @@
 \input{preamble/preambulo}
 
 % Informacoes de dados para CAPA e FOLHA DE ROSTO:
-\titulo{Estudo de Impedâncias e Instabilidades Coletivas aplicadas aos aceleradores do LNLS.}
+\titulo{Estudo de Impedâncias e Instabilidades Coletivas aplicadas ao Sirius.}
 \autor{Fernando Henrique de Sá}
 \local{Campinas}
 \data{2016}
@@ -184,7 +184,7 @@ Before the study of collective effects in storage ring is necessary to understan
 
     \subsection{Betatron Function and Phase Advance}
 
-	The solution of the homogeneous part of the linear equations of motion can be parametrized in the such form:
+	The solutions of the homogeneous part of the linear equations of motion can be parametrized in the such form:
 	\begin{align} \label{eq:betatron_motion}
 		u(s) &= \sqrt{J\beta_u(s)} \cos(\mu_u(s) - \phi)
 	\end{align}
@@ -194,12 +194,14 @@ Before the study of collective effects in storage ring is necessary to understan
 	\end{align}
 	The constants $\phi$ and $J$ depend on the initial conditions. It can be shown that:
 	\begin{align} \label{eq:linear_invariant}
-		&J = \gamma_u(s)u^2(s) + 2\alpha_u(s)u(s)u'(s) + \beta_u(s)u'^2(s),& \\
-        &\text{with} \quad \alpha_u(s) = -\frac{\beta_u'(s)}{2} \quad \text{and} \quad \gamma_u(s) = \frac{1+\alpha_u^2(s)}{\beta_u(s)},&
+		J &= \gamma_u(s)u^2(s) + 2\alpha_u(s)u(s)u'(s) + \beta_u(s)u'^2(s),
+												\quad \text{with}& \\
+        \alpha_u(s) &= -\frac{\beta_u'(s)}{2} \quad \text{and}& \nonumber \\ \nonumber
+		\gamma_u(s) &= \frac{1+\alpha_u^2(s)}{\beta_u(s)},&
 	\end{align}
 	which represents the equation of an ellipse in phase space with $J$ being the area of such ellipse.
 
-	The relevance of this parametrization is that there are several very important practical informations regarding the properties and responses to perturbations of the beam that can be extracted directly from the betatron function. It can be seen from equation \ref{eq:betatron_motion} that the maximum excursion a given particle can experience in a fixed longitudinal point of the ring is proportional to the square root of the betatron function. Analogously, the beam size of a distribution in equilibrium will be proportional to the square root of the local betatron function. Besides, the ratio between the amplitudes of movement in two different positions is proportional to the ratio of the square root of the betatron functions at the two locations, a property that is fundamental in the process of defining the transverse sizes of the vaccum chamber of a storage ring. For example, lets suppose the maximum betatron function of a lattice is \SI{16}{\meter} and at this place the vaccum chamber has an internal dimension of \SI{12}{\milli\meter}. This means that in another place where the betatron function is only \SI{1}{\meter} the vaccum chamber can be much smaller, only \SI{3}{\milli\meter}, without affecting the stored beam, which would allow the installation of devides that requires such smaller appertures. This strategy of focusing the betatron function is commonly used in storage rings in straight sections where insertion devices are installed, with smaller gaps they can generate stronger magnetic fields, which is desirable for radiation emittion.
+	The relevance of this parametrization is that there are several very important practical informations regarding the properties and responses to perturbations of the beam that can be extracted directly from the betatron function. It can be seen from equation \ref{eq:betatron_motion} that the maximum excursion a given particle can experience in a fixed longitudinal point of the ring is proportional to the square root of the betatron function. Analogously, the beam size of a distribution in equilibrium will also be proportional to the square root of the local betatron function. Thus, the ratio between the amplitudes of movement in two different positions is proportional to the ratio of the square root of the betatron functions at the two locations, a property that is fundamental in the process of defining the transverse sizes of the vaccum chamber of a storage ring. For example, lets suppose the maximum betatron function of a lattice is \SI{16}{\meter} and at this place the vaccum chamber has an internal dimension of \SI{12}{\milli\meter}. This means that in another place where the betatron function is only \SI{1}{\meter} the vaccum chamber can be much smaller, only \SI{3}{\milli\meter}, without affecting the stored beam, which would allow the installation of devices that requires such smaller appertures. This strategy of focusing the betatron function is commonly used in storage rings in straight sections where insertion devices are installed, with smaller gaps they can generate stronger magnetic fields, which is desirable for radiation emittion.
 
 	Another important property that can be infered from the betatron function is the sensibility of the beam to spurious eletromagnetic fields. It can be shown that the larger the betatron function the larger the effect of such field in the beam dynamics. In the special case of dipolar fields, which are constant in the transverse plane, this dependency goes with $\sqrt{\beta(s_0)}$, for a quadrupolar field it is proportional to $\beta(s_0)$, for a sextupole $\beta^{3/2}(s_0)$ and so on.
 
@@ -207,20 +209,34 @@ Before the study of collective effects in storage ring is necessary to understan
 	\begin{align}
 		\nu_u = \frac{1}{2\pi}\udefoint{s}{\frac{1}{\beta_u(s)}}.
 	\end{align}
-	The integer part of this number is equal to the number of complete oscillations in the phase space the particles make in one turn in the ring. To interpret the fractional part it is important to notice in equation \ref{eq:betatron_motion} that the movement of a particle in a fixed longitudinal position in sucessive turns is a perfect senoid, independently of the parametrization:
+	The integer part of this number corresponds to the number of complete oscillations in the phase space the particles make in one turn in the ring. To interpret the fractional part it is important to notice in equation \ref{eq:betatron_motion} that the movement of a particle in a fixed longitudinal position in sucessive turns is a perfect senoid, independently of the parametrization:
 	\begin{align}
 		u_i(s_0) = \sqrt{J\beta_u(s_0)}\cos(2\pi\nu i -\phi_0).
 	\end{align}
-	where the fractionary part of the tune is identified as the natural frequency of oscillation. This means that resonances can be excited by any electromagnetic field along the ring with a frequency equal to the tune times the revolution frequency. Additionally resonances can even be excited by static fields if the tune is a rational number. For example, if the fractionary part of the tune is $\frac12$, , the particle would have a periodic motion,
+	where the fractionary part of the tune is identified as the natural frequency of oscillation. This means that resonances can be excited by any electromagnetic field along the ring with a frequency equal to the tune times the revolution frequency. This is the main mechanism that drives the collective instabilities that will be studied in this work. The electromagnetic fields generated by a bunch of particles interacts with other bunches and, because they have the same oscillation frequency, which is the tune, a collective oscillation emerges due to resonance. This can even happen in a single bunch, where oscillations of the head of the bunch drives the tail to ever larger oscillations.
+
+	Additionally, resonances can even be excited by static fields if the tune is a rational number as long as these fields have the correct transverse spatial dependency. For example, if the fractionary part of the tune is $\frac12$ and there is a spurius constant quadrupolar field in some point of the ring, the kicks received by the particles in successive turns would always sum constructively and a resonance behaviour would be excited. If both transverse planes of motion are considered it can be shown that if the tune satisfies the equation:
+	\begin{align}\label{eq:betatron_resonance}
+		m\nu_x + n\nu_u &= p
+	\end{align}
+	where $m$, $n$ and $p$ are integers, resonances can be excited depending on the static magnetic field around the ring. The number $r^2 = m^2 + n^2$ is called the order of the resonance, and the lower the order the higher its strength. If both, $m$ and $n$ must be non-zero for the equation \ref{eq:betatron_resonance} to be true, then the resonance depends on the existence of coupling fields, where the position of the particle in one direction influences the kick in the other direction.
 
 
     \subsection{Dispersion Function}
 
-	The inomogeneus solution to the liner equations of motion can be written in the following form:
+	The inomogeneus solution of the liner equations of motion can be written in the following form:
 	\begin{align}
 		x(s) = \eta(s)\delta
 	\end{align}
-	where $\eta(s)$ is called dispersion function and, as the betatron function, depends only on the magnetic lattice. Notice that this is particular solution, to the equation, where periodic conditions were applied. This choice has an advantage over other solutions because of the meaning of the dispersion function: it is the shape of the averaged trajectory of a particle with non-zero energy deviation along the ring. In other words, this particular solution of the inomogeneus equation gives the closed orbit of off-momentum particles.
+	where $\eta(s)$ is called dispersion function and just like the betatron function, depends only on the magnetic lattice. Notice that this is a particular solution of the equation, where periodic conditions were applied. This choice has an advantage over other solutions because of the meaning of the dispersion function: its value along the ring give the shape of the averaged trajectory of a particle with non-zero energy deviation. In other words, this particular solution of the inomogeneus equation gives the closed orbit of off-momentum particles.
+
+	The dispersion function is very important to determine the equilibrium emittance of a storage ring, the minimization of the functional:
+	\begin{align}
+		\mathscr{H}(\eta(s), \eta'(s)) &= \gamma(s)*\eta^2(s) +
+										2\alpha(s)*\eta(s)\eta'(s) +
+										 \beta(s)*\eta'^2(s)
+	\end{align}
+	in the dipoles of the ring is one of the main goals when desining a storage ring. Besides, the
 
     \subsection{Chromaticity and Action Dependent Tune-shift}
 
@@ -236,7 +252,7 @@ Before the study of collective effects in storage ring is necessary to understan
     \subsection{Linear equations of motion}
   \section{Radiation Damping and Equilibrium Parameters}
 
-  The emission of radiation has 
+  The emission of radiation has
 
     \subsection{Longitudinal Damping}
     \subsection{Transverse Damping}
