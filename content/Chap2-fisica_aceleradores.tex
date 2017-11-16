@@ -69,7 +69,7 @@ Com as definições acima, é possível obter a equação de movimento para um e
 
 O procedimento a seguir nesse caso é, resumidamente, o seguinte: monta-se a Lagrangiana da partícula, que é o produto escalar do 4-vetor potencial eletromagnético com o 4-vetor velocidade e aplica-se a ela uma transformada de Legendre para substituir a variável velocidade pelo momento canônico. Após isso, faz-se uma transformação canônica na Hamiltoniana, para escrevê-la no sistema de coordenadas de Frenet-Serret, definido pela \mbox{equação~\eqref{eqcoord}}, e muda-se a variável independente, de $t$
 (tempo)
-para $s$. 
+para $s$.
 
 Uma das vantagens deste modo de obtenção da equação de movimento é que até este ponto do desenvolvimento as equações são exatas, de modo que caso se queira estudar efeitos de ordem mais alta, tanto no desvio de energia da partícula, como de campo magnético, basta expandir a Hamiltoniana até tais ordens \cite{Wiedemann2 II}, além de também ser possível estudar o movimento longitudinal e seu acoplamento com a dinâmica transversal \cite{Lee}.
 
@@ -96,7 +96,7 @@ Considerando apenas partículas com energia igual à nominal, ou seja, fazendo $
 Na maioria dos anéis, as funções de focalização e curvatura são constantes nos trechos com magnetos e nulas nos trechos sem magneto (livres). Dessa forma, a equação do movimento é a equação de Hill:
 
 \begin{equation}\label{eqoscbet}
- y''+K(s)y=0 
+ y''+K(s)y=0
 \end{equation}
 onde $y$ representa as coordenadas transversais do movimento, $x$ e $z$. A solução dessa equação é dada por:
 \begin{equation}
@@ -109,7 +109,7 @@ onde $y$ representa as coordenadas transversais do movimento, $x$ e $z$. A solu�
 onde as constantes $a$ e $b$ são determinadas pelas condições iniciais do problema. De forma que podemos escrever:
 \begin{equation}
  \mathbf{y}(s)=M(s|s_0)\mathbf{y}(s_0)
-\qquad \mathrm{com}\qquad 
+\qquad \mathrm{com}\qquad
 \mathbf{y}(s) = \left(\begin{array}{c}
 			y(s) \\
 			y'(s)
@@ -123,7 +123,7 @@ Como a solução geral da equação de Hill é uma composição de duas soluçõ
 			1 \\
 			0
 		       \end{array}\right)
-\qquad \mathrm{e} \qquad 
+\qquad \mathrm{e} \qquad
 \mathbf{y_2}(s_0)=\left(\begin{array}{c}
 			0 \\
 			1
@@ -169,7 +169,7 @@ Contudo, $\mathrm{det}\left(M(s)\right)=1$, por uma propriedade da equação de 
 Assim, fazendo $\mathrm{Trace}\left(M(s)\right)=2 \cos(\Phi)$, onde $\Phi$ é chamado de avanço de fase betatron do superperiodo, descobre-se que $\lambda_\pm = e^{\pm i \Phi}$, com $\Phi$ real se  $\mathrm{Trace}\left(M(s)\right)\leq 2$.
 
 O critério de estabilidade descrito acima é fundamental para a escolha de novas redes magnéticas ou ópticas para um anel, sendo o primeiro vínculo a ser testado neste projeto.
- 
+
 Uma matriz $2\times2$ com as propriedades da matriz de transferência, $\mathrm{det}M=1$ e $\mathrm{Trace}M\leq 2$, pode ser parametrizada sem perda de generalidade da seguinte forma:
 
 \begin{equation}
@@ -185,7 +185,7 @@ onde $\alpha$, $\beta$ e $\gamma$ são os chamados parâmetros de Courant-Snyder
           \alpha  & \beta \\
           -\gamma & -\alpha
          \end{array} \right)
-\quad \mathrm{com} \quad J^2=-I \, \Leftrightarrow 
+\quad \mathrm{com} \quad J^2=-I \, \Leftrightarrow
 \, \beta \gamma = 1+ \alpha^2
 \end{equation}
 
@@ -193,7 +193,7 @@ Usando as propriedades da matriz $J$ e a relação de similaridade  \eqref{eqsim
 \begin{equation}\label{eqevolparcouder}
 \left(\begin{array}{c}
        \beta \\ \alpha \\ \gamma
-      \end{array}\right) = 
+      \end{array}\right) =
 \left(\begin{array}{ccc}
        C^2    &   -2 C S      &  S^2   \\
        -C C'  &  C S' + C' S  &  -S S' \\
@@ -329,7 +329,7 @@ d &= \int^{s_2}_{s_1} G(\tilde{s}) F(s_2,\tilde{s}) d \tilde{s}. &
 
 Apesar deste formalismo matricial não gerar, inicialmente, funções periódicas, este é o método mais usado por softwares de dinâmica de feixe para a determinação de $\eta$ em anéis de armazenamento, devido à facilidade de programação e precisão dos cálculos.
 
-Uma outra forma de obtenção da função dispersão, que satisfaz diretamente a condição de periodicidade, se dá pela utilização da Função de Green periódica da equação de Hill \cite{Lee}: 
+Uma outra forma de obtenção da função dispersão, que satisfaz diretamente a condição de periodicidade, se dá pela utilização da Função de Green periódica da equação de Hill \cite{Lee}:
 \begin{equation}
  \eta(s) =  \frac{\sqrt{\beta(s)}}{2\sin(\pi \nu)}\oint G(\tilde{s})
 \sqrt{\beta(\tilde{s})} \cos \left(\pi \nu +|\psi(s) - \psi(\tilde{s})|\right)d
@@ -339,7 +339,7 @@ onde nota-se que $\eta$ diverge para sintonias inteiras.
 
 Outro parâmetro fundamental para a óptica de um anel de armazenamento é o fator compactação de momento. De acordo com a métrica do sistema de coordenadas definido na \mbox{equação \ref{eqcoord}}, o comprimento de uma curva infinitesimal é dado por:
 \begin{equation}
- (d l)^2 = (1+G x)^2(d s)^2+(d x)^2+(d z)^2 = \left((1+G x)^2+x'^2+ 
+ (d l)^2 = (1+G x)^2(d s)^2+(d x)^2+(d z)^2 = \left((1+G x)^2+x'^2+
 z'^2\right)\,(ds)^2.
 \end{equation}
 Fazendo $x=x_{\boldsymbol{\epsilon}}$, visto que em primeira ordem as oscilações betatron não alteram o comprimento da órbita, e considerando a aproximação paraxial, obtemos:
@@ -361,7 +361,7 @@ Por fim, vamos definir o conceito de cromaticidade. Quando um elétron passa por
 \begin{equation}
   K_\delta(s)=\frac{ec}{E_0(1+\delta)}\left(\frac{\partial B}{\partial
 x}\right)_{0,s} \approx \frac{ec}{E_0}\left(\frac{\partial B}{\partial
-x}\right)_{0,s}(1-\delta) = K_1(s)(1 - \delta) 
+x}\right)_{0,s}(1-\delta) = K_1(s)(1 - \delta)
 \end{equation}
 Inserindo esse termo na equação do movimento betatron \mbox{(equação \ref{eqoscbet})}, é possível demonstrar \cite{Lee, Wiedemann3} que haverá uma alteração na sintonia dada por
 \begin{align}
@@ -369,7 +369,7 @@ Inserindo esse termo na equação do movimento betatron \mbox{(equação \ref{eq
  \Delta \nu_z \approx&\left(\frac{1}{4\pi}\oint\beta_z K_1\,ds\right)\delta
 \end{align}
 
-Define-se cromaticidade como: 
+Define-se cromaticidade como:
 \begin{equation}\label{eqcromaticidade}
  \xi_y \leq \frac{d (\Delta \nu_y)}{d \delta}
 \end{equation}
@@ -394,7 +394,7 @@ Pelo fato dos sextupolos serem elementos não lineares, sua inserção no anel a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Dinâmica Longitudinal}
 
-No desenvolvimento das equações de movimento da seção anterior não consideramos efeitos de perda ou ganho de energia pelos elétrons. Contudo, a emissão de radiação gera consequências no movimento em todas as direções. 
+No desenvolvimento das equações de movimento da seção anterior não consideramos efeitos de perda ou ganho de energia pelos elétrons. Contudo, a emissão de radiação gera consequências no movimento em todas as direções.
 
 Nessa seção estudaremos os principais efeitos que resultam na definição de parâmetros importantes para o desenvolvimento do projeto.
 
@@ -408,8 +408,8 @@ A quantidade de radiação emitida por um elétron depende do seu desvio de ener
 onde $U_0$ é a energia perdida por partículas com energia igual a nominal e \cite{Sands}
 
 \begin{equation}
- Q=\left(\frac{d U_\mathrm{rad}}{d \boldsymbol{\epsilon}}\right)_0 = 
-\frac{U_0}{E_0}\left[2+\mathcal{D}\right]\quad \text{com} \quad\mathcal{D} = 
+ Q=\left(\frac{d U_\mathrm{rad}}{d \boldsymbol{\epsilon}}\right)_0 =
+\frac{U_0}{E_0}\left[2+\mathcal{D}\right]\quad \text{com} \quad\mathcal{D} =
 \frac{\oint \eta G(G^2+2 K_1) \, ds}{\oint G^2\,ds}.
 \end{equation}
 
@@ -422,7 +422,7 @@ A frequência do modo ressonante dessas cavidades deve ser um múltiplo inteiro 
 \begin{equation}
  f_\mathrm{rf}=kf_\mathrm{rev}
 \end{equation}
-onde $k$ é chamado de número harmônico, de modo que eles sempre passem pela cavidade quando o campo elétrico estiver em fase correta. 
+onde $k$ é chamado de número harmônico, de modo que eles sempre passem pela cavidade quando o campo elétrico estiver em fase correta.
 
 A primeira condição para se definir a fase do campo elétrico que gera um equilíbrio estável é que ela deve ser tal que a energia fornecida seja igual a perdida em uma volta por um elétron com energia nominal:
 
@@ -440,7 +440,7 @@ A segunda condição exige que a derivada do potencial elétrico seja negativa, 
 \end{equation}
 
 \begin{equation}
- \Omega^2 = \frac{\alpha_c e \dot{V}_0}{T_0 E_0} 
+ \Omega^2 = \frac{\alpha_c e \dot{V}_0}{T_0 E_0}
 \end{equation}
 onde $T_0$ é o período de revolução dos elétrons, $J_{\boldsymbol{\epsilon}}$ é número de partição de amortecimento de energia e $\dot{V}$ é o módulo da derivada da voltagem de r.f. na fase síncrona. Geralmente, o amortecimento de energia é um processo lento comparado ao período de revolução, sendo que o tempo de amortecimento, inverso da constante $\alpha_{\boldsymbol{\epsilon}}$, é da ordem de milisegundos.
 
@@ -513,7 +513,7 @@ Se não fosse pela existência da função dispersão esse processo não alterar
 \begin{equation}
  \frac{\delta a}{T_0a} = \frac{U_0}{2T_0 E}\mathcal{D}.
 \end{equation}
-Como o valor de $\mathcal{D}$ é em geral próximo da unidade, esse termo é positivo, ou seja, há um aumento na amplitude do movimento devido ao efeito da emissão de radiação. 
+Como o valor de $\mathcal{D}$ é em geral próximo da unidade, esse termo é positivo, ou seja, há um aumento na amplitude do movimento devido ao efeito da emissão de radiação.
 
 % \begin{figure}[t]
 %  \center
@@ -566,7 +566,7 @@ O tamanho total do feixe horizontal é dado pela soma do tamanho devido às osci
 +\eta^2 \left(\frac{\sigma_{\boldsymbol{\epsilon}}}{E_0}\right)^2}
 \end{equation}
 
-Na direção vertical a função dispersão é nula, fazendo com que tanto $\mathcal{D}$ como $\mathcal{H}$ sejam nulos. De acordo com os cálculos feitos acima, isso implicaria em uma emitância nula na direção vertical, pois haveria apenas um amortecimento causado pela cavidade r.f. Contudo, há um outro efeito de excitação quântica, que não foi considerado na derivação acima por ser $1/\gamma^2$ vezes menor que aquele analisado, gerado pela projeção da componente do momento da radiação emitida perpendicular à trajetória do elétron na direção vertical (matematicamente: $\mathbf{P_\perp} \cdot \mathbf{\hat{z}}$). 
+Na direção vertical a função dispersão é nula, fazendo com que tanto $\mathcal{D}$ como $\mathcal{H}$ sejam nulos. De acordo com os cálculos feitos acima, isso implicaria em uma emitância nula na direção vertical, pois haveria apenas um amortecimento causado pela cavidade r.f. Contudo, há um outro efeito de excitação quântica, que não foi considerado na derivação acima por ser $1/\gamma^2$ vezes menor que aquele analisado, gerado pela projeção da componente do momento da radiação emitida perpendicular à trajetória do elétron na direção vertical (matematicamente: $\mathbf{P_\perp} \cdot \mathbf{\hat{z}}$).
 
 A constante de amortecimento para a direção vertical é dada por \cite{Sands}:
 \begin{equation}

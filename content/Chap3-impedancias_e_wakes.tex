@@ -16,11 +16,11 @@ Intuitively, we tend to think the direct interaction between charged particles, 
 \label{fig:wake1}
 \begin{tikzpicture}[scale=1]
 \def\d{1cm}
-\draw[<->] (1,0) node[below]{$z$} 
-		-- ++(-\d,0) node[below left] {$S$} 
+\draw[<->] (1,0) node[below]{$z$}
+		-- ++(-\d,0) node[below left] {$S$}
         -- ++(0,\d) node[left] {$\rho$}; %coord sys S
 \draw[<->] (6*\d,0) node[below]{$z'$}
-		-- ++(-\d,0) node[below left] {$S'$} 
+		-- ++(-\d,0) node[below left] {$S'$}
         -- ++(0,\d) node[left] {$\rho'$}; % coord sys S'
 \coordinate (V) at (0.5,0);
 \coordinate (Q1) at (4cm,1.5cm);
@@ -45,7 +45,7 @@ To see this lets consider the interaction of a source particle $Q$ moving with v
 
 \begin{align}
  \label{eq:fields_free_particle}
- \vect{E} = \frac{q}{4\pi\epsilon_0}\frac{\vect{R}}{\gamma^2 R^{*3}}, & & \vect{B} = \frac{1}{c^2}\vect{v} \times \vect{E} 
+ \vect{E} = \frac{q}{4\pi\epsilon_0}\frac{\vect{R}}{\gamma^2 R^{*3}}, & & \vect{B} = \frac{1}{c^2}\vect{v} \times \vect{E}
 \end{align}
 where $\vect{R}$ is the vector which connects both particles, going from the source to the witness and  $R^{*2} = s^2 + x^2/\gamma^2$, e $\gamma = 1/(1-v^2/c^2)$.
 
@@ -83,7 +83,7 @@ where $\vect{r} = \vect{\hat{x}}x + \vect{\hat{y}}y$ is a bidimensional vector i
 \caption{Particles interacting in a perfectly conducting cylindrical tube.}
 \end{figure}
 
-Lets consider now a pipe with cylindrical symmetry\footnote{do not confuse cylindrical symmetry with cylinder. By cylindrical symmetry we mean a system with translational symmetry in one direction.}, hollow and with absolute vacuum in its interior, made of a perfect electric conductor material and with arbitrary cross section. If we put the particles of the previous example inside this pipe, moving parallel to symmetry axis, they will induce image charges in the surface of the wall which cancel the electromagnetic field inside the metal. 
+Lets consider now a pipe with cylindrical symmetry\footnote{do not confuse cylindrical symmetry with cylinder. By cylindrical symmetry we mean a system with translational symmetry in one direction.}, hollow and with absolute vacuum in its interior, made of a perfect electric conductor material and with arbitrary cross section. If we put the particles of the previous example inside this pipe, moving parallel to symmetry axis, they will induce image charges in the surface of the wall which cancel the electromagnetic field inside the metal.
 
 The image charges travel with the same velocity $\vect{v}$ of the particles (see Figure\,\ref{fig:wake2}). As they move in parallel paths with constant velocity, in the limit $v \to c$, according to the previous results, they do not interact, independently of how close they are from each other.
 
@@ -136,7 +136,11 @@ where $b$ is the distance from the discontinuity to the trajectory of the partic
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Definição de Wake}\label{ssec:wake_definition}
 
-The Electromagnetic interaction of charged particles with the environment generally has a small effect when compared with the effect of the guiding electric and magnetic fields of the accelerators components and can be treated as a perturbation. In an zeroth order approximation we can assume the beam moves with constant speed in a straight line and solve Maxwell equations 
+The Electromagnetic interaction of charged particles with the environment generally has a small effect when compared with the effect of the guiding electric and magnetic fields of the accelerators components and can be treated as a perturbation. In an zeroth order approximation we can assume the beam moves with constant speed in a straight line and solve Maxwell equations
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A interação eletromagnética de partículas carregadas com o ambiente normalmente tem um efeito pequeno quando comparado com o efeito de campos elétricos e magnéticos externos dos aceleradores e pode ser considerada com uma perturbação. Em uma aproximação de ordem zero, podemos assumir que o feixe se move com velocidade constante em uma linha reta, e então resolvemos as equações de Maxwell, encontramos os campos e computamos o efeitos desses campos no movimento das partículas. Com essa abordagem negligenciamos efeitos de segunda ordem porque o movimento em uma órbita perturbada podem gerar apenas uma pequena mudança nos campos computados pela aproximação de ordem zero. Essas correções são geralmente pequenas, especialmente para partículas ultra-relativísticas.
 
 Outra importante característica da interação entre o campo eletromagnético gerado e as partículas é que em muitos casos de importância prática eles estão localizados em uma região pequena comparada com o tamanho da órbita do feixe. Ela também ocorre uma escala de tempo muito menor que a de oscilação do feixe no acelerador (como os períodos bétatron e síncrotron). Isso nos permite considerar essa interação dentro da aproximação de impulso e caracterizá-la pelo momento transferido para a partícula.
@@ -270,7 +274,7 @@ Se os elementos que formam a câmara de vácuo também tem alguma simetria (por 
 	\vect{w}_t(\vect{\rho},\vect{\rho'},s) = \overleftrightarrow{\vect{W}_1}(s)\vect{\rho} +
     										 \overleftrightarrow{\vect{W}_2}(s)\vect{\rho'},
 \end{equation}
-onde $\overleftrightarrow{\vect{W}_1}$ e $\overleftrightarrow{\vect{W}_2}$ são tensores bidimensionais de ordem 2. 
+onde $\overleftrightarrow{\vect{W}_1}$ e $\overleftrightarrow{\vect{W}_2}$ são tensores bidimensionais de ordem 2.
 
 \subsection{Sistemas com Simetria axial}
 
@@ -283,7 +287,7 @@ Em um sistema com simetria axial, o \engw{wake potential}, $W$, depende apenas d
 Inserindo essa equação na equação \eqref{eq:wake_potential_harmonic}, temos
 
 \begin{equation}
-	\sum_{m=0}^\infty \left(\frac1\rho\derpar{}{\rho}\rho\derpar{W_m}{\rho} - 
+	\sum_{m=0}^\infty \left(\frac1\rho\derpar{}{\rho}\rho\derpar{W_m}{\rho} -
     					    \frac{m^2}{\rho^2}W_m\right)\cos(m\theta) = 0
 \end{equation}
 de onde podemos encontrar a dependência explícita em $\rho$ de $W$,
@@ -304,7 +308,7 @@ Usando a equação \eqref{eq:wake_function_definition} podemos calcular os \engw
 onde
 \begin{equation}\label{eq:wake_function_cylindrical}\begin{aligned}
 w_l^{(m)} &= \rho'^m\rho^mF'_m(s)\cos(m\theta),\\
-\vect{w}_t^{(m)} &= m\rho'^m\rho^{m-1} F_m(s)\left[\vect{\hat{r}}\cos(m\theta) - 
+\vect{w}_t^{(m)} &= m\rho'^m\rho^{m-1} F_m(s)\left[\vect{\hat{r}}\cos(m\theta) -
 												  \vect{\hat{\theta}}\sin(m\theta)\right]
 \end{aligned}\end{equation}
 onde $\vect{\hat{r}}$ e $\vect{\hat{\theta}}$ são vetores unitários nas direções radial e azimutal no sistema cilíndrico de coordenadas e $F'_m$ é a derivada de $F_m$ em relação à $s$. Lembre que nessas equações nós assumimos que a partícula fonte está em $\theta = 0$.
@@ -314,7 +318,7 @@ As equações \eqref{eq:wake_function_cylindrical} são válidas para valores ar
 	w_l & \equiv w_l^{(0)} = F'_0(s), \\
     \vect{w}_t & \equiv \vect{w}_t^{(1)} = F_1(s)\rho'\left(\vect{\hat{r}}\cos(\theta) - \vect{\hat{\theta}}\sin(\theta)\right) = \vect{\rho'} F_1(s)
 \end{aligned}\end{equation}
-onde a última igualdade da última equação é justificada porque $\vect{\hat{r}}\cos(\theta) - \vect{\hat{\theta}}\sin(\theta) = \vect{\hat{x}}$, que é a direção em que está a partícula fonte, de acordo com nossa definição inicial. 
+onde a última igualdade da última equação é justificada porque $\vect{\hat{r}}\cos(\theta) - \vect{\hat{\theta}}\sin(\theta) = \vect{\hat{x}}$, que é a direção em que está a partícula fonte, de acordo com nossa definição inicial.
 
 Geralmente o \engw{wake} transversal definido na equação \eqref{eq:wake_function_expanded} é redefinido como
 \begin{equation}
@@ -355,7 +359,7 @@ W_{||}(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty W_m(y_0,y,s)\sin(k_{x,m}x_0)\s
 W_y(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty k_{x,m}W_{y,m}(y_0,y,s)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\
 W_x(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty k_{x,m}W_{x,m}(y_0,y,s)\sin(k_{x,m}x_0)\cos(k_{x,m}x),
 \end{align}
-where $w$ is the half-width of the structure, $0<x<2w$ is the horizontal position of the trailing particle, $0<x_0<2w$ is the horizontal position of the source particle, $y$ is vertical position of the trailing particle, $y_0$ is vertical position of the source particle, $s=z-ct$ is the position of the trailing particle relative to the source particle and 
+where $w$ is the half-width of the structure, $0<x<2w$ is the horizontal position of the trailing particle, $0<x_0<2w$ is the horizontal position of the source particle, $y$ is vertical position of the trailing particle, $y_0$ is vertical position of the source particle, $s=z-ct$ is the position of the trailing particle relative to the source particle and
 \begin{equation}
 k_{x,m} = \frac{\pi}{2w}m
 \end{equation}
@@ -363,7 +367,7 @@ The other terms are given by
 \begin{align}
 W_m(y_0,y,s)     &= W^{cc}_m(s)\cosh(k_{x,m}y_0)\cosh(k_{x,m}y) + W^{ss}_m(s)\sinh(k_{x,m}y_0)\sinh(k_{x,m}y), \\
 W_{y,m}(y_0,y,s) &= S^{cc}_m(s)\cosh(k_{x,m}y_0)\sinh(k_{x,m}y) + S^{ss}_m(s)\sinh(k_{x,m}y_0)\cosh(k_{x,m}y), \\
-W_{x,m}(y_0,y,s) &= S^{cc}_m(s)\cosh(k_{x,m}y_0)\cosh(k_{x,m}y) + S^{ss}_m(s)\sinh(k_{x,m}y_0)\sinh(k_{x,m}y), 
+W_{x,m}(y_0,y,s) &= S^{cc}_m(s)\cosh(k_{x,m}y_0)\cosh(k_{x,m}y) + S^{ss}_m(s)\sinh(k_{x,m}y_0)\sinh(k_{x,m}y),
 \end{align}
 where
 \begin{equation}
@@ -428,34 +432,34 @@ where
 \tensor{D}  &= \begin{pmatrix*}[r] D_{11} & D_{12} & D_{13} & D_{14} \\
                                    D_{21} & D_{22} & D_{23} & D_{24} \\
                                    D_{31} & D_{32} & D_{33} & D_{34} \\
-                                   D_{41} & D_{42} & D_{43} & D_{44} 
-               \end{pmatrix*} = 
+                                   D_{41} & D_{42} & D_{43} & D_{44}
+               \end{pmatrix*} =
                \begin{pmatrix*}[r] D_{11} & D_{12} & D_{13} & D_{14} \\
                                    D_{12} & D_{22} & D_{23} & D_{24} \\
                                    D_{13} & D_{23} & D_{33} & D_{34} \\
-                                   D_{14} & D_{24} & D_{34} & -D_{33}  
+                                   D_{14} & D_{24} & D_{34} & -D_{33}
                \end{pmatrix*}\\
 \vect{D_x} &= \tensor{D}\cdot \vect{\hat{x}} \\
 \vect{D_y} &= \tensor{D}\cdot \vect{\hat{y}} \\
 \tensor{Q_x}&= \begin{pmatrix*}[r] Q_{311} & Q_{312} & Q_{313} & Q_{314} \\
                                    Q_{321} & Q_{322} & Q_{323} & Q_{324} \\
                                    Q_{331} & Q_{332} & Q_{333} & Q_{334} \\
-                                   Q_{341} & Q_{342} & Q_{343} & Q_{344} 
-               \end{pmatrix*} = 
+                                   Q_{341} & Q_{342} & Q_{343} & Q_{344}
+               \end{pmatrix*} =
                \begin{pmatrix*}[r] Q_{113} & Q_{123} & Q_{133} & Q_{134} \\
                                    Q_{123} & Q_{223} & Q_{233} & Q_{234} \\
                                    Q_{133} & Q_{233} & Q_{333} & Q_{334} \\
-                                   Q_{134} & Q_{234} & Q_{334} & -Q_{333} 
+                                   Q_{134} & Q_{234} & Q_{334} & -Q_{333}
                \end{pmatrix*}\\
 \tensor{Q_y}&= \begin{pmatrix*}[r] Q_{411} & Q_{412} & Q_{413} & Q_{414} \\
                                    Q_{421} & Q_{422} & Q_{423} & Q_{424} \\
                                    Q_{431} & Q_{432} & Q_{433} & Q_{434} \\
-                                   Q_{441} & Q_{442} & Q_{443} & Q_{444} 
-               \end{pmatrix*} = 
+                                   Q_{441} & Q_{442} & Q_{443} & Q_{444}
+               \end{pmatrix*} =
                \begin{pmatrix*}[r] Q_{114} & Q_{124} & Q_{134} & Q_{133} \\
                                    Q_{124} & Q_{224} & Q_{234} & Q_{233} \\
                                    Q_{134} & Q_{234} & Q_{334} & -Q_{333} \\
-                                   Q_{133} & Q_{233} &-Q_{333} & -Q_{334} 
+                                   Q_{133} & Q_{233} &-Q_{333} & -Q_{334}
                \end{pmatrix*}\\
 \end{align}
 
@@ -482,17 +486,17 @@ Q_{133}=Q_{333}= & Q_{124}=Q_{234}=0
 \tensor{D} &= \begin{pmatrix} D_{11} &    0   & D_{13} &    0    \\
                                   0   & D_{22} &    0   &  D_{24} \\
                                D_{13} &    0   & D_{33} &    0    \\
-                                  0   & D_{24} &    0   & -D_{33}  
+                                  0   & D_{24} &    0   & -D_{33}
                \end{pmatrix}\\
 \tensor{Q_x}&=\begin{pmatrix}    0    & Q_{123} &    0    & Q_{134} \\
                                Q_{123} &    0    & Q_{233} &    0    \\
                                   0    & Q_{233} &    0    & Q_{334} \\
-                               Q_{134} &    0    & Q_{334} &    0    
+                               Q_{134} &    0    & Q_{334} &    0
                \end{pmatrix} &
 \tensor{Q_y}&=\begin{pmatrix} Q_{114} &    0    & Q_{134} &    0    \\
                                   0    & Q_{224} &    0    & Q_{233} \\
                                Q_{134} &    0    & Q_{334} &    0    \\
-                                  0    & Q_{233} &    0    & -Q_{334} 
+                                  0    & Q_{233} &    0    & -Q_{334}
                \end{pmatrix}
 \end{align}
 
@@ -509,17 +513,17 @@ Q_{114}=Q_{224}= & Q_{134}=Q_{334}=0
 \tensor{D}  &= \begin{pmatrix} D_{11} &    0   & D_{13} &    0   \\
                                   0   & D_{22} &    0   & D_{24} \\
                                D_{13} &    0   & D_{33} &    0   \\
-                                  0   & D_{24} &    0   & -D_{33}  
+                                  0   & D_{24} &    0   & -D_{33}
                \end{pmatrix}\\
 \tensor{Q_x}&= \begin{pmatrix} Q_{113} &    0    & Q_{133} &    0    \\
                                   0    & Q_{223} &    0    & Q_{234} \\
                                Q_{133} &    0    & Q_{333} &    0    \\
-                                  0    & Q_{234} &    0    & -Q_{333} 
+                                  0    & Q_{234} &    0    & -Q_{333}
                \end{pmatrix} &
 \tensor{Q_y}&= \begin{pmatrix}    0    & Q_{124} &    0    & Q_{133} \\
                                Q_{124} &    0    & Q_{234} &    0    \\
                                   0    & Q_{234} &    0    & -Q_{333} \\
-                               Q_{133} &    0    &-Q_{333} &    0    
+                               Q_{133} &    0    &-Q_{333} &    0
                \end{pmatrix}
 \end{align}
 
@@ -536,17 +540,17 @@ Q_{123}=Q_{124}, \quad Q_{133}=-Q_{233}, \quad & Q_{134}=Q_{234}, \quad Q_{333}=
 \tensor{D}   &=\begin{pmatrix} D_{11} & D_{12} & D_{13} & D_{14} \\
                                D_{12} & D_{11} & D_{14} & D_{13} \\
                                D_{13} & D_{14} &    0   & D_{34} \\
-                               D_{14} & D_{13} & D_{34} &    0    
+                               D_{14} & D_{13} & D_{34} &    0
                \end{pmatrix}\\
 \tensor{Q_x}&= \begin{pmatrix} Q_{113} & Q_{123} & Q_{133} & Q_{134} \\
                                Q_{123} & Q_{114} &-Q_{133} & Q_{134} \\
                                Q_{133} &-Q_{133} & Q_{333} &-Q_{333} \\
-                               Q_{134} & Q_{134} &-Q_{333} &-Q_{333} 
+                               Q_{134} & Q_{134} &-Q_{333} &-Q_{333}
                \end{pmatrix} &
 \tensor{Q_y} &=\begin{pmatrix} Q_{114} & Q_{123} & Q_{134} & Q_{133} \\
                                Q_{123} & Q_{113} & Q_{134} &-Q_{133} \\
                                Q_{134} & Q_{134} &-Q_{333} &-Q_{333} \\
-                               Q_{133} &-Q_{133} &-Q_{333} & Q_{333} 
+                               Q_{133} &-Q_{133} &-Q_{333} & Q_{333}
                \end{pmatrix}
 \end{align}
 
@@ -563,17 +567,17 @@ Q_{123}=-Q_{124}, \quad Q_{133}= Q_{233}, \quad & Q_{134}=-Q_{234}, \quad Q_{333
 \tensor{D}   &=\begin{pmatrix} D_{11} & D_{12} & D_{13} & D_{14} \\
                                D_{12} & D_{11} & D_{14} & D_{13} \\
                                D_{13} & D_{14} &    0   & D_{34} \\
-                               D_{14} & D_{13} & D_{34} &    0    
+                               D_{14} & D_{13} & D_{34} &    0
                \end{pmatrix}\\
 \tensor{Q_x}&= \begin{pmatrix} Q_{113} & Q_{123} & Q_{133} & Q_{134} \\
                                Q_{123} &-Q_{114} & Q_{133} &-Q_{134} \\
                                Q_{133} & Q_{133} & Q_{333} & Q_{333} \\
-                               Q_{134} &-Q_{134} & Q_{333} &-Q_{333} 
+                               Q_{134} &-Q_{134} & Q_{333} &-Q_{333}
                \end{pmatrix} &
 \tensor{Q_y} &=\begin{pmatrix} Q_{114} &-Q_{123} & Q_{134} & Q_{133} \\
                               -Q_{123} &-Q_{113} &-Q_{134} & Q_{133} \\
                                Q_{134} &-Q_{134} & Q_{333} &-Q_{333} \\
-                               Q_{133} & Q_{133} &-Q_{333} &-Q_{333} 
+                               Q_{133} & Q_{133} &-Q_{333} &-Q_{333}
                \end{pmatrix}
 \end{align}
 \end{itemize}
@@ -587,7 +591,7 @@ Below we combine some of the above mentioned symmetries which are very commom in
 \tensor{D} = \begin{pmatrix} D_{11} &    0   & D_{13} &    0    \\
                                   0   & D_{22} &    0   &  D_{24} \\
                                D_{13} &    0   & D_{33} &    0    \\
-                                  0   & D_{24} &    0   & -D_{33}  
+                                  0   & D_{24} &    0   & -D_{33}
                \end{pmatrix} & &
 \tensor{Q_x}=\tensor{0} & &
 \tensor{Q_y}=\tensor{0}
@@ -599,7 +603,7 @@ Below we combine some of the above mentioned symmetries which are very commom in
 \tensor{D}   &=\begin{pmatrix} D_{11} & D_{12} & D_{13} & D_{14} \\
                                D_{12} & D_{11} & D_{14} & D_{13} \\
                                D_{13} & D_{14} &    0   & D_{34} \\
-                               D_{14} & D_{13} & D_{34} &    0    
+                               D_{14} & D_{13} & D_{34} &    0
                \end{pmatrix}& &
 \tensor{Q_x}=\tensor{0} & &
 \tensor{Q_y}=\tensor{0}
@@ -611,7 +615,7 @@ Below we combine some of the above mentioned symmetries which are very commom in
 \tensor{D}   &=\begin{pmatrix} D_{11} &   0    & D_{13} &   0    \\
                                  0    & D_{11} &    0   & D_{13} \\
                                D_{13} &   0    &    0   &   0    \\
-                                 0    & D_{13} &    0   &   0    
+                                 0    & D_{13} &    0   &   0
                \end{pmatrix} & &
 \tensor{Q_x}=\tensor{0} & &
 \tensor{Q_y}=\tensor{0}
@@ -644,7 +648,7 @@ To extract the component $D_x$ from the total wake we do:
 \Delta_1 = \frac{F_1}{x_1} - \frac{F_2}{x_2} &= \left(M_x  +  D_{x1}d  +  Q_{x11}d^2\right)\left(\frac{1}{x_1}-\frac{1}{x_2}\right) + Q_{x33}(x_1-x_2) \\
 \Delta_2 = \frac{F_3}{x_3} - \frac{F_4}{x_4} &= \left(M_x  +  D_{x1}d  +  Q_{x11}d^2\right)\left(\frac{1}{x_3}-\frac{1}{x_4}\right) + Q_{x33}(x_3-x_4)
 \end{align}
-then, remembering $(1/a-1/b)/(a-b) = -1/ab$ we get: 
+then, remembering $(1/a-1/b)/(a-b) = -1/ab$ we get:
 \begin{align}
 	\frac{\Delta_1}{x_1-x_2} - \frac{\Delta_2}{x_3-x_4} &= \left(M_x  +  D_{x1} d  +  Q_{x11} d^2\right)\left(\frac{1}{x_3x_4} - \frac{1}{x_1x_2}\right)
 \end{align}
@@ -679,4 +683,3 @@ onde $\vec{E}$ e $\vec{B}$ é o campo eletromagnético na posição da partícul
 Assim, para conseguir seguir mais adiante na análise desse problema devemos fazer aproximações. A primeira delas é considerar que ambas as partículas são rígidas e possuem velocidades paralelas uma com a outra e paralelas ao eixo de simetria da câmara de vácuo (caso a câmara de vácuo não tenha simetria, considera-se a velocidade das partículas paralelas à direção em que o feixe de elétrons deverá passar). Essa consideração simplifica drasticamente a análise do problema, como veremos logo a seguir.
 
 Antes de seguir com a demonstração do teorema, vamos justificar essa aproximação. Na maioria dos aceleradores de partículas as partículas estão no limite ultra-relativístico, em que sua velocidade é aproximadamente a da luz e varia muito pouco com variação de momento. Isso implica que nesse limite as partículas são bastante rígidas
-
