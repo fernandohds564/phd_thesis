@@ -1,5 +1,6 @@
 % --------------- PACOTES -----------------%
 
+
 % Pacotes fundamentais
 \usepackage{cmap}				% Mapear caracteres especiais no PDF
 \usepackage{lmodern}			% Usa a fonte Latin Modern
@@ -28,6 +29,9 @@
 
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citacões na bibl
 
+\usepackage[toc,acronym,nomain,nogroupskip,nonumberlist]{glossaries}%nonumberlist
+\input{preamble/glossary}
+
 % Pacote que faz Citações padrão ABNT
 \usepackage[alf,abnt-etal-cite=2,abnt-etal-list=0,abnt-etal-text=emph]{abntex2cite}
 
@@ -43,16 +47,18 @@
 % Pacotes de Debbuging:
 \usepackage{lipsum}     % Pacote que gera texto dummy
 %\usepackage{blindtext}  % Pacote que gera texto dummy
-\usepackage{showlabels} % Pacote que mostra os labels das equações no pdf
+% \usepackage{showlabels} % Pacote que mostra os labels das equações no pdf
 \usepackage{todonotes}  % Pacote que insere notas no pdf
+
 
 % Posso criar definições de acrônimos e ele automaticamente coloca o nome completo
 % no texto na primeira ocorrência ou o acrônimo nas referências subsequentes
-%\usepackage[toc,acronym,nomain,nogroupskip,nonumberlist]{glossaries}%nonumberlist
-%\makenoidxglossaries
-%\frenchspacing
-%\renewcommand{\finalnamedelim}{\ \&\ }
-%\input{glossary}
+% \usepackage[toc,acronym,nomain,nogroupskip,nonumberlist]{glossaries}%nonumberlist
+% \usepackage[toc,acronym]{glossaries}
+% \frenchspacing
+% \renewcommand{\finalnamedelim}{\ \&\ }
+% \makenoidxglossaries
+% \input{preamble/glossary}
 % comando \gls
 
 
@@ -77,7 +83,6 @@
 		bookmarksdepth=4
 }
 \makeatother
-
 
 % Espaçamentos entre linhas e parágrafos
 \setlength{\parindent}{1.3cm} % Tamanho da identação do parágrafo
