@@ -458,13 +458,13 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 
   All these components have different effects on the beam and some of them are more important than others. The component $W'_0$ generally is the only term of the expansion of $w_s$ that is considered in calculations because it dominates the rest of the expansion. So this term is the responsible for all the longitudinal effects on the beam, including average energy loss, potential well-distortion, hence bunch-lengthening and bunch-shortening, coupled bunch oscillations, and even energy spread increase in some cases. For this reasons, from now on, the term longitudinal wake will always refer to $W'_0$ unless otherwise specified.
 
-  The vectors $\vect{M}_s$ and $\vect{M}_w$ are generally refered to as monopolar wakes, because they generate a transverse wake that is independent of the transverse displacement of the particles. The effect these wakes can cause on the beam are changes in the closed orbit as a function of the current of the ring.
+  The vectors $\vect{M}_s$ and $\vect{M}_w$ are generally refered to as monopolar wakes, because they generate a transverse wake that is independent of the transverse displacement of the particles. The effect these wakes can cause on the beam are changes in the closed orbit as a function of the current of the ring which is a static effect and cannot lead to instabilities. In addition, for most practical cases these terms are zero due to symmetries in the vacuum chamber, as can be seen in appendix \ref{app:symmetry_analysis}.
 
   The terms of the tensor $\tensor{D}$ are refered to as dipole wakes, because they are generated due to dipole displacements of the source particle. Especifically the terms $D_{11}$ and $D_{22}$ are called horizontal and vertical dipole wakes, respectively. They are the responsible for all the transverse instabilities that leads to coupled oscillations of the bunches, emittance deterioration and even beam loss. Besides, they can also induce coherent tune-shifts, a concept that will be studied later. These terms are dangerous because they create a mechanism for the oscillations of the source particles to induce oscillations on the witness particle and this force is always resonant because both particles have approximately the same tune. The term $D_{12}=D_{21}$ is zero in most cases due to symmetries in the vaccum chamber, but even when it is non-zero it does not induce any significant effect on the beam because, as generally the fractionary part of the horizontal and vertical tunes are different, oscillations in one plane do not drive oscillations in the other.
 
-  The coefficients $Q_{11}$ and $Q_{22}$ are called detuning or quadrupolar wakes because the force they induce has the same characteristics of a quadrupole. In the ultra-relativistic limit $Q_{11}=-Q_{22}$ which is the basic property of the quadrupole strengthes in the horizontal and vertical plane. They generate tune-shifts in the beam as a function of the current.
+  The coefficients $Q_{11}$ and $Q_{22}$ are called detuning or quadrupolar wakes because the force they induce has the same characteristics of a quadrupole. In the ultra-relativistic limit $Q_{11}=-Q_{22}$ which is the basic property of the quadrupole strengthes in the horizontal and vertical plane and, as expected from a quadrupole, they generate tune-shifts in the beam as a function of the current. The same analysis made for the coefficient $D_{12}$ applies for the term $Q_{12}$.
 
-  As mentioned above, some componentes of the wake expansions are zero depending on the properties of the vacuum chamber. This is a consequence of the fact that the wake potential must preserve all the symmetries of the vacuum chamber\footnote{In appendix \ref{app:symmetry_analysis} there is a demonstration of how the wake potential simplifies under the most commom types of symmetries the components of accelerators have.}. For example, the standard vacuum chamber used in the Sirius storage ring is made of a round straight tube, which is a particular case of a cylindrical symmetry. For this type of symmetry all the components of $\vect{M}_s$, $\vect{M}_w$ and $\tensor{Q}$ must be zero and the only components of $\tensor{D}$ different from zero are the horizontal and vertical dipole wakes and they must be equal to each other. Thus we conclude that most of the resistive wall of the Sirius storage ring will not induce quadrupolar wakes nor any type of skew effect and that there will be no significant orbit distortions as a function of the current. Besides, considering that most of the components installed in the ring, such as bellows and \gls{bpms} only slightly break this symmetry, we can expect that the behavior of the beam in the horizontal and vertical plane will be very similar, where the differences will mostly be due to assymetries in the single particle dynamics.
+  As mentioned above, some componentes of the wake expansions are zero depending on the properties of the vacuum chamber. This is a consequence of the fact that the wake potential must preserve all the symmetries of the vacuum chamber\footnote{In appendix \ref{app:symmetry_analysis} there is a demonstration of how the wake potential simplifies under the most commom types of symmetries of the components of accelerators.}. For example, the standard vacuum chamber used in the Sirius storage ring is made of a round straight tube, which is a particular case of a cylindrical symmetry. For this type of symmetry all the components of $\vect{M}_s$, $\vect{M}_w$ and $\tensor{Q}$ must be zero and the only components of $\tensor{D}$ different from zero are the horizontal and vertical dipole wakes and they must be equal to each other. Thus we conclude that most of the resistive wall of the Sirius storage ring will not induce quadrupolar wakes nor any type of skew effect and that there will be no significant orbit distortions as a function of the current. Besides, considering that most of the components installed in the ring, such as bellows and \gls{bpms} only slightly break this symmetry, we can expect that the behavior of the beam in the horizontal and vertical plane will be very similar, where the differences will mostly be due to assymetries in the single particle dynamics.
 
   Taking into consideration what was discussed above, we can rewrite the expansion of the wakes made in equations \eqref{eq:wake_potential_expansion} and \eqref{eq:wake_functions_expansion} keeping only the most important terms:
   \begin{align}
@@ -485,40 +485,34 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 
   As already mentioned in the beginning of section \ref{sec:wake_functions} all the tools needed to model the effect of the wake fields on the beam are described in section \ref{sec:wake_fields}, however it is useful to define some other concepts such as the wake functions or the wake potential because they facilitate and uniformize the process of dealing with the subject. The impedance is other one of these concepts, it is proportional to the Fourier Transform of the wake functions in relation to the longitudinal coordinate, $z$, and is very useful in any kind of analytic calculations of instabilities or even in the determination of the wake functions. Besides due to the fact that we are interested in the effects of wake fields for storage rings which are intrinsecally periodic, the impedance reveal properties that are difficult to infer looking to the wake itself.
 
-  There are several different definitions of impedances in the literature. In this work we will adopt the definitions of the references \cite{CHao1993,Stupakov2000a,Heifets1991}:
+  There are several different definitions of impedances in the literature. In this work we will adopt the definitions of the references \cite{CHao1993, Stupakov2000a, Heifets1991}:
   \begin{align}\label{eq:impedances_definition}
 	  \nonumber
-  	  Z_\parallel(\omega) &= \frac1c \infint{z}{w_s(z)e^{i\omega z/c}}\\
+  	  Z_\parallel(\omega) &= \frac1c \infint{z}{W'_0(z)e^{i\omega z/c}}\\
   	  \nonumber
-      Z^D_X(\omega) &= -\frac{\imath}{c} \infint{z}{W^D_X(z)e^{i\omega z/c}}\\
-      Z^D_Y(\omega) &= -\frac{\imath}{c} \infint{z}{W^D_Y(z)e^{i\omega z/c}}\\
+      Z^D_X(\omega) &= -\frac{i}{c} \infint{z}{W^D_X(z)e^{i\omega z/c}}\\
+      Z^D_Y(\omega) &= -\frac{i}{c} \infint{z}{W^D_Y(z)e^{i\omega z/c}}\\
 	  \nonumber
       Z^Q(\omega) &= -\frac{i}{c} \infint{z}{W^Q(z)e^{i\omega z/c}}
   \end{align}
+  where $Z_\parallel \equiv Z_s \equiv Z_L$ is the longitudinal impedance, $Z^D_X$ and $Z^D_Y$ are the horizontal and vertical dipole impedances and $Z^Q$ is the quadrupole, or detuning, impedance. In other references, such as \cite{Zotter1993, Wilson1987} the impedance is the conjugate complex of the definitions presented here. The wakes can be obtained back from the impedances by the inverse transform
+  \begin{align}
+	  \nonumber
+  	  W'_0(z) = \frac{1}{2\pi}\infint{\omega}{Z_\parallel e^{-i\omega z/c}}\\
+	  W^D_X(z) = \frac{i}{2\pi}\infint{\omega}{Z^D_X e^{-i\omega z/c}}
+  \end{align}
+  where $W_t$ and $Z_t$ denotes any of the transverse wakes and impedances. Considering that the wakes are real functions, the impedances must satisfy
+  \begin{align}
+  	  Z_\parallel(\omega) &= Z_\parallel^*(-\omega)\\
+	  Z_t(\omega) &= -Z_t^*(-\omega)
+  \end{align}
+  or simply, the real part of the longitudinal impedance must be an even function of the frequency and the imaginary part must be an odd function, while for the transverses impedances the opposite is valid, the real part is odd and the imaginary part is even.
+
+  Impedances have several other interesting mathematical properties, as presented in reference \cite{CHao1993}, that will be covered later in this work, when and if necessary.
+
 
 
   Um aspecto importante a respeito da definição de impedância é que há divergências em sua definição na literatura. Por exemplo, as referências \cite{Zotter1993} e \cite{Wilson1987} definem a impedância longitudinal como o complexo conjugado da equação \eqref{eq:impedances_definition}. Nesse trabalho estamos seguindo a definição das referências \cite{CHao1993,Stupakov2000a,Heifets1991}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Definição de Impedância}
-O conhecimento dos \engw{wake functions} longitudinal e transversal nos dá uma informação completa, dentro da aproximação de feixe rígido, sobre a interação eletromagnética do feixe com o seu ambiente. Contudo, em muitos casos, especialmente no estudo de instabilidades do feixe, é mais conveniente usar a Transformada de Fourier dos \engw{wake functions} ou as impedâncias. Também, geralmente é mais fácil calcula a impedância para uma dada geometria da câmara de vácuo ao invés da \engw{wake function}.
-
-Por razões históricas a impedâncias longitudinal, $Z_l$, e transversal, $Z_t$, são definidas como a Transformada de Fourier dos \engw{wakes} com fatores multiplicativos diferentes,
-\begin{equation}\label{eq:impedances_definition}\begin{aligned}
-Z_l(\omega) &= \frac1c \defint{s}{w_l(s)e^{i\omega s/c}}{0}{\infty},\\
-Z_t(\omega) &= -\frac{i}{c} \defint{s}{w_t(s)e^{i\omega s/c}}{0}{\infty}.
-\end{aligned}\end{equation}
-Note que a integração na equação \eqref{eq:impedances_definition} pode ser estendida para a região de valores negativos de $s$, porque $w_l$ e $w_t$ são nulos naquela região. Além disso, a impedância pode ser definida para valores complexos de $\omega$, desde que $\Im(\omega) > 0 $ para que a integral convirja. Dessa forma, a impedância é uma função analítica no plano superior da variável complexa $\omega$.
-
-Um aspecto importante a respeito da definição de impedância é que há divergências em sua definição na literatura. Por exemplo, as referências \cite{Zotter1993} e \cite{Wilson1987} definem a impedância longitudinal como o complexo conjugado da equação \eqref{eq:impedances_definition}. Nesse trabalho estamos seguindo a definição das referências \cite{CHao1993,Stupakov2000a,Heifets1991}.
-
-
-  \section{Impedances}
-    \subsection{Impedance Definition}
-    \subsection{Impedance Properties}
-      \subsubsection{Causality}
-      \subsubsection{Passivity}
-      \subsubsection{Energy Loss}
 
 
 	Por causa do princípio de causalidade o \engw{wakefield} não se propaga a frente da partícula fonte, então
