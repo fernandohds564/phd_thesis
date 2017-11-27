@@ -197,15 +197,15 @@ Before the study of collective effects in storage ring is necessary to understan
 	\end{align}
 	which represents the equation of an ellipse in phase space with $J$ being the area of such ellipse.
 
-	The relevance of this parametrization is that there are several very important practical informations regarding the properties and responses to perturbations of the beam that can be extracted directly from the betatron function. It can be seen from equation \eqref{eq:betatron_motion} that the maximum excursion a given particle can experience in a fixed longitudinal point of the ring is proportional to the square root of the betatron function. Analogously, the beam size of a distribution in equilibrium will also be proportional to the square root of the local betatron function. Thus, the ratio between the amplitudes of movement in two different positions is proportional to the ratio of the square root of the betatron functions at the two locations, a property that is fundamental in the process of defining the transverse sizes of the vaccum chamber of a storage ring. For example, lets suppose the maximum betatron function of a lattice is \SI{16}{\meter} and at this place the vaccum chamber has an internal dimension of \SI{12}{\milli\meter}. This means that in another place where the betatron function is only \SI{1}{\meter} the vaccum chamber can be much smaller, only \SI{3}{\milli\meter}, without affecting the stored beam, which would allow the installation of devices that requires such smaller appertures. This strategy of focusing the betatron function is commonly used in storage rings in straight sections where insertion devices are installed, with smaller gaps they can generate stronger magnetic fields, which is desirable for radiation emission.
+	The relevance of this parametrization is that there are several very important practical informations regarding the properties and responses to perturbations of the beam that can be extracted directly from the betatron function. It can be seen from equation~\eqref{eq:betatron_motion} that the maximum excursion a given particle can experience in a fixed longitudinal point of the ring is proportional to the square root of the betatron function. Analogously, the beam size of a distribution in equilibrium will also be proportional to the square root of the local betatron function. Thus, the ratio between the amplitudes of movement in two different positions is proportional to the ratio of the square root of the betatron functions at the two locations, a property that is fundamental in the process of defining the transverse sizes of the vaccum chamber of a storage ring. For example, lets suppose the maximum betatron function of a lattice is \SI{16}{\meter} and at this place the vaccum chamber has an internal dimension of \SI{12}{\milli\meter}. This means that in another place where the betatron function is only \SI{1}{\meter} the vaccum chamber can be much smaller, only \SI{3}{\milli\meter}, without affecting the stored beam, which would allow the installation of devices that requires such smaller appertures. This strategy of focusing the betatron function is commonly used in storage rings in straight sections where insertion devices are installed, with smaller gaps they can generate stronger magnetic fields, which is desirable for radiation emission.
 
 	Another important property that can be infered from the betatron function is the sensibility of the beam to spurious eletromagnetic fields. It can be shown that the larger the betatron function the larger the effect of such field in the beam dynamics. In the special case of dipolar fields, which are constant in the transverse plane, this dependency goes with $\sqrt{\beta(s_0)}$, for a quadrupolar field it is proportional to $\beta(s_0)$, for a sextupole $\beta^{3/2}(s_0)$ and so on.
 
-	Besides the betatron function, another important advantage of the parametrization presented in \eqref{eq:betatron_motion} is the interpretation of the integral of the phase advance in one turn around the ring. This integral normalized by $2\pi$ defines the tune of the machine:
+	Besides the betatron function, another important advantage of the parametrization presented in equation~\eqref{eq:betatron_motion} is the interpretation of the integral of the phase advance in one turn around the ring. This integral normalized by $2\pi$ defines the tune of the machine:
 	\begin{align}
 		\nu_u = \frac{1}{2\pi}\udefoint{s}{\frac{1}{\beta_u(s)}}.
 	\end{align}
-	The integer part of this number corresponds to the number of complete oscillations in the phase space the particles make in one turn in the ring. To interpret the fractional part it is important to notice in equation \eqref{eq:betatron_motion} that the movement of a particle in a fixed longitudinal position in sucessive turns is a perfect senoid, independently of the parametrization:
+	The integer part of this number corresponds to the number of complete oscillations in the phase space the particles make in one turn in the ring. To interpret the fractional part it is important to notice in equation~\eqref{eq:betatron_motion} that the movement of a particle in a fixed longitudinal position in sucessive turns is a perfect senoid, independently of the parametrization:
 	\begin{align}
 		u_i(s_0) = \sqrt{J\beta_u(s_0)}\cos(2\pi\nu i -\phi_0).
 	\end{align}
@@ -215,7 +215,7 @@ Before the study of collective effects in storage ring is necessary to understan
 	\begin{align}\label{eq:betatron_resonance}
 		m\nu_x + n\nu_u &= p
 	\end{align}
-	where $m$, $n$ and $p$ are integers, resonances can be excited depending on the static magnetic field around the ring. The number $r^2 = m^2 + n^2$ is called the order of the resonance, and the lower the order the higher its strength. If both, $m$ and $n$ must be non-zero for the equation \eqref{eq:betatron_resonance} to be true, then the resonance depends on the existence of coupling fields, where the position of the particle in one direction influences the kick in the other direction.
+	where $m$, $n$ and $p$ are integers, resonances can be excited depending on the static magnetic field around the ring. The number $r^2 = m^2 + n^2$ is called the order of the resonance, and the lower the order the higher its strength. If both, $m$ and $n$ must be non-zero for the equation~\eqref{eq:betatron_resonance} to be true, then the resonance depends on the existence of coupling fields, where the position of the particle in one direction influences the kick in the other direction.
 
 
     \subsection{Dispersion Function}
@@ -256,13 +256,13 @@ Before the study of collective effects in storage ring is necessary to understan
 
     \subsection{Changes in Revolution Time}\label{sec:longitudinal_deviations}
 
-	In the studies of the transverse dynamics the longitudinal absolute position of the particles was used as independent variable for all the equations. In the longitudinal plane it is important to work with a relative value for the longitudinal position, being the reference of this measure the position of the synchronous particle, the idealized particle described in subsection \ref{ssec:storage_ring_main_devices} that has the nominal energy of the storage ring and is always in the ideal orbit, taking the nominal revolution time to complete one turn. Under such assumptions, we defining $z$ as the distance a given particle is behind the synchronous particle:
+	In the studies of the transverse dynamics the longitudinal absolute position of the particles was used as independent variable for all the equations. In the longitudinal plane it is important to work with a relative value for the longitudinal position, being the reference of this measure the position of the synchronous particle, the idealized particle described in subsection~\ref{ssec:storage_ring_main_devices} that has the nominal energy of the storage ring and is always in the ideal orbit, taking the nominal revolution time to complete one turn. Under such assumptions, we defining $z$ as the distance a given particle is behind the synchronous particle:
 	\begin{align}\label{eq:longitudinal_deviations}
 		z(t) = s_\text{sync}(t) - s(t)
 	\end{align}
 	where $t$ is the wall-clock time and $s_\text{sync}(t)$ is the position of the synchronous particle. Notice if the longitudinal position of the particle is larger than the position of the synchronous particle, then $z$ will be negative. This convention is very important and will be consistently adopted throught this work.
 
-    When the energy of a particle changes its velocity is also modified, which contributes to the change of the revolution time. For most storage rings of synchrotron light sources this effect is negligible when compared to the change in path length described by equation \eqref{eq:momentum_compaction}, due to the ultra-relativistic regime in which these machines operate. This allows us to approximate the left hand side of equation \eqref{eq:momentum_compaction} to the relative change in revolution time. Then, from one turn to another, the relative position of a particle will change by:
+    When the energy of a particle changes its velocity is also modified, which contributes to the change of the revolution time. For most storage rings of synchrotron light sources this effect is negligible when compared to the change in path length described by equation~\eqref{eq:momentum_compaction}, due to the ultra-relativistic regime in which these machines operate. This allows us to approximate the \gls{lhs} of equation~\eqref{eq:momentum_compaction} to the relative change in revolution time. Then, from one turn to another, the relative position of a particle will change by:
 	\begin{align}\label{eq:revolution_time_variation}
 		z_{n+1} = z_n + \delta_n\alpha L_0
 	\end{align}
@@ -290,7 +290,7 @@ Before the study of collective effects in storage ring is necessary to understan
 	\begin{align}
 		V(0) = U_0
 	\end{align}
-	where the time reference on left hand side is relative to the position of the synchronous particle. Considering both assumptions and combining the energy gain in the cavity with the energy loss in one turn, given by equation \eqref{eq:radiation_loss}, we get the following one turn energy balance for a storage ring:
+	where the time reference on \gls{lhs} is relative to the position of the synchronous particle. Considering both assumptions and combining the energy gain in the cavity with the energy loss in one turn, given by equation~\eqref{eq:radiation_loss}, we get the following one turn energy balance for a storage ring:
 	\begin{align}\label{eq:energy_balance}
 		\delta_{n+1} = \delta_n - D\delta_n + \frac{V(z_{n+1})-U_0}{E_0}.
 	\end{align}
@@ -298,7 +298,7 @@ Before the study of collective effects in storage ring is necessary to understan
 
 	\subsection{Phase Stability Principle}
 
-	Combining equations \eqref{eq:revolution_time_variation} and \eqref{eq:energy_balance} we get the one turn map for the longitudinal plane for which the synchronous position and the nominal energy defines a fixed point. To analyse the stability of this fixed point let's linearize the map in its vicinity:
+	Combining equations~\eqref{eq:revolution_time_variation}~and~\eqref{eq:energy_balance} we get the one turn map for the longitudinal plane for which the synchronous position and the nominal energy defines a fixed point. To analyse the stability of this fixed point let's linearize the map in its vicinity:
 	\begin{align}
 		\begin{bmatrix} z_{n+1} \\ \delta_{n+1}\end{bmatrix} = \overbrace{
 			\begin{bmatrix} 1 & \alpha L_0 \\ -V'_0 & 1-D - V'_0\alpha L_0 \end{bmatrix}
@@ -309,11 +309,11 @@ Before the study of collective effects in storage ring is necessary to understan
 		\text{Tr}(M) = 2\cos(2\pi\nu_s) \approx 2-(2\pi\nu_s)^2 \implies
 		\nu_s \approx \frac{1}{2\pi}\sqrt{D+V'_0\alpha L_0},
 	\end{align}
-	where $\nu_s$ is called synchrotron tune in analogy to the betatron tunes defined in subsection \ref{ssub:betatron_function}.
+	where $\nu_s$ is called synchrotron tune in analogy to the betatron tunes defined in subsection~\ref{ssub:betatron_function}.
 
 	Additionally, the determinant of the one turn matrix is $(1-D)$, which implies the oscillations are damped, with $D$ being the damping factor. In most storage rings this effect is small compared to the oscillation time, requiring thousands of turns to influence the dynamics.
 
-	The voltage gap has the same harmonic composition as function of the arrival time as the electric field as a function of time. This means that the condition imposed in equation \eqref{eq:harmonic_number} implies that there are at least $h$ stable fixed point along the ring and, as in general the voltage is a pure senoid, these are the only stable points. This means that it is possible to store up to $h$ aglomerations of electrons, called bunches, in a storage ring.
+	The voltage gap has the same harmonic composition as function of the arrival time as the electric field as a function of time. This means that the condition imposed in equation~\eqref{eq:harmonic_number} implies that there are at least $h$ stable fixed point along the ring and, as in general the voltage is a pure senoid, these are the only stable points. This means that it is possible to store up to $h$ aglomerations of electrons, called bunches, in a storage ring.
 
     \subsection{The Potential Well}
 
@@ -326,7 +326,7 @@ Before the study of collective effects in storage ring is necessary to understan
 	\begin{align}
 		H(z, \delta) = \frac12\left(\frac{\alpha\delta}{c}\right)^2 \quad \overbrace{- \frac{\alpha}{c}\defint{x}{\frac{V(x)-U_0}{T_0E_0}}{0}{z}}^{U(z)}
 	\end{align}
-	where the first term of the right hand side is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy.
+	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy.
 
   \section{Radiation Damping and Equilibrium Parameters}
 
@@ -349,7 +349,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 
   The most important interaction for storage rings of light sources is the collision of particles, generally refered to as Coulomb scattering or intrabeam scattering, which is so unpredictable and chaotic that its effects on the beam resembles the properties of the emission of radiation, causing emittance and energy spread increase. Additionally, the collision process also leads to particle loss througth a mechanism called Touscheck scattering, where the transverse energy of oscillation is transfered to the longitudinal plane and the particles gain an energy deviation so large that they are lost. All these effects are very detrimental to new light sources, being the Touscheck lifetime their main source of particle loss.
 
-  The \gls{dsp} is another type of interaction among the particles, being the result of the action of the cloud of electromagnetic field existent inside the beam on individual particles. Each particle generates an electric and a magnetic field that, when averaged among all particles, result in a net potential dependent on the shape and sizes of the bunch. This potential acts like an external field on the movement of the particles, leading to tune-shifts with amplitude and possible excitation of resonances and its dependency with the beam parameters makes it is very difficult to self-consistenly evaluate its effects. However, for ultra-relativistic electron beams such as the ones of a light source storage ring, with energies of the order of a few \si{\giga\electronvolt}, this effect is very small and can be neglected. This happens because in this limit the non-radiating fields generated by each particle is concentrated in a plane transverse to its movement and the electric and magnetic forces that act on other particles moving parallel to it cancel each other out. In Appendix \ref{app:lorentz_cancel} a more detailed explanation for this property is given.
+  The \gls{dsp} is another type of interaction among the particles, being the result of the action of the cloud of electromagnetic field existent inside the beam on individual particles. Each particle generates an electric and a magnetic field that, when averaged among all particles, result in a net potential dependent on the shape and sizes of the bunch. This potential acts like an external field on the movement of the particles, leading to tune-shifts with amplitude and possible excitation of resonances and its dependency with the beam parameters makes it is very difficult to self-consistenly evaluate its effects. However, for ultra-relativistic electron beams such as the ones of a light source storage ring, with energies of the order of a few \si{\giga\electronvolt}, this effect is very small and can be neglected. This happens because in this limit the non-radiating fields generated by each particle is concentrated in a plane transverse to its movement and the electric and magnetic forces that act on other particles moving parallel to it cancel each other out. In Appendix~\ref{app:lorentz_cancel} a more detailed explanation for this property is given.
 
   The \gls{csr} is another type of direct interaction between particles in a beam. The radiation emitted by the particles travels forward with the velocity of light and, due to the fact that the particles are moving on a curved trajectory when they emit light, this radiation catches up with the particles ahead of the emitting particle. If the wavelength of the radiation is of the same order of or larger than the bunch length the average of this effect is non-zero and the head of the bunch feels a net force. As this effect depends on the radiated field, in contrast to the \gls{dsp}, it does not tend to zero as the energy of the particles increases and can be very harmful depending on the bunch length of the beam. However, this mechanism of interaction suffers from shielding of the vacuum chamber because, depending on the transverse separation of the walls, the low frequency radiation cannot propagate, which mitigates the effect.
 
@@ -391,7 +391,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
   	  \vect{F} &= q\left(E_s\versor{s} + (E_x+vB_y)\versor{x} + (E_y-vB_x)\versor{y}\right).
   \end{align}
 
-  All the conditions imposed above to simplify the problem are refered as zeroth order approximations by reference \cite{Stupakov2000a}, which indeed they are in the sense that they define the minimum level of complexity the analysis of wake fields must contain to explain the behavior of the beam. However most of the considerations are well justified, for example, the assumption of linearity of the materials is justified by the fact that the intensities of the fields involved are not large compared to the saturation curves of the materials, in such a way that linearization of the responses is always possible. For example, the magnetic field of in-vacuum insertion devices is generated by ferromagnetic blocks placed with alternating magnetization direction along the beam trajectory. Generally there is a very thin copper foil between the blocks and the beam enviroment shielding the blocks from the self-fields of the beam, however very low frequency fields can penetrate the foil and reach the blocks, which makes them important for the determination of such fields and the effects on the beam. This was the case presented on reference \cite{Bassi} where a model for the wakes was built from the linearization of the response of such materials and a good agreement with beam measurements was acheived.
+  All the conditions imposed above to simplify the problem are refered as zeroth order approximations by reference~\cite{Stupakov2000a}, which indeed they are in the sense that they define the minimum level of complexity the analysis of wake fields must contain to explain the behavior of the beam. However most of the considerations are well justified, for example, the assumption of linearity of the materials is justified by the fact that the intensities of the fields involved are not large compared to the saturation curves of the materials, in such a way that linearization of the responses is always possible. For example, the magnetic field of in-vacuum insertion devices is generated by ferromagnetic blocks placed with alternating magnetization direction along the beam trajectory. Generally there is a very thin copper foil between the blocks and the beam enviroment shielding the blocks from the self-fields of the beam, however very low frequency fields can penetrate the foil and reach the blocks, which makes them important for the determination of such fields and the effects on the beam. This was the case presented on reference~\cite{Bassi} where a model for the wakes was built from the linearization of the response of such materials and a good agreement with beam measurements was acheived.
 
   The approximation of breaking the ring in several small parts that contribute independently to the whole budget of wake in the machine is always revisited by people responsible for simulating the components of new machines. In several ocasions where elements that introduce variations in the vacuum chamber transverse profile are close they are simulated together to check if there is interference of one to another, but, apart from some cases where the elements have resonances with similar frequencies, the results show that one simulation with both components is equal the sum of them simulated separately.
 
@@ -406,23 +406,23 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 	  \left(w_x, w_y, w_s\right) =
 	  \frac{v}{qQ} \left(\Delta p_x, \Delta p_y, -\Delta p_s\right)
   \end{align}
-  where the components of $\vect{\Delta p}$ are given by equation \eqref{eq:momentum_gain}. The factor $\sfrac{v}{qQ}$ gives a unit of energy per unit of charge square to the wake function, which in SI unit system is \si{\volt\per\coulomb}.  The minus sign in the definition of the longitudinal wake is introduced to give positive values a intepretation of energy loss when both charges, the witness and the source, have the same sign.
+  where the components of $\vect{\Delta p}$ are given by equation~\eqref{eq:momentum_gain}. The factor $\sfrac{v}{qQ}$ gives a unit of energy per unit of charge square to the wake function, which in SI unit system is \si{\volt\per\coulomb}.  The minus sign in the definition of the longitudinal wake is introduced to give positive values a intepretation of energy loss when both charges, the witness and the source, have the same sign.
 
   \section{The Wake Potential}
 
-  With the approximations performed in the section \ref{sec:wake_fields} together with the restrictions imposed on the electromagnetic fields by the \gls{maxeq} it is possible to show that the wake functions can be derived from a scalar potential function, called wake potential. To show this, we will use the same approach of reference \cite{Stupakov2000a}, that is credited to Alex Chao. Lets consider the Lagrangian of the witness particle:
+  With the approximations performed in the section~\ref{sec:wake_fields} together with the restrictions imposed on the electromagnetic fields by the \gls{maxeq} it is possible to show that the wake functions can be derived from a scalar potential function, called wake potential. To show this, we will use the same approach of reference~\cite{Stupakov2000a}, that is credited to Alex Chao. Lets consider the Lagrangian of the witness particle:
   \begin{align}
   	  L = -mc^2\sqrt{1 - \frac{v^2}{c^2}} + q\vect{A}\cdot\vect{v} - q\phi
   \end{align}
-  where $\vect{A}$ is the potential vector of the electromagnetic fields defined in equation \eqref{eq:maxeq} and $\phi$ is the scalar potential of the same fields. Inputing this Lagrangian into the Euler Lagrange equation we get
+  where $\vect{A}$ is the potential vector of the electromagnetic fields defined in equation~\eqref{eq:maxeq} and $\phi$ is the scalar potential of the same fields. Inputing this Lagrangian into the Euler Lagrange equation we get
   \begin{align}
 	  \dertot{}{t} \left(\vect{p} + q\vect{A}\right) = q\vect{\nabla}\left( \vect{A}\cdot\vect{v} - \phi\right).
   \end{align}
-  where $\vect{\nabla}$ denotes derivation in relation to the witness particle position. Integrating the equation above with the considerations made in section \ref{sec:wake_fields} we get
+  where $\vect{\nabla}$ denotes derivation in relation to the witness particle position. Integrating the equation above with the considerations made in section~\ref{sec:wake_fields} we get
   \begin{align}
    \vect{\Delta p} = q\infint{t}{\vect{\nabla}\left(vA_s - \phi \right)} = \frac{qQ}{c} \vect{\nabla}_R W.
   \end{align}
-  where $\vect{R} =(x, y, -z)$ and $W = W(\vect{\rho}_s, \vect{\rho}_w, z)$ is the wake potential and it was used that the velocity of the particle is in the longitudinal direction. It was also considered that the fields go to zero at infinity. It can be checked\footnote{In Appendix \ref{app:check_panofky} there is a demonstration of the equalities in equations \eqref{eq:wake_from_potential}.} that the wake functions as defined in equation \eqref{eq:wake_definition} are obtained from the wake potential by
+  where $\vect{R} =(x, y, -z)$ and $W = W(\vect{\rho}_s, \vect{\rho}_w, z)$ is the wake potential and it was used that the velocity of the particle is in the longitudinal direction. It was also considered that the fields go to zero at infinity. It can be checked\footnote{In Appendix~\ref{app:check_panofky} there is a demonstration of the equalities in equations~\eqref{eq:wake_from_potential}.} that the wake functions as defined in equation~\eqref{eq:wake_definition} are obtained from the wake potential by
   \begin{align}\label{eq:wake_from_potential}
    w_s = - \derpar{W}{(-z)} = \derpar{W}{z},\qquad \vect{w}_\perp = \vect{\nabla}_\perp W,
   \end{align}
@@ -435,7 +435,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
   	  \derpar[2]{W}{x} + \derpar[2]{W}{y} = 0.
   \end{align}
 
-  These properties are very important for calculating the wake functions numerically and will be used later in this work. The Panofsky-Wenzel theorem, for example, is very important in three dimensional simulations because all wake-functions can be obtained only from the longitudinal electric field, because the longitudinal wake function depends only on the longitudinal electric field as pointed out by equation \eqref{eq:lorentz_force}. Then, from equation \eqref{eq:panofsky_wenzel_theorem} we have:
+  These properties are very important for calculating the wake functions numerically and will be used later in this work. The Panofsky-Wenzel theorem, for example, is very important in three dimensional simulations because all wake-functions can be obtained only from the longitudinal electric field, because the longitudinal wake function depends only on the longitudinal electric field as pointed out by equation~\eqref{eq:lorentz_force}. Then, from equation~\eqref{eq:panofsky_wenzel_theorem} we have:
   \begin{align}
   	  \vect{w}_\perp = \defint{z'}{\vect{\nabla}_\perp\left(\frac{c}{qQ}\infint{t}{E_s|_{s=ct-z'}}\right)}{-\infty}{z}.
   \end{align}
@@ -449,7 +449,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 	  \vect{\rho}_w^T\cdot\tensor{D}\cdot\vect{\rho}_s +
 	  \vect{\rho}_w^T\cdot\tensor{Q}\cdot\vect{\rho}_w
   \end{align}
-  where $W_0$, $\vect{M}_s$, $\vect{M}_w$, $\tensor{D}$ and $\tensor{Q}$ are coefficients of the expansion that depend only on the longitudinal position $z$, being $\tensor{Q}$ and $\tensor{D}$ symmetric tensors and $Q_{11}=-Q_{22}$ due to equation \eqref{eq:potential_harmonic}. Expanding the wake functions in first order we get
+  where $W_0$, $\vect{M}_s$, $\vect{M}_w$, $\tensor{D}$ and $\tensor{Q}$ are coefficients of the expansion that depend only on the longitudinal position $z$, being $\tensor{Q}$ and $\tensor{D}$ symmetric tensors and $Q_{11}=-Q_{22}$ due to equation~\eqref{eq:potential_harmonic}. Expanding the wake functions in first order we get
   \begin{align}\label{eq:wake_functions_expansion}
       w_s &\approx W'_0 + \vect{M'}_s\cdot\vect{\rho}_s + \vect{M'}_w\cdot\vect{\rho}_w \\
 	  \vect{w}_\perp &\approx \vect{M}_w + \tensor{D}\cdot\vect{\rho}_s + \tensor{Q}\cdot\vect{\rho}_w
@@ -458,15 +458,15 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 
   All these components have different effects on the beam and some of them are more important than others. The component $W'_0$ generally is the only term of the expansion of $w_s$ that is considered in calculations because it dominates the rest of the expansion. So this term is the responsible for all the longitudinal effects on the beam, including average energy loss, potential well-distortion, hence bunch-lengthening and bunch-shortening, coupled bunch oscillations, and even energy spread increase in some cases. For this reasons, from now on, the term longitudinal wake will always refer to $W'_0$ unless otherwise specified.
 
-  The vectors $\vect{M}_s$ and $\vect{M}_w$ are generally refered to as monopolar wakes, because they generate a transverse wake that is independent of the transverse displacement of the particles. The effect these wakes can cause on the beam are changes in the closed orbit as a function of the current of the ring which is a static effect and cannot lead to instabilities. In addition, for most practical cases these terms are zero due to symmetries in the vacuum chamber, as can be seen in appendix \ref{app:symmetry_analysis}.
+  The vectors $\vect{M}_s$ and $\vect{M}_w$ are generally refered to as monopolar wakes, because they generate a transverse wake that is independent of the transverse displacement of the particles. The effect these wakes can cause on the beam are changes in the closed orbit as a function of the current of the ring which is a static effect and cannot lead to instabilities. In addition, for most practical cases these terms are zero due to symmetries in the vacuum chamber, as can be seen in appendix~\ref{app:symmetry_analysis}.
 
   The terms of the tensor $\tensor{D}$ are refered to as dipole wakes, because they are generated due to dipole displacements of the source particle. Especifically the terms $D_{11}$ and $D_{22}$ are called horizontal and vertical dipole wakes, respectively. They are the responsible for all the transverse instabilities that leads to coupled oscillations of the bunches, emittance deterioration and even beam loss. Besides, they can also induce coherent tune-shifts, a concept that will be studied later. These terms are dangerous because they create a mechanism for the oscillations of the source particles to induce oscillations on the witness particle and this force is always resonant because both particles have approximately the same tune. The term $D_{12}=D_{21}$ is zero in most cases due to symmetries in the vaccum chamber, but even when it is non-zero it does not induce any significant effect on the beam because, as generally the fractionary part of the horizontal and vertical tunes are different, oscillations in one plane do not drive oscillations in the other.
 
   The coefficients $Q_{11}$ and $Q_{22}$ are called detuning or quadrupolar wakes because the force they induce has the same characteristics of a quadrupole. In the ultra-relativistic limit $Q_{11}=-Q_{22}$ which is the basic property of the quadrupole strengthes in the horizontal and vertical plane and, as expected from a quadrupole, they generate tune-shifts in the beam as a function of the current. The same analysis made for the coefficient $D_{12}$ applies for the term $Q_{12}$.
 
-  As mentioned above, some componentes of the wake expansions are zero depending on the properties of the vacuum chamber. This is a consequence of the fact that the wake potential must preserve all the symmetries of the vacuum chamber\footnote{In appendix \ref{app:symmetry_analysis} there is a demonstration of how the wake potential simplifies under the most commom types of symmetries of the components of accelerators.}. For example, the standard vacuum chamber used in the Sirius storage ring is made of a round straight tube, which is a particular case of a cylindrical symmetry. For this type of symmetry all the components of $\vect{M}_s$, $\vect{M}_w$ and $\tensor{Q}$ must be zero and the only components of $\tensor{D}$ different from zero are the horizontal and vertical dipole wakes and they must be equal to each other. Thus we conclude that most of the resistive wall of the Sirius storage ring will not induce quadrupolar wakes nor any type of skew effect and that there will be no significant orbit distortions as a function of the current. Besides, considering that most of the components installed in the ring, such as bellows and \gls{bpms} only slightly break this symmetry, we can expect that the behavior of the beam in the horizontal and vertical plane will be very similar, where the differences will mostly be due to assymetries in the single particle dynamics.
+  As mentioned above, some componentes of the wake expansions are zero depending on the properties of the vacuum chamber. This is a consequence of the fact that the wake potential must preserve all the symmetries of the vacuum chamber\footnote{In appendix~\ref{app:symmetry_analysis} there is a demonstration of how the wake potential simplifies under the most commom types of symmetries of the components of accelerators.}. For example, the standard vacuum chamber used in the Sirius storage ring is made of a round straight tube, which is a particular case of a cylindrical symmetry. For this type of symmetry all the components of $\vect{M}_s$, $\vect{M}_w$ and $\tensor{Q}$ must be zero and the only components of $\tensor{D}$ different from zero are the horizontal and vertical dipole wakes and they must be equal to each other. Thus we conclude that most of the resistive wall of the Sirius storage ring will not induce quadrupolar wakes nor any type of skew effect and that there will be no significant orbit distortions as a function of the current. Besides, considering that most of the components installed in the ring, such as bellows and \gls{bpms} only slightly break this symmetry, we can expect that the behavior of the beam in the horizontal and vertical plane will be very similar, where the differences will mostly be due to assymetries in the single particle dynamics.
 
-  Taking into consideration what was discussed above, we can rewrite the expansion of the wakes made in equations \eqref{eq:wake_potential_expansion} and \eqref{eq:wake_functions_expansion} keeping only the most important terms:
+  Taking into consideration what was discussed above, we can rewrite the expansion of the wakes made in equations~\eqref{eq:wake_potential_expansion}~and~\eqref{eq:wake_functions_expansion} keeping only the most important terms:
   \begin{align}
   	  W(\vect{\rho}_s, \vect{\rho}_w, z) &=
 	  	W_0(z) +
@@ -477,15 +477,15 @@ In the last chapter the main aspects of the single particle dynamics, governed b
   \begin{align}\nonumber
   	w_s(z) &= W'_0(z) \\
 	w_x(x_s, x_w, z) &= W^D_X(z)x_s - W^Q(z)x_w \\\nonumber
-	w_y(y_s, y_w, z) &= W^D_Y(z)y_s + W^Q(z)y_w \\
+	w_y(y_s, y_w, z) &= W^D_Y(z)y_s + W^Q(z)y_w
   \end{align}
   where $W^D_X = D_{11}$, $W^D_Y = D_{22}$ and $W^Q = -Q_{22}$ and the ultra-relativistic approximation was considered.
 
   \section{Impedances}\label{sec:wake_functions}
 
-  As already mentioned in the beginning of section \ref{sec:wake_functions} all the tools needed to model the effect of the wake fields on the beam are described in section \ref{sec:wake_fields}, however it is useful to define some other concepts such as the wake functions or the wake potential because they facilitate and uniformize the process of dealing with the subject. The impedance is other one of these concepts, it is proportional to the Fourier Transform of the wake functions in relation to the longitudinal coordinate, $z$, and is very useful in any kind of analytic calculations of instabilities or even in the determination of the wake functions. Besides due to the fact that we are interested in the effects of wake fields for storage rings which are intrinsecally periodic, the impedance reveal properties that are difficult to infer looking to the wake itself.
+  As already mentioned in the beginning of section~\ref{sec:wake_functions} all the tools needed to model the effect of the wake fields on the beam are described in section~\ref{sec:wake_fields}, however it is useful to define some other concepts such as the wake functions or the wake potential because they facilitate and uniformize the process of dealing with the subject. The impedance is other one of these concepts, it is proportional to the Fourier Transform of the wake functions in relation to the longitudinal coordinate, $z$, and is very useful in any kind of analytic calculations of instabilities or even in the determination of the wake functions. Besides due to the fact that we are interested in the effects of wake fields for storage rings which are intrinsecally periodic, the impedance reveal properties that are difficult to infer looking to the wake itself.
 
-  There are several different definitions of impedances in the literature. In this work we will adopt the definitions of the references \cite{CHao1993, Stupakov2000a, Heifets1991}:
+  There are several different definitions of impedances in the literature. In this work we will adopt the definitions of the references~\cite{CHao1993, Stupakov2000a, Heifets1991}:
   \begin{align}\label{eq:impedances_definition}
 	  \nonumber
   	  Z_\parallel(\omega) &= \frac1c \infint{z}{W'_0(z)e^{i\omega z/c}}\\
@@ -495,7 +495,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 	  \nonumber
       Z^Q(\omega) &= -\frac{i}{c} \infint{z}{W^Q(z)e^{i\omega z/c}}
   \end{align}
-  where $Z_\parallel \equiv Z_s \equiv Z_L$ is the longitudinal impedance, $Z^D_X$ and $Z^D_Y$ are the horizontal and vertical dipole impedances and $Z^Q$ is the quadrupole, or detuning, impedance. In other references, such as \cite{Zotter1993, Wilson1987} the impedance is the conjugate complex of the definitions presented here. The wakes can be obtained back from the impedances by the inverse transform
+  where $Z_\parallel \equiv Z_s \equiv Z_L$ is the longitudinal impedance, $Z^D_X$ and $Z^D_Y$ are the horizontal and vertical dipole impedances and $Z^Q$ is the quadrupole, or detuning, impedance. In other references, such as~\cite{Zotter1993, Wilson1987} the impedance is the conjugate complex of the definitions presented here. The wakes can be obtained back from the impedances by the inverse transform
   \begin{align}
 	  \nonumber
   	  W'_0(z) = \frac{1}{2\pi}\infint{\omega}{Z_\parallel e^{-i\omega z/c}}\\
@@ -508,20 +508,20 @@ In the last chapter the main aspects of the single particle dynamics, governed b
   \end{align}
   or simply, the real part of the longitudinal impedance must be an even function of the frequency and the imaginary part must be an odd function, while for the transverses impedances the opposite is valid, the real part is odd and the imaginary part is even.
 
-  Impedances have several other interesting mathematical properties, as presented in reference \cite{CHao1993}, that will be covered later in this work, when and if necessary.
+  Impedances have several other interesting mathematical properties, as presented in reference~\cite{CHao1993}, that will be covered later in this work, when and if necessary.
 
   \subsection{Potential of Bunch of particles}
 
-  Now that all the important tools for describing the wake field effects were introduced, we will calculate the change in momentum that a specific particle inside a bunch will feel due to the action of all the other particles. To do that we will assume that in the whole ring there is only one source of impedance, localized at a given point of the accelerator, and that the vacuum chamber is perfectly aligned with reference orbit of the storage ring in such a way that a particle that on the reference orbit is at the origin of the expansion made in equation \eqref{eq:wake_potential_expansion}. Regarding the longitudinal position the synchronous position will be adopted as the origin and the positions of the particles will be measured in relation to it in accordance to the definitions made in section \ref{sec:longitudinal_deviations}, specifically in accordance with equation \ref{eq:longitudinal_deviations}, where particles behind the synchronous particle have positive deviations. Under such assumptions we get:
-  \begin{align}
+  Now that all the important tools for describing the wake field effects were introduced, we will calculate the change in momentum that a specific particle inside a bunch will feel due to the action of all the other particles. To do that we will assume that in the whole ring there is only one source of impedance, localized at a given point of the accelerator, and that the vacuum chamber is perfectly aligned with reference orbit of the storage ring in such a way that a particle that on the reference orbit is at the origin of the expansion made in equation~\eqref{eq:wake_potential_expansion}. Regarding the longitudinal position the synchronous position will be adopted as the origin and the positions of the particles will be measured in relation to it in accordance to the definitions made in section~\ref{sec:longitudinal_deviations}, specifically in accordance with equation~\ref{eq:longitudinal_deviations}, where particles behind the synchronous particle have positive deviations. Under such assumptions we get:
+  \begin{align}\label{eq:def_effective_wake_potential}
   	  W(\vect{\rho}_i,z_i) = \sum_j W(\vect{\rho}_j,\vect{\rho}_i,z_i-z_j)
   \end{align}
-  where the index $i$ is related to the witness particle and the index $j$ represents the source particles. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons. Besides, this sum does not evidenciates properties of the beam 
+  where the index $i$ is related to the witness particle and the index $j$ represents the source particles. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons, besides this sum does not evidenciates properties of the beam such as time dependency. If the beam is in equilibrium the \gls{lhs} of equation~\ref{eq:def_effective_wake_potential}
 
 
 
 
-  Um aspecto importante a respeito da definição de impedância é que há divergências em sua definição na literatura. Por exemplo, as referências \cite{Zotter1993} e \cite{Wilson1987} definem a impedância longitudinal como o complexo conjugado da equação \eqref{eq:impedances_definition}. Nesse trabalho estamos seguindo a definição das referências \cite{CHao1993,Stupakov2000a,Heifets1991}.
+  Um aspecto importante a respeito da definição de impedância é que há divergências em sua definição na literatura. Por exemplo, as referências~\cite{Zotter1993} e~\cite{Wilson1987} definem a impedância longitudinal como o complexo conjugado da equação~\eqref{eq:impedances_definition}. Nesse trabalho estamos seguindo a definição das referências~\cite{CHao1993,Stupakov2000a,Heifets1991}.
 
 
 	Por causa do princípio de causalidade o \engw{wakefield} não se propaga a frente da partícula fonte, então
@@ -529,7 +529,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 	    w_l(\vect{\rho},s) = 0, \qquad \vect{w}_t(\vect{\rho},s) = \vect{0}, \qquad \mathrm{para } \quad s < 0.
 	\end{equation}
 
-	Na definição acima foi assumido que o campo eletromagnético estava localizado no espaço e no tempo e que a integral na equação \ref{eq:wake_definition} converge. Contudo, há casos em que isso não é verdade e a fonte do \engw{wake} é distribuida uniformemente em um longo caminho, como é o caso do \engw{wake} de parede resistiva de uma câmara de vácuo. Nesse caso é mais conveniente introduzir o \engw{wake} por unidade de comprimento, descartando a integração na equação \ref{eq:wake_definition}:
+	Na definição acima foi assumido que o campo eletromagnético estava localizado no espaço e no tempo e que a integral na equação~\ref{eq:wake_definition} converge. Contudo, há casos em que isso não é verdade e a fonte do \engw{wake} é distribuida uniformemente em um longo caminho, como é o caso do \engw{wake} de parede resistiva de uma câmara de vácuo. Nesse caso é mais conveniente introduzir o \engw{wake} por unidade de comprimento, descartando a integração na equação~\ref{eq:wake_definition}:
 
 	\begin{equation}\begin{aligned}
 	    w_l(\vect{\rho},s) &= -\frac1q E_z|_{z=ct-s}, \\
@@ -663,13 +663,646 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 	% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
 	\bookmarksetup{startatroot}%
 
-	\chapter*[Conclusão]{Conclusão}
-	\addcontentsline{toc}{chapter}{Conclusão}
-	\lipsum[1-5]
+\chapter*[Conclusão]{Conclusão}
+\addcontentsline{toc}{chapter}{Conclusão}
+\lipsum[1-5]
 
 
-	% --------- Elementos pós-textuais --------------&
-	\postextual
-	\input{preamble/postextuais}
+% --------- Elementos pós-textuais --------------&
+\postextual
+
+% Referências bibliográficas
+% \bibliographystyle{unsrt}
+\bibliography{library}
+
+
+% Apêndices
+\begin{apendicesenv}
+% Imprime uma página indicando o início dos apêndices
+\partapendices
+
+\chapter{Lorentz Force Ultra-relativistic limit}\label{app:lorentz_cancel}
+Intuitively, we tend to think the direct interaction between charged particles, such as electric repulsion, is the responsible for the collective effects observed in storage rings, however, as we will see in the subsequent analysis, this is not the main mechanism for ultra-relativistic particles.
+
+\begin{figure}[hb!]
+    \centering
+    \label{fig:wake1}
+    \begin{tikzpicture}[scale=1]
+        \def\d{1cm}
+        \draw[<->] (1,0) node[below]{$z$}
+        -- ++(-\d,0) node[below left] {$S$}
+        -- ++(0,\d) node[left] {$\rho$}; %coord sys S
+        \draw[<->] (6*\d,0) node[below]{$z'$}
+        -- ++(-\d,0) node[below left] {$S'$}
+        -- ++(0,\d) node[left] {$\rho'$}; % coord sys S'
+        \coordinate (V) at (0.5,0);
+        \coordinate (Q1) at (4cm,1.5cm);
+        \coordinate (Q2) at (0.5cm,2.5cm);
+        \draw[->] (5*\d,0.5*\d) -- ++(V) node[above] {$\boldsymbol{v}$};
+        \filldraw[fill=black] (Q1) circle[radius=0.05] node[above] {$q$}; % source particle
+        \draw[->] (Q1) -- ++(V) node[above] {$\boldsymbol{v}$}; % velocity vector
+        \filldraw[fill=black] (Q2)  circle[radius=0.05]; % test particle
+        \draw[->] (Q2) -- ++(V) node[above] {$\boldsymbol{v}$}; % velocity vector
+        \draw[dashed,|-|] ($(Q1)-(0,0.2)$)
+        let \p1 = ($(Q2) - (Q1)$)
+        in -- ++(\x1,0) node[midway,below] {$s$}; %horizontal distance
+        \draw[dashed,|-|] ($(Q2)-(0.2,0)$)
+        let \p1 = ($(Q1) - (Q2)$)
+        in -- ++(0,\y1) node[midway,left] {$\rho$}; % vertical distance
+        \draw[->] (Q1) -- ++($(Q2) - (Q1)$) node[midway,above] {$\boldsymbol{R}$}; %vector
+    \end{tikzpicture}
+    \caption{Duas partículas interagindo via campo direto.}
+\end{figure}
+
+To see this lets consider the interaction of a source particle $Q$ moving with velocity $\vect{v}=v{\vect{\hat{z}}}$ with a witness particle $q$ moving with the same velocity (parallel path) at a distance $s$ in the direction parallel to the movement and at a transverse distance $\rho$, as shown in Figure\,\ref{fig:wake1}. We want to determine the force that the source particle exerts on the witness particle. One way to do this is by calculating the electric field of the source particle in the co-moving frame of reference, $S'$, and Lorentz transforming it back to the laboratory's frame. After the math we obtain:
+
+\begin{align}\label{eq:fields_free_particle}
+    \vect{E} = \frac{q}{4\pi\epsilon_0}\frac{\vect{R}}{\gamma^2 R^{*3}}, & & \vect{B} = \frac{1}{c^2}\vect{v} \times \vect{E}
+\end{align}
+where $\vect{R}$ is the vector which connects both particles, going from the source to the witness and  $R^{*2} = s^2 + x^2/\gamma^2$, e $\gamma = 1/(1-v^2/c^2)$.
+
+Combining equation\,\ref{eq:fields_free_particle} with the Lorentz force, we get the longitudinal and transverse force over the witness particle:
+\begin{align}\label{eq:space_charge_force}
+    F_l &= E_z = -\frac{q}{4\pi\epsilon_0}\frac{s}{\gamma^2\left(s^2+x^2/\gamma^2\right)^{3/2}}, \\
+    F_t &= E_x - vB_y = -\frac{q}{4\pi\epsilon_0}\frac{x}{\gamma^4\left(s^2+x^2/\gamma^2\right)^{3/2}}
+\end{align}
+
+In accelerator physics the force $\vect{F}$ is known as space charge force. We can infer from equation\,\ref{eq:space_charge_force} that for any position $s$ and $x$, the longitudinal force is proportional to $\gamma^{-2}$ and $F_t \sim \gamma^{-4}$ if $s \gg x/\gamma$ and  $F_t \sim \gamma^{-1}$ if $s \approx 0$. This way, in the ultra-relativistic limit, $\gamma \to \infty$, the electromagnetic interaction between particles moving parallel to each other in free space is zero. It is easy to show that in this limit, if the movement of the particles is not parallel, there is an interaction force only for $s=0$, but, as their speed is the same, this situation can only happen for an infinitesimal time.
+
+In this work we are interested in the the interaction between particles in the ultra-relativistic limit, $v \to c$. The space charge effects discussed above are despicable in this limit and the interaction between the particles is due to the presence of the walls of the vaccum chamber. Note that taking the limit $v \to c$ in the equation\,\ref{eq:fields_free_particle} and remembering that $s = vt - z$, we can write the electromagnetic field of a ultra-relativistic charge as
+\begin{align}
+    \vect{E} = \frac{q}{2\pi\epsilon_0}\frac{\vect{\hat{r}}}{r}\delta(z-ct), & & \vect{B} =\frac{1}{c}\vect{\hat{z}}\times\vect{E},
+\end{align}
+where $\vect{r} = \vect{\hat{x}}x + \vect{\hat{y}}y$ is a bidimensional vector in cylindrical coordinates ($\vect{\hat{x}}$ and $\vect{\hat{y}}$ are unit vectors in the $x$ e $y$ directions, respectively). The equations above show that the field is pancake-like and follow the beam as it travels througth the empty space. It is important to notice that this solution is steady-state, it was necessary an infinite amount of time before $t$ to build it and that's why there is no causal paradoxes in it.
+
+\begin{figure}[hb!]
+    \centering
+    \label{fig:wake2}
+    \begin{tikzpicture}
+        \draw[very thick] (0,0) -- ++(10,0) (0,4) -- ++(10,0); %vacuum chamber
+        \draw[dashed] (0,2) -- ++(10,0); %eixo de simetria
+        \coordinate (V) at (0.5,0);
+        \coordinate (Q1) at (4cm,2.2cm);
+        \coordinate (Q2) at (0.5cm,2.5cm);
+        \filldraw[fill=black] (Q1) circle[radius=0.05] node[left] {$q$}; % source particle
+        \draw[->] (Q1) -- ++(V) node[above] {$\boldsymbol{v}$}; % velocity vector
+        \draw[-{Stealth[length=10pt]}] (Q1) let \p1 = (Q1) in --(\x1,4);
+        \draw[-{Stealth[length=10pt]}] (Q1) let \p1 = (Q1) in --(\x1,0) node[midway,right] {$\boldsymbol{E}$};
+        \draw ($(Q1)+(0,1)$) circle[radius=0.2] node[right=0.2] {$\boldsymbol{B}$};
+        \filldraw ($(Q1)+(0,1)$) circle[radius=0.07];
+    \end{tikzpicture}
+    \caption{Particles interacting in a perfectly conducting cylindrical tube.}
+\end{figure}
+
+Lets consider now a pipe with cylindrical symmetry\footnote{do not confuse cylindrical symmetry with cylinder. By cylindrical symmetry we mean a system with translational symmetry in one direction.}, hollow and with absolute vacuum in its interior, made of a perfect electric conductor material and with arbitrary cross section. If we put the particles of the previous example inside this pipe, moving parallel to symmetry axis, they will induce image charges in the surface of the wall which cancel the electromagnetic field inside the metal.
+
+The image charges travel with the same velocity $\vect{v}$ of the particles (see Figure\,\ref{fig:wake2}). As they move in parallel paths with constant velocity, in the limit $v \to c$, according to the previous results, they do not interact, independently of how close they are from each other.
+
+From this analysis we conclude that the interaction between particles in the ultra-relativistic limit can occur only for two reasons:
+\begin{itemize}
+    \item The wall is not perfectly conducting, or
+    \item The pipe does not have cylindrical symmetry (which generally is due to the presence of RF cavities, flanges, bellows, beam position monitors, vacuum pumps, among other elements in the vacuum chamber of an accelerator).
+\end{itemize}
+
+
+\chapter{Duas partículas interagindo no vácuo}
+
+\begin{figure}[hb!]
+\centering
+\begin{tikzpicture}[scale=1]
+\def\d{1cm}
+\draw[<->] (1,0) node[below]{$z$}
+		-- ++(-\d,0) node[below left] {$S$}
+        -- ++(0,\d) node[left] {$\rho$}; %coord sys S
+\draw[<->] (6*\d,0) node[below]{$z'$}
+		-- ++(-\d,0) node[below left] {$S'$}
+        -- ++(0,\d) node[left] {$\rho'$}; % coord sys S'
+\coordinate (V) at (0.5,0);
+\coordinate (Q1) at (4cm,1.5cm);
+\coordinate (Q2) at (0.5cm,2.5cm);
+\draw[->] (5*\d,0.5*\d) -- ++(V) node[above] {$\boldsymbol{v}$};
+\filldraw[fill=black] (Q1) circle[radius=0.05] node[above] {$q$}; % source particle
+\draw[->] (Q1) -- ++(V) node[above] {$\boldsymbol{v}$}; % velocity vector
+\filldraw[fill=black] (Q2)  circle[radius=0.05]; % test particle
+\draw[->] (Q2) -- ++(V) node[above] {$\boldsymbol{v}$}; % velocity vector
+\draw[dashed,|-|] ($(Q1)-(0,0.2)$)
+				   let \p1 = ($(Q2) - (Q1)$)
+                   in -- ++(\x1,0) node[midway,below] {$s$}; %horizontal distance
+\draw[dashed,|-|] ($(Q2)-(0.2,0)$)
+				   let \p1 = ($(Q1) - (Q2)$)
+                   in -- ++(0,\y1) node[midway,left] {$\rho$}; % vertical distance
+\draw[->] (Q1) -- ++($(Q2) - (Q1)$) node[midway,above] {$\boldsymbol{R}$}; %vector
+\end{tikzpicture}
+\caption{Duas partículas interagindo via campo direto.}
+\end{figure}
+
+Primeiro, campos gerados por $q_1$. No referencial $S'$:
+\begin{align}
+\vect{E'} &= \frac{q}{4\pi\epsilon_0} \frac{\vect{\hat{r'}}}{r'^2} \\
+\vect{B'} &= \vect{0'}
+\end{align}
+assumindo que a partícula 1 está na origem do sistema de coordenadas $S'$.
+
+Lembrando que a transformação entre coordenadas esféricas para cilíndricas são:
+\begin{align}
+r' &= \sqrt{s'^2 + \rho'^2} \\
+\vect{\hat{r'}} &= \cos\theta'\vect{\hat{z'}} + \sin\theta'\vect{\hat{\rho'}} =
+                  -\frac{s'}{r'}\vect{\hat{z'}} + \frac{\rho'}{r'}\vect{\hat{\rho'}}
+\end{align}
+onde a coordenada $\phi$ fica inalterada.
+
+Assim podemos reescrever o campo elétrico em suas partes longitudinal e transversal:
+\begin{align}
+\vect{E'}_{||} &= \frac{q}{4\pi\epsilon_0} \frac{\cos\theta'\vect{\hat{z'}}}{r'^2} =
+                 -\frac{q}{4\pi\epsilon_0} \frac{s'\vect{\hat{z'}}}{(\rho'^2+s'^2)^{3/2}} \\
+\vect{E'}_{\perp} &= \frac{q}{4\pi\epsilon_0} \frac{\sin\theta'\vect{\hat{\rho'}}}{r'^2} =
+                     \frac{q}{4\pi\epsilon_0} \frac{x'\vect{\hat{\rho'}}}{(\rho'^2+s'^2)^{3/2}}
+\end{align}
+
+Lembrando as equações de transformação de Lorentz para campos elétricos e magnéticos, para esse problema:
+
+\begin{align}
+ \vect{E}_{||} &= \vect{E'}_{||}\\
+ \vect{B}_{||} &= \vect{B'}_{||}\\
+ \vect{E}_\perp &= \gamma\left(\vect{E'}_\perp - \vect{v}\times\vect{B'}\right)\\
+ \vect{B}_\perp &= \gamma\left(\vect{B'}_\perp + \frac{1}{c^2}\vect{v}\times\vect{E'}\right)
+\end{align}
+
+Ainda, as coordenadas espaciais são transformadas da seguinte maneira:
+
+\begin{align}
+\vect{\hat{\rho}} &=\vect{\hat{\rho'}}, \quad \vect{\hat{z}} = \vect{\hat{z'}}\\
+\rho &= \rho', \quad z = \frac{z'}{\gamma}
+\end{align}
+
+Assim, podemos notar que:
+
+\begin{align}
+\vect{E}_{||} &= -\frac{q}{4\pi\epsilon_0} \frac{s'\vect{\hat{z'}}}{(\rho'^2+s'^2)^{3/2}} =
+				 -\frac{q}{4\pi\epsilon_0} \frac{\gamma s\vect{\hat{z}}}{((\gamma s)^2+\rho^2)^{3/2}}=
+                 -\frac{q}{4\pi\epsilon_0} \frac{s\vect{\hat{z}}}{\gamma^2R^{*3}} \\
+\vect{E}_\perp&= \frac{q}{4\pi\epsilon_0}\frac{\gamma \rho'\vect{\hat{\rho'}}}{(\rho'^2+s'^2)^{3/2}} =
+				 \frac{q}{4\pi\epsilon_0}\frac{\gamma \rho\vect{\hat{\rho}}}{((\gamma s)^2+\rho^2)^{3/2}}=
+                 \frac{q}{4\pi\epsilon_0} \frac{\rho\vect{\hat{\rho}}}{\gamma^2R^{*3}} \\
+\vect{B}_\perp&= -\frac{\gamma   vE'_\perp}{c^2}\vect{\hat{\phi'}} =
+		         -\frac{vE_\perp}{c^2}\vect{\hat{\phi}}
+\end{align}
+onde $R^* = \sqrt{s^2+\left(\rho/\gamma\right)^2}$
+
+Agora podemos analisar a força exercida pela partícula fonte sobre a partícula teste usando a força de Lorentz
+\begin{equation}
+\vect{F} = \left(\vect{E} + \vect{v}\times\vect{B}\right)
+\end{equation}
+onde foi assumida carga unitária para a partícula teste, e os campos calculados anteriormente.
+
+Assumindo que a velocidade da partícula teste é a mesma da partícula fonte (mesmo módulo e direção), as componentes longitudinal e transversal da força ficam:
+
+\begin{align}
+\vect{F}_{||} &= \vect{E}_{||} = -\frac{q}{4\pi\epsilon_0} \frac{s\vect{\hat{z}}}{\gamma^2R^{*3}}\\
+\vect{F}_\perp&= \left(1+\frac{\vect{v}\times\vect{v}\times}{c^2}\right)\vect{E}_\perp =
+                 \left(1-\frac{v^2}{c^2}\right)\vect{E}_\perp =
+                 \frac{q}{4\pi\epsilon_0} \frac{\rho\vect{\hat{z}}}{\gamma^4R^{*3}}
+\end{align}
+onde vemos que a força longitudinal tende a zero proporcionalmente a $\gamma^{-2}$ quando $v \to c$ e que a força longitudinal tende a zero com $\gamma^{-4}$, se $s>\rho/\gamma$ e com $\gamma^{-1}$ se $s<\rho/\gamma$.
+
+Agora, vamos assumir que a velocidade da partícula teste não é paralela à velocidade da partícula fonte
+\begin{equation}
+\vect{v_2} = v(\cos\delta \vect{\hat{z}} + \sin\delta\vect{\hat{\rho}})
+\end{equation}
+
+Assim, a força sofrida por essa partícula fica
+
+\begin{equation}\begin{aligned}
+\vect{F} &= \vect{E}_{||} + \vect{E}_\perp - v(\cos\delta \vect{\hat{z}} + \sin\delta\vect{\hat{\rho}}) \times \vect{\hat{\phi}}\frac{vE_\perp}{c^2} \\
+&= \left(1-\frac{v^2}{c^2}\cos\delta\right)\vect{E}_\perp + \vect{E}_{||} + \frac{v^2}{c^2}E_\perp\sin\delta\vect{\hat{z}}
+\end{aligned}\end{equation}
+
+Olhando essa expressão, vemos que, conforme $v \to c$, a força pode ser expressa como:
+
+\begin{equation}
+\vect{F} = \left\{
+\begin{aligned}
+\left((1-\cos\delta)\vect{\hat{\rho}} + \sin\delta\vect{\hat{z}}\right)
+\frac{q}{4\pi\epsilon_0} \frac{\gamma\vect{\hat{\rho}}}{\rho^2} & &|s|<\rho/\gamma\\
+0 & &|s|>\rho/\gamma
+\end{aligned}\right.
+\end{equation}
+
+
+\chapter{Causality and catch up distance}
+
+If one particle moves in a straight line at light speed, the electromagnetic field scattered by the discontinuities of the chamber will not catch up with it and will not affect the charges travelling ahead of it. The field will only interact with the charges moving behind of the source particle. Such property is known as causality.
+
+Even though this property is not strictly true in the real world, because particles always travel at speeds lower than the light's, it is true in most practical cases, as we will see bellow.
+
+Lets try to calculate the distance $z$ where the field generated by some discontinuity in the vacuum chamber will catch up with a witness particle at a distance $s$ behind the source particle. At the time $t=0$ the source particle passes through the discontinuity and an electromagnetic wave is generated with its wave front travelling at the speed of light in all directions, forming a sphere of radius $R$, see FigureXX. At any given time after this, the following relation holds:
+\begin{align}
+ct = R \quad vt = z && \Rightarrow && R = \frac{z}{\beta} \quad \text{where} \,\, \beta = \frac{v}{c}
+\end{align}
+where $z$ is the distance travelled by the source particle. Besides that, at the specific time when the wake catchs up with the witness particle, the following relation is valid:
+\begin{align}
+R^2 = b^2 + (z-s)^2  \Rightarrow z^2(\frac{1}{\beta^2}-1) + 2sz - (b^2 + s^2) = 0  \Rightarrow \\
+z = -\gamma^2 \beta^2 s + \sqrt{s^2\gamma^4\beta^4 + \gamma^2\beta^2\left(b^2 + s^2\right)}  = \gamma^2 \beta^2 s\left(-1 + \sqrt{1 + \frac{1}{\gamma^2\beta^2}\left(1 + \frac{b^2}{s^2}\right)}\right)
+\end{align}
+where $b$ is the distance from the discontinuity to the trajectory of the particles and $\gamma = 1/\sqrt{1-\beta^2}$ is the relativistic energy. FigureXX shows a graphic of this function, normalized by the distance $b$. We notice that, for $s=0$, which means the field catching up with the source particle, $z = \gamma\beta b$. For the case of Sirius, $\gamma \approx 5870$ and $\beta \approx 1$, if $ b = 2$mm, $z \approx 12$m.
+
+\begin{figure}[hb!]
+\centering
+\label{fig:catch_up}
+\begin{tikzpicture}
+\draw[very thick] (0,0) -- ++(10,0) (0,4) -- ++(10,0); %vacuum chamber
+\draw[very thick] (4.8,4) to [out=-90,in=0] (5,3.8) to [out=180,in=-90] (5.2,4);
+\draw[dashed] (0,2) -- ++(10,0); %eixo de simetria
+\coordinate (V) at (0.5,0);
+\coordinate (Q1) at (4cm,2.2cm);
+\coordinate (Q2) at (0.5cm,2.5cm);
+\filldraw[fill=black] (Q1) circle[radius=0.05] node[left] {$q$}; % source particle
+\draw[->] (Q1) -- ++(V) node[above] {$\boldsymbol{v}$}; % velocity vector
+\draw[-{Stealth[length=10pt]}] (Q1) let \p1 = (Q1) in --(\x1,4);
+\draw[-{Stealth[length=10pt]}] (Q1) let \p1 = (Q1) in --(\x1,0) node[midway,right] {$\boldsymbol{E}$};
+\draw ($(Q1)+(0,1)$) circle[radius=0.2] node[right=0.2] {$\boldsymbol{B}$};
+\filldraw ($(Q1)+(0,1)$) circle[radius=0.07];
+\end{tikzpicture}
+\caption{The catch up distance.}
+\end{figure}
+
+
+\chapter{Check Panofsky-Wenzel}\label{app:check_panofky}
+
+As the velocity of the particle is in the longitudinal direction we have
+\begin{align}
+    \dertot{a}{t} = \derpar{a}{t} + v\derpar{a}{s}
+\end{align}
+where $a$ can be any of the components of vector potential or the scalar potential. This way, since all fields and potentials go to zero in infinity, we always have this equality for the integral of these quantities:
+\begin{align}
+    \infint{t}{\left(\derpar{a}{t} + v\derpar{a}{s}\right)|_{s=vt-z}} = 0.
+\end{align}
+Besides, since the integration in time happens with $s=vt-z$, we have
+\begin{align}
+    \derpar{}{z}\left(\infint{t}{a}\right) =
+    \infint{t}{\derpar{a}{s}\derpar{s}{z}} =
+    -\infint{t}{\derpar{a}{s}}
+\end{align}
+Also, lets remember the relations between the electromagnetic fields and the potentials:
+\begin{align}
+    E_x &= -\derpar{A_x}{t} - \derpar{\phi}{x} &
+        & B_x = \derpar{A_y}{s} - \derpar{A_s}{y}\\
+    E_y &= -\derpar{A_y}{t} - \derpar{\phi}{y} &
+        & B_y = \derpar{A_s}{x} - \derpar{A_x}{s}\\
+    E_s &= -\derpar{A_s}{t} - \derpar{\phi}{s} &
+        & B_s = \derpar{A_x}{y} - \derpar{A_y}{x}
+\end{align}
+\begin{align}
+    w_s = \derpar{W}{z}\nonumber
+    &= \frac{c}{qQ} \derpar{}{z}\left(\infint{t}{\left(vA_s-\phi\right)}\right)
+    = \frac{c}{qQ} \infint{t}{\left(-v\derpar{A_s}{s}+\derpar{\phi}{s}\right)}\\
+    &= \frac{c}{qQ} \infint{t}{\left(\derpar{A_s}{t}+\derpar{\phi}{s}\right)}
+    =-\frac{c}{qQ} \infint{t}{E_s}\\[1cm]
+    w_x = \derpar{W}{x}\nonumber
+    &=\frac{c}{qQ} \infint{t}{\left(v\derpar{A_s}{x}-\derpar{\phi}{x}\right)}\\
+    &= \frac{c}{qQ} \infint{t}{\left(vB_y+v\derpar{A_x}{s} + E_x + \derpar{A_x}{t}\right)}
+    = \frac{c}{qQ} \infint{t}{\left(E_x + vB_y\right)}\\[1cm]
+    w_y = \derpar{W}{y}\nonumber
+    &=\frac{c}{qQ} \infint{t}{\left(v\derpar{A_s}{y}-\derpar{\phi}{y}\right)}\\
+    &=\frac{c}{qQ} \infint{t}{\left(-vB_x+v\derpar{A_y}{s} + E_y + \derpar{A_y}{t}\right)}
+    = \frac{c}{qQ} \infint{t}{\left(E_y + vB_x\right)}
+\end{align}
+
+
+
+\chapter{Symmetry analysis}\label{app:symmetry_analysis}
+
+First lets consider the general expansion of the Wake potential of a bunch in the transverse coordinates of the centroid of the source $(x_s,y_s)$ and the integration path $(x,y)$ up to third order:
+
+\begin{align}
+W(\vect{x},s) &= W_0(s) + \sum_{i=1}^4 M_i(s) x_i + \frac12\sum_{i,j=1}^4 D_{ij}(s) x_i x_j + \frac13\sum_{i,j,k=1}^4 Q_{ijk}(s) x_i x_j x_k
+\end{align}
+where we considered $\vect{x} = (x_1,x_2,x_3,x_4) = (x_s,y_s,x,y)$ and because of the commutative property of multiplication, we can set $D_{ij} = D_{ji}$ and $Q_{ijk}=Q_{kij}=Q_{jki}=Q_{ikj}=Q_{jik}=Q_{kji}$ without loss of generality. With these considerations, number of independent components of $D$ is 10 and $Q$ is 20. Besides that, the fact that $W$ is an harmonic function of the transverse coordinates of the integration path, imposes that
+\begin{align}
+D_{33} &= - D_{44} \\
+Q_{33i} &= - Q_{44i}, \quad \text{with} \quad i=1,2,3,4
+\end{align}
+which leaves only nine independent components of $D$ and sixteen of $Q$.
+
+Thus, the wake forces become:
+\begin{align}
+F_L(\vec{x},s) = W'(\vec{x},s) &= W_0' + \sum_{i=1}^4 M_i' x_i + \frac12\sum_{i,j=1}^4 D_{ij}' x_i x_j + \frac13\sum_{i,j,k=1}^4 Q_{ijk}' x_i x_j x_k \\
+F_x(\vec{x},s) = \derpar{W(\vect{x},s)}{x} &= M_3 + \sum_{i=1}^4 D_{3i} x_i + \sum_{i,j=1}^4 Q_{3ij} x_i x_j \\
+F_y(\vec{x},s) = \derpar{W(\vect{x},s)}{y} &= M_4 + \sum_{i=1}^4 D_{4i} x_i + \sum_{i,j=1}^4 Q_{4ij} x_i x_j
+\end{align}
+
+Generally we are interested in obtaining the linear terms as function of the transverse coordinates correct up to second order. It means we want to isolate the linear from the quadract terms in the simulations. Thus, lets keep only the second order terms in the wake forces above.
+\begin{align}
+F_L(\vect{x},s) &= W_0' + \vect{M'}^T \cdot \vect{x} + \frac12\vect{x}^T \cdot \tensor{D'}  \cdot \vect{x} \\
+F_x(\vect{x},s) &= M_x + \vect{D_x}^T \cdot \vect{x} +        \vect{x}^T \cdot \tensor{Q_x} \cdot \vect{x} \\
+F_y(\vect{x},s) &= M_y + \vect{D_y}^T \cdot \vect{x} +        \vect{x}^T \cdot \tensor{Q_y} \cdot \vect{x}
+\end{align}
+where
+\begin{align}
+\vect{M} &= \begin{pmatrix*}[r] M_{1}\\ M_{2}\\ M_{3}\\ M_{4}\end{pmatrix*} \\
+\tensor{D}  &= \begin{pmatrix*}[r] D_{11} & D_{12} & D_{13} & D_{14} \\
+                                   D_{21} & D_{22} & D_{23} & D_{24} \\
+                                   D_{31} & D_{32} & D_{33} & D_{34} \\
+                                   D_{41} & D_{42} & D_{43} & D_{44}
+               \end{pmatrix*} =
+               \begin{pmatrix*}[r] D_{11} & D_{12} & D_{13} & D_{14} \\
+                                   D_{12} & D_{22} & D_{23} & D_{24} \\
+                                   D_{13} & D_{23} & D_{33} & D_{34} \\
+                                   D_{14} & D_{24} & D_{34} & -D_{33}
+               \end{pmatrix*}\\
+\vect{D_x} &= \tensor{D}\cdot \vect{\hat{x}} \\
+\vect{D_y} &= \tensor{D}\cdot \vect{\hat{y}} \\
+\tensor{Q_x}&= \begin{pmatrix*}[r] Q_{311} & Q_{312} & Q_{313} & Q_{314} \\
+                                   Q_{321} & Q_{322} & Q_{323} & Q_{324} \\
+                                   Q_{331} & Q_{332} & Q_{333} & Q_{334} \\
+                                   Q_{341} & Q_{342} & Q_{343} & Q_{344}
+               \end{pmatrix*} =
+               \begin{pmatrix*}[r] Q_{113} & Q_{123} & Q_{133} & Q_{134} \\
+                                   Q_{123} & Q_{223} & Q_{233} & Q_{234} \\
+                                   Q_{133} & Q_{233} & Q_{333} & Q_{334} \\
+                                   Q_{134} & Q_{234} & Q_{334} & -Q_{333}
+               \end{pmatrix*}\\
+\tensor{Q_y}&= \begin{pmatrix*}[r] Q_{411} & Q_{412} & Q_{413} & Q_{414} \\
+                                   Q_{421} & Q_{422} & Q_{423} & Q_{424} \\
+                                   Q_{431} & Q_{432} & Q_{433} & Q_{434} \\
+                                   Q_{441} & Q_{442} & Q_{443} & Q_{444}
+               \end{pmatrix*} =
+               \begin{pmatrix*}[r] Q_{114} & Q_{124} & Q_{134} & Q_{133} \\
+                                   Q_{124} & Q_{224} & Q_{234} & Q_{233} \\
+                                   Q_{134} & Q_{234} & Q_{334} & -Q_{333} \\
+                                   Q_{133} & Q_{233} &-Q_{333} & -Q_{334}
+               \end{pmatrix*}\\
+\end{align}
+
+
+
+Due to their importance, some components of the $D$ tensor have a name: the $D_{31}$ and $D_{42}$ are called dipolar wakes; and $D_{33}$ and $D_{44}$ are the quadrupolar wakes. While the first generates coherent tune-shifts and instabilities, the later is the responsible for incoherent tune-shifts of the beam. The other terms are the skew components, which are zero for most practical cases, as we will see below.
+
+When the geometry has symmetry the number of independent compononts in $M$, $D$ and $Q$ are reduced even more.
+When the symmetry occurs in one plane, the number of independent components is two, five and eight, respectivelly.Below we list examples for the most practical cases:
+
+\begin{itemize}
+\item symmetry in the $yz$ plane, or $x=0$.
+\begin{align}
+W(x_s,y_s,x,y,s) = & W(-x_s,y_s,-x,y,s) \Rightarrow \\
+M_2= & M_4=0\\
+D_{12}=D_{14}= & D_{23}=D_{34}=0\\
+Q_{111}=Q_{122}= & Q_{113}=Q_{223}=0\\
+Q_{133}=Q_{333}= & Q_{124}=Q_{234}=0
+\end{align}
+\begin{align}
+\vect{M}&= \begin{pmatrix} M_{1}\\ 0\\ M_{3}\\ 0\end{pmatrix} &
+\tensor{D} &= \begin{pmatrix} D_{11} &    0   & D_{13} &    0    \\
+                                  0   & D_{22} &    0   &  D_{24} \\
+                               D_{13} &    0   & D_{33} &    0    \\
+                                  0   & D_{24} &    0   & -D_{33}
+               \end{pmatrix}\\
+\tensor{Q_x}&=\begin{pmatrix}    0    & Q_{123} &    0    & Q_{134} \\
+                               Q_{123} &    0    & Q_{233} &    0    \\
+                                  0    & Q_{233} &    0    & Q_{334} \\
+                               Q_{134} &    0    & Q_{334} &    0
+               \end{pmatrix} &
+\tensor{Q_y}&=\begin{pmatrix} Q_{114} &    0    & Q_{134} &    0    \\
+                                  0    & Q_{224} &    0    & Q_{233} \\
+                               Q_{134} &    0    & Q_{334} &    0    \\
+                                  0    & Q_{233} &    0    & -Q_{334}
+               \end{pmatrix}
+\end{align}
+
+\item symmetry in the $xz$ plane, or $y=0$.
+\begin{align}
+W(x_s,y_s,x,y,s) = & W(x_s,-y_s,x,-y,s) \Rightarrow \\
+M_1= & M_3=0\\
+D_{12}=D_{14}= & D_{23}=D_{34}=0\\
+Q_{112}=Q_{222}= & Q_{123}=Q_{233}=0\\
+Q_{114}=Q_{224}= & Q_{134}=Q_{334}=0
+\end{align}
+\begin{align}
+\vect{M}    &= \begin{pmatrix}   0  \\ M_{2}\\  0  \\ M_{4}\end{pmatrix} &
+\tensor{D}  &= \begin{pmatrix} D_{11} &    0   & D_{13} &    0   \\
+                                  0   & D_{22} &    0   & D_{24} \\
+                               D_{13} &    0   & D_{33} &    0   \\
+                                  0   & D_{24} &    0   & -D_{33}
+               \end{pmatrix}\\
+\tensor{Q_x}&= \begin{pmatrix} Q_{113} &    0    & Q_{133} &    0    \\
+                                  0    & Q_{223} &    0    & Q_{234} \\
+                               Q_{133} &    0    & Q_{333} &    0    \\
+                                  0    & Q_{234} &    0    & -Q_{333}
+               \end{pmatrix} &
+\tensor{Q_y}&= \begin{pmatrix}    0    & Q_{124} &    0    & Q_{133} \\
+                               Q_{124} &    0    & Q_{234} &    0    \\
+                                  0    & Q_{234} &    0    & -Q_{333} \\
+                               Q_{133} &    0    &-Q_{333} &    0
+               \end{pmatrix}
+\end{align}
+
+\item symmetry in the plane $y=x$.
+\begin{align}
+W(x_s,y_s,x,y,s) =& W(y_s,x_s,y,x,s) \Rightarrow \\
+M_1=M_2, \quad & M_3=M_4\\
+D_{11}=D_{22}, \quad D_{13}=D_{24}, \quad & D_{14}=D_{23}, \quad D_{33}=0 \\
+Q_{111}=Q_{222}, \quad Q_{112}= Q_{122}, \quad & Q_{113}=Q_{224}, \quad Q_{114}= Q_{223} \\
+Q_{123}=Q_{124}, \quad Q_{133}=-Q_{233}, \quad & Q_{134}=Q_{234}, \quad Q_{333}=-Q_{334}
+\end{align}
+\begin{align}
+\vect{M}  &= \begin{pmatrix} M_{1}\\ M_{1}\\ M_{3}\\ M_{3}\end{pmatrix} &
+\tensor{D}   &=\begin{pmatrix} D_{11} & D_{12} & D_{13} & D_{14} \\
+                               D_{12} & D_{11} & D_{14} & D_{13} \\
+                               D_{13} & D_{14} &    0   & D_{34} \\
+                               D_{14} & D_{13} & D_{34} &    0
+               \end{pmatrix}\\
+\tensor{Q_x}&= \begin{pmatrix} Q_{113} & Q_{123} & Q_{133} & Q_{134} \\
+                               Q_{123} & Q_{114} &-Q_{133} & Q_{134} \\
+                               Q_{133} &-Q_{133} & Q_{333} &-Q_{333} \\
+                               Q_{134} & Q_{134} &-Q_{333} &-Q_{333}
+               \end{pmatrix} &
+\tensor{Q_y} &=\begin{pmatrix} Q_{114} & Q_{123} & Q_{134} & Q_{133} \\
+                               Q_{123} & Q_{113} & Q_{134} &-Q_{133} \\
+                               Q_{134} & Q_{134} &-Q_{333} &-Q_{333} \\
+                               Q_{133} &-Q_{133} &-Q_{333} & Q_{333}
+               \end{pmatrix}
+\end{align}
+
+\item symmetry in the plane $y=-x$.
+\begin{align}
+W(x_s,y_s,x,y,s) =& W(-y_s,-x_s,-y,-x,s) \Rightarrow \\
+M_1=-M_2, \quad & M_3=-M_4\\
+D_{11}=D_{22}, \quad D_{13}=D_{24}, \quad & D_{14}=D_{23}, \quad D_{33}=0 \\
+Q_{111}=-Q_{222}, \quad Q_{112}=-Q_{122}, \quad & Q_{113}=-Q_{224}, \quad Q_{114}=-Q_{223} \\
+Q_{123}=-Q_{124}, \quad Q_{133}= Q_{233}, \quad & Q_{134}=-Q_{234}, \quad Q_{333}= Q_{334}
+\end{align}
+\begin{align}
+\vect{M}  &= \begin{pmatrix} M_{1}\\ -M_{1}\\ M_{3}\\ -M_{3}\end{pmatrix} &
+\tensor{D}   &=\begin{pmatrix} D_{11} & D_{12} & D_{13} & D_{14} \\
+                               D_{12} & D_{11} & D_{14} & D_{13} \\
+                               D_{13} & D_{14} &    0   & D_{34} \\
+                               D_{14} & D_{13} & D_{34} &    0
+               \end{pmatrix}\\
+\tensor{Q_x}&= \begin{pmatrix} Q_{113} & Q_{123} & Q_{133} & Q_{134} \\
+                               Q_{123} &-Q_{114} & Q_{133} &-Q_{134} \\
+                               Q_{133} & Q_{133} & Q_{333} & Q_{333} \\
+                               Q_{134} &-Q_{134} & Q_{333} &-Q_{333}
+               \end{pmatrix} &
+\tensor{Q_y} &=\begin{pmatrix} Q_{114} &-Q_{123} & Q_{134} & Q_{133} \\
+                              -Q_{123} &-Q_{113} &-Q_{134} & Q_{133} \\
+                               Q_{134} &-Q_{134} & Q_{333} &-Q_{333} \\
+                               Q_{133} & Q_{133} &-Q_{333} &-Q_{333}
+               \end{pmatrix}
+\end{align}
+\end{itemize}
+
+Below we combine some of the above mentioned symmetries which are very commom in the simulations performed for accelerators elements:
+
+\begin{itemize}
+\item x=0 and y=0.
+\begin{align}
+\vect{M}= \vect{0} & &
+\tensor{D} = \begin{pmatrix} D_{11} &    0   & D_{13} &    0    \\
+                                  0   & D_{22} &    0   &  D_{24} \\
+                               D_{13} &    0   & D_{33} &    0    \\
+                                  0   & D_{24} &    0   & -D_{33}
+               \end{pmatrix} & &
+\tensor{Q_x}=\tensor{0} & &
+\tensor{Q_y}=\tensor{0}
+\end{align}
+
+\item $y=-x$ and $y=x$.
+\begin{align}
+\vect{M}= \vect{0} & &
+\tensor{D}   &=\begin{pmatrix} D_{11} & D_{12} & D_{13} & D_{14} \\
+                               D_{12} & D_{11} & D_{14} & D_{13} \\
+                               D_{13} & D_{14} &    0   & D_{34} \\
+                               D_{14} & D_{13} & D_{34} &    0
+               \end{pmatrix}& &
+\tensor{Q_x}=\tensor{0} & &
+\tensor{Q_y}=\tensor{0}
+\end{align}
+
+\item $x=0$, $y=0$, $y=-x$ and $y=x$.
+\begin{align}
+\vect{M}= \vect{0} & &
+\tensor{D}   &=\begin{pmatrix} D_{11} &   0    & D_{13} &   0    \\
+                                 0    & D_{11} &    0   & D_{13} \\
+                               D_{13} &   0    &    0   &   0    \\
+                                 0    & D_{13} &    0   &   0
+               \end{pmatrix} & &
+\tensor{Q_x}=\tensor{0} & &
+\tensor{Q_y}=\tensor{0}
+\end{align}
+\end{itemize}
+where we notice that when there is at least 2 planes of symmetry, all the odd order terms are zero.
+
+\chapter{Wake Calculation From GdfiDL Simulations}
+
+One simulation in GDFIDL consists of passing a linear gaussian bunch with the velocity of light in the longitudinal direction and with a specific transverse position, say $(x_s,y_s)=(d_x,d_y)$ through the simulated structure solving Maxwell equations in time. While doing this, the code saves in memory the wake potential $W(d_x,d_y,x,y,s)$ for all transverse positions $(x,y)$ of integration and all $s$. This procedure is very time consuming and we gerally try to perform the mininum amount of simulations possible to get the results we need.
+
+Lets suppose a simulation was performed with the position of the source in $(x_s,y_s)=(d,0)$. If we calculate the Horizontal Wake potential in a path where $y=0$ then, up to second order in the transverse coordinates we can write:
+
+\begin{align}
+F_L(d,0,x,0) &= W_0  +  M_1d  +  M_3x + D_{11}d^2 + D_{13}dx + D_{33}x^2 \\
+F_x(d,0,x,0) &= M_x + D_{x3} x + D_{x1} d + Q_{x33} x^2 + Q_{x11} d^2 + Q_{x13} x d\\
+F_y(d,0,x,0) &= M_y + D_{y3} x + D_{y1} d + Q_{y33} x^2 + Q_{y11} d^2 + Q_{y13} x d
+\end{align}
+
+Now, integrating the total wake in 4 different $x$ points we get:
+\begin{align}
+	F_1 = F_x(d,x_1) &= M_x  +  D_{x3} x_1  +  D_{x1} d  +  Q_{x33} x_1^2  +  Q_{x11} d^2  +  Q_{x13} x_1 d \\
+    F_2 = F_x(d,x_2) &= M_x  +  D_{x3} x_2  +  D_{x1} d  +  Q_{x33} x_2^2  +  Q_{x11} d^2  +  Q_{x13} x_2 d \\
+    F_3 = F_x(d,x_3) &= M_x  +  D_{x3} x_3  +  D_{x1} d  +  Q_{x33} x_3^2  +  Q_{x11} d^2  +  Q_{x13} x_3 d \\
+    F_4 = F_x(d,x_4) &= M_x  +  D_{x3} x_4  +  D_{x1} d  +  Q_{x33} x_4^2  +  Q_{x11} d^2  +  Q_{x13} x_4 d
+\end{align}
+
+To extract the component $D_x$ from the total wake we do:
+\begin{align}
+\Delta_1 = \frac{F_1}{x_1} - \frac{F_2}{x_2} &= \left(M_x  +  D_{x1}d  +  Q_{x11}d^2\right)\left(\frac{1}{x_1}-\frac{1}{x_2}\right) + Q_{x33}(x_1-x_2) \\
+\Delta_2 = \frac{F_3}{x_3} - \frac{F_4}{x_4} &= \left(M_x  +  D_{x1}d  +  Q_{x11}d^2\right)\left(\frac{1}{x_3}-\frac{1}{x_4}\right) + Q_{x33}(x_3-x_4)
+\end{align}
+then, remembering $(1/a-1/b)/(a-b) = -1/ab$ we get:
+\begin{align}
+	\frac{\Delta_1}{x_1-x_2} - \frac{\Delta_2}{x_3-x_4} &= \left(M_x  +  D_{x1} d  +  Q_{x11} d^2\right)\left(\frac{1}{x_3x_4} - \frac{1}{x_1x_2}\right)
+\end{align}
+\begin{align}
+	M_x  +  D_{x1} d +  Q_{x11} d^2 &= \left(\frac{x_1x_2x_3x_4}{x_3x_4 - x_1x_2}\right)\left(\frac{\Delta_1}{x_1-x_2} - \frac{\Delta_2}{x_3-x_4}\right)
+\end{align}
+
+Note that in general to isolate the dipolar component $D_x$, it is necessary to perform another two simulations. If another simulation is performed with the source at $(x_s,y_s) = (-d,0)$ it is also possible to isolate the dipolar component.
+
+Now, lets try to extract the quadrupolar component
+\begin{align}
+\Delta_1 = \frac{F_1 - F_2}{x_1-x_2} &= D_{x3} + Q_{x13}d + Q_{x33}(x_1 + x_2)
+\end{align}
+Notice that, if we choose $x_2=-x_1$ the contribution from $Q_{x33}$ is canceled and
+\begin{align}
+	D_{x3} + Q_{x13}d = \Delta_1
+\end{align}
+where it is clear that is necessary other simulation to extract the quadrupolar wake.
+
+\chapter{Cálculo dos wake-potential a partir do ECHOzR}
+
+De acordo com a referência, temos que:
+
+\begin{align}
+W_{||}(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty W_m(y_0,y,s)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\
+W_y(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty k_{x,m}W_{y,m}(y_0,y,s)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\
+W_x(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty k_{x,m}W_{x,m}(y_0,y,s)\sin(k_{x,m}x_0)\cos(k_{x,m}x),
+\end{align}
+where $w$ is the half-width of the structure, $0<x<2w$ is the horizontal position of the trailing particle, $0<x_0<2w$ is the horizontal position of the source particle, $y$ is vertical position of the trailing particle, $y_0$ is vertical position of the source particle, $s=z-ct$ is the position of the trailing particle relative to the source particle and
+\begin{equation}
+k_{x,m} = \frac{\pi}{2w}m
+\end{equation}
+The other terms are given by
+\begin{align}
+W_m(y_0,y,s)     &= W^{cc}_m(s)\cosh(k_{x,m}y_0)\cosh(k_{x,m}y) + W^{ss}_m(s)\sinh(k_{x,m}y_0)\sinh(k_{x,m}y), \\
+W_{y,m}(y_0,y,s) &= S^{cc}_m(s)\cosh(k_{x,m}y_0)\sinh(k_{x,m}y) + S^{ss}_m(s)\sinh(k_{x,m}y_0)\cosh(k_{x,m}y), \\
+W_{x,m}(y_0,y,s) &= S^{cc}_m(s)\cosh(k_{x,m}y_0)\cosh(k_{x,m}y) + S^{ss}_m(s)\sinh(k_{x,m}y_0)\sinh(k_{x,m}y),
+\end{align}
+where
+\begin{equation}
+S^{cc}_m = \int_{-\infty}^s W^{cc}_m(s')\mathrm{d}s', \qquad S^{ss}_m = \int_{-\infty}^s W^{ss}_m(s')\mathrm{d}s'
+\end{equation}
+and the quantities $W^{cc}_m(s')$ and $W^{ss}_m(s')$ are related to the output of the softwares ECHOzR and ECHO2D by:
+\begin{align}
+W^{cc}_m(s') = \frac{W_m^M(y_0,y,s)}{\cosh(k_{x,m}y_0)\cosh(k_{x,m}y)} \\
+W^{ss}_m(s') = \frac{W_m^E(y_0,y,s)}{\sinh(k_{x,m}y_0)\sinh(k_{x,m}y)}
+\end{align}
+where $W_m^M(y_0,y,s)$ and $W_m^M(y_0,y,s)$ are the results of the simulation with magnetic and electric boundary conditions, respectively.
+
+
+Our objective is to obtain the formulas for the monopole longitudinal, dipole and quarupolar transverse wake functions at the point $\vec{v} = (x_0=w,y_0=0,x=w,y=0)$ from these results. The monopolar wakes are readly obtained:
+\begin{align}
+W_m(0,0,s) = W^{cc}_m(s) &\Rightarrow W_{||}(\vec{v}) = \frac1w\sum^\infty_{m=1,\mathrm{odd}} W^{cc}_m(s), \\
+W_{y,m}(0,0,s) = 0 &\Rightarrow W_y(\vec{v}) = 0, \\
+W_{x,m}(0,0,s) = S^{cc}_m(s) &\Rightarrow W_x(\vec{v}) = \frac1w\sum^\infty_{m=1} S^{cc}_m(s)\frac{\sin(m\pi)}{2} = 0
+\end{align}
+To calculate the dipolar and quadrupolar wakes, we need to take the first derivative of the transverse wakes at the point of interest, $\vec{v}$. It is easy to see that the first derivatives of the longitudinal wake are zero. For the transverse:
+
+\begin{align}
+W_{y,d}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}y_0}W_y\right|_{\vec{v}} = \frac1w\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 S^{ss}_m(s) = \frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 W^{ss}_m(s') \mathrm{d}s',\\
+W_{y,q}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}y}W_y\right|_{\vec{v}} = \frac1w\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 S^{cc}_m(s) = \frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 W^{cc}_m(s') \mathrm{d}s', \\
+W_{x,d}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}x_0}W_x\right|_{\vec{v}} = \frac1w\sum^\infty_{m=1,\mathrm{even}} k_{x,m}^2 S^{cc}_m(s) = \frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{even}}k_{x,m}^2 W^{cc}_m(s') \mathrm{d}s', \\
+W_{x,q}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}x}W_x\right|_{\vec{v}} = -\frac1w\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 S^{cc}_m(s) =-\frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 W^{cc}_m(s') \mathrm{d}s'
+\end{align}
+and all the skew terms are zero.
+
+\end{apendicesenv}
+
+
+% Anexos
+\begin{anexosenv}
+% Imprime uma página indicando o início dos anexos
+\partanexos
+\chapter{Anexo 1}
+\lipsum[30]
+\chapter{Anexo 2}
+\lipsum[31]
+\chapter{Anexo 3}
+\lipsum[32]
+\end{anexosenv}
+
+
+% Índice remissivo
+\printindex
+
+\printglossaries
 
 \end{document}
