@@ -254,10 +254,10 @@ Before the study of collective effects in storage ring is necessary to understan
 
   In the study of the transverse dynamics the time scale envolved was of a few turns in the storare ring, which allowed us to treat the energy deviation of the particles as another constant of motion. In this section the dynamics of the electrons in a few hundreads of turns will be analysed. In this scale the transverse betatron oscillations are averaged out and the longitudinal dynamics, which describes the path length and energy oscillations around the fixed point, has its natural frequency. The main factors that influence in this framework are the small unballances between the energy loss of the particles and their energy gain in the RF cavity in one turn and the revolution time variation due to the energy offset of the particles.
 
-    \subsection{Changes in Revolution Time}
+    \subsection{Changes in Revolution Time}\label{sec:longitudinal_deviations}
 
 	In the studies of the transverse dynamics the longitudinal absolute position of the particles was used as independent variable for all the equations. In the longitudinal plane it is important to work with a relative value for the longitudinal position, being the reference of this measure the position of the synchronous particle, the idealized particle described in subsection \ref{ssec:storage_ring_main_devices} that has the nominal energy of the storage ring and is always in the ideal orbit, taking the nominal revolution time to complete one turn. Under such assumptions, we defining $z$ as the distance a given particle is behind the synchronous particle:
-	\begin{align}
+	\begin{align}\label{eq:longitudinal_deviations}
 		z(t) = s_\text{sync}(t) - s(t)
 	\end{align}
 	where $t$ is the wall-clock time and $s_\text{sync}(t)$ is the position of the synchronous particle. Notice if the longitudinal position of the particle is larger than the position of the synchronous particle, then $z$ will be negative. This convention is very important and will be consistently adopted throught this work.
@@ -510,6 +510,15 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 
   Impedances have several other interesting mathematical properties, as presented in reference \cite{CHao1993}, that will be covered later in this work, when and if necessary.
 
+  \subsection{Potential of Bunch of particles}
+
+  Now that all the important tools for describing the wake field effects were introduced, we will calculate the change in momentum that a specific particle inside a bunch will feel due to the action of all the other particles. To do that we will assume that in the whole ring there is only one source of impedance, localized at a given point of the accelerator, and that the vacuum chamber is perfectly aligned with reference orbit of the storage ring in such a way that a particle that on the reference orbit is at the origin of the expansion made in equation \eqref{eq:wake_potential_expansion}. Regarding the longitudinal position the synchronous position will be adopted as the origin and the positions of the particles will be measured in relation to it in accordance to the definitions made in section \ref{sec:longitudinal_deviations}, specifically in accordance with equation \ref{eq:longitudinal_deviations}, where particles behind the synchronous particle have positive deviations. Under such assumptions we get:
+  \begin{align}
+  	  W(\vect{\rho}_i,z_i) = \sum_j W(\vect{\rho}_j,\vect{\rho}_i,z_i-z_j)
+  \end{align}
+  where the index $i$ is related to the witness particle and the index $j$ represents the source particles. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons. Besides, this sum does not evidenciates properties of the beam 
+
+
 
 
   Um aspecto importante a respeito da definição de impedância é que há divergências em sua definição na literatura. Por exemplo, as referências \cite{Zotter1993} e \cite{Wilson1987} definem a impedância longitudinal como o complexo conjugado da equação \eqref{eq:impedances_definition}. Nesse trabalho estamos seguindo a definição das referências \cite{CHao1993,Stupakov2000a,Heifets1991}.
@@ -529,7 +538,6 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 
 	Nessa definição os \engw{wakes} adquirem uma dimensão adicional de inverso de comprimento e tem dimensão \si{\volt\per\coulomb\per\meter} no Sistema Internacional de Unidades.
 
-	\subsection{Potential of Bunch of particles}
 
   \section{Classification of Impedances and Wake-functions}
     \subsection{As Resonators}
