@@ -326,7 +326,7 @@ Before the study of collective effects in storage ring is necessary to understan
 	\begin{align}
 		H(z, \delta) = \frac12\left(\frac{\alpha\delta}{c}\right)^2 \quad \overbrace{- \frac{\alpha}{c}\defint{x}{\frac{V(x)-U_0}{T_0E_0}}{0}{z}}^{U(z)}
 	\end{align}
-	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy.
+	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy. When the oscillations of the particles are small the potential well can be expandend in power series of the longitudinal position of the particle. The shape of the potential in this region is the
 
   \section{Radiation Damping and Equilibrium Parameters}
 
@@ -336,8 +336,9 @@ Before the study of collective effects in storage ring is necessary to understan
 
   In the transverse plane the effect of the radiation emission on the dynamics is not as direct as in the longitudinal plane. Damping in the transverse plane is a two fold effect: first the electrons lose transverse momentum due to radiation emission because the emission is majoritarely on the direction of motion. This does not change the normalized momentum of the electron, because the longitudinal momentum is also affected by this emission. In a second moment the electron passes throught the RF cavity where the longitudinal momentum is replenished but the transverse momentum is unchanged, but the normalized transverse momentum is decreased. The liquid effect is an exponential damping of the transverse oscillations, proportional to the betatron action of the movement. The excitations of oscillations happens because of the dispersion function in the dipoles, when an electron emits radiation its closed orbit abruptly changes, because its energy deviation has changed. However the position of the electron did not change, this implies that a new betatron oscillation around this new closed orbit must start. Again, both effects cancel out at the equilibrium distribution, that defines the natural emittance of the storage ring.
 
-    \subsection{Fokker-Planck Equation}
-	To do.
+    \subsection{Fokker-Planck Equation}\label{ssec:fokker_planck_equation}
+
+	All the arguments described in the last section can be mathematically described by modelling the evolution of the beam distribution in terms of the Fokker-Planck equation. In this framework we can consider the electrons as large particles subjected to a weak random force that is Markovian and have an approximatelly white spectrum which are the conditions imposed by the theory under a system in order for the distribution function to be described by such equation \cite{landau, Wang1945, zwanzig}. We can j
 
 
 
@@ -516,7 +517,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
   \begin{align}\label{eq:def_effective_wake_potential}
   	  W(\vect{\rho}_i,z_i) = \sum_j W(\vect{\rho}_j,\vect{\rho}_i,z_i-z_j)
   \end{align}
-  where the index $i$ is related to the witness particle and the index $j$ represents the source particles. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons, besides this sum does not evidenciates properties of the beam such as time dependency. If the beam is in equilibrium the \gls{lhs} of equation~\ref{eq:def_effective_wake_potential}
+  where the index $i$ is related to the witness particle and the index $j$ represents the source particles. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons, besides this sum does not evidenciates properties of the beam such as time dependency. If the beam is in equilibrium or is slowly varying the \gls{lhs} of equation~\ref{eq:def_effective_wake_potential} is approximatelly the same for successives turns in the ring, or over several passages by the impedance source, but each term of the \gls{rhs} can be very different from turn to turn which means the sum must always be carried out. For all these reasons it is important to make the same approximation here as the one described in section~\ref{ssec:fokker_planck_equation} where we take the limit of the number of particles to infinity and define a continuous distribution density to represent the beam. However notice in this process we assume that the interactions are weak and can be described by  neglect any collisional aspect of the interaction between the particles and
 
 
 
