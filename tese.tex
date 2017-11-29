@@ -468,14 +468,14 @@ In the last chapter the main aspects of the single particle dynamics, governed b
   As mentioned above, some componentes of the wake expansions are zero depending on the properties of the vacuum chamber. This is a consequence of the fact that the wake potential must preserve all the symmetries of the vacuum chamber\footnote{In appendix~\ref{app:symmetry_analysis} there is a demonstration of how the wake potential simplifies under the most commom types of symmetries of the components of accelerators.}. For example, the standard vacuum chamber used in the Sirius storage ring is made of a round straight tube, which is a particular case of a cylindrical symmetry. For this type of symmetry all the components of $\vect{M}_s$, $\vect{M}_w$ and $\tensor{Q}$ must be zero and the only components of $\tensor{D}$ different from zero are the horizontal and vertical dipole wakes and they must be equal to each other. Thus we conclude that most of the resistive wall of the Sirius storage ring will not induce quadrupolar wakes nor any type of skew effect and that there will be no significant orbit distortions as a function of the current. Besides, considering that most of the components installed in the ring, such as bellows and \gls{bpms} only slightly break this symmetry, we can expect that the behavior of the beam in the horizontal and vertical plane will be very similar, where the differences will mostly be due to assymetries in the single particle dynamics.
 
   Taking into consideration what was discussed above, we can rewrite the expansion of the wakes made in equations~\eqref{eq:wake_potential_expansion}~and~\eqref{eq:wake_functions_expansion} keeping only the most important terms:
-  \begin{align}
+  \begin{align}\label{eq:important_wake_potential}
   	  W(\vect{\rho}_s, \vect{\rho}_w, z) &=
 	  	W_0(z) +
 		x_w\left(W^D_X(z)x_s - W^Q(z)x_w\right) +
 		y_w\left(W^D_Y(z)y_s + W^Q(z)y_w\right)
   \end{align}
   and, consequently
-  \begin{align}\nonumber
+  \begin{align}\label{eq:important_wakes}\nonumber
   	w_s(z) &= W'_0(z) \\
 	w_x(x_s, x_w, z) &= W^D_X(z)x_s - W^Q(z)x_w \\\nonumber
 	w_y(y_s, y_w, z) &= W^D_Y(z)y_s + W^Q(z)y_w
@@ -500,7 +500,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
   \begin{align}
 	  \nonumber
   	  W'_0(z) = \frac{1}{2\pi}\infint{\omega}{Z_\parallel e^{-i\omega z/c}}\\
-	  W^D_X(z) = \frac{i}{2\pi}\infint{\omega}{Z^D_X e^{-i\omega z/c}}
+	  W_t(z) = \frac{i}{2\pi}\infint{\omega}{Z_t e^{-i\omega z/c}}
   \end{align}
   where $W_t$ and $Z_t$ denotes any of the transverse wakes and impedances. Considering that the wakes are real functions, the impedances must satisfy
   \begin{align}
@@ -513,14 +513,51 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 
   \subsection{Potential of Bunch of particles}
 
-  Now that all the important tools for describing the wake field effects were introduced, we will calculate the change in momentum that a specific particle inside a bunch will feel due to the action of all the other particles. To do that we will assume that in the whole ring there is only one source of impedance, localized at a given point of the accelerator, and that the vacuum chamber is perfectly aligned with reference orbit of the storage ring in such a way that a particle that on the reference orbit is at the origin of the expansion made in equation~\eqref{eq:wake_potential_expansion}. Regarding the longitudinal position the synchronous position will be adopted as the origin and the positions of the particles will be measured in relation to it in accordance to the definitions made in section~\ref{sec:longitudinal_deviations}, specifically in accordance with equation~\ref{eq:longitudinal_deviations}, where particles behind the synchronous particle have positive deviations. Under such assumptions we get:
+  Now that all the important tools for describing the wake field effects were introduced we will calculate the change in momentum that a specific particle inside a bunch will feel due to the action of all the other particles. To do that we will assume that in the whole ring there is only one source of impedance, localized at a given point of the accelerator, and that the vacuum chamber is perfectly aligned with reference orbit of the storage ring in such a way that a particle that is on the reference orbit also is at the origin of the expansion made in equation~\eqref{eq:wake_potential_expansion}. Regarding the longitudinal position the synchronous position will be adopted as the origin and the positions of the particles will be measured in relation to it in accordance to the definitions made in section~\ref{sec:longitudinal_deviations}, specifically in accordance with equation~\ref{eq:longitudinal_deviations}, where particles behind the synchronous particle have positive deviations. Under such assumptions we get:
   \begin{align}\label{eq:def_effective_wake_potential}
-  	  W(\vect{\rho}_i,z_i) = \sum_j W(\vect{\rho}_j,\vect{\rho}_i,z_i-z_j)
+  	  V(\vect{\rho}_i, z_i) = \sum_j W(\vect{\rho}_j,\vect{\rho}_i,z_i-z_j)
   \end{align}
-  where the index $i$ is related to the witness particle and the index $j$ represents the source particles. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons, besides this sum does not evidenciates properties of the beam such as time dependency. If the beam is in equilibrium or is slowly varying the \gls{lhs} of equation~\ref{eq:def_effective_wake_potential} is approximatelly the same for successives turns in the ring, or over several passages by the impedance source, but each term of the \gls{rhs} can be very different from turn to turn which means the sum must always be carried out. For all these reasons it is important to make the same approximation here as the one described in section~\ref{ssec:fokker_planck_equation} where we take the limit of the number of particles to infinity and define a continuous distribution density to represent the beam. However notice in this process we assume that the interactions are weak and can be described by  neglect any collisional aspect of the interaction between the particles and
+  where $V(\vect{\rho}_i, z_i)$ is denominated effective wake potential, because it is the net effect of the average of the Green wake potential over the buch and the indices $i$ and $j$ are related to the witness and the source particles respectively. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons, besides this sum does not evidenciates properties of the beam such as time dependency. If the beam is in equilibrium or is slowly varying the \gls{lhs} of equation~\ref{eq:def_effective_wake_potential} is approximatelly the same for successives turns in the ring, or over several passages by the impedance source, but each term of the \gls{rhs} can be very different from turn to turn which means the sum must always be carried out. For all these reasons it is important to make an approximation and consider that the effective wake potential that any particle feels is an integral over the beam distribution:
+  \begin{align}
+  	  V(\vect{\rho}, z, t) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
+	  			\Psi(\vect{p},\vect{\rho}',z'; t) W(\vect{\rho}',\vect{\rho},z-z')}}}
+  \end{align}
+  where $\vect{p} = (x', y', \delta)$ and $\text{d}\vect{p} = \text{d}x'\text{d}y'\text{d}\delta$ represents the momentum coordinates and $\Psi$ is beam density distribution function in phase space, which is time dependent in the general case.  The equation above is not general enough to take into account all the wake field forces on the particles. In some cases the wakes persist for so long that they last for a time equivalent to several turns in the ring, acting on the same particles that generate it in successive turns. Generally these wakes are generated by cavity-like structures in the vaccum chamber that trap their electromagnetic eigen-modes for long times. In this situation we must add a sum over the distribution in previous turns
+  \begin{align}\nonumber
+  	  V(\vect{\rho}, z, t) = \sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
+	  			&\Psi(\vect{p},\vect{\rho}',z'; t-kT_0)\times\\ &W(\vect{\rho}',\vect{\rho},z-z' + kcT_0)}}}
+  \end{align}
+  where the sum can be extended to infinity because the wake-potential is zero for relative positions between the source and the witness when there is no interaction between them. For example it would not make sense for a particle feel the wake field it will generate in the next turn because this breaks causality, this means the wake field must be zero for large negative values of $z-z'$. Yet, in the most general case there is more than one bunch stored in the ring, which means it is also necessary to take their influence into account
+  \begin{align}\label{eq:general_eff_wake_pot}\nonumber
+  	  V_n(\vect{\rho}, z, t) = \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
+	  			&\Psi_l(\vect{p},\vect{\rho}',z'; t-kT_0-(s_l-s_n))
+				\times\\
+				&W(\vect{\rho}',\vect{\rho},z-z' + kcT_0 + (s_l-s_n))}}}
+  \end{align}
+  where $s_l$ is the $l$-th synchrotron position of the ring and $\mathscr{B}$ is a set of integer number to identify which bunchs are filled with particles. For example, if the bunches $1, 10, 500$ and $735$ are filled and the rest is empty, then $\mathscr{B} = \{ 1, 10, 500, 735 \}$ and for sure $n\in\mathscr{B}$. Also $V_n$ needs the subscript $n$ in order to identify that this is the wake potential felt by the $n$-th bunch in the ring.
 
-
-
+  Combining equation~\eqref{eq:general_eff_wake_pot} with the expansion of equation~\eqref{eq:important_wake_potential} we can derive expressions for the effective wake functions of the beam
+  \begin{align}
+	  (V_0)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
+	  			&\lambda_l(z'; t-kT_0-(s_l-s_n))
+				\times\\
+				&W_0(z-z' + kcT_0 + (s_l-s_n))}\\[3mm]
+	  (V^Q_X)_n(x, z, t) =\nonumber x\sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
+	  			&\lambda_l(z'; t-kT_0-(s_l-s_n))
+				\times\\
+				&W^Q(z-z' + kcT_0 + (s_l-s_n))}\\[3mm]
+	  (V^D_X)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
+	  			&d_l(z'; t-kT_0-(s_l-s_n))
+				\times\\
+				&W^D_X(z-z' + kcT_0 + (s_l-s_n))}
+  \end{align}
+  where
+  \begin{align}
+	  \lambda_l(z; t) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{
+	  			&\Psi_l(\vect{p},\vect{\rho}',z'; t)}}\\
+	  d_l(z; t) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{
+	  			&x\Psi_l(\vect{p},\vect{\rho}',z'; t)}}\\
+  \end{align}
 
   Um aspecto importante a respeito da definição de impedância é que há divergências em sua definição na literatura. Por exemplo, as referências~\cite{Zotter1993} e~\cite{Wilson1987} definem a impedância longitudinal como o complexo conjugado da equação~\eqref{eq:impedances_definition}. Nesse trabalho estamos seguindo a definição das referências~\cite{CHao1993,Stupakov2000a,Heifets1991}.
 
@@ -673,7 +710,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 \postextual
 
 % Referências bibliográficas
-% \bibliographystyle{unsrt}
+\bibliographystyle{unsrt}
 \bibliography{library}
 
 
