@@ -534,30 +534,31 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 				\times\\
 				&W(\vect{\rho}',\vect{\rho},z-z' + kcT_0 + (s_l-s_n))}}}
   \end{align}
-  where $s_l$ is the $l$-th synchrotron position of the ring and $\mathscr{B}$ is a set of integer number to identify which bunchs are filled with particles. For example, if the bunches $1, 10, 500$ and $735$ are filled and the rest is empty, then $\mathscr{B} = \{ 1, 10, 500, 735 \}$ and for sure $n\in\mathscr{B}$. Also $V_n$ needs the subscript $n$ in order to identify that this is the wake potential felt by the $n$-th bunch in the ring.
+  where $s_l$ is the $l$-th synchrotron position of the ring and $\mathscr{B}$ is a set of integer numbers to identify which bunchs are filled with particles. For example, if the bunches $1, 10, 500$ and $735$ are filled and the rest is empty, then $\mathscr{B} = \{ 1, 10, 500, 735 \}$ and for sure $n\in\mathscr{B}$. Also $V_n$ needs the subscript $n$ in order to identify that this is the wake potential felt by the $n$-th bunch in the ring.
 
-  Combining equation~\eqref{eq:general_eff_wake_pot} with the expansion of equation~\eqref{eq:important_wake_potential} we can derive expressions for the effective wake functions of the beam
+  Combining equation~\eqref{eq:general_eff_wake_pot} with the expansion of equation~\eqref{eq:important_wake_potential} we can derive expressions for each component of the effective wake potential of the beam
   \begin{align}
 	  (V_0)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
 	  			&\lambda_l(z'; t-kT_0-(s_l-s_n))
 				\times\\
 				&W_0(z-z' + kcT_0 + (s_l-s_n))}\\[3mm]
-	  (V^Q_X)_n(x, z, t) =\nonumber x\sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
+	  (V^Q_X)_n(x, z, t) =\nonumber x^2\sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
 	  			&\lambda_l(z'; t-kT_0-(s_l-s_n))
 				\times\\
 				&W^Q(z-z' + kcT_0 + (s_l-s_n))}\\[3mm]
-	  (V^D_X)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
+	  (V^D_X)_n(x, z, t) =\nonumber x\sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
 	  			&d_l(z'; t-kT_0-(s_l-s_n))
 				\times\\
 				&W^D_X(z-z' + kcT_0 + (s_l-s_n))}
   \end{align}
-  where
+  where $\lambda_l$ is the longitudinal distribution and $d_l$ is the horizontal dipole moment of the $l$-th bunch defined by
   \begin{align}
 	  \lambda_l(z; t) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{
-	  			&\Psi_l(\vect{p},\vect{\rho}',z'; t)}}\\
+	  			&\Psi_l(\vect{p},\vect{\rho}',z; t)}}\\
 	  d_l(z; t) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{
-	  			&x\Psi_l(\vect{p},\vect{\rho}',z'; t)}}\\
+	  			&x\Psi_l(\vect{p},\vect{\rho}',z; t)}}\\
   \end{align}
+  and $V_0$, $V^D_X$ and $V^Q_X$ are the effective longitudinal, horizontal dipole and horizontal detuning wake functions of the bunch. The expressions for the vertical effective wakes $V^D_Y$ and $V^Q_Y$ are very similar to the horizontal ones, 
 
   Um aspecto importante a respeito da definição de impedância é que há divergências em sua definição na literatura. Por exemplo, as referências~\cite{Zotter1993} e~\cite{Wilson1987} definem a impedância longitudinal como o complexo conjugado da equação~\eqref{eq:impedances_definition}. Nesse trabalho estamos seguindo a definição das referências~\cite{CHao1993,Stupakov2000a,Heifets1991}.
 
