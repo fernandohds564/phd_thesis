@@ -509,7 +509,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
       Z^Q(\omega) &= -\frac{i}{c} \infint{z}{W^Q(z)e^{i\omega z/c}}
   \end{align}
   where $Z_\parallel \equiv Z_s \equiv Z_L$ is the longitudinal impedance, $Z^D_X$ and $Z^D_Y$ are the horizontal and vertical dipole impedances and $Z^Q$ is the quadrupole, or detuning, impedance. In other references, such as~\cite{Zotter1993, Wilson1987} the impedance is the conjugate complex of the definitions presented here. The wakes can be obtained back from the impedances by the inverse transform
-  \begin{align}
+  \begin{align}\label{eq:wake_as_impedance}
 	  \nonumber
   	  W'_0(z) = \frac{1}{2\pi}\infint{\omega}{Z_\parallel e^{-i\omega z/c}}\\
 	  W_t(z) = \frac{i}{2\pi}\infint{\omega}{Z_t e^{-i\omega z/c}}
@@ -539,7 +539,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
   	  V(\vect{\rho}, z, t) = \sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
 	  			&\Psi(\vect{p},\vect{\rho}',z'; t-kT_0)\times\\ &W(\vect{\rho}',\vect{\rho},z-z' + kcT_0)}}}
   \end{align}
-  where the sum can be extended to infinity because the wake-potential is zero for relative positions between the source and the witness when there is no interaction between them. For example it would not make sense for a particle feel the wake field it will generate in the next turn because this breaks causality, this means the wake field must be zero for large negative values of $z-z'$. Yet, in the most general case there is more than one bunch stored in the ring, which means it is also necessary to take their influence into account
+  where the sum can be extended to infinity because the wake-potential is zero for relative positions between the source and the witness when there is no interaction between them. For example it would not make sense for a particle feel the wake field it will generate in the next turn, this means the wake potential must be zero for large negative values of $z-z'$. Yet, in the most general case there is more than one bunch stored in the ring, which means it is also necessary to take the influence of other bunches into account
   \begin{align}\label{eq:general_eff_wake_pot}\nonumber
   	  V_n(\vect{\rho}, z, t) = \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
 	  			&\Psi_l(\vect{p},\vect{\rho}',z'; t-kT_0-(s_l-s_n))
@@ -549,7 +549,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
   where $s_l$ is the $l$-th synchrotron position of the ring and $\mathscr{B}$ is a set of integer numbers to identify which bunchs are filled with particles. For example, if the bunches $1, 10, 500$ and $735$ are filled and the rest is empty, then $\mathscr{B} = \{ 1, 10, 500, 735 \}$ and for sure $n\in\mathscr{B}$. Also $V_n$ needs the subscript $n$ in order to identify that this is the wake potential felt by the $n$-th bunch in the ring.
 
   Combining equation~\eqref{eq:general_eff_wake_pot} with the expansion of equation~\eqref{eq:important_wakes} we can derive expressions for each component of the effective wake functions of the beam
-  \begin{align}
+  \begin{align}\label{eq:general_eff_long_wake}
 	  (V_0)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
 	  			&\lambda_l(z'; t-kT_0-(s_l-s_n))
 				\times\\
@@ -558,7 +558,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
 	  			&\lambda_l(z'; t-kT_0-(s_l-s_n))
 				\times\\
 				&W^Q(z-z' + kcT_0 + (s_l-s_n))}\\[3mm]
-	  (V^D_X)_n(x, z, t) =\nonumber \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
+	  (V^D_X)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
 	  			&d_l(z'; t-kT_0-(s_l-s_n))
 				\times\\
 				&W^D_X(z-z' + kcT_0 + (s_l-s_n))}
@@ -572,13 +572,64 @@ In the last chapter the main aspects of the single particle dynamics, governed b
   \end{align}
   and $V_0$, $V^D_X$ and $V^Q_X$ are the effective longitudinal, horizontal dipole and horizontal detuning wake functions of the bunch. The expressions for the vertical effective wakes $V^D_Y$ and $V^Q_Y$ are very similar to the horizontal ones, just changing $x$ for $y$.
 
+  In order to demonstrate how the concept of impedance is useful in the calculations of beam dynamics and its interpretation, lets consider the beam is stationary which means the distribution does not depend on time, and that all bunches in the ring are identical and equally spaced. When we apply the last assumption to equation~\eqref{eq:general_eff_long_wake} we notice the double sum can be replaced by a single one, if we define a variable
+  \begin{align*}
+  	  j = kM + l - n
+  \end{align*}
+  where $M$ is the number of bunches stored in the ring. This way the sum reads
+  \begin{align}
+	  V_0(z) = \sum_{j=-\infty}^\infty\udefint{z'}{
+				&\lambda(z')W'_0(z-z' + jc\frac{T_0}{M})}.
+  \end{align}
+  where the symbols $l$ and $n$ can be dropped due to the symmetry among bunches and the potential is time-independent. Additionally, if we substitute the wake function by its representation in terms of the impedace given in equation~\eqref{eq:wake_as_impedance} the equation above becomes
+   \begin{align}\label{eq:temp1}
+	   V_0(z) = \frac{1}{2\pi}\sum_{j=-\infty}^\infty\udefint{\omega}{
+ 				&\fourier{\lambda}(\omega)Z_\parallel(\omega)e^{-i\omega(z/c + j\frac{T_0}{M})}}
+   \end{align}
+   where the line density $\lambda(z')$ was also substituted by its Fourier Transform, defined as
+  \begin{align}
+  	\fourier{\lambda}(\omega) = \infint{z}{\lambda(z)e^{i\omega z/c}}.
+  \end{align}
+  % Finally, using the Poison sum Formula
+  % \begin{align}
+  % 	  \sum_{k=-\infty}^\infty F(kC) = \frac1C\sum_{k=-\infty}^\infty \fourier{F}(\frac{2\pi p}{C})
+  % \end{align}
+  Finally, using the Fourier Series expansion of the delta combo:
+  \begin{align}
+  	  \sum_{p=-\infty}^\infty \delta(\omega-pM\omega_0) =
+	    \frac{1}{M\omega_0} \sum_{j=-\infty}^\infty e^{-i2\pi j\frac{\omega}{M\omega_0}} =
+	    \frac{1}{M\omega_0} \sum_{j=-\infty}^\infty e^{-i\omega(j\frac{T_0}{M})},
+  \end{align}
+  where $\omega_0 = \sfrac{2\pi}{T_0}$ is the angular revolution frequency of the ring, equation~\eqref{eq:temp1} can be written as
+  \begin{align}\label{eq:impedance_interpretation}
+	  V_0(z) = \frac{M\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z_\parallel(pM\omega_0)e^{-ipM\omega_0 z/c}.
+  \end{align}
+  where we notice the beam will only sample the impedance at multiples of the revolution frequency. Similar expressions can be obtained for the dipole and quadrupole effective wake functions:
+  \begin{align}
+  	V^D_X(z) = \frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{d}(pM\omega_0)Z^D_X(pM\omega_0)e^{-ipM\omega_0 z/c}\\
+	V^Q_X(x,z) = x\frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z^Q(pM\omega_0)e^{-ipM\omega_0 z/c}
+  \end{align}
+  and analogously to the vertical plane. Notice in the equations above that the dipole impedance does not generate any effective wake function if the beam is stable and well centered in the vacuum chamber because in this condition the dipole moment of the beam is zero. This is the main characteristic of a coherent mechanism, it depends on the values of specific properties of the beam, in this case the longitudinal distribution of the dipole moment, and its effects are only visible througth averages on the distribution. On ehe other hand, the detuning wake generates a $z$-dependent quadrupole strength on individual particles of the beam even if the beam is stationary, which is a the characterist of an incoherent effect, it affects the intra-bunch dynamics but not necessarely is reflected in the averages on the distribution.
 
-  https://arxiv.org/pdf/physics/0309023.pdf
-  http://accelconf.web.cern.ch/AccelConf/e98/PAPERS/THP09G.PDF
+  Equation~\eqref{eq:impedance_interpretation} describes the meaning behind the concept of impedance and its analogy with an electric circuit impedance. Notice that the equation can be interpreted as the Fourier expansion of the wake in the interval $\sfrac{T_0}{M}$ and the term being summed is the Fourier component of this expansion
+  \begin{align}
+  	  \fourier{V}_0 = \fourier{\lambda}Z_\parallel.
+  \end{align}
+  where $\fourier{\lambda}$ is the analog of the current in a circuit and $\fourier{V}_0$ is the voltage induced by this current. The same analogy can be extended to the other impedances. Actually, as explained by Vaccaro in reference~\cite{vaccaro_novo} the concept of longitudinal impedance was introduced by himself in~\cite{vaccaro_velho} to explain collective effects using circuits models. This resource is still used nowadays to model the low frequency part of the impedance~\cite{davino, zotter}.
 
+  \section{Impedance Calculation}
+    \subsection{Analytic Methods}
+      \subsubsection{Field Matching Technique}
+      \subsubsection{Perturbative Method}
+      \subsubsection{Parabolic Equation}
+    \subsection{Numeric Methods}\label{ssec:numeric_methods}
+      \subsubsection{Frequency Domain Solvers}
+      \subsubsection{2D Time domain Solvers}
+      \subsubsection{3D Time domain Solvers}
 
+  \section{Classification of Impedances and Wakes}
 
-  \section{Classification of Impedances and Wake-functions}
+  In a real machine
     \subsection{As Resonators}
       \subsubsection{Broad-band}
       \subsubsection{Narrow-Band}
@@ -590,15 +641,7 @@ In the last chapter the main aspects of the single particle dynamics, governed b
       \subsubsection{Resistive Wall}
       \subsubsection{Geometric}
       \subsubsection{Coherent Synchrotron Radiation}
-  \section{Impedance Calculation}
-    \subsection{Analytic Methods}
-      \subsubsection{Field Matching Technique}
-      \subsubsection{Perturbative Method}
-      \subsubsection{Parabolic Equation}
-    \subsection{Numeric Methods}\label{ssec:numeric_methods}
-      \subsubsection{Frequency Domain Solvers}
-      \subsubsection{2D Time domain Solvers}
-      \subsubsection{3D Time domain Solvers}
+
 
 \chapter{Collective Effects}
   \section{Energy Loss}
