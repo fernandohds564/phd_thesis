@@ -596,7 +596,10 @@
 
     For most practical cases, determining the impedance of a given component of the storage ring is a very difficult task because of the complexity of the boundary conditions envolved. The exact analitic solution of the \gls{maxeq} can only be performed for a limited number of cases, and even in this cases some idealizations of the real system must be performed. In order to tackle this problem the accelerator physics community resorts to all possible ways of finding approximate results and all these efforts can be group in to categories, the analytic treatments and the numeric solutions.
 
-	An adequate description of the analytic methods for finding such solutions is by far beyond the current competencies of the author and the scope of this work. At this point we strongly recommends the Zotter's book~\cite{Zotter1997} for the interested reader, it is a master-piece written by one of the most well-known and respected specialist of the field and one of the pionners of this area. Besides, references~\cite{chao1993, Palumbo1994} also discuss some of the approximate methods in a very intuitive way and in the end of the first chapter of reference~\cite{Ng2009} there is a table with some of the most important results for different types of accelerator structures.
+	An adequate description of the analytic methods for finding such solutions is by far beyond the current competencies of the author and the scope of this work. At this point we strongly recommend Zotter's book~\cite{Zotter1997} for the interested reader, it is a master-piece written by one of the most well-known and respected especialists of the field and one of the pionners of this area. Besides, references~\cite{CHao1993, Palumbo1994} also discuss some of the approximate methods in a very intuitive way, and in the end of the first chapter of reference~\cite{Ng2009} there is a table with some of the most important results for commom types of accelerator structures. Not comprised in any of these references is the explanation of the use of the parabolic equation, which is a paraxial approximation of the \gls{maxeq}, to the impedances calculation, presented in~\cite{Stupakov2007}. From these equations it can be shown that the wakes must satisfy a very interesting scaling feature that is very useful for numeric simulations~\cite{stupakov2009}.
+
+    Most of the analytic methods are employed in the frequency domain, extracting, as a result an approximate impedance.
+
 
 \subsection{Analytic Methods}
 \subsubsection{Field Matching Technique}
@@ -737,6 +740,7 @@
 
 % Referências bibliográficas
 \bibliographystyle{unsrt}
+% \bibliographystyle{numeric}
 % \bibliographystyle{plain}
 \bibliography{library}
 
