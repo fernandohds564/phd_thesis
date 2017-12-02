@@ -1,7 +1,7 @@
 thesis: compile show
 
 show:
-	okular compile/tese.pdf
+	okular tese.pdf
 
 clean:
 	rm -f *.pdf compile/*
@@ -11,6 +11,7 @@ compile: clean
 	bibtex compile/tese.aux
 	pdflatex --interaction=nonstopmode -output-directory=compile tese.tex
 	pdflatex --interaction=nonstopmode -output-directory=compile tese.tex
+	mv compile/tese.pdf ./
 
 
 # pdflatex --interaction=nonstopmode -output-directory=compile tese.tex
