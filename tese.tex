@@ -6,8 +6,8 @@
 \autor{Fernando Henrique de Sá}
 \local{Campinas}
 \data{2017}
-\orientador{Prof. Dr. Antônio Rubens Britto de Castro}
-\coorientador[Co-orientador]{Prof. Dr. Sílvio}
+\orientador[Orientador:]{Prof. Dr. Antônio Rubens Britto de Castro}
+\coorientador[Co-orientador:]{Prof. Dr. Sílvio}
 \instituicao{%
     UNIVERSIDADE ESTADUAL DE CAMPINAS
     \par
@@ -16,9 +16,10 @@
 \tipotrabalho{Tese (Doutorado)}
 % O preambulo deve conter o tipo do trabalho, o objetivo, o nome da instituição
 % e a área de concentração
-\preambulo{Tese apresentada ao Instituto de Física da Universidade Estadual
-           de Campinas como parte dos requisitos exigidos para a obtenção do
-		   título de Doutor em Física, com ênfase em Física de Aceleradores.}
+\preambulo{Tese apresentada ao Instituto de Física Gleb Wataghin (IFGW) da
+           Universidade Estadual de Campinas (UNICAMP) como parte dos
+           requisitos exigidos para a obtenção do título de Doutor em Física,
+           com ênfase em Física de Aceleradores.}
 
 \input{preamble/comandos}
 
@@ -227,6 +228,41 @@
 	\end{align}
 	where $\xi_x$ and $\xi_y$ are the horizontal and vertical chromaticities, and $A_{xx}$, $A_{yy}$ and $A_{xy}=A_{yx}$ are the action dependent tune-shifts.
 
+\subsection{Linear Map Formulation: Matrix Theory}
+
+	An alternative way to describe the linear dynamics of a storage ring is via symplectic transfer matrices, where the evolution of the coordinates in phase space can be always written in the following form
+	\begin{align}
+		\vect{u}(s) = \tensor{M}_{s_0\to s} \vect{u}(s_0)
+	\end{align}
+	where $\vect{u}(s) = \left(u(s), u'(s)\right)$ is the coordinates in phase space and  $\tensor{M}_{s_0\to s}$ is the transfer matrix from points $s_0$ to $s$. This form of the time evolution of the coordinates can be obtained from equation~\eqref{eq:betatron_motion} by derivation with respect to $s$ and substitution of $J$ and $\phi$ by the initial conditions $\vect{u}(s_0)$. After this procedure, it can verified that $\vect{M}$ can be written in normal form~\cite{bengtsson}
+	\begin{align}
+		\tensor{M}_{s_0\to s} = \tensor{A}(s)\cdot\tensor{R}(\mu_{s_0\to s})\cdot\tensor{A}^{-1}(s_0)
+	\end{align}
+	where $R$ is a rotation matrix and $A^{-1}$ is a transformation matrix to the normalized coordinates, given by
+	\begin{align}
+		\tensor{R}(\theta) =
+				\begin{bmatrix}
+					\cos(\theta)  & \sin(\theta)\\
+					-\sin(\theta) & \cos(\theta)
+				\end{bmatrix}
+				\quad\text{and}\quad
+		\tensor{A}(\mu) =
+				\begin{bmatrix}
+					\sqrt{\beta_u}                 & 0\\
+					-\frac{\alpha}{\sqrt{\beta_u}} & \frac{1}{\sqrt{\beta_u}}
+				\end{bmatrix},
+	\end{align}
+	and also satisfy the composition rule
+	\begin{align}
+		\tensor{M}_{s_0\to s_2} = \tensor{M}_{s_1\to s_2}\cdot\tensor{M}_{s_0\to s_1}
+	\end{align}
+	where $\{s_0, s_1, s_2\}$ in this order are sequential positions along the ring. Besides, successive turns around the ring at some position $s_0$ are completely described by the one turn matrix, $\tensor{M}(s_0)$ :
+	\begin{align}
+		\vect{x}_n = \tensor{M}^n \cdot \vect{x}_0, \quad \text{with} \quad
+		\tensor{M}^n = \tensor{A}\cdot\tensor{R}^n(2\pi\nu)\cdot\tensor{A}^{-1} =
+					    \tensor{A}\cdot\tensor{R}(2\pi n \nu)\cdot\tensor{A}^{-1}.
+	\end{align}.
+
 \section{Longitudinal Dynamics}
 
     In the study of the transverse dynamics the time scale envolved was of a few turns in the storare ring, which allowed us to treat the energy deviation of the particles as another constant of motion. In this section the dynamics of the electrons in a few hundreads of turns will be analysed. In this scale the transverse betatron oscillations are averaged out and the longitudinal dynamics, which describes the path length and energy oscillations around the fixed point, has its natural frequency. The main factors that influence in this framework are the small unballances between the energy loss of the particles and their energy gain in the RF cavity in one turn and the revolution time variation due to the energy offset of the particles.
@@ -398,7 +434,7 @@
     \begin{align}
    		\vect{\Delta p} = q\infint{t}{\vect{\nabla}\left(vA_s - \phi \right)} = \frac{qQ}{c} \vect{\nabla}_R W.
     \end{align}
-    where $\vect{R} =(x, y, -z)$ and $W = W(\vect{\rho}_s, \vect{\rho}_w, z)$ is the wake potential and it was used that the velocity of the particle is in the longitudinal direction. It was also considered that the fields go to zero at infinity. It can be checked\footnote{In Appendix~\ref{app:check_panofky} there is a demonstration of the equalities in equations~\eqref{eq:wake_from_potential}.} that the wake functions as defined in equation~\eqref{eq:wake_definition} are obtained from the wake potential by
+    where $\vect{R} =(x_w, y_w, -z)$ and $W = W(\vect{\rho}_s, \vect{\rho}_w, z)$ is the wake potential and it was used that the velocity of the particle is in the longitudinal direction. It was also considered that the fields go to zero at infinity. It can be checked\footnote{In Appendix~\ref{app:check_panofky} there is a demonstration of the equalities in equations~\eqref{eq:wake_from_potential}.} that the wake functions as defined in equation~\eqref{eq:wake_definition} are obtained from the wake potential by
     \begin{align}\label{eq:wake_from_potential}
    		w_s = - \derpar{W}{(-z)} = \derpar{W}{z},\qquad \vect{w}_\perp = \vect{\nabla}_\perp W,
     \end{align}
@@ -406,9 +442,13 @@
     \begin{align}\label{eq:panofsky_wenzel_theorem}
    		\derpar{\vect{w}_\perp}{z} = \vect{\nabla}_\perp w_s.
     \end{align}
-    which is known as Panofsky-Wenzel theorem. It is also possible to show that in the ultra-relativistic limit, $v \to c$, the wake potential is an hamonic function of the transverse coordinates
+    which is known as Panofsky-Wenzel theorem. It is also possible to show that in the ultra-relativistic limit, $v \to c$, the wake potential is an harmonic function of the transverse coordinates of the witness particle~\cite{Stupakov2000a}
     \begin{align}\label{eq:potential_harmonic}
-  	  	\derpar[2]{W}{x} + \derpar[2]{W}{y} = 0.
+  	  	\nabla^2_\perp W = \derpar[2]{W}{x_w} + \derpar[2]{W}{y_w} = 0,
+    \end{align}
+    and, if perfect conducting walls are assumed at the ends of the structure, it is also an harmonic function in relation to the transverse coordinates of the source particle~\cite{Zagorodnov2015}
+    \begin{align}\label{eq:potential_harmonic_source}
+  	  	(\nabla^s_\perp)^2 W = \derpar[2]{W}{x_s} + \derpar[2]{W}{y_s} = 0.
     \end{align}
 
     These properties are very important for calculating the wake functions numerically and will be used later in this work. The Panofsky-Wenzel theorem, for example, is very important in three dimensional simulations because all wake-functions can be obtained only from the longitudinal electric field, because the longitudinal wake function depends only on the longitudinal electric field as pointed out by equation~\eqref{eq:lorentz_force}. Then, from equation~\eqref{eq:panofsky_wenzel_theorem} we have:
@@ -637,6 +677,28 @@
     This approach may be conflicting in some situations when the high frequency content of the wake is desired and also the structure being analysed has strong resonant modes that take hundreads of meters behind the source to damp. Running a simulation with a short line density will drastically increase the time of the simulation because of the smaller mesh size, and would become impractical. The solution for these cases is to run two simulations, one with a short bunch and small wake length and other with a longer bunch and long wave length to characterize the resonant mode. Another approach would be to simulate the resonant modes with a frequency domain code.
 
 \subsubsection{ECHO Code}
+
+There are several solvers in the literature that were developed specifically for rotationally symmetric geometries~\cite{ABCI, MAFIA}, due to the high recurrency of this type of structure in accelerators. In this type of systems the wake potential in the ultra-relativistic approximation can be partially solved without the need of specifying the \gls{bcon}, only by the application of the Panofsky-Wenzel theorem and equation~\eqref{eq:potential_harmonic}. It can be shown~\cite{Stupakov2000a} that the most general form for the wake potential in such conditions is:
+\begin{align}
+	W(\rho_s, \rho_w, \theta, z) = \sum_{m=0}^\infty W_m(z) \rho_w^m\rho_s^m\cos(m\theta)
+\end{align}
+where $\rho = |\vect{\rho}|$ is the distance of the particles to the center of the chamber, $\theta$ is the angle between the the source and the witness particles and it was assumed the source particle is in the $\versor{x}$ direction. The wake functions can be obtained from the gradient of the wake potential. Expanding the wake functions in the leading order we notice
+\begin{align}
+	w_s(z) &\approx W'_0(z)
+	w_t(x_s, z) \approx W_1\rho_s(\versor{r}\cos(\theta)-\versor{\theta}\sin(\theta)) =
+						W_1x\versor{x}
+\end{align}
+where we notice the force is in the same direction of the displacement of the source particle.
+
+This partial solution of the wake potential allow us to solve each azimuthal component of the wake potential separatelly, which implies the numerical solution can be found for a single plane of the structure, for example, the plane $x-s$, or $y=0$. This bidimensional mesh drastically reduces the simulation time for such components and this class of codes are called 2D solvers. Among such codes we highlight ECHOz1 and ECHOz2~\cite{Zagorodnov2003, Zagorodnov2005, Zagorodnov2006a}, which are distributed free of charge by the author. While ECHOz1 calculates only the azimuthal mode $m=0$, ECHOz2 provides the longitudinal and transverse wake functions for an arbitrary mode $m$.  This code employes several solutions to commom problems of numeric simulations that makes these codes the state of the art for impedances calculation. Among the advantages of this code we highlight:
+\begin{itemize}
+	\item zero dispersion in the longitudinal plane, which is a numeric effect that introduces dependency of the phase velocity of the electromagnetic waves with their frequency that compromises the wakes;
+	\item fast convergence of the relation bunch size over grid length, $\sigma/h$: in other codes this ratio must be of the order of \SI{40}{} for the results to have the same precision as a value of \SI{5}{} for ECHO, which greatly reduces the simulation time for a given frequency requirement on the knowlegde of the impedance;
+	\item moving mesh: instead of discretize the whole structure, the grids move with the source and this region extends behind it only down to the desired length of the wake. This approach helps reducing the simulation time in cases where the structure is large the wake length is short and is applied in other codes, such as GdFiDL too;
+	\item indirect integration: for the wake calculation, the infinite integral in the longitudinal direction can substituted by finite integrals in contorns that spans the structure longitudinally. The first method proposed~\cite{Weiland} was valid only for cavity-like structures, but then it was generalized for any rotationally symmetric structure~\cite{Napoly1993, Zagorodnov2005} and finally generalized for any 3D structure~\cite{Zagorodnov2006}. This procedure greatly reduces the computational time because otherwise it would be necessary to propagate the beam for a very long distance only for the integral to converge. Besides, it improves the precision of the results, because the long integral in the direct method suffers from numerical errors accumulation.
+\end{itemize}
+
+There is another code provided by the same author, ECHOzR, that calculates the wakes of a rectangular structure~\cite{Zagorodnov2015}.
 
 \subsubsection{GdFiDL Code}
 
