@@ -693,8 +693,8 @@
     This partial solution of the wake potential allow us to solve each azimuthal component of the wake potential separatelly, which implies the numerical solution can be found for a single plane of the structure, for example, the plane $x-s$, or $y=0$. This bidimensional mesh drastically reduces the simulation time for such components and this class of codes are called 2D solvers. Among such codes we highlight ECHOz1 and ECHOz2~\cite{Zagorodnov2003, Zagorodnov2005, Zagorodnov2006a}, which are distributed free of charge by the author. While ECHOz1 calculates only the azimuthal mode $m=0$, ECHOz2 provides the longitudinal and transverse wake functions for an arbitrary mode $m$.  This code employes several solutions to commom problems of numeric simulations that makes these codes the state of the art for impedances calculation. Among the advantages of this code we highlight:
     \begin{itemize}
 	    \item zero dispersion in the longitudinal plane, which is a numeric effect that introduces a non-physical dependency of the phase velocity of the electromagnetic waves with their frequency, which deteriorates the precision of the wakes;
-	    \item fast convergence of the relation bunch size over grid length, $\sigma/h$: in other codes this ratio must be of the order of \SI{40}{} for the results to have the same precision as a value of \SI{5}{} for ECHO, which greatly reduces the simulation time for a given frequency requirement on the knowlegde of the impedance;
-	    \item moving mesh: instead of discretize the whole structure, the grids move with the source and this region extends behind it only down to the desired length of the wake. This approach helps reducing the simulation time in cases where the structure is larger than the wake length and is applied in other codes too, such as GdFiDL;
+	    \item fast convergence of the relation bunch size over grid length, $\sigma/h$: in other codes this ratio must be one order of magnitude larger than ECHO's for the results to have the same precision. In ECHO a ratio of \SI{5}{} already gives convergent results, which greatly reduces the simulation time for a given frequency requirement on the knowlegde of the impedance;
+	    \item moving mesh: instead of discretize the whole structure, the grids move with the source and this region extends behind it only down to the desired length of the wake. This approach helps reducing the simulation time in cases where the structure is larger than the wake length and is applied in other codes too, such as GdfidL;
 	    \item indirect integration: for the wake calculation, the infinite integral in the longitudinal direction can be substituted by finite integrals in closed contorns that spans the structure longitudinally. The first method proposed~\cite{Weiland} was valid only for cavity-like structures, but then it was generalized for any rotationally symmetric structure~\cite{Napoly1993, Zagorodnov2005} and finally generalized for any 3D structure~\cite{Zagorodnov2006}. This procedure greatly reduces the computational time because otherwise it would be necessary to propagate the beam for a very long distance only for the integral to converge. Besides, it improves the precision of the results, because the long integral in the direct method suffers from numerical errors accumulation.
     \end{itemize}
 
@@ -702,9 +702,9 @@
 
     There is also a generic version of the ECHO code, called ECHO3D, that can be used to compute the wakes for an arbitrary geometry. This code has all the advantages of the bidimensional codes, but lacks a key feature: it is not parallelized. For 3D structures this limitation imposes great restrictions on the type of simulation that can be performed, due to the extremelly large computational time.
 
-\subsubsection{GdFiDL Code}
+\subsubsection{GdfidL Code}
 
-    When the components of the vacuum chamber do not respect the symmetries required by the 2D solvers or cannot be approximated by one that does, 3D codes must be used. They are also used when a detailed simulation is needed to compute not only the wake potential but also the distribution ofthe electromagnetic field density in the structure, to calculate heating effects and also the transmission of the fields through ports. The most well-known platforms for this type of simulations are GdFiDL~\cite{Brums1997} and CST Particle Studio~\cite{siteCST}, being the first ehe code used for Sirius components design and simulation. GdFiDL does not have all the advanced techniques ECHO3D has, actually from the advantages highlighted in the last section it only employes the moving mesh, but is was developed for massive parallelization, which is a big advantage.
+    When the components of the vacuum chamber do not respect the symmetries required by the 2D solvers or cannot be approximated by one that does, 3D codes must be used. They are also used when a detailed simulation is needed to compute not only the wake potential but also the distribution of the electromagnetic field density in the structure, to calculate heating effects and also the transmission of the fields through ports. The most well-known platforms for this type of simulations are GdfidL~\cite{Brums1997} and CST Particle Studio~\cite{siteCST}, being the first the code used for Sirius components design and simulation. GdfidL does not have all the advanced techniques ECHO3D has, actually from the advantages highlighted in the last section it only employes the moving mesh, but is was developed for massive parallelization, which is a big advantage. In Appendix~\ref{app:}
 
 \section{Classification of Impedances and Wakes}
 
@@ -838,8 +838,8 @@
 \postextual
 
 % Referências bibliográficas
-\bibliographystyle{unsrt}
-% \bibliographystyle{numeric}
+% \bibliographystyle{unsrt}
+\bibliographystyle{numeric}
 % \bibliographystyle{plain}
 \bibliography{library}
 
@@ -1363,7 +1363,7 @@
     where we notice that when there is at least 2 planes of symmetry, all the odd order terms are zero.
 
 
-\chapter{Wake Calculation From GdfiDL Simulations}
+\chapter{Wake Calculation From GdfiDL Simulations} \label{app:wake_from_gdfidl}
 
     One simulation in GDFIDL consists of passing a linear gaussian bunch with the velocity of light in the longitudinal direction and with a specific transverse position, say $(x_s,y_s)=(d_x,d_y)$ through the simulated structure solving Maxwell equations in time. While doing this, the code saves in memory the wake potential $W(d_x,d_y,x,y,s)$ for all transverse positions $(x,y)$ of integration and all $s$. This procedure is very time consuming and we gerally try to perform the mininum amount of simulations possible to get the results we need.
 
