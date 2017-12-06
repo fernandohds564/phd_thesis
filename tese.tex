@@ -705,11 +705,11 @@
 
 \subsubsection{GdfidL Code}
 
-    When the components of the vacuum chamber do not respect the symmetries required by the 2D solvers or cannot be approximated by one that does, 3D codes must be used. They are also used when a detailed simulation is needed to compute not only the wake potential but also the distribution of the electromagnetic field density in the structure, to calculate heating effects and also the transmission of the fields through ports. The most well-known platforms for this type of simulations are GdfidL~\cite{Brums1997} and CST Particle Studio~\cite{siteCST}, being the first the code used for Sirius components design and simulation. GdfidL does not have all the advanced techniques ECHO3D has, actually from the advantages highlighted in the last section it only employes the moving mesh, but is was developed for massive parallelization, which is a big advantage. In Appendix~\ref{app:wake_from_gdfidl}
+    When the components of the vacuum chamber do not respect the symmetries required by the 2D solvers or cannot be approximated by one that does, 3D codes must be used. They are also used when a detailed simulation is needed to compute not only the wake potential but also the distribution of the electromagnetic field density in the structure, to calculate heating effects and also the transmission of the fields through ports. The most well-known platforms for this type of simulations are GdfidL~\cite{Brums1997} and CST Particle Studio~\cite{siteCST}, being the first the code used for Sirius components design and simulation. GdfidL does not have all the advanced techniques ECHO3D has, actually from the advantages highlighted in the last section it only employes the moving mesh, but is was developed for massive parallelization, which is a big advantage. In Appendix~\ref{app:wake_from_gdfidl} we discuss on the post-processing of GdfidL computation data.
 
-\section{Classification of Impedances and Wakes}
+\section{Models for Impedances and Wakes}
 
-    The impedance
+    Even though the impedances and wake functions of each component in the ring is a result of a complex interaction between a particle and its environment, there are some patterns
 
 
 
@@ -729,7 +729,13 @@
 
 
 \chapter{Collective Effects}
+
+    In the previous chapter the mechanism of interation between particles was modelled and formulas for the momentum change of an arbitrary particle due to the action of all the other particles in the beam were derived. In this chapter we will try to include these interactions in the dynamic model of the particles an analyse how the beam will behave as whole.
+
 \section{Energy Loss}
+
+    One of the most important effects is the energy loss by the beam. It can be computed considering only the leading order term in the momentum change expansion
+
 \section{Potential-Well Distortion}
 \section{Tune-shifts}
 \subsection{Coherent Tune-shifts}
