@@ -31,3 +31,4 @@
 *.fdb_latexmk
 *.nlg
 *.nls
+*.run.xml
