@@ -1,5 +1,6 @@
 %%%%%% IMPORTAÇÃO DOS PACOTES %%%%%%
 \input{preamble/preambulo}
+% \bibliography{library}
 
 % Informacoes de dados para CAPA e FOLHA DE ROSTO:
 \titulo{Estudo de Impedâncias e Instabilidades Coletivas aplicadas ao Sirius.}
@@ -704,11 +705,11 @@
 
 \subsubsection{GdfidL Code}
 
-    When the components of the vacuum chamber do not respect the symmetries required by the 2D solvers or cannot be approximated by one that does, 3D codes must be used. They are also used when a detailed simulation is needed to compute not only the wake potential but also the distribution of the electromagnetic field density in the structure, to calculate heating effects and also the transmission of the fields through ports. The most well-known platforms for this type of simulations are GdfidL~\cite{Brums1997} and CST Particle Studio~\cite{siteCST}, being the first the code used for Sirius components design and simulation. GdfidL does not have all the advanced techniques ECHO3D has, actually from the advantages highlighted in the last section it only employes the moving mesh, but is was developed for massive parallelization, which is a big advantage. In Appendix~\ref{app:}
+    When the components of the vacuum chamber do not respect the symmetries required by the 2D solvers or cannot be approximated by one that does, 3D codes must be used. They are also used when a detailed simulation is needed to compute not only the wake potential but also the distribution of the electromagnetic field density in the structure, to calculate heating effects and also the transmission of the fields through ports. The most well-known platforms for this type of simulations are GdfidL~\cite{Brums1997} and CST Particle Studio~\cite{siteCST}, being the first the code used for Sirius components design and simulation. GdfidL does not have all the advanced techniques ECHO3D has, actually from the advantages highlighted in the last section it only employes the moving mesh, but is was developed for massive parallelization, which is a big advantage. In Appendix~\ref{app:wake_from_gdfidl}
 
 \section{Classification of Impedances and Wakes}
 
-    In a real machine
+    The impedance
 
 
 
@@ -839,9 +840,10 @@
 
 % Referências bibliográficas
 % \bibliographystyle{unsrt}
-\bibliographystyle{numeric}
+% \bibliographystyle{numeric}
 % \bibliographystyle{plain}
 \bibliography{library}
+% \printbibliography
 
 
 % Apêndices
