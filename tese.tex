@@ -1468,18 +1468,18 @@
 \chapter{Passive Landau cavity simulation}
 
     Assuming the wake function of the main mode of the Landau cavity can be modelled by the longitudinal resonator impedance with parameters $\omega_R$, $R$ and $Q$:
-    \begin{align}
-        W'_0(z) = 2\alpha R\left(\cos\left(\frac{\bar{\omega}_Rz}{c}\right)-
+    \begin{align}\label{eq:longitudinal_resonator_wake}
+        W'_0(z) = 2\alpha Re^{-\alpha z/c}\left(\cos\left(\frac{\bar{\omega}_Rz}{c}\right)-
                                 \frac{\alpha}{\bar{\omega}_R}
                                     \sin\left(\frac{\bar{\omega}_Rz}{c}\right)\right)
     \end{align}
-    where $\alpha = R/2Q$, $\bar{\omega}_R=\sqrt{\omega_R^2-\alpha^2}$, then, the equilibrium normalized potential in the cavity is given by:
-    \begin{align}
+    where $\alpha = \omega_R/2Q$, $\bar{\omega}_R=\sqrt{\omega_R^2-\alpha^2}$, then, the equilibrium normalized potential in the cavity is given by:
+    \begin{align}\label{eq:total_potential}
         V_n(z) = \frac{eC_0}{cE_0}2\alpha R\left(\real{\hat{V}_n(z)}+\frac{\alpha}{\bar{\omega}_R}\imag{\hat{V}_n(z)}\right)
     \end{align}
     where $C_0$ is the ring circumference, $e$ is the electron charge, $E_0$ is the average energy of the storage ring and $c$ is the speed of light in vacuum. The subscript $n$ indicates we want to know the potential in the $n$-th bunch. The term $\hat{V}_n(z)$ is the infinite sum of the potentials deposited by each bunch in the structure in previous turns:
     \begin{align}
-        \hat{V}_n(z) = \sum_{l\in\mathscr{B}} \sum_{k=a_l}^\infty q_l e^{-\beta (s_l(k) - s_n(0)-z)}=
+        \hat{V}_n(z) = \sum_{l\in\mathscr{B}} \sum_{k=a_l}^\infty I_l e^{-\beta (s_l(k) - s_n(0)-z)}=
                     e^{\beta z}\sum_{l\in\mathscr{B}}I_l e^{\beta(n-l)\frac{C_0}{h}}
                     \overbrace{\sum_{k=a_l}^\infty e^{-\beta k C_0}}^{A_l}
     \end{align}
@@ -1502,9 +1502,26 @@
         \right.
     \end{align}
     where the $1/2$ in the $l=n$ case is needed to take into account the fundamental theorem of beam loading. This way, we can write
+    \begin{align}\label{eq:}
+        \hat{V}_n(z) = e^{\beta z}\sum_{l\in\mathscr{B}}A_l I_l e^{\beta(n-l)\frac{C_0}{h}}.
+    \end{align}
+
+    The result above can be generalized to distributions $\lambda_l(z)$ different than the point charge, $\delta(z)$. Starting from equation~\eqref{eq:general_eff_long_wake} and assuming the wake function is given by equation~\eqref{eq:longitudinal_resonator_wake}, we get an equation similar to~\eqref{eq:total_potential}, with $\hat{V}_n(z)$ given by
     \begin{align}
         \hat{V}_n(z) = e^{\beta z}\sum_{l\in\mathscr{B}}A_l I_l e^{\beta(n-l)\frac{C_0}{h}}
+                    \overbrace{\infint{z'}{\lambda_l(z') e^{-\beta z'}}}^{B_l}
     \end{align}
+    where the integral $B_l$ can be carried out assuming the damping factor, $\alpha$, is small, in such a way that the distribution $\lambda_l$ goes to zero in an interval much smaller than the scale where the factor $e^{-\alpha z'/c}$ have any influence:
+    \begin{align}
+        B_l = \infint{z'}\lambda_l(z') e^{-\beta z'}\,\, \overset{\alpha z_0/c \ll1}{\approx}
+              \infint{z'}\lambda_l(z') e^{-i\bar{\omega}_R z'} = \fourier{\lambda}^*_l(\bar{\omega}_R)
+    \end{align}
+    where $z_0$ is any characterist length of the distribution $\lambda_l$. Finally, we can write:
+    \begin{align}
+        \hat{V}_n(z) = e^{\beta z}\sum_{l\in\mathscr{B}}A_l I_l \fourier{\lambda}^*_l(\bar{\omega}_R) e^{\beta(n-l)\frac{C_0}{h}}.
+    \end{align}
+
+    Notice that both expressions,~\eqref{eq:}
 
 \end{apendicesenv}
 
