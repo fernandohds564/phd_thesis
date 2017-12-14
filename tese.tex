@@ -8,7 +8,7 @@
 \local{Campinas}
 \data{2017}
 \orientador[Orientador:]{Prof. Dr. Antônio Rubens Britto de Castro}
-\coorientador[Co-orientador:]{Prof. Dr. Sílvio}
+\coorientador[Co-orientador:]{Prof. Dr. Silvio Antonio Sachetto Vitiello}
 \instituicao{%
     UNIVERSIDADE ESTADUAL DE CAMPINAS
     \par
@@ -282,13 +282,13 @@
 	\end{align}
 	where $n$ refers to the current turn and $n+1$ to the next and $L_0$ is the nominal circumference of the ring.
 
-	\subsection{The Energy Balance}
+\subsection{The Energy Balance}
 
 	It can be shown that the rate of energy loss of a particle due to synchrotron radiation emission is proportial to the square of the magnetic field times the square of its total energy. Translating this dependency to a storage ring, the energy loss in one turn depends on the magnetic lattice and the particles energy deviation. For the ideal particle the energy loss is always the same and depends only on the magnetic field of the dipoles, but as the closed orbit for particles with non-zero energy deviation is different, its energy loss will be different not only because of the intrinsic dependence of the emission but also because of the slightly different magnetic fields it will experience in one turn. The combination of these effects can be modelled in the following linear approximation:
 	\begin{align}\label{eq:radiation_loss}
-		\Delta E_\text{Rad} \approx -U_0 - E_0D\delta_n
+		\Delta E_\text{Rad} \approx -U_0 - E_0L_0\alpha_\delta\delta_n
 	\end{align}
-	where $U_0$ is the energy loss of the ideal particle in one turn, $E_0$ is the nominal energy of the storage ring and the coefficient $D$ includes both effects, the intrinsic dependence on the energy and the different orbit fields.
+	where $U_0$ is the energy loss of the ideal particle in one turn, $E_0$ is the nominal energy of the storage ring and the coefficient $\alpha_\delta$ includes both effects, the intrinsic dependence on the energy and the different orbit fields.
 
 	The energy gain of a particle in the RF cavity is given by the integral of the longitudinal electric field, $E_\parallel$, along the path of the particle and depends only on the initial phase of the field when it enters the cavity:
 	\begin{align}
@@ -300,32 +300,35 @@
 	\begin{align}\label{eq:harmonic_number}
 		\omega_{RF} &= h\omega_0
 	\end{align}
-	where $h$ is called harmonic number. With this assumption, even though the fields are time dependent the synchronous particle will always see the same conditions as it enters in the cavity. Now lets make a further assumption that the synchronous particle reaches the cavity in the exact time where it gains $U_0$ energy of the cavity:
-	\begin{align}
+	where $h$ is called harmonic number. With this assumption, even though the fields are time dependent, the synchronous particle will always see the same conditions as it enters in the cavity. Now lets make a further assumption that the synchronous particle reaches the cavity in the exact time where it gains $U_0$ energy of the cavity:
+	\begin{align}\label{eq:synchronous_phase_condition}
 		V(0) = U_0
 	\end{align}
 	where the time reference on \gls{lhs} is relative to the position of the synchronous particle. Considering both assumptions and combining the energy gain in the cavity with the energy loss in one turn, given by equation~\eqref{eq:radiation_loss}, we get the following one turn energy balance for a storage ring:
 	\begin{align}\label{eq:energy_balance}
-		\delta_{n+1} = \delta_n - D\delta_n + \frac{V(z_{n+1})-U_0}{E_0}.
+		\delta_{n+1} = \delta_n - L_0\alpha_\delta\delta_n + \frac{V(z_{n+1})-U_0}{E_0}.
 	\end{align}
-	where the subscript $n+1$ in the particles position means that it will go around the ring first and then pass through the cavity.
+	where the subscript $n+1$ in the particle position means that it will go around the ring first and then pass through the cavity.
 
-	\subsection{Phase Stability Principle}
+\subsection{Phase Stability Principle}
 
 	Combining equations~\eqref{eq:revolution_time_variation}~and~\eqref{eq:energy_balance} we get the one turn map for the longitudinal plane for which the synchronous position and the nominal energy defines a fixed point. To analyse the stability of this fixed point let's linearize the map in its vicinity:
 	\begin{align}
 		\begin{bmatrix} z_{n+1} \\ \delta_{n+1}\end{bmatrix} = \overbrace{
-			\begin{bmatrix} 1 & \alpha L_0 \\ -V'_0 & 1-D - V'_0\alpha L_0 \end{bmatrix}
+			\begin{bmatrix}
+                1 & \alpha L_0 \\
+                -V'_0 & 1-L_0\alpha_\delta - V'_0\alpha L_0
+            \end{bmatrix}
 		}^M \begin{bmatrix} z_n \\ \delta_n \end{bmatrix}.
 	\end{align}
 	where $V'_0$ is the derivative of the voltage gap in relation to the arrival time of the particles at the synchronous position normalized by the nominal energy of the ring, $E_0$. The stability condition, $\text{Tr}(M) <= 2$, requires the derivative of the gap voltage to be positive if $\alpha$ is positive. To ilustrate this condition consider that initially a particle arrives ahead of the synchronous particle, the positive derivative means it will gain more energy, which makes it take longer to go around the ring, diminishing the difference in arrival time for the next turn. This way all particles remain in an oscillatory movement around the fixed point with frequency given by
 	\begin{align}
 		\text{Tr}(M) = 2\cos(2\pi\nu_s) \approx 2-(2\pi\nu_s)^2 \implies
-		\nu_s \approx \frac{1}{2\pi}\sqrt{D+V'_0\alpha L_0},
+		\nu_s \approx \frac{1}{2\pi}\sqrt{L_0\alpha_\delta+V'_0\alpha L_0},
 	\end{align}
 	where $\nu_s$ is called synchrotron tune in analogy to the betatron tunes defined in subsection~\ref{ssub:betatron_function}.
 
-	Additionally, the determinant of the one turn matrix is $(1-D)$, which implies the oscillations are damped, with $D$ being the damping factor. In most storage rings this effect is small compared to the oscillation time, requiring thousands of turns to influence the dynamics.
+	Additionally, the determinant of the one turn matrix is $(1-L_0\alpha_\delta)$, which implies the oscillations are damped, with $\alpha_\delta$ being the damping factor. In most storage rings this effect is small compared to the oscillation time, requiring thousands of turns to influence the dynamics.
 
 	The voltage gap has the same harmonic composition as function of the arrival time as the electric field as a function of time. This means that the condition imposed in equation~\eqref{eq:harmonic_number} implies that there are at least $h$ stable fixed point along the ring and, as in general the voltage is a pure senoid, these are the only stable points. This means that it is possible to store up to $h$ aglomerations of electrons, called bunches, in a storage ring.
 
@@ -333,12 +336,12 @@
 
 	There is an important approximation to the map equations derived in the previous sections that consists in considering the turn by turn iterations as inifinitesimal transformations and taking the limit to the continuum, considering differences between turns as derivatives. With this considerations, the equations of motion becomes:
 	\begin{align}
-		\dertot{z}{t} &= \frac{\alpha \delta(t)}{c} \\\nonumber
-		\dertot{\delta}{t} &= \frac{D}{T_0} + \frac{V(z(t))-U_0}{T_0E_0}
+		\dertot{z}{s} &= \alpha \delta(s) \\\nonumber
+		\dertot{\delta}{s} &= \alpha_\delta\delta(s) + \frac{V(z(s))-U_0}{L_0E_0}
 	\end{align}
 	where $T_0$ is the nominal revolution time of the ring. If the damping term is not considered, the equations of motion can be derived from a static Hamiltonean, given by:
 	\begin{align}
-		H(z, \delta) = \frac12\left(\frac{\alpha\delta}{c}\right)^2 \quad \overbrace{- \frac{\alpha}{c}\defint{x}{\frac{V(x)-U_0}{T_0E_0}}{0}{z}}^{U(z)}
+		H(z, \delta) = \frac\alpha2\delta^2 \quad \overbrace{- \frac{\alpha}{c}\defint{x}{\frac{V(x)-U_0}{L_0E_0}}{0}{z}}^{U(z)}
 	\end{align}
 	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy. When the oscillations of the particles are small the potential well can be expandend in power series of the longitudinal position of the particle. The shape of the potential in this region is the
 
@@ -467,7 +470,7 @@
 
     In appendix~\ref{app:causality} we will discuss this approximation in more detail, but the general idea is that due to the fact that the direct field of an ultra-relativistic particle is in the same plane as the particle itself, the wake-fields generated by an imperfection in the vacuum chamber are created at the exact same time this particle passes through the longitudinal position where this imperfection is located. Since the particle and wake-field wave front have the same speed, the latter cannot catch up with the first.
 
-    Even though this is a good approximation for real beams stored in \gls{sls} storage rings and it generally simplifies the calculations and even possibilitates the use of specific algorithms to compute the effects on the beam\footnote{An example is the algorithm to find the beam equilibrium longitudinal position described in reference~\cite{bane}}, in this work we will not assume this approximation for any of the wakes used and all the algorithms used will work with causal and non-causal wakes. The main reason for this consideration is that all the raw wakes that results from the time domain solvers of the \gls{maxeq} do not respect the causality condition\footnote{The motive will be discussed in the section~\ref{ssec:numeric_methods}} and there are some ocasions where their use instead of the refined results is interesting for many reasons that will be discussed in section~\ref{ssec:numeric_methods}. Besides, this formalism of wake functions is more general than the wake fields subject and can be applied for other sources of collective effects, such as the interaction of the beam with ions in the vacuum chamber~\cite{zimerman} or to model the effect of \gls{csr} on the beam. While the wakes of the first also respect the causality, the second is completely the opposite, being zero for particles behind the source and non-zero for particles ahead~\cite{csrpaper}.
+    Even though this is a good approximation for real beams stored in \gls{sls} storage rings and it generally simplifies the calculations and even possibilitates the use of specific algorithms to compute the effects on the beam\footnote{An example is the algorithm to find the beam equilibrium longitudinal distribution described in reference~\cite{bane}}, in this work we will not assume this approximation for any of the wakes used and all the algorithms used will work with causal and non-causal wakes. The main reason for this consideration is that all the raw wakes that results from the time domain solvers of the \gls{maxeq} do not respect the causality condition\footnote{The motive will be discussed in the section~\ref{ssec:numeric_methods}} and there are some ocasions where their use instead of the refined results is interesting for many reasons that will be discussed in section~\ref{ssec:numeric_methods}. Besides, this formalism of wake functions is more general than the wake fields subject and can be applied for other sources of collective effects, such as the interaction of the beam with ions in the vacuum chamber~\cite{zimerman} or to model the effect of \gls{csr} on the beam. While the wakes of the first also respect the causality, the second is completely the opposite, being zero for particles behind the source and non-zero for particles ahead~\cite{csrpaper}.
 
 \section{Expansion of the wakes}
 
@@ -561,24 +564,24 @@
     \end{align}
     where the sum can be extended to infinity because the wake-potential is zero for relative positions between the source and the witness when there is no interaction between them. For example it would not make sense for a particle feel the wake field it will generate in the next turn, this means the wake potential must be zero for large negative values of $z-z'$. Yet, in the most general case there is more than one bunch stored in the ring, which means it is also necessary to take the influence of other bunches into account
     \begin{align}\label{eq:general_eff_wake_pot}\nonumber
-  	  	V_n(\vect{\rho}, z, t) = \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
+  	  	V_n(\vect{\rho}, z, t) = \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
 	  			&\Psi_l(\vect{p},\vect{\rho}',z'; t-kT_0-\frac{(s_l-s_n)}{c})
 				\times\\
 				&W(\vect{\rho}',\vect{\rho},z-z' + kcT_0 + (s_l-s_n))}}}
     \end{align}
-    where $s_l$ is the $l$-th synchrotron position of the ring and $\mathscr{B}$ is a set of integer numbers to identify which bunchs are filled with particles. For example, if the bunches $1, 10, 500$ and $735$ are filled and the rest is empty, then $\mathscr{B} = \{ 1, 10, 500, 735 \}$ and for sure $n\in\mathscr{B}$. Also $V_n$ needs the subscript $n$ in order to identify that this is the wake potential felt by the $n$-th bunch in the ring.
+    where $I_l$ is the current and $s_l$ is the synchrotron position of the $l$-th bunch in the ring, $\average{I}=\sum_{l\in\mathscr{B}}I_l/M$ is the average current per bunch and $\mathscr{B}$ is a set of integer numbers to identify which bunchs are filled with particles. For example, if the bunches $1, 10, 500$ and $735$ are filled and the rest is empty, then $\mathscr{B} = \{ 1, 10, 500, 735 \}$ and for sure $n\in\mathscr{B}$. Also $V_n$ needs the subscript $n$ in order to identify that this is the wake potential felt by the $n$-th bunch in the ring.
 
     Combining equation~\eqref{eq:general_eff_wake_pot} with the expansion of equation~\eqref{eq:important_wakes} we can derive expressions for each component of the effective wake functions of the beam
     \begin{align}\label{eq:general_eff_long_wake}
-	  	(V_0)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
+	  	(V_0)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
 	  			&\lambda_l(z'; t-kT_0-\frac{(s_l-s_n)}{c})
 				\times\\
 				&W'_0(z-z' + kcT_0 + (s_l-s_n))}\\[3mm]
-	  	(V^Q_X)_n(x, z, t) =\nonumber x\sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
+	  	(V^Q_X)_n(x, z, t) =\nonumber x\sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
 	  			&\lambda_l(z'; t-kT_0-\frac{(s_l-s_n)}{c})
 				\times\\
 				&W^Q(z-z' + kcT_0 + (s_l-s_n))}\\[3mm]
-	  	(V^D_X)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\sum_{k=-\infty}^\infty\udefint{z'}{
+	  	(V^D_X)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
 	  			&d_l(z'; t-kT_0-\frac{(s_l-s_n)}{c})
 				\times\\
 				&W^D_X(z-z' + kcT_0 + (s_l-s_n))}
@@ -691,7 +694,7 @@
     \end{align}
     where we notice the force is in the same direction of the displacement of the source particle.
 
-    This partial solution of the wake potential allow us to solve each azimuthal component of the wake potential separatelly, which implies the numerical solution can be found for a single plane of the structure, for example, the plane $x-s$, or $y=0$. This bidimensional mesh drastically reduces the simulation time for such components and this class of codes are called 2D solvers. Among such codes we highlight ECHOz1 and ECHOz2~\cite{Zagorodnov2003, Zagorodnov2005, Zagorodnov2006a}, which are distributed free of charge by the author. While ECHOz1 calculates only the azimuthal mode $m=0$, ECHOz2 provides the longitudinal and transverse wake functions for an arbitrary mode $m$.  This code employes several solutions to commom problems of numeric simulations that makes these codes the state of the art for impedances calculation. Among the advantages of this code we highlight:
+    This partial solution of the wake potential allow us to solve each azimuthal component of the wake potential separatelly, which implies the numerical solution can be found for a single plane of the structure, for example, the plane $x-s$, or $y=0$. This bidimensional mesh drastically reduces the simulation time for such components and this class of codes are called 2D solvers. Among such codes we highlight ECHOz1 and ECHOz2~\cite{Zagorodnov2003, Zagorodnov2005, Zagorodnov2006a}, which are distributed free of charge by the author. While ECHOz1 calculates only the azimuthal mode $m=0$, ECHOz2 provides the longitudinal and transverse wake functions for an arbitrary mode $m$.  This code employes several solutions to commom problems of numeric simulations that makes it the state of the art for impedances calculation. Among the advantages of this code we highlight:
     \begin{itemize}
 	    \item zero dispersion in the longitudinal plane, which is a numeric effect that introduces a non-physical dependency of the phase velocity of the electromagnetic waves with their frequency, which deteriorates the precision of the wakes;
 	    \item fast convergence of the relation bunch size over grid length, $\sigma/h$: in other codes this ratio must be one order of magnitude larger than ECHO's for the results to have the same precision. In ECHO a ratio of \SI{5}{} already gives convergent results, which greatly reduces the simulation time for a given frequency requirement on the knowlegde of the impedance;
@@ -730,13 +733,51 @@
 
 \chapter{Collective Effects}
 
-    In the previous chapter the mechanism of interation between particles was modelled and formulas for the momentum change of an arbitrary particle due to the action of all the other particles in the beam were derived. In this chapter we will try to include these interactions in the dynamic model of the particles an analyse how the beam will behave as whole.
+    In the previous chapter the mechanism of interation between particles was modelled and formulas for the momentum change of an arbitrary particle due to the action of all the other particles in the beam were derived. In this chapter we will try to include these interactions in the dynamic model of the particles and analyze how the beam will behave as whole.
+
+\section{Sum of the Wakes}
+
+    With the theory developed so far it is formally possible to calculate the wake potential for all the structures of the ring and include their effects on the beam dynamics assuming the impulse approximation, which considers the variation of the particle momentum must be applied each one is localized in a single point along the trajectory of the electrons. The point for each contribution to the wake corresponds  Even though this
+
+
 
 \section{Energy Loss}
 
     One of the most important effects is the energy loss by the beam. It can be computed considering only the leading order term in the momentum change expansion
+    \begin{align}
+        \Delta E \approx c\Delta p \approx c\funcof{\frac{p_s}{p}\Delta p_s + x'\Delta p_x + y'\Delta p_y} \approx c\Delta p_s.
+    \end{align}
+    This way the energy variation of a given particle due to wake-fields depends on which bunch it is and on its longitudinal deviation from the synchronous particle and is given, in the most general form, by the  equation~\eqref{eq:general_eff_long_wake} multiplied by the average charge of the bunches and the charge of the particle. If we consider the distributions are stationary and the ring is uniformly filled with charge, then the expression for the wake-potential is reduced to equation~\eqref{eq:impedance_interpretation}.
+
+    Under this approximation, the energy variation of a particle after passing througth the impedance source would be given by:
+    \begin{align}\label{eq:part_energy_loss}
+	  	\Delta E\funcof{z} = -eI_bT_0V_0(z) = -eI_bT_0\frac{M\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z_\parallel(pM\omega_0)e^{-ipM\omega_0 z/c}.
+    \end{align}
+    where $I_b=Q_b/T_0=N_be/T_0$ is the current per bunch, $T_0$ is the revoluton time, $N$ is the number of particles per bunch and $e$ is the absolute value of the elemetary charge of the electron. The average total energy lost by one bunch is given by
+    \begin{align}
+        \average[b]{\Delta E} = N_b\infint{z}{\lambda\funcof{z}\Delta E\funcof{z}} = -\funcof{I_bT_0}^2\overbrace{\frac{M\omega_0}{2\pi} \sum_{p=-\infty}^\infty |\fourier{\lambda}(pM\omega_0)|^2\real{Z_\parallel(pM\omega_0)}}^{\kappa_\parallel}
+    \end{align}
+    where $\kappa_\parallel$ is called the longitudinal loss factor, $|\fourier{\lambda\funcof{\omega}}|^2 = \fourier{\lambda}\funcof{\omega}\fourier{\lambda}^*\funcof{\omega}$ must be and even function of the frequency, given that $\lambda$ is real. Notice that only the real part of the impedance contributes to the energy loss, because the imaginary part is an odd function of the frequency. The average energy loss per particle can be defined as
+    \begin{align}
+        \average[p]{\Delta E} = \frac{\average[b]{\Delta E}}{N_b} = -eI_bT_0\kappa_\parallel.
+    \end{align}
+    For impedances that varys smoothly with the frequency, compared to the interval $M\omega_0$ the sum in the definition of the loss factor can be replaced by an integral
+    \begin{align}
+        \kappa_\parallel =
+            \frac{1}{2\pi} \infint{\omega}|\fourier{\lambda}(\omega)|^2\real{Z_\parallel(pM\omega_0)} =
+            \frac1\pi \defint{\omega}{|\fourier{\lambda}(\omega)|^2\real{Z_\parallel(pM\omega_0)}}{0}{\infty}.
+    \end{align}
+
+    The sum of the energy loss in each impedance source of the ring results in and additional energy loss per turn for the particles. This means the new fixed point of the longitudinal one turn map is not given by equation~\eqref{eq:synchronous_phase_condition}, but by
+    \begin{align}
+        V(z_0) = U0 + \average[p]{\Delta E}
+    \end{align}
+    instead, where $z_0$ is the new synchronous position, measured in relation to the zero current one.
 
 \section{Potential-Well Distortion}
+
+    Besides a shift of the
+
 \section{Tune-shifts}
 \subsection{Coherent Tune-shifts}
 \subsection{Incoherent Tune-shifts}
@@ -746,7 +787,6 @@
 \section{Landau damping}
 \section{Analytical Treatment}
 \subsection{The Linearized Fokker-Planck Equation}
-\subsubsection{Stationary Solution: Haissinski Equation}
 \subsubsection{Modal expantion}
 \paragraph{Head-tail modes}
 \subsubsection{Solution for Gaussian Bunches}
@@ -1422,8 +1462,8 @@
     De acordo com a referência, temos que:
 
     \begin{align}
-		W_{||}(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty W_m(y_0,y,s)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\
-		W_y(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty k_{x,m}W_{y,m}(y_0,y,s)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\
+		W_{||}(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty W_m(y_0,y,s)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\[4mm]
+		W_y(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty k_{x,m}W_{y,m}(y_0,y,s)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\[4mm]
 		W_x(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty k_{x,m}W_{x,m}(y_0,y,s)\sin(k_{x,m}x_0)\cos(k_{x,m}x),
     \end{align}
     where $w$ is the half-width of the structure, $0<x<2w$ is the horizontal position of the trailing particle, $0<x_0<2w$ is the horizontal position of the source particle, $y$ is vertical position of the trailing particle, $y_0$ is vertical position of the source particle, $s=z-ct$ is the position of the trailing particle relative to the source particle and
@@ -1432,9 +1472,12 @@
     \end{equation}
     The other terms are given by
     \begin{align}
-		W_m(y_0,y,s)     &= W^{cc}_m(s)\cosh(k_{x,m}y_0)\cosh(k_{x,m}y) + W^{ss}_m(s)\sinh(k_{x,m}y_0)\sinh(k_{x,m}y), \\
-		W_{y,m}(y_0,y,s) &= S^{cc}_m(s)\cosh(k_{x,m}y_0)\sinh(k_{x,m}y) + S^{ss}_m(s)\sinh(k_{x,m}y_0)\cosh(k_{x,m}y), \\
-		W_{x,m}(y_0,y,s) &= S^{cc}_m(s)\cosh(k_{x,m}y_0)\cosh(k_{x,m}y) + S^{ss}_m(s)\sinh(k_{x,m}y_0)\sinh(k_{x,m}y),
+		W_m(y_0,y,s)     = &W^{cc}_m(s)\cosh(k_{x,m}y_0)\cosh(k_{x,m}y) +\\\nonumber
+                           &W^{ss}_m(s)\sinh(k_{x,m}y_0)\sinh(k_{x,m}y), \\[4mm]
+		W_{y,m}(y_0,y,s) = &S^{cc}_m(s)\cosh(k_{x,m}y_0)\sinh(k_{x,m}y) +\\\nonumber
+                           &S^{ss}_m(s)\sinh(k_{x,m}y_0)\cosh(k_{x,m}y), \\[4mm]
+		W_{x,m}(y_0,y,s) = &S^{cc}_m(s)\cosh(k_{x,m}y_0)\cosh(k_{x,m}y) +\\\nonumber
+                           &S^{ss}_m(s)\sinh(k_{x,m}y_0)\sinh(k_{x,m}y),
     \end{align}
     where
     \begin{align}
@@ -1442,7 +1485,7 @@
     \end{align}
     and the quantities $W^{cc}_m(s')$ and $W^{ss}_m(s')$ are related to the output of the softwares ECHOzR and ECHO2D by:
     \begin{align}
-		W^{cc}_m(s') = \frac{W_m^M(y_0,y,s)}{\cosh(k_{x,m}y_0)\cosh(k_{x,m}y)} \\
+		W^{cc}_m(s') = \frac{W_m^M(y_0,y,s)}{\cosh(k_{x,m}y_0)\cosh(k_{x,m}y)} \\[4mm]
 		W^{ss}_m(s') = \frac{W_m^E(y_0,y,s)}{\sinh(k_{x,m}y_0)\sinh(k_{x,m}y)}
     \end{align}
     where $W_m^M(y_0,y,s)$ and $W_m^M(y_0,y,s)$ are the results of the simulation with magnetic and electric boundary conditions, respectively.
@@ -1450,16 +1493,16 @@
 
     Our objective is to obtain the formulas for the monopole longitudinal, dipole and quarupolar transverse wake functions at the point $\vec{v} = (x_0=w,y_0=0,x=w,y=0)$ from these results. The monopolar wakes are readly obtained:
     \begin{align}
-		W_m(0,0,s) = W^{cc}_m(s) &\Rightarrow W_{||}(\vec{v}) = \frac1w\sum^\infty_{m=1,\mathrm{odd}} W^{cc}_m(s), \\
-		W_{y,m}(0,0,s) = 0 &\Rightarrow W_y(\vec{v}) = 0, \\
+		W_m(0,0,s) = W^{cc}_m(s) &\Rightarrow W_{||}(\vec{v}) = \frac1w\sum^\infty_{m=1,\mathrm{odd}} W^{cc}_m(s), \\[4mm]
+		W_{y,m}(0,0,s) = 0 &\Rightarrow W_y(\vec{v}) = 0, \\[4mm]
 		W_{x,m}(0,0,s) = S^{cc}_m(s) &\Rightarrow W_x(\vec{v}) = \frac1w\sum^\infty_{m=1} S^{cc}_m(s)\frac{\sin(m\pi)}{2} = 0
     \end{align}
     To calculate the dipolar and quadrupolar wakes, we need to take the first derivative of the transverse wakes at the point of interest, $\vec{v}$. It is easy to see that the first derivatives of the longitudinal wake are zero. For the transverse:
 
     \begin{align}
-		W_{y,d}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}y_0}W_y\right|_{\vec{v}} = \frac1w\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 S^{ss}_m(s) = \frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 W^{ss}_m(s') \mathrm{d}s',\\
-		W_{y,q}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}y}W_y\right|_{\vec{v}} = \frac1w\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 S^{cc}_m(s) = \frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 W^{cc}_m(s') \mathrm{d}s', \\
-		W_{x,d}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}x_0}W_x\right|_{\vec{v}} = \frac1w\sum^\infty_{m=1,\mathrm{even}} k_{x,m}^2 S^{cc}_m(s) = \frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{even}}k_{x,m}^2 W^{cc}_m(s') \mathrm{d}s', \\
+		W_{y,d}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}y_0}W_y\right|_{\vec{v}} = \frac1w\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 S^{ss}_m(s) = \frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 W^{ss}_m(s') \mathrm{d}s',\\[4mm]
+		W_{y,q}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}y}W_y\right|_{\vec{v}} = \frac1w\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 S^{cc}_m(s) = \frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 W^{cc}_m(s') \mathrm{d}s', \\[4mm]
+		W_{x,d}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}x_0}W_x\right|_{\vec{v}} = \frac1w\sum^\infty_{m=1,\mathrm{even}} k_{x,m}^2 S^{cc}_m(s) = \frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{even}}k_{x,m}^2 W^{cc}_m(s') \mathrm{d}s', \\[4mm]
 		W_{x,q}(s) &= \left.\frac{\mathrm{d}}{\mathrm{d}x}W_x\right|_{\vec{v}} = -\frac1w\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 S^{cc}_m(s) =-\frac1w\int_{-\infty}^s\sum^\infty_{m=1,\mathrm{odd}} k_{x,m}^2 W^{cc}_m(s') \mathrm{d}s'
     \end{align}
     and all the skew terms are zero.
