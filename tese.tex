@@ -247,7 +247,7 @@
 
 \section{Reference System}
 
-    Connected to the concept of a storage ring is the one of the reference orbit. This special closed orbit is the one that an idealized particle, the synchronous particle, with the storage ring nominal energy would follow if it had the correct initial conditions. Besides, all the components of a storage ring are aligned according to this special orbit in such a way that their center, symmetry points or axis coincide with transverse sections with it. In practice the trajectories of all particles stored in the machine will be close to it. For this reason the reference orbit is chosen to be the origin of the reference frame, defining a curved coordinate system that moves along the ring, with one longitudinal coordinate tangent to the local orbit and two transverse coordinates perpendicular to it. This type of co-moving coordinate system is called Frenet-Serret frame~\cite{Frenet1847,Serret1851}, as explained in~\cite{wikipedia}. Actually, as generally storage rings are planar objects, due to the fact that they only have dipoles to bend the trajectories in the horizontal plane, the torsion of the coordinate system is always zero. Considering this, we can define the coordinate system in the following way~\cite{LeeBook}:
+    Connected to the concept of a storage ring is the one of the reference orbit. This special closed orbit is the one that an idealized particle, the synchronous particle, with the storage ring nominal energy would follow if it had the correct initial conditions. Besides, all the components of a storage ring are aligned according to this special orbit in such a way that their center, symmetry points or axis coincide with its transverse sections. In practice the trajectories of all particles stored in the machine will be close to it. For this reason the reference orbit is chosen to be the origin of the reference frame, defining a curved coordinate system that moves along the ring, with one longitudinal coordinate tangent to the local orbit and two transverse coordinates perpendicular to it. This type of co-moving coordinate system is called Frenet-Serret frame~\cite{Frenet1847,Serret1851}, as explained in~\cite{wikipedia}. Actually, as generally storage rings are planar objects, due to the fact that they only have dipoles to bend the trajectories in the horizontal plane, the torsion of the coordinate system is always zero. Considering this, we can define the coordinate system in the following way~\cite{LeeBook}:
     \begin{align}\nonumber
         \versor{s}(s) &= \dertot{\vect{r}_0(s)}{s},\\
         \versor{x}(s) &= -\rho(s)\frac{\versor{s}(s)}{s},\\\nonumber
@@ -259,6 +259,12 @@
     \begin{align}
         \vect{r}(s) = \vect{r}_0(s) + x\versor{x}(s) + y\versor{y}(s)
     \end{align}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{coordinate_system.png}
+        \caption[Frenet-Serret reference frame of a storage ring]{Frenet-Serret reference frame of a storage ring, with right-handed coordinate system ${\versor{x},\versor{s},\versor{y}}$. Based on~\cite[pp. 123]{LeeBook}.}
+        \label{fig:reference_frame}
+    \end{figure}
     with $x$ and $y$ being the horizontal and vertical displacements of the particles in relation to the reference orbit. In this reference frame, the dynamics of each particle can be represented by its position in the six dimensional phase space defined by:
     \begin{align}\label{eq:phase_space_definition}
         \left\{ x, x', y, y', z, \delta \right\}
@@ -285,9 +291,18 @@
 
     This Hamiltonean generates two second order coupled and non-linear equations of motion for the transverse coordinates of motion that accurately describes the short and mid term stability of the particles. Most of the non-linearities and coupling in these equations come from the magnetic fields of the magnets along the ring, being the other contributor the curvature of the reference orbit and the energy deviation of each particle. At this stage of the simplification of the problem the dynamics of the electrons still is very complicated, mainly for storage rings such as Sirius, with several and very strong Sextupoles that introduces chaos in the system in regions of the phase-space that are close to the fixed point.
 
-\subsection{Linear Motion}
+\subsection{Linear Equations of Motion}
 
-	With further approximations, considering only the terms of the equations of motion that are linear with the phase-space coordinates and eliminating all coupling between the two transverse directions of motion, the analysis of the dynamics becomes simple enough to allow its complete understanding, with analytical solutions to the equations of motion and physically significant parametrizations, that summarizes and simply describes a given machine. In this regime, the transverse movement of the electron is only dependent on the fields of dipoles and quadrupoles.
+	With further approximations, considering only the terms of the equations of motion that are linear with the phase-space coordinates and eliminating all coupling between the two transverse directions of motion, the analysis of the dynamics becomes simple enough to allow its complete understanding, with analytical solutions to the equations of motion and physically significant parametrizations, that summarizes and simply describes a given machine. In this regime, the transverse movement of the electron is only dependent on the fields of dipoles and quadrupoles. Under such considerations, the Hamiltonean of an arbitrary particle stored in the ring is given by
+    \begin{align}
+        H \approx \frac{x'^2}{2} + \frac{y'^2}{2} - \frac{G^2(s)}{2}x^2 + \frac{K(s)}{2}\funcof{x^2-y^2} + G(s)x\delta
+    \end{align}
+    where we notice the Hamiltonean is normalized by the total momentum of the particle, $p$, and expanded up to second order in the transverse phase space coordinates, in such a way that only dipoles and quadrupoles contribute to the dynamics. Besides, the independent variable was changed from time to the longitudinal position of the particle along the Frenet-Serret frame. This last approximation is valid because $s$ is a monotonic function of the time in storage rings, which allow easy invertion of derivatives. All the steps performed in the original Hamiltonean to get to the equation above are described in details in the literature~\cite{LeeBook,Bengtssonpaper,WiedemannBook}. The equations of motion will be:
+    \begin{align}\label{eq:linear_equation_motion}
+        x'' &= -\derpar{H}{x} = -\funcof{K(s)-G^2(s)}x + G(s)\delta\\\nonumber
+        y'' &= -\derpar{H}{y} = K(s)y
+    \end{align}
+    where the term dependent on the energy deviation of the particle in the horizontal equation of motion is the dispersion gneerated by the dipole.
 
 	Looking back at the start of this section and reviewing all the approximations, at first sight it seems that the region of validity of these linear equations is so limited that their understanding is useless. However that is not what is observed in practice, because storage rings are carefully designed to maximize the validity of this linear behavior: the position, number and strength of all magnets are so well tuned that nonlinearities cancel each other.
 
@@ -295,7 +310,11 @@
 
 \subsection{Betatron Function and Phase Advance} \label{ssub:betatron_function}
 
-	The solutions of the homogeneous part of the linear equations of motion can be parametrized in the such form:
+    The homegeneous part of the equations of motion presented in equation~\eqref{eq:linear_equation_motion} can be cast in the following way:
+    \begin{align}
+        u'' + K_u(s)u = 0
+    \end{align}
+    where $u$ can be both, $x$ and $y$ and $K_x=K(s)-G^2(s)$ and $K_y=-K(s)$. These equations are known as Hill equations~\cite{HillEqu} and their solutions can be parametrized in the following form:
 	\begin{align} \label{eq:betatron_motion}
 		u(s) &= \sqrt{J\beta_u(s)} \cos(\mu_u(s) - \phi)
 	\end{align}
@@ -305,10 +324,10 @@
 	\end{align}
 	The constants $\phi$ and $J$ depend on the initial conditions. It can be shown that:
 	\begin{align} \label{eq:linear_invariant}
-		J &= \gamma_u(s)u^2(s) + 2\alpha_u(s)u(s)u'(s) + \beta_u(s)u'^2(s),
-												\quad \text{with}& \\
-        \alpha_u(s) &= -\frac{\beta_u'(s)}{2} \quad \text{and}& \nonumber \\ \nonumber
-		\gamma_u(s) &= \frac{1+\alpha_u^2(s)}{\beta_u(s)},&
+		J = \gamma_u(s)u^2(s) + 2\alpha_u(s)u(s)u'(s) + \beta_u(s)u'^2(s),
+												\quad \text{with}& \\[3mm]
+        \alpha_u(s) = -\frac{\beta_u'(s)}{2} \quad \text{and} \nonumber \quad
+		\gamma_u(s) = \frac{1+\alpha_u^2(s)}{\beta_u(s)},
 	\end{align}
 	which represents the equation of an ellipse in phase space with $J$ being the area of such ellipse.
 
