@@ -18,6 +18,9 @@
 	]{abntex2}
 
 % --------------- PACOTES -----------------%
+%%%%% conflict with float package, loaded by one of the packages bellow.
+% \usepackage{floatrow} % pacote para criar ambientes float genéricos
+% \floatsetup[table]{style=plaintop} % poe legendas de tabelas em cima.
 
 % Pacotes fundamentais
 \usepackage{cmap}				% Mapear caracteres especiais no PDF
@@ -29,6 +32,7 @@
 \usepackage{xcolor}				% Controle das cores
 \usepackage[pdftex]{graphicx}	% Inclusão de gráficos
 \graphicspath{{figures/}}
+\usepackage{subcaption}
 \usepackage{epstopdf}           % Pacote que converte as figuras em eps para pdf
 
 
@@ -72,7 +76,6 @@
 %\usepackage{blindtext}  % Pacote que gera texto dummy
 % \usepackage{showlabels} % Pacote que mostra os labels das equações no pdf
 \usepackage{todonotes}  % Pacote que insere notas no pdf
-
 
 % Posso criar definições de acrônimos e ele automaticamente coloca o nome completo
 % no texto na primeira ocorrência ou o acrônimo nas referências subsequentes
