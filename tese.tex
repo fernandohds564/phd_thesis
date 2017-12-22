@@ -386,7 +386,7 @@
         x (s) \to x(s) - x_\delta (s),
     \end{align}
     where $x_\delta (s)$ is given by equation~\eqref{eq:dispersion_function}, in such a way that the new Hamiltonean is purely a quadractic form, without the crossed term $x\delta$. This pure betatronic Hamiltonean can than easily be written in action-angle variables in the following way:
-    \begin{align}
+    \begin{align}\label{eq:betatron_hamiltonean}
         K = \frac{J_x}{\beta_x(s)} + \frac{J_y}{\beta_y(s)}
     \end{align}
     where $J_x$ and $J_y$, defined by equation~\eqref{eq:linear_invariant} are recognized as horizontal and vertical actions and the equation of motion shows that the angle variable, $\theta$, is the phase advance, defined in equation~\eqref{eq:phase_advance}:
@@ -446,7 +446,7 @@
 
 \section{Longitudinal Dynamics}
 
-    In the study of the transverse dynamics the time scale envolved was of a few turns in the storare ring, which allowed us to treat the energy deviation of the particles as another constant of motion. In this section the dynamics of the electrons in a few hundreads of turns will be analysed. In this scale the transverse betatron oscillations are averaged out and the longitudinal dynamics, which describes the path length and energy oscillations around the fixed point, has its natural frequency. The main factors that influence in this framework are the small unballances between the energy loss of the particles and their energy gain in the RF cavity in one turn and the revolution time variation due to the energy offset of the particles.
+    In the study of the transverse dynamics the time scale involved was of a few turns in the storare ring, which allowed us to treat the energy deviation of the particles as another constant of motion. In this section the dynamics of the electrons in a few hundreads of turns will be analysed. In this scale the transverse betatron oscillations are averaged out and the longitudinal dynamics, which describes the path length and energy oscillations around the fixed point, has its natural frequency. The main factors that influence the movement in this scale are the small unballances between the energy loss of the particles and their energy gain in the RF cavity in one turn and the revolution time variation due to the energy offset of the particles.
 
 \subsection{Changes in Revolution Time}\label{sec:longitudinal_deviations}
 
@@ -511,23 +511,24 @@
 	There is an important approximation to the map equations derived in the previous sections that consists in considering the turn by turn iterations as inifinitesimal transformations and taking the limit to the continuum, considering differences between turns as derivatives. With this considerations, the equations of motion becomes:
 	\begin{align}
 		\dertot{z}{s} &= \alpha \delta(s) \\\nonumber
-		\dertot{\delta}{s} &= \alpha_z\delta(s) + \frac{V(z(s))-U_0}{L_0E_0}
+		\dertot{\delta}{s} &= \alpha_z\delta(s) + \frac{V(z(s))-U_0}{L_0E_0}.
 	\end{align}
-	where $T_0$ is the nominal revolution time of the ring. If the damping term is not considered, the equations of motion can be derived from a static Hamiltonean, given by:
-	\begin{align}
-		H(z, \delta) = \frac\alpha2\delta^2 \quad \overbrace{-
-                            \defint{x}{\frac{V(x)-U_0}{L_0E_0}}{0}{z}
+
+    If the damping term is not considered, the equations of motion can be derived from a static Hamiltonean, given by:
+	\begin{align}\label{eq:longitudinal_hamiltonean}
+		H_\parallel(z, \delta) = \frac\alpha2\delta^2 \quad \overbrace{-
+                            \defint{w}{\frac{V(w)-U_0}{L_0E_0}}{0}{z}
                         }^{U(z)}
 	\end{align}
 	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy. When the oscillations are small the potential well can be expandend in power series of the longitudinal position. The shape of the potential in this region is the
 
 \section{Radiation Damping and Equilibrium Parameters}
 
-    The synchrotron radiation emission is a quantum process that happens uncorrelatedly among all the electrons in the beam. While the average emission has a well defined and smooth behavior, such as the spectra that are calculated with classical electrodynamics for dipoles and \gls{ids}, the individual emissions are random events. As expected the effect this process generates on the beam is also dual, the average emission is responsible for energy loss and damping of the longitudinal and transverse oscillations, while the single emission process generates uncorrelated motion in all planes that heat up the beam.
+    The synchrotron radiation emission is a quantum process that happens uncorrelatedly among all the electrons in the beam. While the average emission has a well defined and smooth behavior, such as the spectra that are calculated with classical electrodynamics for dipoles and \gls{ids}, a closer look into the individual emissions reveals the random nature of these events. As expected the effect this process generates on the beam is also dual, the average emission is responsible for energy loss and damping of the longitudinal and transverse oscillations, while the single emission events generates uncorrelated motion in all planes that heat up the beam.
 
-    Both effects have very different dependency on the parameters of the particles. For example, in the last section it was used that the energy loss depends linealy with the energy deviation of the particles, which caused an exponential damping of the oscillations, i.e. a damping proportional to the amplitude of the oscillation, while the heating in the longitudinal plane happens because the emissions are instantaneous and uncorrelated among electrons or in time, having no short term dependency on any parameter of the electrons, which generates random walks for the energy deviations. Because these effects have such different dependencies they always compete with each other, if the amplitude of oscillation is large the damping dominates, if it is small there is a blow up. It is this competition that generates the equilibrium energy distribution of the beam and consequently, due to the potential well, the longitudinal distribution. While each electron is in an endeless variation of its amplitude of oscillation around the fixed point, the average of all electrons in a bunch remains stationary, with both effects cancelling each other out.
+    Both effects have very different dependency on the parameters of the particles. For example, in the last section it was used that the energy loss depends linealy with the energy deviation of the particles, which caused an exponential damping of the oscillations, i.e. a damping proportional to the amplitude of the oscillation, while the heating in the longitudinal plane happens because the emissions are instantaneous and uncorrelated among electrons or in time, having no short term dependency on any parameter of the electrons, which generates random walks for the energy deviations. Because these effects have such different dependencies they always compete with each other, if the amplitude of oscillation is large the damping dominates, if it is small there is a blow up. It is this competition that generates the equilibrium energy distribution of the beam and consequently, due to the potential well, the longitudinal distribution. While the amplitude of oscillation of each electron is in an endeless variation, the average of all electrons in a bunch remains stationary, with both effects cancelling each other out.
 
-    In the transverse plane the effect of the radiation emission on the dynamics is not as direct as in the longitudinal plane. Damping in the transverse plane is a two fold effect: first the electrons lose transverse momentum due to radiation emission because the emission is majoritarely on the direction of motion. This does not change the normalized momentum of the electron, because the longitudinal momentum is also affected by this emission. In a second moment the electron passes through the RF cavity where the longitudinal momentum is replenished but the transverse momentum is unchanged, but the normalized transverse momentum is decreased. The liquid effect is an exponential damping of the transverse oscillations, proportional to the betatron action of the movement. The excitations of oscillations happens because of the dispersion function in the dipoles, when an electron emits radiation its closed orbit abruptly changes, because its energy deviation has changed. However the position of the electron did not change, this implies that a new betatron oscillation around this new closed orbit must start. Again, both effects cancel out at the equilibrium distribution, that defines the natural emittance of the storage ring.
+    In the transverse plane the effect of the radiation emission on the dynamics is not as direct as in the longitudinal plane. Damping in the transverse plane is a two fold effect: first the electrons lose transverse momentum due to radiation emission because the emission is majoritarely on the direction of motion. This does not change the normalized momentum of the electron, because the longitudinal momentum is also affected by this emission. In a second moment the electron passes through the RF cavity, where the longitudinal momentum is replenished but the transverse momentum is unchanged, which means the normalized transverse momentum is decreased. The liquid effect is an exponential damping of the transverse oscillations, proportional to the betatron action of the movement. The excitations of oscillations happens because of the dispersion function in the dipoles, when an electron emits radiation its closed orbit abruptly changes, because its energy deviation has changed. However the position of the electron did not change, this implies that a new betatron oscillation around this new closed orbit must start. Again, both effects cancel out at the equilibrium distribution, that defines the natural emittance of the storage ring.
 
 \subsection{Fokker-Planck Equation}\label{ssec:fokker_planck_equation}
 
@@ -560,11 +561,31 @@
                                                  \frac{1}{4J_y}\derpar[2]{\Psi}{\theta_y}
                                          }
     \end{align}
-    where $c$ is the speed of light, $\{J_x, \theta_x\}$ and $\{J_y, \theta_y\}$ are the action-angle variables of the horizontal and vertical planes, as defined in equation~\eqref{eq:linear_invariant}, and $\alpha_u$ and $D_u$ are the damping and diffusion terms introduced by the radiation emission in the three planes of motion, for which  the references~\cite{Sands1969Int,WiedemannBook} derive explict expressions.
+    where $c$ is the speed of light, $\{J_x, \theta_x\}$ and $\{J_y, \theta_y\}$ are the action-angle variables of the horizontal and vertical planes, as defined in equation~\eqref{eq:linear_invariant}, and $\alpha_u$ and $D_u$ are the damping and diffusion terms introduced by the radiation emission in the three planes of motion, for which the references~\cite{Sands1969Int,WiedemannBook} derive explict expressions.
 
-    Notice that equation~\eqref{eq:fokker_planck_equation} separates the hamiltonean forces in the \gls{lhs} and the dissipative and random forces in the \gls{rhs}. If the effect of radiation emission were not taken into account, the \gls{rhs} of would be zero and the \gls{lhs} would be a statement of the Liuville Theorem for Hamiltonean flow, which in the accelerators physics community is also known as Vlasov Equation. For machines that operate with heavy particles, such as the colliders that use protons or ions, this is approximately true and the beam never reaches the equilibrium, but for storage rings of synchrotron light sources, which mostly employ electrons, the Fokker-Planck terms are very important to describe the behaviour of the beam in time scales of the order of \si{\milli\second} or above.
+    Notice that equation~\eqref{eq:fokker_planck_equation} separates the hamiltonean forces in the \gls{lhs} and the dissipative and random forces in the \gls{rhs}. If the effect of radiation emission were not taken into account, the \gls{rhs} of would be zero and the \gls{lhs} would be a statement of the Liuville Theorem for Hamiltonean flow, which in the accelerators physics community is also known as Vlasov Equation. For machines that operate with heavy particles, such as the colliders that use protons or ions, this is approximately true and the beam never reaches the equilibrium, but for storage rings of synchrotron light sources, which mostly employ electrons, the Fokker-Planck terms are very important to describe the behaviour of the beam in time scales of the order of \si{\milli\second} or higher, which are the scales where impedance related collective instabilities happen.
 
-    It is exactly in this time-scale that collective instabilities
+    The Fokker-Planck equation can be used to calculate the equilibrium distribution of the beam. Considering the total Hamiltonean of the ring is given by the sum of equations~\eqref{eq:longitudinal_hamiltonean} and~\eqref{eq:betatron_hamiltonean},
+    \begin{align}
+        H = \frac{J_x}{\beta_x} + \frac{J_y}{\beta_x} + \frac\alpha2\delta^2 + U(z),
+    \end{align}
+    the equilibrium distribution is a separable function in the three planes of motion because the $H$ does not couple them. Besides, the horizontal distribution must be a function only of the invariant $J_x$, the vertical of $J_y$ and the longitudinal of the longitudinal Hamiltonean, because it is an invariant of motion:
+    \begin{align}
+        \Psi(\vect{q},\vect{p}) =
+        f_x(x,x')f_y(y,y')f_z(z,\delta) =
+        f_x(J_x)f_y(J_y)f_z(H_\parallel).
+    \end{align}
+
+    With these considerations the distribution commutes with the total Hamiltonean and the \gls{lhs} of the Fokker-Planck equation,~\eqref{eq:fokker_planck_equation}, is zero and from the \gls{rhs} it can be shown that
+    \begin{align}
+        \Psi(\vect{q},\vect{p}) = \frac1A e^{-\frac{J_x}{\varepsilon_x}} e^{-\frac{J_y}{\varepsilon_y}}e^{-\frac{1}{2\sigma_\delta^2}\funcof{\delta^2 + \frac2\alpha U(z)}}
+    \end{align}
+    where $\varepsilon_u = \frac{cD_u}{2\alpha_u}$ are the horizontal and vertical emittances, $\sigma_\delta = \frac{cD_z}{2\alpha_z}$ is the energy spread of the beam and $A$ is a normalization constant such that
+    \begin{align}
+        \udefint{\vect{q}}{\udefint{\vect{p}}{\Psi(\vect{q},\vect{p})}} = 1.
+    \end{align}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -617,7 +638,7 @@
 
 \section{Wake Functions}\label{sec:wake_functions}
 
-    The approximations performed in the last section led to a formula to describe the change in momentum of the witness particle and to a method of how to include this momentum change in the dynamics of this particle. In summary, everything we need to know in order to compute the effect of the wake fields are already defined, we just need to compute the total momentum variation for each particle due to the action of all the other particles. In this process it useful to define functions that are independent of the charge of the particles envolved, being dependent only on the structure that generates the wake fields. These functions are called wake functions or simply wakes and are defined by
+    The approximations performed in the last section led to a formula to describe the change in momentum of the witness particle and to a method of how to include this momentum change in the dynamics of this particle. In summary, everything we need to know in order to compute the effect of the wake fields are already defined, we just need to compute the total momentum variation for each particle due to the action of all the other particles. In this process it useful to define functions that are independent of the charge of the particles involved, being dependent only on the structure that generates the wake fields. These functions are called wake functions or simply wakes and are defined by
     \begin{align}\label{eq:wake_definition}
 	  	\left(w_x, w_y, w_s\right) =
 	  	\frac{v}{qQ} \left(\Delta p_x, \Delta p_y, -\Delta p_s\right)
@@ -844,7 +865,7 @@
 
 \section{Impedance Calculation}
 
-    For most practical cases, determining the impedance of a given component of the storage ring is a very difficult task because of the complexity of the boundary conditions envolved. The exact analitic solution of the \gls{maxeq} can only be performed for a limited number of cases, and even in this cases some idealizations of the real system must be performed. In order to tackle this problem the accelerator physics community resorts to all possible ways of finding approximate results and all these efforts can be group in to categories, the analytic treatments and the numeric solutions.
+    For most practical cases, determining the impedance of a given component of the storage ring is a very difficult task because of the complexity of the boundary conditions involved. The exact analitic solution of the \gls{maxeq} can only be performed for a limited number of cases, and even in this cases some idealizations of the real system must be performed. In order to tackle this problem the accelerator physics community resorts to all possible ways of finding approximate results and all these efforts can be group in to categories, the analytic treatments and the numeric solutions.
 
 	An adequate description of the analytic methods for finding such solutions is far beyond the current competencies of the author and the scope of this work. At this point we strongly recommend Zotter's book~\cite{Zotter1997} for the interested reader, it is a masterpiece written by one of the most well-known and respected especialists of the field and one of the pionners of this area. Besides, references~\cite{CHao1993, Palumbo1994} also discuss some of the approximate methods in a very intuitive way, and in the end of the first chapter of reference~\cite{Ng2009} there is a table with some of the most important results for common types of accelerator structures. Not comprised in any of these references is the explanation of the use of the parabolic equation, which is a paraxial approximation of the \gls{maxeq}, to the impedances calculation, presented in~\cite{Stupakov2007}. From these equations it can be shown that the wakes must satisfy a very interesting scaling feature that is very useful for numeric simulations~\cite{stupakov2009}.
 
