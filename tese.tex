@@ -460,9 +460,9 @@
 
 	It can be shown that the rate of energy loss of a particle due to synchrotron radiation emission is proportial to the square of the magnetic field times the square of its total energy~\cite[pp. 123]{Jackson}. Translating this dependency to a storage ring, the energy loss in one turn depends on the magnetic lattice and on the energy deviation of the particle. For the ideal particle the energy loss is always the same and depends only on the magnetic field of the dipoles, but as the closed orbit for particles with non-zero energy deviation is different, its energy loss will be different not only because of the intrinsic dependence of the emission but also because of the slightly different magnetic fields it will experience in one turn. The combination of these effects can be modelled in the following linear approximation:
 	\begin{align}\label{eq:radiation_loss}
-		\Delta E_\text{Rad} \approx -U_0 - E_0L_0\alpha_\delta\delta_n
+		\Delta E_\text{Rad} \approx -U_0 - E_0L_0\alpha_z\delta_n
 	\end{align}
-	where $U_0$ is the energy loss of the ideal particle in one turn, $E_0$ is the nominal energy of the storage ring and the coefficient $\alpha_\delta$ includes both effects, the intrinsic dependence on the energy and the different orbit fields.
+	where $U_0$ is the energy loss of the ideal particle in one turn, $E_0$ is the nominal energy of the storage ring and the coefficient $\alpha_z$ includes both effects, the intrinsic dependence on the energy and the different orbit fields.
 
 	The energy gain of a particle in the RF cavity is given by the integral of the longitudinal electric field, $E_\parallel$, along the path of the particle and depends only on the initial phase of the field when it enters the cavity:
 	\begin{align}
@@ -480,7 +480,7 @@
 	\end{align}
 	where the time reference on \gls{lhs} is relative to the position of the synchronous particle. Considering both assumptions and combining the energy gain in the cavity with the energy loss in one turn, given by equation~\eqref{eq:radiation_loss}, we get the following one turn energy balance for a storage ring:
 	\begin{align}\label{eq:energy_balance}
-		\delta_{n+1} = \delta_n - L_0\alpha_\delta\delta_n + \frac{V(z_{n+1})-U_0}{E_0}.
+		\delta_{n+1} = \delta_n - L_0\alpha_z\delta_n + \frac{V(z_{n+1})-U_0}{E_0}.
 	\end{align}
 	where the subscript $n+1$ in the particle position means that it will go around the ring first and then pass through the cavity.
 
@@ -491,18 +491,18 @@
 		\begin{bmatrix} z_{n+1} \\ \delta_{n+1}\end{bmatrix} = \overbrace{
 			\begin{bmatrix}
                 1 & \alpha L_0 \\
-                -V'_0 & 1-L_0\alpha_\delta - V'_0\alpha L_0
+                -V'_0 & 1-L_0\alpha_z - V'_0\alpha L_0
             \end{bmatrix}
 		}^M \begin{bmatrix} z_n \\ \delta_n \end{bmatrix}.
 	\end{align}
 	where $V'_0$ is the derivative of the voltage gap in relation to the arrival time of the particles at the synchronous position normalized by the nominal energy of the ring, $E_0$. The stability condition, $\text{Tr}(M) <= 2$~\cite[pp. 123]{LeeBook}, requires the derivative of the gap voltage to be positive if $\alpha$ is positive. To ilustrate this condition consider that initially a particle arrives ahead of the synchronous particle, the positive derivative means it will gain more energy, which makes it take longer to go around the ring, diminishing the difference in arrival time for the next turn. This way all particles remain in an oscillatory movement around the fixed point with frequency given by
 	\begin{align}
 		\text{Tr}(M) = 2\cos(2\pi\nu_s) \approx 2-(2\pi\nu_s)^2 \implies
-		\nu_s \approx \frac{1}{2\pi}\sqrt{L_0\alpha_\delta+V'_0\alpha L_0},
+		\nu_s \approx \frac{1}{2\pi}\sqrt{L_0\alpha_z+V'_0\alpha L_0},
 	\end{align}
 	where $\nu_s$ is called synchrotron tune in analogy to the betatron tunes defined in subsection~\ref{ssub:betatron_function}.
 
-	Additionally, the determinant of the one turn matrix is $(1-L_0\alpha_\delta)$, which implies the oscillations are damped, with $\alpha_\delta$ being the damping factor. In most storage rings this effect is small compared to the oscillation time, requiring thousands of turns to influence the dynamics.
+	Additionally, the determinant of the one turn matrix is $(1-L_0\alpha_z)$, which implies the oscillations are damped, with $\alpha_z$ being the damping factor. In most storage rings this effect is small compared to the oscillation time, requiring thousands of turns to influence the dynamics.
 
 	The voltage gap has the same harmonic composition as function of the arrival time as the electric field as a function of time. This means that the condition imposed in equation~\eqref{eq:harmonic_number} implies that there are at least $h$ stable fixed point along the ring and, as in general the voltage is a pure senoid, these are the only stable points. This means that it is possible to store up to $h$ aglomerations of electrons, called bunches, in a storage ring.
 
@@ -511,13 +511,15 @@
 	There is an important approximation to the map equations derived in the previous sections that consists in considering the turn by turn iterations as inifinitesimal transformations and taking the limit to the continuum, considering differences between turns as derivatives. With this considerations, the equations of motion becomes:
 	\begin{align}
 		\dertot{z}{s} &= \alpha \delta(s) \\\nonumber
-		\dertot{\delta}{s} &= \alpha_\delta\delta(s) + \frac{V(z(s))-U_0}{L_0E_0}
+		\dertot{\delta}{s} &= \alpha_z\delta(s) + \frac{V(z(s))-U_0}{L_0E_0}
 	\end{align}
 	where $T_0$ is the nominal revolution time of the ring. If the damping term is not considered, the equations of motion can be derived from a static Hamiltonean, given by:
 	\begin{align}
-		H(z, \delta) = \frac\alpha2\delta^2 \quad \overbrace{- \frac{\alpha}{c}\defint{x}{\frac{V(x)-U_0}{L_0E_0}}{0}{z}}^{U(z)}
+		H(z, \delta) = \frac\alpha2\delta^2 \quad \overbrace{-
+                            \defint{x}{\frac{V(x)-U_0}{L_0E_0}}{0}{z}
+                        }^{U(z)}
 	\end{align}
-	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy. When the oscillations of the particles are small the potential well can be expandend in power series of the longitudinal position of the particle. The shape of the potential in this region is the
+	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy. When the oscillations are small the potential well can be expandend in power series of the longitudinal position. The shape of the potential in this region is the
 
 \section{Radiation Damping and Equilibrium Parameters}
 
@@ -529,10 +531,10 @@
 
 \subsection{Fokker-Planck Equation}\label{ssec:fokker_planck_equation}
 
-	All the arguments described in the last section can be mathematically described by modelling the evolution of the beam distribution in terms of the Fokker-Planck equation. In this framework we can consider the interaction of the electrons with the radiation they emit as large particles subjected to a weak random and Markovian force, with an approximatelly white spectrum. These are the conditions imposed on a system by the kinect theory in order for the distribution function to be described by such equation \cite{landau, Wang1945, zwanzig}.
+	All the arguments described in the last section can be mathematically described by modelling the evolution of the beam distribution in terms of the Fokker-Planck equation. In this framework we can consider the interaction of the electrons with the radiation they emit as large particles subjected to a weak random and Markovian force, with an approximately white spectrum. These are the conditions imposed on a system by the kinect theory in order for the distribution function to be described by such equation \cite{landau, Wang1945, zwanzig}.
 
     There are several works that explain the use of the Fokker-Planck equation in storage rings~\cite{Lindberg2016,Suzuki1983,Suzuki1986,LeeBook,Wiedemann}. Here, only the main results will be presented:
-    \begin{align}
+    \begin{align}\label{eq:fokker_planck_equation}
         \derpar{\Psi}{s} + \poison{\Psi, H} = \mathscr{F}\funcof{\Psi}
     \end{align}
     where $\Psi = \Psi\funcof{\vect{q},\vect{p}, s}$ is the beam distribution in phase space, $\vect{q}=(x,y,z)$ and $\vect{p}=(x',y',\delta)$ are the position and momentum vectors,
@@ -542,18 +544,27 @@
     \end{align}
     is the Poison bracket between the Hamiltonean and the particle distribution, where the operators $\derpar{}{\vect{q}}$ and $\derpar{}{\vect{p}}$ are the gradients in relation to the positions and momenta of the phase space, and $\mathscr{F}(\cdot)$ is the Fokker-Planck operator for the accelerator, explicitly given by~\cite[eq. 33]{Lindberg2016}
     \begin{align}\nonumber
-        \mathscr{F}\funcof{\Psi} = & D_z \derpar[2]{\Psi}{\delta} +
-                                     \frac{2\alpha_z}{c}\funcof{
-                                          \Psi + \delta\derpar{\Psi}{\delta}
-                                     }+\\\nonumber
-                                   & D_x \derpar[2]{\Psi}{\delta} +
-                                     \frac{2\alpha_z}{c}\funcof{
-                                          \Psi + \delta\derpar{\Psi}{\delta}
-                                     }\\\nonumber
+        \mathscr{F}\funcof{\Psi} = & \frac{2\alpha_z}{c}\funcof{
+                                            \Psi + \delta\derpar{\Psi}{\delta}
+                                      } + D_z \derpar[2]{\Psi}{\delta} + \\\nonumber
+                                   & \frac{2\alpha_x}{c}\funcof{
+                                         \Psi + J_x\derpar{\Psi}{J_x}
+                                     } + D_x \funcof{J_x\derpar[2]{\Psi}{J_x} +
+                                                 \derpar{\Psi}{J_x} +
+                                                 \frac{1}{4J_x}\derpar[2]{\Psi}{\theta_x}
+                                          } + \\
+                                   & \frac{2\alpha_y}{c}\funcof{
+                                        \Psi + J_y\derpar{\Psi}{J_y}
+                                     } + D_y \funcof{J_y\derpar[2]{\Psi}{J_y} +
+                                                 \derpar{\Psi}{J_y} +
+                                                 \frac{1}{4J_y}\derpar[2]{\Psi}{\theta_y}
+                                         }
     \end{align}
+    where $c$ is the speed of light, $\{J_x, \theta_x\}$ and $\{J_y, \theta_y\}$ are the action-angle variables of the horizontal and vertical planes, as defined in equation~\eqref{eq:linear_invariant}, and $\alpha_u$ and $D_u$ are the damping and diffusion terms introduced by the radiation emission in the three planes of motion, for which  the references~\cite{Sands1969Int,WiedemannBook} derive explict expressions.
 
+    Notice that equation~\eqref{eq:fokker_planck_equation} separates the hamiltonean forces in the \gls{lhs} and the dissipative and random forces in the \gls{rhs}. If the effect of radiation emission were not taken into account, the \gls{rhs} of would be zero and the \gls{lhs} would be a statement of the Liuville Theorem for Hamiltonean flow, which in the accelerators physics community is also known as Vlasov Equation. For machines that operate with heavy particles, such as the colliders that use protons or ions, this is approximately true and the beam never reaches the equilibrium, but for storage rings of synchrotron light sources, which mostly employ electrons, the Fokker-Planck terms are very important to describe the behaviour of the beam in time scales of the order of \si{\milli\second} or above.
 
-and derive explict expression for the diffusion and damping terms
+    It is exactly in this time-scale that collective instabilities
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -737,7 +748,7 @@ and derive explict expression for the diffusion and damping terms
     \begin{align}\label{eq:def_effective_wake_potential}
   	    V(\vect{\rho}_i, z_i) = \sum_j W(\vect{\rho}_j,\vect{\rho}_i,z_i-z_j)
     \end{align}
-    where $V(\vect{\rho}_i, z_i)$ is denominated effective wake potential, because it is the net effect of the average of the Green wake potential over the buch and the indices $i$ and $j$ are related to the witness and the source particles respectively. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons, besides this sum does not evidenciates properties of the beam such as time dependency. If the beam is in equilibrium or is slowly varying the \gls{lhs} of equation~\ref{eq:def_effective_wake_potential} is approximatelly the same for successives turns in the ring, or over several passages by the impedance source, but each term of the \gls{rhs} can be very different from turn to turn which means the sum must always be carried out. For all these reasons it is important to make an approximation and consider that the effective wake potential that any particle feels is an integral over the beam distribution:
+    where $V(\vect{\rho}_i, z_i)$ is denominated effective wake potential, because it is the net effect of the average of the Green wake potential over the buch and the indices $i$ and $j$ are related to the witness and the source particles respectively. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons, besides this sum does not evidenciates properties of the beam such as time dependency. If the beam is in equilibrium or is slowly varying the \gls{lhs} of equation~\ref{eq:def_effective_wake_potential} is approximately the same for successives turns in the ring, or over several passages by the impedance source, but each term of the \gls{rhs} can be very different from turn to turn which means the sum must always be carried out. For all these reasons it is important to make an approximation and consider that the effective wake potential that any particle feels is an integral over the beam distribution:
     \begin{align}\label{eq:int_effective_wake_potential}
   	  	V(\vect{\rho}, z, t) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
 	  			\Psi(\vect{p},\vect{\rho}',z'; t) W(\vect{\rho}',\vect{\rho},z-z')}}}
@@ -839,7 +850,7 @@ and derive explict expression for the diffusion and damping terms
 
     Most analytic methods are employed in frequency domain, which means the result of the calculation is an expression for the impedance, not the wake. This expression generally is valid for a certain range of frequencies and the most common type of approximations consider frequencies much lower than the cutoff frequency\footnote{Cutoff frequency is the frequency of the lowest eigen-mode of the pipe, above which the fields can propagate through the tube.} of the pipe ($\omega\sim2.4c/b$) or very high frequencies. While the first kind of approximations are valid for bunches longer than the characteristic transverse dimension of structure, the latter is a good approximation for very short bunches.
 
-    In the case of Sirius, the standard vacuum chamber has a radius of \SI{12}{\milli\meter} while the bunch will have approximatelly \SI{3}{\milli\meter}. This combination of dimensions is delicate because the bunch is not long enough for the low frequency approximations to be valid nor short enough for the high frequency regime to dominate, which means we cannot rely only on these methods to compose the Sirius Impedance budget.
+    In the case of Sirius, the standard vacuum chamber has a radius of \SI{12}{\milli\meter} while the bunch will have approximately \SI{3}{\milli\meter}. This combination of dimensions is delicate because the bunch is not long enough for the low frequency approximations to be valid nor short enough for the high frequency regime to dominate, which means we cannot rely only on these methods to compose the Sirius Impedance budget.
 
 \subsection{Numeric Methods}\label{ssec:numeric_methods}
 
@@ -891,7 +902,7 @@ and derive explict expression for the diffusion and damping terms
 	    \item indirect integration: for the wake calculation, the infinite integral in the longitudinal direction can be substituted by finite integrals in closed contorns that spans the structure longitudinally. The first method proposed~\cite{Weiland} was valid only for cavity-like structures, but then it was generalized for any rotationally symmetric structure~\cite{Napoly1993, Zagorodnov2005} and finally generalized for any 3D structure~\cite{Zagorodnov2006}. This procedure greatly reduces the computational time because otherwise it would be necessary to propagate the beam for a very long distance only for the integral to converge. Besides, it improves the precision of the results, because the long integral in the direct method suffers from numerical errors accumulation.
     \end{itemize}
 
-    There is another code provided by the same author, ECHOzR, that calculates the wakes for structures with rectangular cross sections~\cite{Zagorodnov2015}. The conditions imposed on the geometry are that the lateral walls are composed of infinite vertical and perfectly conducting parallel plates displaced one from another by a distance $w$ and that the horizontal walls that define the vertical gap has an arbitrary longitudinal profile and electrical conductivity. Employing the conditions of harmonicity of the wake potencial on the transverse coordinates of the source and witness particles, presented in equations~\eqref{eq:potential_harmonic} and~\eqref{eq:potential_harmonic_source}, the author solves partially the wake potential by expanding it in trigonometric functions that automatically satisfy the \gls{bcon} in the vertical plates. This way, similarly to the rotationally symmetric case, the numerical computation is reduced to a bidimensional problem that is solved independently for each term of the expansion. All the advantages presented for ECHOz2 regarding the precision of the results and simulation time also applies for ECHOzR. The main difference between the two codes is that for the recangular code significant post-processing of the results is needed, because the lowest order longitudinal and transverse wake functions are an infinite sum of the modes of the expansion. However, close to center of the chamber, convergence can be achieved by summation of approximatelly the first ten modes. In Appendix~\ref{app:wake_from_echozr} we discuss on the post processing necessary to retrieve the wakes from the simulation data.
+    There is another code provided by the same author, ECHOzR, that calculates the wakes for structures with rectangular cross sections~\cite{Zagorodnov2015}. The conditions imposed on the geometry are that the lateral walls are composed of infinite vertical and perfectly conducting parallel plates displaced one from another by a distance $w$ and that the horizontal walls that define the vertical gap has an arbitrary longitudinal profile and electrical conductivity. Employing the conditions of harmonicity of the wake potencial on the transverse coordinates of the source and witness particles, presented in equations~\eqref{eq:potential_harmonic} and~\eqref{eq:potential_harmonic_source}, the author solves partially the wake potential by expanding it in trigonometric functions that automatically satisfy the \gls{bcon} in the vertical plates. This way, similarly to the rotationally symmetric case, the numerical computation is reduced to a bidimensional problem that is solved independently for each term of the expansion. All the advantages presented for ECHOz2 regarding the precision of the results and simulation time also applies for ECHOzR. The main difference between the two codes is that for the recangular code significant post-processing of the results is needed, because the lowest order longitudinal and transverse wake functions are an infinite sum of the modes of the expansion. However, close to center of the chamber, convergence can be achieved by summation of approximately the first ten modes. In Appendix~\ref{app:wake_from_echozr} we discuss on the post processing necessary to retrieve the wakes from the simulation data.
 
     There is also a generic version of the ECHO code, called ECHO3D, that can be used to compute the wakes for an arbitrary geometry. This code has all the advantages of the bidimensional codes, but lacks a key feature: it is not parallelized. For 3D structures this limitation imposes great restrictions on the type of simulation that can be performed, due to the extremelly large computational time.
 
