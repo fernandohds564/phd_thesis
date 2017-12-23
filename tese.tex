@@ -320,7 +320,7 @@
     \end{align}
     where $u$ can be both, $x$ and $y$ and $K_x=K(s)-G^2(s)$ and $K_y=-K(s)$. These equations are known as Hill equations~\cite{HillEqu} and their solutions can be parametrized in the following form:
 	\begin{align} \label{eq:betatron_motion}
-		u(s) &= \sqrt{J\beta_u(s)} \cos(\mu_u(s) - \phi)
+		u(s) &= \sqrt{2J\beta_u(s)} \cos(\mu_u(s) - \phi)
 	\end{align}
 	where $\beta_u(s)$ is called the betatron function and depends only on the magnetic lattice and $\mu_u(s)$ is called phase advance and its relation to the betatron function is given by
 	\begin{align}\label{eq:phase_advance}
@@ -382,8 +382,8 @@
 \subsection{Action-Angle Variables}
 
     Finding the action angle variables for a given Hamiltonean is equivalent to solve the equations of motion, due to the simple time, or $s$, evolution of such variables. For  hamiltoneans with one elliptic fixed point, this task is achieved by performing canonical transformations in the phase space variables that brings them to the normal form, where the movement is a simple harmonic oscillator. Then, the radius in phase space is an invariant of motion and is recognized as the action. This procedure can be applied to the Hamiltonean of equation~\eqref{eq:approximated_hamiltonean} by recognizing the dispersion orbit as a canonical transformation that changes the origin of the phase space~\cite[Appendix A2]{Berg1996}
-    \begin{align}
-        x (s) \to x(s) - x_\delta (s),
+    \begin{align}\label{eq:off_momentum_canonical_transformation}
+        x (s) \to \overbrace{x(s) - x_\delta (s)}^{x_\beta},
     \end{align}
     where $x_\delta (s)$ is given by equation~\eqref{eq:dispersion_function}, in such a way that the new Hamiltonean is purely a quadractic form, without the crossed term $x\delta$. This pure betatronic Hamiltonean can than easily be written in action-angle variables in the following way:
     \begin{align}\label{eq:betatron_hamiltonean}
@@ -487,7 +487,7 @@
 \subsection{Phase Stability Principle}
 
 	Combining equations~\eqref{eq:revolution_time_variation}~and~\eqref{eq:energy_balance} we get the one turn map for the longitudinal plane for which the synchronous position and the nominal energy defines a fixed point. To analyse the stability of this fixed point let's linearize the map in its vicinity:
-	\begin{align}
+	\begin{align}\label{eq:longitudinal_linear_map}
 		\begin{bmatrix} z_{n+1} \\ \delta_{n+1}\end{bmatrix} = \overbrace{
 			\begin{bmatrix}
                 1 & \alpha L_0 \\
@@ -516,11 +516,15 @@
 
     If the damping term is not considered, the equations of motion can be derived from a static Hamiltonean, given by:
 	\begin{align}\label{eq:longitudinal_hamiltonean}
-		H_\parallel(z, \delta) = \frac\alpha2\delta^2 \quad \overbrace{-
+		H_\parallel = \frac\alpha2\delta^2 \quad \overbrace{-
                             \defint{w}{\frac{V(w)-U_0}{L_0E_0}}{0}{z}
                         }^{U(z)}
 	\end{align}
-	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy. When the oscillations are small the potential well can be expandend in power series of the longitudinal position. The shape of the potential in this region is the
+	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy. When the oscillations are small the potential well can be expandend in power series of the longitudinal position. Generally the RF cavity of storage rings are adjusted with each other in such a way that their potentials always sum constructively, creating a practically linear potential $V(z)$ around the fixed point, which implies the Hamiltonean can often be approximated by
+    \begin{align}
+        H_\parallel = \frac\alpha2\delta^2 + \frac{V'}{2L_0}z^2
+    \end{align}
+    which is an harmonic oscillator, equivalent to the to the linear map of equation~\eqref{eq:longitudinal_linear_map}, if the damping is not considered. This harmonic Hamiltonean is often used for analytical treatments of instabilities because it is a good approximation for most RF systems and also due to the simple expressions of its action-angle variables.
 
 \section{Radiation Damping and Equilibrium Parameters}
 
@@ -528,7 +532,9 @@
 
     Both effects have very different dependency on the parameters of the particles. For example, in the last section it was used that the energy loss depends linealy with the energy deviation of the particles, which caused an exponential damping of the oscillations, i.e. a damping proportional to the amplitude of the oscillation, while the heating in the longitudinal plane happens because the emissions are instantaneous and uncorrelated among electrons or in time, having no short term dependency on any parameter of the electrons, which generates random walks for the energy deviations. Because these effects have such different dependencies they always compete with each other, if the amplitude of oscillation is large the damping dominates, if it is small there is a blow up. It is this competition that generates the equilibrium energy distribution of the beam and consequently, due to the potential well, the longitudinal distribution. While the amplitude of oscillation of each electron is in an endeless variation, the average of all electrons in a bunch remains stationary, with both effects cancelling each other out.
 
-    In the transverse plane the effect of the radiation emission on the dynamics is not as direct as in the longitudinal plane. Damping in the transverse plane is a two fold effect: first the electrons lose transverse momentum due to radiation emission because the emission is majoritarely on the direction of motion. This does not change the normalized momentum of the electron, because the longitudinal momentum is also affected by this emission. In a second moment the electron passes through the RF cavity, where the longitudinal momentum is replenished but the transverse momentum is unchanged, which means the normalized transverse momentum is decreased. The liquid effect is an exponential damping of the transverse oscillations, proportional to the betatron action of the movement. The excitations of oscillations happens because of the dispersion function in the dipoles, when an electron emits radiation its closed orbit abruptly changes, because its energy deviation has changed. However the position of the electron did not change, this implies that a new betatron oscillation around this new closed orbit must start. Again, both effects cancel out at the equilibrium distribution, that defines the natural emittance of the storage ring.
+    In the transverse plane the effect of the radiation emission on the dynamics is not as direct as in the longitudinal plane. Damping in the transverse plane is a two fold effect: first the electrons lose transverse momentum due to radiation emission because the emission is majoritarely on the direction of motion. This does not change the normalized momentum of the electron, because the longitudinal momentum is also affected by this emission. In a second moment the electron passes through the RF cavity, where the longitudinal momentum is replenished but the transverse momentum is unchanged, which means the normalized transverse momentum is decreased. The liquid effect is an exponential damping of the transverse oscillations, proportional to the betatron action of the movement.
+
+    The excitations of oscillations happen in the horizontal plane because of the dispersion function in the dipoles. When an electron emits radiation its closed orbit abruptly changes, because its energy deviation has changed, however, as the position of the electron is the same as before, a betatron oscillation around the new closed orbit is excited. Again, both effects cancel out in the equilibrium, defining a distribution and consequently the natural emittance of the storage ring. In the vertical plane, as the dispersion is ideally zero, the excitations are created by a much weaker mechanism and the natural vertical emittance is practically zero. This mechanism is related to the fact that the photon emission is not exactly in the direction of the momentum of the electrons, but with an angle apperture around it proportional to $1/\gamma$, which slightly changes the vertical momentum of the electron, exciting betatron oscillations. In real storage rings, residual vertical dispersion function from magnet errors and coupling fields that transfer part of the horizontal emittance to the vertical plane completely dominate this process and define the vertical emittance of the beam.
 
 \subsection{Fokker-Planck Equation}\label{ssec:fokker_planck_equation}
 
@@ -569,22 +575,43 @@
     \begin{align}
         H = \frac{J_x}{\beta_x} + \frac{J_y}{\beta_x} + \frac\alpha2\delta^2 + U(z),
     \end{align}
-    the equilibrium distribution is a separable function in the three planes of motion because the $H$ does not couple them. Besides, the horizontal distribution must be a function only of the invariant $J_x$, the vertical of $J_y$ and the longitudinal of the longitudinal Hamiltonean, because it is an invariant of motion:
+    the equilibrium distribution is a separable function in the three planes of motion because the $H$ does not couple them. Besides, the horizontal distribution must be a function only of the invariant $J_x$, the vertical of $J_y$ and the longitudinal of $H_\parallel$, because they are the invariants of motion:
     \begin{align}
         \Psi(\vect{q},\vect{p}) =
         f_x(x,x')f_y(y,y')f_z(z,\delta) =
         f_x(J_x)f_y(J_y)f_z(H_\parallel).
     \end{align}
 
-    With these considerations the distribution commutes with the total Hamiltonean and the \gls{lhs} of the Fokker-Planck equation,~\eqref{eq:fokker_planck_equation}, is zero and from the \gls{rhs} it can be shown that
+    With these considerations the distribution commutes with the total Hamiltonean and the \gls{lhs} of the Fokker-Planck equation,~\eqref{eq:fokker_planck_equation}, is zero. From the \gls{rhs} it can be shown that
     \begin{align}
-        \Psi(\vect{q},\vect{p}) = \frac1A e^{-\frac{J_x}{\varepsilon_x}} e^{-\frac{J_y}{\varepsilon_y}}e^{-\frac{1}{2\sigma_\delta^2}\funcof{\delta^2 + \frac2\alpha U(z)}}
+        \Psi(\vect{q},\vect{p}) = \frac1A \exp\funcof{
+                                - \frac{J_x}{\varepsilon_x}
+                                - \frac{J_y}{\varepsilon_y}
+                                - \frac{1}{2\sigma_\delta^2}\funcof{\delta^2 + \frac2\alpha U(z)}}
     \end{align}
-    where $\varepsilon_u = \frac{cD_u}{2\alpha_u}$ are the horizontal and vertical emittances, $\sigma_\delta = \frac{cD_z}{2\alpha_z}$ is the energy spread of the beam and $A$ is a normalization constant such that
+    with
+    \begin{align}
+        \varepsilon_x = \frac{cD_x}{2\alpha_x}, \quad
+        \varepsilon_y = \frac{cD_y}{2\alpha_y}, \quad
+        \sigma_\delta = \frac{cD_z}{2\alpha_z}
+    \end{align}
+    where $\varepsilon_x$ and $\varepsilon_y$ are the horizontal and vertical emittances, $\sigma_\delta$ is the energy spread of the beam and $A$ is a normalization constant such that
     \begin{align}
         \udefint{\vect{q}}{\udefint{\vect{p}}{\Psi(\vect{q},\vect{p})}} = 1.
     \end{align}
 
+    It easy to see that the beam vertical size is given by
+    \begin{align}
+        \sigma_y^2(s) = \average{y^2} = 2\beta_y(s)\udefint{\theta_y}{\cos^2(\theta_y)\udefint{J_y}{f_y(J_y)J_y}} = \beta_y\varepsilon_y
+    \end{align}
+    where it was assumed $f_y(J_y) = \exp\funcof{J_y/\varepsilon_y}/2\pi\varepsilon_y$
+    \begin{align}
+        \udefint{\theta_y}{\udefint{-J_y}{f_y(J_y)}} = 1
+    \end{align}
+    and that for the horizontal plane the canonical transformation that shifted the off-momentum fixed point, represented by equation~\eqref{eq:off_momentum_canonical_transformation}, must be taken in account:
+    \begin{align}
+        \sigma_x^2 = \average{\funcof{x+\eta\delta}^2} = \average{x^2} + \average{2x\eta\delta} + \eta^2\average{\delta^2} = \beta_x\varepsilon_x + \eta^2\sigma_\delta^2.
+    \end{align}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
