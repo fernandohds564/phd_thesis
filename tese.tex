@@ -765,7 +765,7 @@
 
     As already mentioned in the beginning of section~\ref{sec:wake_functions} all the tools needed to model the effect of the wake fields on the beam are described in section~\ref{sec:wake_fields}, however it is useful to define some other concepts such as the wake functions or the wake potential because they facilitate and uniformize the process of dealing with the subject. The impedance is other one of these concepts, it is proportional to the Fourier Transform of the wake functions in relation to the longitudinal coordinate, $z$, and is very useful in any kind of analytic calculations of instabilities or even in the determination of the wake functions. Besides due to the fact that we are interested in the effects of wake fields for storage rings which are intrinsecally periodic, the impedance reveal properties that are difficult to infer looking to the wake itself.
 
-    There are several different definitions of impedances in the literature. In this work we will adopt the definitions of the references~\cite{CHao1993, Stupakov2000a, Heifets1991}:
+    There are several different definitions of impedances in the literature. In this work we will adopt the definitions of the references~\cite{Chao1993, Stupakov2000a, Heifets1991}:
     \begin{align}\label{eq:impedances_definition}
 	  	\nonumber
   	  	Z_\parallel(\omega) &= \frac1c \infint{z}{W'_0(z)e^{i\omega z/c}}\\
@@ -788,7 +788,7 @@
     \end{align}
     or simply, the real part of the longitudinal impedance must be an even function of the frequency and the imaginary part must be an odd function, while for the transverses impedances the opposite is valid, the real part is odd and the imaginary part is even.
 
-    Impedances have several other interesting mathematical properties, as presented in reference~\cite{CHao1993}. For example, when the wakes satisfy the causality condition the real and imaginary parts of the impedance are related by the Kramers Kronig relations\cite{kramers}. These other properties will be covered later in this work if they were necessary for the development of the analysis.
+    Impedances have several other interesting mathematical properties, as presented in reference~\cite{Chao1993}. For example, when the wakes satisfy the causality condition the real and imaginary parts of the impedance are related by the Kramers Kronig relations\cite{kramers}. These other properties will be covered later in this work if they were necessary for the development of the analysis.
 
 \section{Potential of Bunch of particles}
 
@@ -894,7 +894,7 @@
 
     For most practical cases, determining the impedance of a given component of the storage ring is a very difficult task because of the complexity of the boundary conditions involved. The exact analitic solution of the \gls{maxeq} can only be performed for a limited number of cases, and even in this cases some idealizations of the real system must be performed. In order to tackle this problem the accelerator physics community resorts to all possible ways of finding approximate results and all these efforts can be group in to categories, the analytic treatments and the numeric solutions.
 
-	An adequate description of the analytic methods for finding such solutions is far beyond the current competencies of the author and the scope of this work. At this point we strongly recommend Zotter's book~\cite{Zotter1997} for the interested reader, it is a masterpiece written by one of the most well-known and respected especialists of the field and one of the pionners of this area. Besides, references~\cite{CHao1993, Palumbo1994} also discuss some of the approximate methods in a very intuitive way, and in the end of the first chapter of reference~\cite{Ng2009} there is a table with some of the most important results for common types of accelerator structures. Not comprised in any of these references is the explanation of the use of the parabolic equation, which is a paraxial approximation of the \gls{maxeq}, to the impedances calculation, presented in~\cite{Stupakov2007}. From these equations it can be shown that the wakes must satisfy a very interesting scaling feature that is very useful for numeric simulations~\cite{stupakov2009}.
+	An adequate description of the analytic methods for finding such solutions is far beyond the current competencies of the author and the scope of this work. At this point we strongly recommend Zotter's book~\cite{Zotter1997} for the interested reader, it is a masterpiece written by one of the most well-known and respected especialists of the field and one of the pionners of this area. Besides, references~\cite{Chao1993, Palumbo1994} also discuss some of the approximate methods in a very intuitive way, and in the end of the first chapter of reference~\cite{Ng2009} there is a table with some of the most important results for common types of accelerator structures. Not comprised in any of these references is the explanation of the use of the parabolic equation, which is a paraxial approximation of the \gls{maxeq}, to the impedances calculation, presented in~\cite{Stupakov2007}. From these equations it can be shown that the wakes must satisfy a very interesting scaling feature that is very useful for numeric simulations~\cite{stupakov2009}.
 
     Most analytic methods are employed in frequency domain, which means the result of the calculation is an expression for the impedance, not the wake. This expression generally is valid for a certain range of frequencies and the most common type of approximations consider frequencies much lower than the cutoff frequency\footnote{Cutoff frequency is the frequency of the lowest eigen-mode of the pipe, above which the fields can propagate through the tube.} of the pipe ($\omega\sim2.4c/b$) or very high frequencies. While the first kind of approximations are valid for bunches longer than the characteristic transverse dimension of structure, the latter is a good approximation for very short bunches.
 
@@ -1050,33 +1050,30 @@
 \subsubsection{Multi-Bunch tracking codes}
 
 
-\chapter{Experimental Methods}
-\section{Impedance Measurement}
-\subsection{Direct Measurement}
-\subsubsection{Wire technique}
-\subsubsection{Double wire technique}
-\subsection{Beam Measument}
-\subsubsection{Single-bunch Current Dependent Tune-shifts}
-\subsubsection{Multi-bunch Current Dependent Tune-shifts}
-\subsubsection{Single-bunch Turn-by-Turn measurements}
-\subsubsection{Orbit bump method}
-\subsubsection{response matrix fitting}
-\subsubsection{Instability Threshold Measurements}
-\section{Instability Cures}
-\subsection{Landau Cavity}
-\subsection{Chromaticity}
-\subsection{Cavity power absorbers}
-\subsection{Cavity temperature adjustments}
-\subsection{Bunch-by-Bunch Feedback System}
-\subsubsection{How it works}
-\subsubsection{Possible Experiments}
-\paragraph{Grow-Damp Experiments}
-\paragraph{Tune measurement}
-\paragraph{Beam Response Function Measurement}
-\subsubsection{Main Limitations}
-
-\chapter{Methodology}
-\section{}
+% \chapter{Experimental Methods}
+% \section{Impedance Measurement}
+% \subsection{Direct Measurement}
+% \subsubsection{Wire technique}
+% \subsubsection{Double wire technique}
+% \subsection{Beam Measument}
+% \subsubsection{Single-bunch Current Dependent Tune-shifts}
+% \subsubsection{Multi-bunch Current Dependent Tune-shifts}
+% \subsubsection{Single-bunch Turn-by-Turn measurements}
+% \subsubsection{Orbit bump method}
+% \subsubsection{response matrix fitting}
+% \subsubsection{Instability Threshold Measurements}
+% \section{Instability Cures}
+% \subsection{Landau Cavity}
+% \subsection{Chromaticity}
+% \subsection{Cavity power absorbers}
+% \subsection{Cavity temperature adjustments}
+% \subsection{Bunch-by-Bunch Feedback System}
+% \subsubsection{How it works}
+% \subsubsection{Possible Experiments}
+% \paragraph{Grow-Damp Experiments}
+% \paragraph{Tune measurement}
+% \paragraph{Beam Response Function Measurement}
+% \subsubsection{Main Limitations}
 
 
 \chapter{Components Impedance Modelling}\label{cap:impedance_modelling}
@@ -1085,13 +1082,20 @@
 
 \section{Multi-Layer Resistive Wall}
 
-    The standard, single layer, resistive wall impedance is one of the most studied type of impedance in the accelerators community, being known since 1965, where it was used to explain the coupled bunch instabilities in AKDKE~\cite{rw1st}. Since then the theory for calculation of such impedance evolved~\cite{chao}, being completely solved by Bane in 1995~\cite{Bane1995}, which also derived explicit expressions for the long and short-range wake-functions for round chambers with a single, infinitelly thick, layer of material, and them for any transverse convex geometry by~\cite{Yokoya}, where general relations between wakes from round, elliptic and flat geometries were derived.
+    The standard resistive wall effect is known for a long time, being first observed to generate coherent oscillations in electron streams coupled to circuits by Pierce~\cite{Pierce1951} and them used to create a resistive-wall amplifier by Birdsall \emph{et al}~\cite{Birdsall1953}. This idea was first applied to the study of collective effects in accelerators by Laslett, Neil and Sessler to explain longitudinal~\cite{Neil1965} and transverse~\cite{Laslett1965} coherent oscillations of coasting beams and then to bunched beams by Courant and Sessler~\cite{Courant1966}. Since then the theory for calculation of the now called resistive-wall impedance evolved~\cite{Chao1993}, being exactly solved in 1991 by Bane~\cite{Bane1991} for a round and infinitely thick and long vacuum chamber, where the author provided analytic formulas for the short-range wake-fields, and for an arbitrary transverse cross section in 1993 by Yokoya~\cite{Yokoya1993}, who based its work on a formalism developed by Gluckstern \emph{et al}~\cite{Gluckstern1993}.
 
     It is very recurrent in accelerators to have chambers that are composed of different laminar layers of materials. For example, the chambers of fast time-varying magnets, such as the injection kickers of a storage ring, must be made of a bad conductor, generally a ceramic. To avoid discontinuities in the path of the image current of the beam\footnote{This is equivalent to say: "to decrease the impedance of the beam".}, which could lead to excessive heating and consequent melting or burning of the magnet components and the accumulation of static charges in the ceramic, a thin layer of metal is deposited, coated, in the inner surface of the chamber. The thickness of the coating must be of a few microns: thin enough to do not distort the external field as it penetrates the walls, which has frequencies of the order of hundreds of kilo Hertz, and thick enough to shield most of the frequencies of the beam, which extend to a few dozens of giga Hertz. Especifically for the kicker magnet, outside the ceramic vacuum chamber there is a layer of ferrite, which is used to guide the external field of the kicker. In the low frequency part of the spectrum, all these different layers of materials are seen by the self fields of the beam and contribute to the impedance.
 
-    The impedance for multi-layer chambers was first tackled by Piwinski, which calculated the impedance generated by a gaussian bunch in a four-layer round chamber composed of metal, ceramic, ferrite and \gls{pec}, respectively~\cite{Piwinski}. Later, Zotter created an algorithm that solved the problem for an arbitrary number of layers of materials with arbitrary electric and magnetic properties, as long as they were linear and isotropic~\cite{Zotter1972}. He implemented a code in Mathematica~\cite{Wolfram89} to explicitly calculate the impedances for the azimuthal modes $m=0$ and $m=1$. Using a different method, Burov~\cite{Burov} also solved the impedance for an arbitrary number of layers and properties of the materials. Finally, based on Zotter's method, Mounet generalized the calculation for an arbitrary azimuthal mode, $m$, and beam energy, without the ultra-relativistic assumption, for the round chamber~\cite{Mounet2009} and for flat chambers~\cite{Mounet2010}, which consists in a chamber composed of two infinitelly large parallel plates, as shown in Figure~\ref{fig:mounet_geometries}. The same author also developed a method~\cite{MounetThesis} to efficiently compute the Fourier Transform of the impedances and obtain the wake-functions for these chambers. He implemented a code called ImpedanceWake2D~\cite{Mounet2010c} to calculate these impedances and wakes and distributed it free-of-charge for the accelerators comunity.
+    The problem multi-layer chambers was first tackled by Piwinski, who calculated the impedance generated by a gaussian bunch in a four-layer round chamber composed of metal, ceramic, ferrite and \gls{pec}, respectively~\cite{Piwinski1977}. In his work, Piwinski showed the important condition that, for this type of multi-layer chambers, the fields will not penetrate the coating if its thickness, $t$, satisfies
+    \begin{align}
+        t > \frac{\delta^2}{d}, \quad\text{with}\quad
+        \delta = \sqrt{\frac{2}{\mu_0\omega\sigma_c}}
+    \end{align}
+    which differs from the intuitive comparison $t>\delta$, where $\delta$ is the skin depth and $\sigma_c$ is the conductivity of the coating, $\mu_0$ is the magnetic permeability of vacuum, $\omega$ is the angular frequency of the fields and $d$ is the thickness of the ceramic. This means that, since generally $d\gg t$, the coating is efficient down to frequencies much lower than what is intuitively thought.
 
-    In summary, the theory of multi-layer infinitely long round chambers is completely solved. In this work we implemented Mounet Formulas to calculate the impedances for round chambers for the azimuthal modes $m=0$ and $m=1$ in Matlab and Python3 and the wake functions were obtained using the code ImpedanceWake2D. In cases where we needed the impedance for flat chambers, the Yokoya factors were applied to the round chamber results
+    Later, Zotter created an algorithm that solved the problem for an arbitrary number of layers of materials with arbitrary electric and magnetic properties, as long as they were linear and isotropic~\cite{Zotter1972}. He implemented a code in Mathematica~\cite{Wolfram89} to explicitly calculate the impedances for the azimuthal modes $m=0$ and $m=1$. Using a different method, Burov~\cite{Burov} also solved the impedance for an arbitrary number of layers and properties of the materials. Finally, based on Zotter's method, Mounet generalized the calculation for an arbitrary azimuthal mode, $m$, and beam energy, without the ultra-relativistic assumption, for the round chamber~\cite{Mounet2009} and for flat chambers~\cite{Mounet2010}, which consists in a chamber composed of two infinitelly large parallel plates, as shown in Figure~\ref{fig:mounet_geometries}. The same author also developed a method~\cite{MounetThesis} to efficiently compute the Fourier Transform of the impedances and obtain the wake-functions for these chambers. He implemented a code called ImpedanceWake2D~\cite{Mounet2010c} to calculate these impedances and wakes and distributed it free-of-charge for the accelerators comunity.
+
+    In summary, the theory of smooth multi-layer infinitely long round chambers is completely solved. In this work we implemented Mounet Formulas to calculate the impedances for round chambers for the azimuthal modes $m=0$ and $m=1$ in Matlab and Python3 and the wake functions were obtained using the code ImpedanceWake2D. In cases where we needed the impedance for flat chambers, the Yokoya factors were applied to the round chamber results
     \begin{align}
         \funcof{Z_\parallel}_\text{flat} &=
                         \funcof{Z_\parallel}_\text{round}\\
