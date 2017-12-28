@@ -1180,17 +1180,31 @@
 
     The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi-layer chambers used so far. This question is answered by Shobuda and Chin~\cite{Shoduba2009}, who calculate the impedance of a finite resistive insert of finite thickness on a otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for chambers with length smaller than its radius, with a thickness of the order of \SI{100}{\micro\meter} the impedance of the insert was already equal to the infinitely long chamber counterpart. This results shows that the use of the multi-layer formulas employed so far for the other components are still valid for the fast correctors chambers. Considering this, the relevant parameters used for the modelling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
 
+\subsection{Undulators Chambers}
+
+    For the first phase of operation of the Sirius light source it is predicted the installation of seven \gls{ids} on the storage ring, with four different types of devices: two Delta-type undulators~\cite{DeltaRef} and two \gls{apu}~\cite{APURef}. The design details as well as first experiences with the prototype measuments of the Sirius Delta undulator can be found elsewhere~\cite{SiriusDelta1} and the information regarding the radiation parameters of such devices can be found at~\cite{wikisirius}. All the \gls{ids} will be out of vacuum and their vacuum chamber will be made of copper and coated with \gls{neg}.
+
+    Table~\ref{tab:sirius_undulators} shows the main impedance related parameters of each device type. The close to round shape of the Delta chambers is a good feature, due to the reduced detuning impedance it will generate, which has demonstrated to complicate the operation of machines due to the incoherent tune shift in multibunch configurations~\cite{Nagaoka2001}. Even though the \gls{ids} for the seconde phase of operation are not defined yet, it was extrapolated that all the straight sections available for \gls{id} installation will be filled with the same devices of phase one.
+
+    Figure~\ref{fig:undulators_impedance} shows the vertical dipole and longitudinal wall impedance of the four types of undulators. They were calculated using the parameters of Table~\ref{tab:sirius_undulators}, where the Yokoya factors were applied to the \gls{apu} chambers. These devices will also have quadrupolar impedances that, in this model, will be half of the value of the vertical dipole. Notice the transverse impedance is dominated by the \gls{apu}-19 chamber, while the largest contribution to the longitudinal impedance comes from the Delta-52. This difference comes from the fact that the transverse impedance is more sensitive to the inner radius of the chamber, scaling with $1/r^3$, while the longitudinal impedance goes with $1/r$ and the large length of the Delta-52 compensates for its larger radius.
 
 \section{Geometric Transitions}
-\subsection{2D-Calculations}
-\subsubsection{BC Chamber}
-\subsubsection{RF Cavity taper}
-\subsubsection{Undulators Tapers}
-\subsection{3D-Calculations}
-\subsubsection{BPMs}
-\subsubsection{Bellows}
-\subsubsection{Radiation Masks}
-\subsection{\Glsentryfull{csr}}
+
+    The geometric transitions of the vacuum chamber, also called tapers, are necessary to smoothly change the cross section of the chamber from one geometry to another, in order to avoid discontinuities in the vacuum vessel. In several cases these transitions connect chambers with similar cross sections shapes and different dimensions. When the dimensions of the chamber at the end of the transition is smaller the tapers are called taper-in, and are called taper-out for the opposite case.
+
+    This type of impedance is
+
+\subsection{BC Chamber}
+\subsection{RF Cavity taper}
+\subsection{Undulators Tapers}
+
+\section{3D-Calculations}
+\subsection{BPMs}
+\subsection{Bellows}
+\subsection{Radiation Masks}
+
+% \section{\Glsentryfull{csr}}
+\section{Coherent Synchtrotron Radiation}
 
 \chapter{Impedance Budget}
 \section{Longitudinal Impedance}
