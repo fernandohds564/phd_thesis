@@ -20,6 +20,8 @@
 % ---
 % INICIO DAS CUSTOMIZACOES PARA A UNICAMP
 % ---
+\newcommand{\mytitle}[1]{\def \mytit {#1}}
+\newcommand{\imprimirtitle}{\mytit}
 
 %CUSTOMIZACAO DA NUMERACAO
 \renewcommand{\pretextual}{%
@@ -46,19 +48,19 @@
     \begin{minipage}{.7\textwidth}
 	  {\large \imprimirinstituicao}
 	\end{minipage}
-	
+
 	\vspace*{1cm}
-    
+
 	\center
-	{\ABNTEXchapterfont\large\imprimirautor}	
-	
+	{\ABNTEXchapterfont\large\imprimirautor}
+
     \vfill
     {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo}
     \vfill
-    
-    {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo}
+
+    {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitle}
     \vfill
-    
+
     \large\imprimirlocal
 
     \large\imprimirdata
@@ -114,7 +116,7 @@
 \vspace*{1cm}
 
 \noindent
-\begin{minipage}{.4\textwidth}\SingleSpacing		
+\begin{minipage}{.4\textwidth}\SingleSpacing
 	Este exemplar corresponde à versão final da tese defendida pelo
 	aluno \imprimirautor , e orientada pelo \imprimirorientador \\[4mm]
 	\hfill
