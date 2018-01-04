@@ -80,10 +80,16 @@
     \begin{description}[align=left]
         \item[Dipoles:] or bending magnets are the devices responsible for deflecting the beam in such a way that its liquid deflection in one turn is \SI{2\pi}{\radian}. They generate an almost constant vertical field, $B_y$, along the beam path that curves its horizontal trajectory and keeps the vertical unchanged, see Figure~\ref{fig:dipole}.
         \begin{figure}[t!]
-            \center
-            \includegraphics[width=0.4\textwidth]{dipole_example.png}
-            \includegraphics[width=0.5\textwidth]{dipole_real.jpg}
-            \caption[Example of dipole magnet.]{Left: Schematic figure of a dipole magnet, where N and S indicate the North and South poles of the magnet and the vertical down arrows indicate the magnetic field lines. Right: Picture of a real dipole magnet.}
+            \centering
+            \begin{subfigure}[c]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{dipole_example.png}
+                \caption{Schematic figure of a dipole magnet, where N and S indicate the North and South poles of the magnet and the vertical down arrows indicate the magnetic field lines}
+            \end{subfigure}\hfill
+            \begin{subfigure}[c]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{dipole_real.jpg}
+                \caption{Picture of a real dipole magnet.}
+            \end{subfigure}
+            \caption{Ilustrations of a dipole magnet.}
             \label{fig:dipole}
         \end{figure}
         At each point of the trajectory inside a dipole the curvature, $G(s)$, is given by:
@@ -93,10 +99,17 @@
         where $s$ is the longitudinal position along the ring, $\rho(s)$ is the radius of curvature, $e$ is the absolute value of the particle's charge, $c$ is the speed of light, $p_0$ is the absolute value of the average linear momentum of the beam and $E_0$ is the average beam energy. Notice in the equation above that dipoles work as spectrometers, if the beam has an energy spread, particles with higher/lower energy will spiral out/in because their total deflection angle will be different than \SI{2\pi}{\radian}, which means eventually all particles will hit the vacuum chamber and be lost;
         \item[Quadrupoles:] are responsible to focus the beam, keeping the particles that are not in the ideal orbit oscillating around it. They achieve this by creating a field that grows linearly in intensity with the displacement from its center (see Figure~\ref{fig:quadrupole}),
         \begin{figure}[t!]
-            \center
-            \includegraphics[width=0.4\textwidth]{quadrupole_example.png}
-            \includegraphics[width=0.5\textwidth]{quadrupole_real.jpg}
-            \caption[Example of quadrupole magnet.]{Left: Schematic figure of a quadrupole magnet, where N and S indicate the North and South poles of the magnet, the curved arrows indicate the magnetic field lines and the red/blue arrows indicate the direction of the horizontal/vertical forces felt by an electron entering the sheet. Notice this quadrupole focuses in the horizontal, so it is a focusing quadrupole. Right: Picture of a real quadrupole magnet, with the coils that generate the magnetic field and the iron core that guide and shape the field lines inside the gap.}
+            \centering
+            \begin{subfigure}[c]{0.47\textwidth}
+                \centering
+                \includegraphics[width=0.55\textwidth]{quadrupole_example.png}
+                \caption{Schematic figure of a quadrupole magnet, where the curved arrows indicate the magnetic field lines and the red/blue arrows indicate the direction of the horizontal/vertical forces felt by an electron entering the sheet. Notice this quadrupole focuses in the horizontal, so it is a focusing quadrupole.}
+            \end{subfigure}\hfill
+            \begin{subfigure}[c]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{quadrupole_real.jpg}
+                \caption{Picture of a real quadrupole magnet, with the coils that generate the magnetic field and the iron core that guide and shape the field lines inside the gap.}
+            \end{subfigure}
+            \caption{Ilustrations of a quadrupole magnet.}
             \label{fig:quadrupole}
         \end{figure}
         in such a way that they work as lenses. They are characterized by their strength, defined by:
@@ -106,10 +119,17 @@
         where $x$ is the horizontal displacement from the center of the quadrupole and $y$ is the vertical. The strength defined above is directly related to how much the quadrupole deflect off-centered particles, being its integral along the quadrupole length directly related to the focal distance of the magnet. One intrinsic limitation of quadrupoles imposed by \gls{maxeq} and the Lorentz force is that they cannot focus the beam simultaneously in the horizontal and vertical directions. This means that in a magnetic lattice it is always needed to have two types of quadrupoles, one to focus in the horizontal, called focusing quadrupoles, and one to focus in the vertical, called defocusing quadrupoles, in such a way that liquid focusing in both planes can be achieved with intelligent positioning of the magnets. Besides, quadrupoles are arranged along the ring to correct the intrinsic limitation of the dipoles regarding the energy dispersion, as discussed above, adding/subtracting liquid deflection in one turn for particles with more/less energy. This cause particles to have different closed orbits depending on their energy, but at least maintain them stable. Quadrupoles and dipoles are the most important multipoles in a storage ring because together they define its main properties, such as the particles average energy, the transverse beam emittance, and beam sizes along the ring, as well as the fundamental frequency of oscillation of the particles, the tune.
         \item[Sextupoles:] quadrupoles also suffer from chromatic aberrations, focusing more or less the particles depending on their energy. This difference in focusing makes particles oscillate differently around their closed orbit, changing their fundamental resonance frequency. This is not a fundamental problem, but in almost all modern storage rings it is impossible to store particles with only dipoles and quadrupoles. Sextupoles can correct that effect if placed at the right positions along the ring because of their non-linear magnetic field, which grows quadractically with the distance from its center, see Figure~\ref{fig:sextupole}.
         \begin{figure}[t!]
-            \center
-            \includegraphics[width=0.4\textwidth]{sextupole_example.png}
-            \includegraphics[width=0.5\textwidth]{sextupole_real.jpg}
-            \caption[Example of sextupole magnet.]{Left: Schematic figure of a sextupole magnet, where N and S indicate the North and South poles of the magnet and the curved arrows indicate the magnetic field lines. Right: Picture of a real sextupole magnet.}
+            \centering
+            \begin{subfigure}[c]{0.47\textwidth}
+                \centering
+                \includegraphics[width=0.9\textwidth]{sextupole_example.png}
+                \caption{Schematic figure of a sextupole magnet, where N and S indicate the North and South poles of the magnet and the curved arrows indicate the magnetic field lines.}
+            \end{subfigure}\hfill
+            \begin{subfigure}[c]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{sextupole_real.jpg}
+                \caption{Picture of a real sextupole magnet.}
+            \end{subfigure}
+            \caption{Ilustrations of a sextupole magnet.}
             \label{fig:sextupole}
         \end{figure}
         Just like quadrupoles, it is needed two types of sextupoles, focusing and defocusing, to correct the horizontal and vertical frequency of oscillation of the particles. Sextupoles are needed, but they introduce several complications for the design of a storage ring, because their non-linear fields introduce chaos in some regions of the particles phase space. More sextupoles or higher order multipoles can be introduced to avoid chaos as much as possible and also to help correcting higher order chromatic effects.
