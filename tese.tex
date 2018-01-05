@@ -959,7 +959,7 @@
 \subsubsection{Finite Line Density Issue}
 
     This procedure employed to find the impedances has an intrinsic limitation: the line density used as source particle in simulations must allways spread over a few grids, which means a delta-like function can never be used and the wake functions, or wake potential, cannot be obtained. Instead, the effective wake potencial, given by
-    \begin{align}\label{eq:int_effective_wake_potential}
+    \begin{align}
         V(\vect{\rho}'_0, \vect{\rho}, z) = \udefint{z'}{
                 \lambda(z') W(\vect{\rho}'_0,\vect{\rho},z-z')},
     \end{align}
@@ -1348,7 +1348,6 @@
 
     \begin{figure}[hb!]
 	    \centering
-	    \label{fig:wake1}
 	    \begin{tikzpicture}[scale=1]
 	        \def\d{1cm}
 	        \draw[<->] (1,0) node[below]{$z$}
@@ -1374,6 +1373,7 @@
 	        \draw[->] (Q1) -- ++($(Q2) - (Q1)$) node[midway,above] {$\boldsymbol{R}$}; %vector
 	    \end{tikzpicture}
 	    \caption{Duas partículas interagindo via campo direto.}
+        \label{fig:wake1}
     \end{figure}
 
     To see this lets consider the interaction of a source particle $Q$ moving with velocity $\vect{v}=v{\vect{\hat{z}}}$ with a witness particle $q$ moving with the same velocity (parallel path) at a distance $s$ in the direction parallel to the movement and at a transverse distance $\rho$, as shown in Figure\,\ref{fig:wake1}. We want to determine the force that the source particle exerts on the witness particle. One way to do this is by calculating the electric field of the source particle in the co-moving frame of reference, $S'$, and Lorentz transforming it back to the laboratory's frame. After the math we obtain:
@@ -1401,7 +1401,6 @@
 
     \begin{figure}[hb!]
 	    \centering
-	    \label{fig:wake2}
 	    \begin{tikzpicture}
 	        \draw[very thick] (0,0) -- ++(10,0) (0,4) -- ++(10,0); %vacuum chamber
 	        \draw[dashed] (0,2) -- ++(10,0); %eixo de simetria
@@ -1416,6 +1415,7 @@
 	        \filldraw ($(Q1)+(0,1)$) circle[radius=0.07];
 	    \end{tikzpicture}
 	    \caption{Particles interacting in a perfectly conducting cylindrical tube.}
+        \label{fig:wake2}
     \end{figure}
 
     Lets consider now a pipe with cylindrical symmetry\footnote{do not confuse cylindrical symmetry with cylinder. By cylindrical symmetry we mean a system with translational symmetry in one direction.}, hollow and with absolute vacuum in its interior, made of a perfect electric conductor material and with arbitrary cross section. If we put the particles of the previous example inside this pipe, moving parallel to symmetry axis, they will induce image charges in the surface of the wall which cancel the electromagnetic field inside the metal.
@@ -2011,6 +2011,151 @@
     \end{align}
 
     Notice that both expressions,~\eqref{eq:}
+
+
+\chapter{Longitudinal Instability Analysis}
+
+\section{Introduction}
+
+    In this work the longitudinal tracking results for Sirius with the total impedance budget will be presented. In Sec.~\ref{sec:description} the methods used in the Haissinski solver and in the tracking code are briefly described, in Sec.~\ref{sec:imp_model} the construction of an impedance model for the longitudinal plane based only on resonators is treated and in Sec.~\ref{sec:noise} noise issues with the first simulations are discussed, where a simple theory to explain its mechanism is introduced.
+
+\section{Description of the Methods}\label{sec:description}
+
+\subsection{Haissinski Solver}
+    The Haissinski equation can be written in the following form, $\rho(z) = \mathcal{H}(\rho,z)$, where
+    \begin{gather}\nonumber
+        \mathcal{H}(\rho,z) = B\exp\funcof{\frac{q}{\alpha L_0 E_0 \sigma_\delta^2}\funcof{U_\text{cav}(z)-I_b T_0\infint{z'}{W'_0(z-z')\rho(z')}}},\\
+        \text{with}\,\,B \in \mathbb{R} \left| \infint{z}{\mathcal{H}(\rho,z)}=1\right.,
+    \end{gather}
+    $q$ is the electron charge, $I_b$ is the bunch current and $W'_0$ is the total longitudinal wake function.
+
+    To solve this equation an iterative approach was adopted. Starting from a very low $I_b$ and an initial guess
+    \begin{align}
+        \rho_0^{I_b}(z) = A\exp\funcof{\frac{qU_\text{cav}(z)}\alpha L_0 E_0 \sigma_\delta^2}, \,\,
+        \text{with}\,\, A \in \mathbb{R} \left| \infint{z}{\rho_0^{I_b}(z)}=1\right.
+    \end{align}
+    we iterate
+    \begin{align}
+        \rho_n^{I_b}(z) = \left\{
+        \begin{matrix}
+            \mathcal{H}(\rho_0^{I_b},z)       & \quad \text{if } n = 1\\[2mm]
+            \mathcal{H}\funcof{\frac{\rho_{n-1}^{I_b} + \beta\rho_{n-2}^{I_b}}{1+\beta},z} & \quad \text{if } n > 1
+        \end{matrix}\right.,
+    \end{align}
+    where $\beta$ is a positive convergence control variable. For each iteration the difference
+    \begin{align}
+        d_n^{I_b} = \infint{z}{\funcof{\rho_n^{I_b}-\rho_{n-1}^{I_b}}^2}
+    \end{align}
+    is calculated and compared to a threshold, $\epsilon$. When $d_{n_c}^{I_b}<\epsilon$, convergence is assumed and we set $\rho^{I_b} = \rho_{n_c}^{I_b}$. Then, the current is incremented by a small value $I_b + \Delta I$, with $\Delta I \ll I_b$, and the process is repeated with the initial guess $\rho_0^{I_b+\Delta I} = \rho^{I_b}$. Note that this method does not require the wakes to respect causality and can also be applied to non-parabolic RF cavity potentials.
+
+    This implementation was benchmarked with the results presented in Ref.~\citenum{Bane1989} for the inductive and resistive impedances\footnote{Since the code cannot handle wake functions that are given by distributions, such as the $\delta'(z)$ and the $\delta(z)$ of the inductive and resistive wakes, respectively, the functions used for the simulation in these cases were their convolution with a very small ($\sigma_z=20\mu$m) gaussian bunch.}. For the capacitive (positive inductance) the code fails to converge above a given threshold, close to the well known singularity point of such impedance\cite{Shobuda1999}, however this was not a problem for all the practical cases studied here.
+
+\subsection{Tracking Code}
+
+    The structure of the tracking code used is very similar to the one described in Ref.~\citenum{Sa2015}, with the additional feature of including damping and quantum excitation terms for the single particle dynamics. Wake field kicks can be included in two different ways:
+    \begin{description}
+        \item[General Wakes:] In this case the wakes do not need to respect the causality condition and are passed to the code as interpolation tables. The code uses the Particle In Cell (PIC) approach, where the total simulation length of the longitudinal direction, $L_c$, is segmented in $N_c$ intervals and the approximate beam distribution is calculated from the number of macroparticles in each cell. Then, the convolution theorem is used to calculate the kick curve\cite{Bassi2016}, which is interpolated according to each particle's position;
+        \item[Resonators:] The parameters of the resonators, $(R_s, \omega_r, Q)$, are used as input. The code does not use the PIC approach, each of the $N_p$ macroparticles being simulated interact with each other and the wake is calculated through the sum of the potentials left by each particle in each resonator.
+    \end{description}
+
+    Note that in the second method $N_p$ is the only variable to be tested for the analysis of the convergence of the results, while for the first method the additional variable $N_c$ is also important. This inconvenience can be avoided if the number of slices is set in such a way that the grid length satifies the Nyquist theorem for the highest relevant frequency of the impedance used in tracking,
+    \begin{align} \label{eq:nyquist_theorem}
+        \Delta z_c = L_c/N_c > \frac{2}{f_\text{max}}.
+    \end{align}
+
+    This code was benchmarked with SPACE\cite{Bassi2016} and Elegant\cite{Borland2000}.
+
+\section{Impedance Model}\label{sec:imp_model}
+
+    Table~\ref{tab:resonator_model} shows the broad band resonators (BBR) model of the Sirius longitudinal impedance budget. The very high frequency BBR, the first in the table, is due to the NEG coated vacuum chamber, which has a very large inductive impedance at low frequencies, being the major contributor for the bunch lengthening. Besides, note that the last three resonators have a fairly large $Q$ factor. They are originated by the bellows and the BPMs of the machine, and, as explained below, are important to explain the behavior of the beam above the threshold of the microwave instability.
+    \begin{table}[t]
+        \caption{Broad band resonators model of the Sirius longitudinal impedance budget.}
+        \label{tab:resonator_model}
+        \begin{tabular}{@{}lcccccccccc@{}}\toprule
+            $f_R$~[GHz]       & 716.2 & 206.9  & 138.4  &  79.6  &  57.3
+                              &  35.0 &  17.5  & 17.8   &  11.9  &   9.2 \\
+            $R_s$~[k$\Omega$] & 30.0  &  6.5   &  2.0   &  2.0   &  2.5
+                              &  2.5  &  1.7   &  3.0   &  4.0   &  20.0 \\
+            $Q$               &  0.7  &  1.3   &  4.0   &  1.0   &   4.5
+                              &  3.0  &  1.0   & 24.0   &  24.0  &  100.0 \\\bottomrule
+        \end{tabular}
+    \end{table}
+
+    This impedance budget was built by fitting the total impedance and refined based on comparisons of the instabilities thresholds predicted by them in frequency domain, on the bunch-lengthening and synchrotron phase shift as function of the bunch current and also on the behavior of the distribution above the threshold, calculated by tracking. In this process it was noted that including only the first seven BBR is enough to explain the bunch-lengthening effects and the threshold for the microwave instability, but only with all the ten resonators it is possible to reproduce the behavior above the threshold, as shown in
+    Fig.~\ref{fig:tracking_newbbr_vs_wake} and
+    Fig.~\ref{fig:tracking_moments_new_BBR}.
+    \begin{figure}[b!]
+        \centering
+        \includegraphics[width=0.6\textwidth]{tracking_newbbr_vs_wake.eps}
+        \caption{Bunch length, synchrotron phase shift, and energy spread as function of the single bunch current for the BBR model and the real wake of the machine, calculated by tracking and using the Haissinski solver. Note that both impedance models agree very well and predict the threshold of the microwave instability at $\approx2.7$mA.}
+        \label{fig:tracking_newbbr_vs_wake}
+    \end{figure}
+    \begin{figure}[b!]
+        \centering
+        \includegraphics[width=\textwidth]{tracking_moments_new_BBR.eps}
+        \caption{Time evolution of the energy spread in tracking simulations for different currents above the threshold of the microwave instability, showing one cycle of instability growth, saturation and damping. This sawtooth--like behavior continues indefinitely and seriously compromises the quality of the radiation emitted. Note the good agreement between the behavior predicted by the BBR model and the detailed computed wake of the machine. It is interesting that the BBR have higher growth rates at lower currents, 2.8~and~3.0~mA, but for higher currents the other model predict faster growths. Such behavior should be investigated further. }
+        \label{fig:tracking_moments_new_BBR}
+    \end{figure}
+
+\section{Noise in tracking simulations}\label{sec:noise}
+
+    In order to simulate correctly the high frequency BBR of the impedance model, fulfilling the condition imposed by the Nyquist theorem expressed in Eq.~\eqref{eq:nyquist_theorem}, it was necessary to set $\Delta z_c= 2\mu$m. Figure~\ref{fig:first_tracking}
+    \begin{figure}[b!]
+        \centering
+        \includegraphics[width=0.6\textwidth]{first_tracking.eps}
+        \caption{Tracking results, showing the effect of noise as a function of the number of macroparticles used in the simulation.}
+        \label{fig:first_tracking}
+    \end{figure}
+    \begin{figure}[b!]
+        \centering
+        \includegraphics[width=0.6\textwidth]{particle_noise.eps}
+        \caption{During tracking simulations one particle is followed and its position in phase space and kick received by the wake are stored for each turn. The figure above shows the integrated power spectrum of the kick as a function of the frequency for simulations with 4 mA in the bunch. As the number of particles simulated increase, the energy is concentrated in the synchrotron frequency.}
+        \label{fig:particle_noise}
+    \end{figure}
+    shows the results of tracking with the impedance budget of the Sirius storage ring for different numbers of macroparticles in comparison with the behavior predicted by the Haissinski solver and Fig.~\ref{fig:particle_noise} shows the integrated power spectrum of the kick received by an arbitrary particle in the bunch. Note that even with a number of particles as high as 1~M particles, there is still a strong influence of noise, and only with 10~M particles the results seem to have converged, where the onset of an instability is noted at approximately 3~mA. Such results motivated us to try to understand the mechanism that drives this behavior.
+
+    Given a longitudinal density distribution $\rho(z)$, the number of particles in a small interval $\Delta z$ centered at the position $z$, $N_l(z)$, is a random variable that follows a binomial distribution. Thus, considering that there are $N_p$ particles in the bunch, we have
+    \begin{align}
+        \langle N_l \rangle = \rho(z)\Delta z N_p
+        \quad \text{and}\quad
+        \text{var}\funcof{N_l} \approx \rho(z)\Delta z N_p,
+    \end{align}
+    where $\langle\cdot\rangle$ and $\text{var}\funcof{\cdot}$ denotes average and variance, respectively, being the latter a measure of the fluctuations in the bunch due to the finite number of particles. If the particles were static, this fluctuation would also be, but, as they are moving due to the longitudinal dynamics of the storage ring, these fluctuations are constantly changing. For very small $\Delta z$, the value of $N_l(z)$ changes very fast, but as $\Delta z$ increases, this characteristic time becomes increasinly large.
+
+    It is possible to estimate the length scale where the behavior of the variance changes by considering the number of turns it takes for the stored particles to complete one oscillation in the longitudinal phase space, which is $1/\nu_z$. This means that, on average, the longitudinal position of each particle differs from its position in the last turn by $\Delta z_L \approx 4\nu_z\sigma_z$. Consequently, for scales below or on the order of this length, the fluctuations of the particle distribution changes in a turn by turn basis.
+
+    Now, lets consider there is a wake function $W(z)$ that is constant in a small interval $\Delta z_W \approx \Delta z_L$ behind the source particle and zero outside this interval. Then, any particle inside the bunch would receive random kicks $K = eI_b T_0 W N_l/N_p$. The average of this kick varies slowly in time, because it depends on the evolution of the density distribution, but the variance, given by
+    \begin{align}
+        \text{var}\funcof{K} = \funcof{qI_b T_0 W}^2 \frac{\text{var}\funcof{N_l}}{N_p^2} \approx
+        \funcof{qI_b T_0 W}^2 \frac{\Delta z_W}{\sqrt{2\pi e}N_p},
+    \end{align}
+    varies from turn to turn, where in the last step it was assumed $z \approx \sigma_z$ and that the distribution is gaussian, $\rho(\sigma_z)=1/\sqrt{2\pi e}\sigma_z$. Summarizing, this mechanism introduce a random variation of the energy of the particles in a turn by turn basis, similarly to the quantum excitation process due to radiation emission. This means that it should change the energy spread of the beam by
+    \begin{align}\label{eq:energy_spread_variation}
+        \Delta \sigma^2 = \sigma_\delta^2 - \sigma_{\delta0}^2 \approx
+        \frac{\text{var}(K)/E_0^2}{\alpha_z T_0(2-\alpha_z T_0)} =
+        \funcof{\frac{qI_b T_0 W}{E_0}}^2 \frac{\Delta z_W}{\sqrt{2\pi e}N_p} \frac{1}{\alpha_z T_0(2-\alpha_z T_0)}.
+    \end{align}
+
+    Figure~\ref{fig:noise_effect}
+    \begin{figure}[t!]
+        \centering
+        \includegraphics[width=0.6\textwidth]{noise_effect.eps}
+        \caption{Energy spread increase in simulations multiplied by $N_p\sigma_s/I_b^2$. The curves 100~k, 1~M, 10~M and 50~M were performed with the same wake function, while for curve 1~M~+~Filter Wake a convolution with a $40\mu$m gaussian bunch was applied to the wake and for the other curve, the resonator with highest frequency presented in Tab.~\ref{tab:resonator_model} was not used. Note how the baselines change depending of the wake function used.}
+        \label{fig:noise_effect}
+    \end{figure}
+    \begin{figure}[b!]
+        \centering
+        \includegraphics[width=0.6\textwidth]{quantitative_noise_effect.eps}
+        \caption{Dots represents the energy spread increase in simulations with the same wake function (represented by the blue curve in the small graphic) and lines are the prediction of Eq.~\eqref{eq:energy_spread_variation} using a constant model for the wake (orange line in the small graphic), with $W=1\times10^7$V/C and $\Delta z_W = 80\mu$m. }
+        \label{fig:quantitative_noise_effect}
+    \end{figure}%
+    shows the energy spread variation from Sirius tracking simulations multiplied by $N_p\sigma_s/I_b^2$. Note that according to Eq.~\eqref{eq:energy_spread_variation} this quantity should depend only on the storage ring properties and on the wake characteristics, $(W, \Delta z_W)$, and, therefore should be an horizontal straigth line. Note that this is the behavior for the 100~k and 1~M particles curve and that the 10~M curve deviates from this behavior above 2~mA, but approaches the same baseline of the others for lower currents. This deviation is understood when the simulation with 50~M particles is analysed, where the real microwave instability dominates the scaling. Other two simulations with 1~M particles are also shown, one without the high frequency resonator, where we note the real instability also happens, with approximately the same characteristics of the 50~M particles curve, and another with a filtered wake. This filter consists in convolving the total wake function with a small gaussian bunch ($\sigma_z=40\mu$m) and using this effective wake as input for the simulation, this approach changes the short range wake by filtering out high frequencies of the impedance spectrum. Even though this filtered model has a smaller baseline than the other curves, it was not enough to predict the instability at $\approx$2.5~mA, due to the additional energy spread introduced by the noise, like the unfiltered simulations with 100~k and 1~M particles. While Fig.~\ref{fig:noise_effect} shows that Eq.~\eqref{eq:energy_spread_variation} qualitatively explains the energy spread increase induced by noise in simulations, Fig.~\ref{fig:quantitative_noise_effect} shows that, even though several approximations were performed in its deduction, it can be used to quantitatively estimate the number of particles needed to avoid such problems.
+
+    Even though all the simulations presented here were performed with the General Wakes mode of the tracking code, which uses the PIC method, the same results were also observed for tracking the pure Resonators. This indicates that the effect described above is not related to the PIC method, but is a limitation of the physical system used to replace the real one in the simulations. The reduced number of particles increase the fluctuations that already exist in the real beam and, as Eq.~\eqref{eq:energy_spread_variation} suggests, would also induce energy spread increase in the physical system if the wake were $\approx$100 times stronger.
+
+\section{Conclusions}
+
+    In this work it was shown that the longitudinal broad band resonator model explains well the behavior of the bunch in terms of energy loss, bunch--lengthening and time evolution above the microwave instability threshold, that is predicted to be approximately 2.7~mA for Sirius. Also, the difficult task of simulating very high frequency wakes was analyzed and a simple theory to explain the noise it introduce in the results were developed. Such a theory proved to be helpfull in estimating the tracking parameters for the simulations. In the next step of the work, the CSR wake will be introduced in the impedance model and the tracking simulations will be extended to the transverse planes.
 
 \end{apendicesenv}
 
