@@ -1172,43 +1172,34 @@
 
 \section{Standard Chamber}
 
-    Sirius standard vacuum chamber will be round, made of copper and will have an internal radius of \SI{12}{\milli\meter}, which is considerably smaller than the chambers of the \gls{3gls} as can be seen in Table~\ref{tab:chambers_radius}.
+    Sirius standard vacuum chamber will be round, made of copper and will have an internal radius of \SI{12}{\milli\meter}, which is considerably smaller than the chambers of the \gls{3gls}, as can be seen in Table~\ref{tab:chambers_radius}.
     \begin{table}[b]
         \centering
         \caption{Chamber radius of some \gls{3gls} (approximated values taken from \citeonline{Nagaoka2014})}
         \label{tab:chambers_radius}
         \begin{tabular}{lc}
             \gls{sls} & $b$ [\si{\milli\meter}]\\\toprule
-            ELETTRA   & 27\\
-            APS       & 24\\
-            NSLS      & 20\\
-            \bottomrule
-        \end{tabular}\hspace{1cm}
-        \begin{tabular}{lc}
-            \gls{sls} & $b$ [\si{\milli\meter}]\\\toprule
-            SPRING8   & 20\\
-            ALS       & 19\\
-            BESSY II  & 17\\
-            \bottomrule
-        \end{tabular}\hspace{1cm}
-        \begin{tabular}{lc}
-            \gls{sls} & $b$ [\si{\milli\meter}]\\\toprule
-            ESRF      & 16\\
-            SLS       & 15.5\\
-            Soleil    & 12\\
+            ELETTRA   & 27   &      &       &   \\
+            APS       & 24   &      &       &   \\
+            NSLS      & 20   &      &       &   \\
+            SPRING8   & 20   &      &       &   \\
+            ALS       & 19   &      &       &   \\
+            BESSY II  & 17   &      &       &   \\
+            ESRF      & 16   &      &       &   \\
+            SLS       & 15.5 &      &       &   \\
+            Soleil    & 12   &      &       &   \\
             \bottomrule
         \end{tabular}
     \end{table}
     This small chamber does not only affect the resistive wall impedance, which scales with $1/b^3$ for the transverse planes, but also all the other components impedance, because of the proximity of the walls with the beam~\cite{Nagaoka2014}.
 
-    Besides, the solution adopted for the vacuum in Sirius employs the mixed and concomintant use of localized and distributed pumping, where the last is achieved through coating the vacuum vessel with \gls{neg}~\cite{NEGrefs}. The \gls{lnls} Vacuum Group
-    %is working on collaboration with \gls{cern} to produce high quality \gls{neg} coating,
-    is improving the \gls{neg} deposition technology, created by \gls{cern}, to produce coatings
-    with low surface roughness and uniform thickness, in all vacuum chambers of the ring~\cite{LNLSNEG}, including the undulator chambers. The presence of \gls{neg} changes the electromagnetic properties of the inner surface of the chamber which contributes to the increase of the impedance. This effect was first studied by Nagaoka~\cite{Nagaoka} who tried to explain the increased tune-shifts with current in \gls{esrf} storage ring when \gls{neg} coated \gls{ids} were installed in the ring. Later, the same author included these effects in the impedance budget of the Soleil lattice, which have some sections of its aluminum chambers coated with \gls{neg}. In both works the impedance predicted by the multilayer expressions could not explain the measured effects on the beam, and the author hypothesized the roughness of the chamber inner surface could have an effect.
+    Besides, the solution adopted for the vacuum in Sirius employs the mixed and concomintant use of localized and distributed pumping, where the last is achieved through coating the vacuum vessel with \gls{neg}~\cite{Benvenuti1998,Prodromides2002}. In 2012 the \gls{lnls} signed license agreement with \gls{cern} to use \gls{neg} and since then the Vacuum Group have been working on the development of the infrastructure and improvement of techniques for deposition, to produce coatings with low surface roughness and uniform thickness in all vacuum chambers of the ring~\cite{Seraphim2015} with in--situ activation~\cite{Rocha2017}. The presence of \gls{neg} changes the electromagnetic properties of the inner surface of the chamber and contributes to the increase of the impedance.
 
-    There are expressions in the literature to estimate the impedance of a rough surface~\cite{Stupakov_Surface} and their prediction accounts for an inductive impedance in low frequency, and real impedance for very large frequencies. However, one of the considerations for the derivation of such formulas is that the surface is perfectly conducting. It seems not reasonable that this consideration holds when the skin depth of the surface material is larger then the amplitude of the corrugations, because this field will mostly be determined by the resistive nature of the wall. For high frequencies this could be a good approximation, but this limit is much higher than any frequency of the Sirius electron beam. Considering the absence of better alternatives, the effect of the surface roughness was not included in our impedance model.
+    % This effect was first noticed by an impedance measurement made in ELETTRA by \citeonline{Karantzoulis2003}, where it is described an anomalous increse of the tune-shift with current after the installation of \gls{neg} coated Aluminum chambers for \gls{ids}.~\citeonline{Nagaoka2004b} tried to explain the measured results using the multi--layer formulas for the transvere impedance, but quantitative agreement was only obtained using excessively large resistivities for \gls{neg}. Later, the same author included these effects in the impedance budget of the Soleil lattice, which have some sections of its aluminum chambers coated with \gls{neg}. In both works the impedance predicted by the multilayer expressions could not explain the measured effects on the beam, and the author hypothesized the roughness of the chamber inner surface could have an effect.
+    %
+    % There are expressions in the literature to estimate the impedance of a rough surface~\cite{Stupakov_Surface} and their prediction accounts for an inductive impedance in low frequency, and real impedance for very large frequencies. However, one of the considerations for the derivation of such formulas is that the surface is perfectly conducting. It seems not reasonable that this consideration holds when the skin depth of the surface material is larger then the amplitude of the corrugations, because this field will mostly be determined by the resistive nature of the wall. For high frequencies this could be a good approximation, but this limit is much higher than any frequency of the Sirius electron beam. Considering the absence of better alternatives, the effect of the surface roughness was not included in our impedance model.
 
-    The impedance adopted for this component was the model of a round smooth multi-layer and infinite pipe, where three layers were considered: \gls{neg}, copper and air. Table~\ref{tab:pipe_layers} shows the values of the main parameters of this model, where we notice the value used for \gls{neg} conductivity was \SI{1}{\mega\siemens}. This value is the average result of a measurement of the \gls{neg} resistivity as function of the frequency~\cite{NEG_measure}. However, it is difficult to generalize this result for other cases, because several factors can influence the conductivity value: the process of activation of the \gls{neg}, aging effects related to molecules absortion, or even the substract to which it was deposited. For these reasons, we calculated the impedance for several values of \gls{neg} conductivity to verify its effects on the Sirius electron beam. Figure~\ref{fig:neg_impedance} shows the transverse and longitudinal impedance for the pipe and Figure~\ref{fig:neg_effect} shows the effect of these different configurations on the \gls{tmci} and on the effective impedance $Z/n|_\text{eff}$. We notice the \gls{neg}
+    The impedance adopted for this component was the model of a round smooth multi-layer and infinite pipe, where three layers were considered: \gls{neg}, copper and air. Table~\ref{tab:pipe_layers} shows the values of the main parameters of this model, where we notice the value used for \gls{neg} conductivity was \SI{1}{\mega\siemens}. This value is the average result of a measurement of the \gls{neg} resistivity as function of the frequency~\cite{Koukovini-Platia2014}. However, since this measurement was performed for a very short frequency range, only from \SI{10--11}{\giga\hertz}, and considering that other factors may influence the \gls{neg} conductivity, such as the activation process and aging effects, we calculated the impedance for several values of \gls{neg} conductivity to verify its effects on the Sirius electron beam. Figure~\ref{fig:neg_impedance} shows the transverse and longitudinal impedance for the pipe and Figure~\ref{fig:neg_effect} shows the effect of these different configurations on the \gls{tmci} and on the effective impedance $Z/n|_\text{eff}$. We notice the \gls{neg}
 
 \section{Kicker Chambers}
 
