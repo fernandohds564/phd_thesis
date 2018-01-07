@@ -1177,7 +1177,7 @@
         \centering
         \caption{Chamber radius of some \gls{3gls} (approximated values taken from \citeonline{Nagaoka2014})}
         \label{tab:chambers_radius}
-        \begin{tabular}{lc}
+        \begin{tabular}{lcccc}
             \gls{sls} & $b$ [\si{\milli\meter}]\\\toprule
             ELETTRA   & 27   &      &       &   \\
             APS       & 24   &      &       &   \\
@@ -1199,7 +1199,51 @@
     %
     % There are expressions in the literature to estimate the impedance of a rough surface~\cite{Stupakov_Surface} and their prediction accounts for an inductive impedance in low frequency, and real impedance for very large frequencies. However, one of the considerations for the derivation of such formulas is that the surface is perfectly conducting. It seems not reasonable that this consideration holds when the skin depth of the surface material is larger then the amplitude of the corrugations, because this field will mostly be determined by the resistive nature of the wall. For high frequencies this could be a good approximation, but this limit is much higher than any frequency of the Sirius electron beam. Considering the absence of better alternatives, the effect of the surface roughness was not included in our impedance model.
 
-    The impedance adopted for this component was the model of a round smooth multi-layer and infinite pipe, where three layers were considered: \gls{neg}, copper and air. Table~\ref{tab:pipe_layers} shows the values of the main parameters of this model, where we notice the value used for \gls{neg} conductivity was \SI{1}{\mega\siemens}. This value is the average result of a measurement of the \gls{neg} resistivity as function of the frequency~\cite{Koukovini-Platia2014}. However, since this measurement was performed for a very short frequency range, only from \SI{10--11}{\giga\hertz}, and considering that other factors may influence the \gls{neg} conductivity, such as the activation process and aging effects, we calculated the impedance for several values of \gls{neg} conductivity to verify its effects on the Sirius electron beam. Figure~\ref{fig:neg_impedance} shows the transverse and longitudinal impedance for the pipe and Figure~\ref{fig:neg_effect} shows the effect of these different configurations on the \gls{tmci} and on the effective impedance $Z/n|_\text{eff}$. We notice the \gls{neg}
+    The impedance adopted for this component was the model of a round smooth multi-layer and infinite pipe, where three layers were considered: \gls{neg}, copper and air. Table~\ref{tab:pipe_layers} shows the values of the main parameters of this model, where we notice the value used for \gls{neg} conductivity was \SI{1}{\mega S \per\meter}. This value is the average result of a measurement of the \gls{neg} resistivity as function of the frequency~\cite{Koukovini-Platia2014}. However, since this measurement was performed for a very short frequency range, only from \SI{10}{\giga\hertz}, and considering that other factors may influence the \gls{neg} conductivity, such as the activation process and aging effects, we calculated the impedance for several values of \gls{neg} conductivity to verify its effects on the Sirius electron beam. Figure~\ref{fig:neg_impedance} shows the transverse and longitudinal impedance for the pipe and Figure~\ref{fig:neg_effect} shows the effect of these different configurations on the \gls{tmci} and on the effective impedance $Z/n|_\text{eff}$. We notice the \gls{neg}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{wall_imp_neg_res.png}
+        \caption{Neg effect res}
+        \label{fig:neg_res}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{wall_imp_neg_thick.png}
+        \caption{Neg effect thick}
+        \label{fig:neg_thick}
+    \end{figure}
+
+    \begin{figure}[t!]
+        \centering
+        \begin{subfigure}[c]{0.49\textwidth}
+            \includegraphics[width=\textwidth]{wall_tmci_neg_res.png}
+            \caption{Resistivity}
+        \end{subfigure}\hfill
+        \begin{subfigure}[c]{0.49\textwidth}
+            \includegraphics[width=\textwidth]{wall_tmci_neg_thick.png}
+            \caption{Thickness.}
+        \end{subfigure}
+        \caption{Ilustrations of a dipole magnet.}
+        \label{fig:neg_tmci}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{loss_factor_eff_imp_neg_cond_and_thick.png}
+        \caption{Neg effect longitudinal}
+        \label{fig:neg_thick}
+    \end{figure}
+
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{wall_imp_permeability.png}
+        \caption{Effect permeability wall impedance}
+        \label{fig:neg_thick}
+    \end{figure}
+
 
 \section{Kicker Chambers}
 
