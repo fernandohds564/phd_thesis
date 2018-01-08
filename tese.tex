@@ -1172,34 +1172,46 @@
 
 \section{Standard Chamber}
 
-    Sirius standard vacuum chamber will be round, made of copper and will have an internal radius of \SI{12}{\milli\meter}, which is considerably smaller than the chambers of the \gls{3gls}, as can be seen in Table~\ref{tab:chambers_radius}.
-    \begin{table}[b]
+    Sirius standard vacuum chamber will be round, made of copper and will have an internal radius of \SI{12}{\milli\meter}, which is considerably smaller than the chambers of the \gls{3gls}.
+    % as can be seen in Table~\ref{tab:chambers_radius}.
+    % \begin{table}[b]
+    %     \centering
+    %     \caption{Chamber radius of some \gls{3gls} (approximated values taken from \citeonline{Nagaoka2014})}
+    %     \label{tab:chambers_radius}
+    %     \begin{tabular}{lcccc}
+    %         \gls{sls} & $b$ [\si{\milli\meter}]\\\toprule
+    %         ELETTRA   & 27   &      &       &   \\
+    %         APS       & 24   &      &       &   \\
+    %         NSLS      & 20   &      &       &   \\
+    %         SPRING8   & 20   &      &       &   \\
+    %         ALS       & 19   &      &       &   \\
+    %         BESSY II  & 17   &      &       &   \\
+    %         ESRF      & 16   &      &       &   \\
+    %         SLS       & 15.5 &      &       &   \\
+    %         Soleil    & 12   &      &       &   \\
+    %         \bottomrule
+    %     \end{tabular}
+    % \end{table}
+    This small chamber does not only affect the resistive wall impedance, which scales with $1/b^3$ for the transverse planes, but also all the other components impedance, because of the proximity of the walls with the beam~\cite{Nagaoka2014}. Besides, the solution adopted for the vacuum in Sirius employs the mixed and concomintant use of localized and distributed pumping, where the last is achieved through coating the vacuum vessel with \gls{neg}~\cite{Benvenuti1998,Prodromides2002}. In 2012 the \gls{lnls} signed license agreement with \gls{cern} to use \gls{neg} and since then the Vacuum Group has been working on the development of the infrastructure and improvement of techniques for production, deposition and in--situ activation to produce coatings with low surface roughness and good thickness uniformity in all vacuum chambers of the ring, as explained by~\citeonline{Seraphim2015} and~\citeonline{Rocha2017}.
+
+    The presence of \gls{neg} changes the electromagnetic properties of the inner surface of the chamber and contributes to the increase of the impedance. This effect was first noticed by an impedance measurement made in ELETTRA by \citeonline{Karantzoulis2003}, where the authors describe an anomalous increse of the tune-shift with current after the installation of \gls{neg} coated Aluminum chambers for \gls{ids}.~\citeonline{Nagaoka2004} tried to explain the measured results using the multi--layer formulas for the transvere impedance, but quantitative agreement was only obtained using excessively large resistivities for \gls{neg}. Such experimental results created some concern in the community and the effect of the roughness of the inner surface of the chamber was hipotesized as a possible explanation. \citeonline{Nagaoka2007a} studied such an effect when analyzing Soleil storage ring measurements, where the impedance budget of the machine was not enough to account for the bunch lengthening observed, and concluded that the impedance of the measured roughness could not explain the additional impedance necessary to fit the experimental results.
+
+    There are expressions in the literature to estimate the impedance of a rough surface, such as ones of \citeonline{Bane1997}, based on numeric calculations, and of \citeonline{Stupakov1999a}, calculated analytically. Their prediction accounts for an inductive impedance in low frequency, where the characteristic length of the surface protrusions is much smaller than the bunch length, and real impedance for very large frequencies. However, one of the considerations for the derivation of such formulas is that the surface is perfectly conducting, which means all the image charges will flow by the rough surface. It seems reasonable that for finite conductivity chambers, the wall currents will penetrate the material and effect of the roughness should be even smaller.
+
+    Given all the considerations presented above, the initial model adopted for the standard Sirius vacuum chamber is a round smooth multi--layer and infinite pipe, where three layers are considered: \gls{neg}, copper and air. Table~\ref{tab:pipe_layers}
+    \begin{table}
         \centering
-        \caption{Chamber radius of some \gls{3gls} (approximated values taken from \citeonline{Nagaoka2014})}
-        \label{tab:chambers_radius}
-        \begin{tabular}{lcccc}
-            \gls{sls} & $b$ [\si{\milli\meter}]\\\toprule
-            ELETTRA   & 27   &      &       &   \\
-            APS       & 24   &      &       &   \\
-            NSLS      & 20   &      &       &   \\
-            SPRING8   & 20   &      &       &   \\
-            ALS       & 19   &      &       &   \\
-            BESSY II  & 17   &      &       &   \\
-            ESRF      & 16   &      &       &   \\
-            SLS       & 15.5 &      &       &   \\
-            Soleil    & 12   &      &       &   \\
-            \bottomrule
+        \caption{Wall Impedance parameters.}
+        \label{tab:wall_impedance_parameters}
+        \begin{tabular}{lcc}\toprule
+            Parameter              &   Value    & Unit \\\midrule
+            Copper conductivity    &   59.0     & \si{\mega\siemens}\\
+            Copper relaxation time &   27       & \si{\femto\seconds}\\
+            NEG conductivity       &   1.0      & \si{\mega\siemens}\\
+            NEG thickness          &   1.0      & \si{\micro\meter}\\
         \end{tabular}
     \end{table}
-    This small chamber does not only affect the resistive wall impedance, which scales with $1/b^3$ for the transverse planes, but also all the other components impedance, because of the proximity of the walls with the beam~\cite{Nagaoka2014}.
-
-    Besides, the solution adopted for the vacuum in Sirius employs the mixed and concomintant use of localized and distributed pumping, where the last is achieved through coating the vacuum vessel with \gls{neg}~\cite{Benvenuti1998,Prodromides2002}. In 2012 the \gls{lnls} signed license agreement with \gls{cern} to use \gls{neg} and since then the Vacuum Group have been working on the development of the infrastructure and improvement of techniques for deposition, to produce coatings with low surface roughness and uniform thickness in all vacuum chambers of the ring~\cite{Seraphim2015} with in--situ activation~\cite{Rocha2017}. The presence of \gls{neg} changes the electromagnetic properties of the inner surface of the chamber and contributes to the increase of the impedance.
-
-    % This effect was first noticed by an impedance measurement made in ELETTRA by \citeonline{Karantzoulis2003}, where it is described an anomalous increse of the tune-shift with current after the installation of \gls{neg} coated Aluminum chambers for \gls{ids}.~\citeonline{Nagaoka2004b} tried to explain the measured results using the multi--layer formulas for the transvere impedance, but quantitative agreement was only obtained using excessively large resistivities for \gls{neg}. Later, the same author included these effects in the impedance budget of the Soleil lattice, which have some sections of its aluminum chambers coated with \gls{neg}. In both works the impedance predicted by the multilayer expressions could not explain the measured effects on the beam, and the author hypothesized the roughness of the chamber inner surface could have an effect.
-    %
-    % There are expressions in the literature to estimate the impedance of a rough surface~\cite{Stupakov_Surface} and their prediction accounts for an inductive impedance in low frequency, and real impedance for very large frequencies. However, one of the considerations for the derivation of such formulas is that the surface is perfectly conducting. It seems not reasonable that this consideration holds when the skin depth of the surface material is larger then the amplitude of the corrugations, because this field will mostly be determined by the resistive nature of the wall. For high frequencies this could be a good approximation, but this limit is much higher than any frequency of the Sirius electron beam. Considering the absence of better alternatives, the effect of the surface roughness was not included in our impedance model.
-
-    The impedance adopted for this component was the model of a round smooth multi-layer and infinite pipe, where three layers were considered: \gls{neg}, copper and air. Table~\ref{tab:pipe_layers} shows the values of the main parameters of this model, where we notice the value used for \gls{neg} conductivity was \SI{1}{\mega S \per\meter}. This value is the average result of a measurement of the \gls{neg} resistivity as function of the frequency~\cite{Koukovini-Platia2014}. However, since this measurement was performed for a very short frequency range, only from \SI{10}{\giga\hertz}, and considering that other factors may influence the \gls{neg} conductivity, such as the activation process and aging effects, we calculated the impedance for several values of \gls{neg} conductivity to verify its effects on the Sirius electron beam. Figure~\ref{fig:neg_impedance} shows the transverse and longitudinal impedance for the pipe and Figure~\ref{fig:neg_effect} shows the effect of these different configurations on the \gls{tmci} and on the effective impedance $Z/n|_\text{eff}$. We notice the \gls{neg}
+    shows the values of the main parameters of this model, where we notice the value used for \gls{neg} conductivity was \SI{1}{\mega S \per\meter}. This value is the average result of a measurement of the \gls{neg} resistivity as function of the frequency~\cite{Koukovini-Platia2014}. However, since this measurement was performed for a very short frequency range, only from \SI{10}{\giga\hertz}, and considering that other factors may influence the \gls{neg} conductivity, such as the activation process and aging effects, we calculated the impedance for several values of \gls{neg} conductivity to verify its effects on the Sirius electron beam. Figure~\ref{fig:neg_impedance} shows the transverse and longitudinal impedance for the pipe and Figure~\ref{fig:neg_effect} shows the effect of these different configurations on the \gls{tmci} and on the effective impedance $Z/n|_\text{eff}$. We notice the \gls{neg}
 
     \begin{figure}
         \centering
@@ -1276,9 +1288,16 @@
     \begin{align}
         Z_g(\omega) = \frac{1}{\frac{1}{R_s}+i\omega C_{bb}}
     \end{align}
-    was considered for Sirius, where $R_s$ is an equivalent resistance, which was considered \SI{490}{\ohm} in the same reference and $C_{bb}$ is the busbar capacitance, equal to \SI{28.8}{\pico\farad} for their kicker. Figure~\ref{fig:coupled_flux_impedance} shows the coupled flux horizontal impedance for some values of capacitance and resistance, where it is possible to notice the resonant behaviour created by the parallel association of the inductance $L_2$ with the capacitance $C_{bb}$. As this model does not take into account the vacuum chamber, it is expected that higher frequencies will be more damped by the Titanium coating, wich means sources of larger values of capacitance will have small influence on the impedance. For this reason the value considered to model the impedance {\huge to be continued...}
+    was considered for Sirius, where $R_s$ is an equivalent resistance, which was considered \SI{490}{\ohm} in the same reference and $C_{bb}$ is the busbar capacitance, equal to \SI{28.8}{\pico\farad} for their kicker. Figure~\ref{fig:coupled_flux_impedance}
+    \begin{figure}[b!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{kicker_coupled_flux.png}
+        \caption{Kicker magnet}
+        \label{fig:coupled_flux_impedance}
+    \end{figure}
+    shows the coupled flux horizontal impedance for some values of capacitance and resistance, where it is possible to notice the resonant behaviour created by the parallel association of the inductance $L_2$ with the capacitance $C_{bb}$. As this model does not take into account the vacuum chamber, it is expected that higher frequencies will be more damped by the Titanium coating, wich means sources of larger values of capacitance will have small influence on the impedance. For this reason the value considered to model the impedance {\huge to be continued...}
 
-    Regarding the uncoupled flux, there are no formulas in the literature, to the knowledge of the author, to estimate the impedance of an out-of-vacuum window-frame magnet as the one presented in Figure~\ref{fig:kicker_magnet}. There are, however, a model for an in-vacuum magnet developed by Tsutsui in references~\cite{Tsutsui1999,Tsutsui1998,Salvant2010b} that solves \gls{maxeq} exactly for an ultra-relativistic beam, considering the approximate geometry of Figure~\ref{fig:tsutsui_model},
+    Regarding the uncoupled flux, there are no formulas in the literature, to the knowledge of the author, to estimate the impedance of an out-of-vacuum window-frame magnet as the one presented in Figure~\ref{fig:kicker_magnet}. There are, however, a model for an in-vacuum magnet developed by Tsutsui in references~\cite{Tsutsui2000,Tsutsui2000a,Salvant2010a} that solves \gls{maxeq} exactly for an ultra-relativistic beam, considering the approximate geometry of Figure~\ref{fig:tsutsui_model},
     \begin{figure}[b!]
         \centering
         \includegraphics[width=0.5\textwidth]{tsutsui_model.png}
@@ -1293,7 +1312,13 @@
         \item[Best case:] The angle $\theta$ is \si{\pi\over2}, which means the beam only sees the good conductor: vacuum, Titanium, ceramic, Copper;
         \item[No Coating:] To evidenciate the effect of the Titanium coating, this layer was removed from the analysis of the worst case model: vacuum, ceramic, ferrite, and Copper.
     \end{description}
-    Besides, considering the vacuum chamber is almost an ellipse with high excentricity, the yokoya factors were applied to the round impedace models. Even though this approximation was shown not to work for the low frequency part of the impedance in the tsutsui model~\cite{Salvant2010b}, it is valid for the part of the spectrum dominated by the coating. The impedance of these four models are shown in Figure~\ref{fig:uncoupled_flux_impedance} and the material properties considered in the calculation are shown in table~\ref{tab:material_properties_kicker_impedance}. {\huge to be continued ...}
+    Besides, considering the vacuum chamber is almost an ellipse with high excentricity, the yokoya factors were applied to the round impedace models. Even though this approximation was shown not to work for the low frequency part of the impedance in the tsutsui model~\cite{Salvant2010a}, it is valid for the part of the spectrum dominated by the coating. The impedance of these four models are shown in Figure~\ref{fig:uncoupled_flux_impedance} and the material properties considered in the calculation are shown in table~\ref{tab:material_properties_kicker_impedance}. {\huge to be continued ...}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{kicker_comp_models.png}
+        \caption{Effect permeability wall impedance}
+        \label{fig:neg_thick}
+    \end{figure}
 
     For these reasons the
 
@@ -1312,6 +1337,15 @@
     Figure~\ref{fig:undulators_impedance} shows the vertical dipole and longitudinal wall impedance of the four types of undulators. They were calculated using the parameters of Table~\ref{tab:sirius_undulators}, where the Yokoya factors were applied to the \gls{apu} chambers. These devices will also have quadrupolar impedances that, in this model, will be half of the value of the vertical dipole. Notice the transverse impedance is dominated by the \gls{apu}-19 chamber, while the largest contribution to the longitudinal impedance comes from the Delta-52. This difference comes from the fact that the transverse impedance is more sensitive to the inner radius of the chamber, scaling with $1/r^3$, while the longitudinal impedance goes with $1/r$ and the large length of the Delta-52 compensates for its larger radius.
 
 \section{BC Chamber}
+
+    The BC chamber is shown in Figure~\ref{fig:bc_chamber_figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{kicker_comp_models.png}
+        \caption{Effect permeability wall impedance}
+        \label{fig:neg_thick}
+    \end{figure}
+
 
 \section{RF Cavity taper}
 
