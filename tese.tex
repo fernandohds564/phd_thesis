@@ -1196,57 +1196,79 @@
 
     The presence of \gls{neg} changes the electromagnetic properties of the inner surface of the chamber and contributes to the increase of the impedance. This effect was first noticed by an impedance measurement made in ELETTRA by \citeonline{Karantzoulis2003}, where the authors describe an anomalous increse of the tune-shift with current after the installation of \gls{neg} coated Aluminum chambers for \gls{ids}.~\citeonline{Nagaoka2004} tried to explain the measured results using the multi--layer formulas for the transvere impedance, but quantitative agreement was only obtained using excessively large resistivities for \gls{neg}. Such experimental results created some concern in the community and the effect of the roughness of the inner surface of the chamber was hipotesized as a possible explanation. \citeonline{Nagaoka2007a} studied such an effect when analyzing Soleil storage ring measurements, where the impedance budget of the machine was not enough to account for the bunch lengthening observed, and concluded that the impedance of the measured roughness could not explain the additional impedance necessary to fit the experimental results.
 
-    There are expressions in the literature to estimate the impedance of a rough surface, such as ones of \citeonline{Bane1997}, based on numeric calculations, and of \citeonline{Stupakov1999a}, calculated analytically. Their prediction accounts for an inductive impedance in low frequency, where the characteristic length of the surface protrusions is much smaller than the bunch length, and real impedance for very large frequencies. However, one of the considerations for the derivation of such formulas is that the surface is perfectly conducting, which means all the image charges will flow by the rough surface. It seems reasonable that for finite conductivity chambers, the wall currents will penetrate the material and effect of the roughness should be even smaller.
+    There are expressions in the literature to estimate the impedance of a rough surface, such as ones of \citeonline{Bane1997}, based on numeric calculations, and of \citeonline{Stupakov1999a}, calculated analytically. Their prediction accounts for an inductive impedance in low frequency, where the characteristic length of the surface protrusions is much smaller than the bunch length, and real impedance for very large frequencies. However, one of the considerations for the derivation of such formulas is that the surface is perfectly conducting, which means all the image charges will flow by the rough surface. It seems reasonable that for finite conductivity chambers, the wall currents will penetrate the material and the effect of the roughness should be even smaller.
 
-    Given all the considerations presented above, the initial model adopted for the standard Sirius vacuum chamber is a round smooth multi--layer and infinite pipe, where three layers are considered: \gls{neg}, copper and air. Table~\ref{tab:pipe_layers}
+    Given all the considerations presented above, the initial model adopted for the standard Sirius vacuum chamber is a round smooth multi--layer and infinite pipe, where three layers are considered: \SI{1}{\micro\meter} of \gls{neg} coating, \SI{1}{\milli\meter} of copper and air to infinity. Table~\ref{tab:wall_impedance_parameters}
     \begin{table}
         \centering
         \caption{Wall Impedance parameters.}
         \label{tab:wall_impedance_parameters}
-        \begin{tabular}{lcc}\toprule
-            Parameter              &   Value    & Unit \\\midrule
-            Copper conductivity    &   59.0     & \si{\mega\siemens}\\
-            Copper relaxation time &   27       & \si{\femto\seconds}\\
-            NEG conductivity       &   1.0      & \si{\mega\siemens}\\
+        \begin{tabular}{lcc}
+            \toprule
+            Parameter              &   Value    & Unit \\
+            \midrule
+            Copper conductivity    &   59.0     & \si{\mega\siemens\per\meter}\\
+            Copper relaxation time &   27       & \si{\femto\second}\\
+            NEG conductivity       &   1.0      & \si{\mega\siemens\per\meter}\\
             NEG thickness          &   1.0      & \si{\micro\meter}\\
+            Chamber radius         &  12.0      & \si{\milli\meter}\\
+            Chamber thickness      &   1.0      & \si{\milli\meter}\\
+            Chamber shape          & round      & \\
+            \bottomrule
         \end{tabular}
     \end{table}
-    shows the values of the main parameters of this model, where we notice the value used for \gls{neg} conductivity was \SI{1}{\mega S \per\meter}. This value is the average result of a measurement of the \gls{neg} resistivity as function of the frequency~\cite{Koukovini-Platia2014}. However, since this measurement was performed for a very short frequency range, only from \SI{10}{\giga\hertz}, and considering that other factors may influence the \gls{neg} conductivity, such as the activation process and aging effects, we calculated the impedance for several values of \gls{neg} conductivity to verify its effects on the Sirius electron beam. Figure~\ref{fig:neg_impedance} shows the transverse and longitudinal impedance for the pipe and Figure~\ref{fig:neg_effect} shows the effect of these different configurations on the \gls{tmci} and on the effective impedance $Z/n|_\text{eff}$. We notice the \gls{neg}
-
+    shows the values of the main parameters of this model, where we notice the value used for \gls{neg} conductivity was \SI{1}{\mega\siemens\per\meter}. This value is the average result of a measurement of the \gls{neg} resistivity as function of the frequency made by ~\citeonline{Koukovini-Platia2014}. Since this measurement was performed for a very short frequency range, only from \SI{10}{} to \SI{11}{\giga\hertz}, and considering that other factors may influence the \gls{neg} conductivity, such as the activation process and aging effects, we calculated the impedance for several values of conductivity, as shown in Figure~\ref{fig:wall_impedance_neg_res}.
     \begin{figure}
+        \def \mysize {0.9\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{wall_imp_neg_res.png}
-        \caption{Neg effect res}
-        \label{fig:neg_res}
+        \begin{subfigure}[c]{\textwidth}
+            \centering
+            \caption{Wall Impedance as function of \gls{neg} conductivity (in \si{\mega\siemens\per\meter}).}
+            \label{fig:wall_impedance_neg_res}
+            \includegraphics[width=\mysize]{wall_imp_neg_res.png}
+        \end{subfigure}
+        \begin{subfigure}[c]{\textwidth}
+            \centering
+            \caption{Wall Impedance as function of \gls{neg} thickness (in \si{\micro\meter}).}
+            \label{fig:wall_impedance_neg_thick}
+            \includegraphics[width=\mysize]{wall_imp_neg_thick.png}
+        \end{subfigure}
+        \caption{Neg effect on impedance.}
+        \label{fig:wall_impedance_neg}
     \end{figure}
-
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{wall_imp_neg_thick.png}
-        \caption{Neg effect thick}
-        \label{fig:neg_thick}
-    \end{figure}
-
+    Also shown in the figure is the spectrum, in arbitrary units, of a gaussian bunch with $\sigma=2.5$\si{\milli\meter}, which is the natural bunch length of the Sirius storage ring. Notice that the dependency of the impedance for the frequency range of interest is very non-linear, being almost saturated for lower conductivities, which means that variations on the conductivity does not have a strong impact on the beam behavior. We can also infer from the figure that the effect of \gls{neg} on the impedance is mostly inductive in both planes, where an increase of a factor of \SI{3}{} in the imaginary impedance is noted. Such an effect is clearly evidenciated by Figure~\ref{fig:wall_tmci_neg_res},
     \begin{figure}[t!]
         \centering
         \begin{subfigure}[c]{0.49\textwidth}
             \includegraphics[width=\textwidth]{wall_tmci_neg_res.png}
             \caption{Resistivity}
-        \end{subfigure}\hfill
-        \begin{subfigure}[c]{0.49\textwidth}
-            \includegraphics[width=\textwidth]{wall_tmci_neg_thick.png}
-            \caption{Thickness.}
-        \end{subfigure}
-        \caption{Ilustrations of a dipole magnet.}
-        \label{fig:neg_tmci}
-    \end{figure}
-
+            \label{fig:wall_tmci_neg_res}
+            \end{subfigure}\hfill
+            \begin{subfigure}[c]{0.49\textwidth}
+                \includegraphics[width=\textwidth]{wall_tmci_neg_thick.png}
+                \caption{Thickness.}
+                \label{fig:wall_tmci_neg_thick}
+            \end{subfigure}
+            \caption{Ilustrations of a dipole magnet.}
+            \label{fig:wall_tmci_neg}
+        \end{figure}
+    which shows simulations of transverse single bunch tune-shift and the \gls{tmci} instability, and Figure~\ref{fig:wall_loss_facttor_eff_imp_cond_thick},
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{loss_factor_eff_imp_neg_cond_and_thick.png}
         \caption{Neg effect longitudinal}
-        \label{fig:neg_thick}
+        \label{fig:wall_loss_facttor_eff_imp_cond_thick}
     \end{figure}
+    which shows the loss factors and the effective longitudinal impedance.
+
+    It was also carried out an study of the dependence of the impedance on the thickness of the \gls{neg} coating, as shown in Figure~\ref{fig:wall_impedance_neg_thick}, Figure~\ref{fig:wall_tmci_neg_thick} and Figure~\ref{fig:wall_loss_facttor_eff_imp_cond_thick}. Notice that, differently of the conductivity, this parameter has strong influence on the value of the impedance, affecting almostly linearly the imaginary part of the impedance in both planes and quadractically the loss factor.
+
+    From the analysis of Figure~\ref{fig:wall_tmci_neg} we note that, even though the \gls{neg} coating has a strong influence on the impedance and on the \gls{tmci} threshold,
+
+
+
+
+
 
     \begin{figure}
         \centering
