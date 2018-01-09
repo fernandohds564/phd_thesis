@@ -1307,18 +1307,18 @@
         \label{tab:kicker_paramters}
         \begin{tabular}{lccc}
             \toprule
-            Parameter                     & Symbol    & Value      & Unit \\
+            Parameter                     & Symbol    & Value  & Unit \\
             \midrule
-            Capacitance                   & $C_{bb}$  &  30.0      & \si{\pico\farad}\\
-            Parasitic Resistance          & $R_s$     &  500       & \si{\ohm}\\
-            Pulser circuit resistance     & $R_e$     &  50.0      & \si{\ohm}\\
-            Ferrite permittivity          &           & 12       & \\
-            Ferrite initial permeability  & $\mu_i$   &  1600      & \\
-            Ferrite saturation frequency  & $\omega_s$&  20.0      & \si{\mega\radian\per\second}\\
-            Ceramic permittivity          &           &  9.3      &\\
-            Titanium conductivity         &           & \SI{1.6e6}& \si{\mega\siemens\per\meter}\\
-            FeSi conductivity             &           & \SI{2e6}  & \si{\mega\siemens\per\meter}\\
-            FeSi permeability             &           & 40        & \\
+            Capacitance                   & $C_{bb}$  &  30.0  & \si{\pico\farad}\\
+            Parasitic Resistance          & $R_s$     &  500   & \si{\ohm}\\
+            Pulser circuit resistance     & $R_e$     &  50.0  & \si{\ohm}\\
+            Ferrite permittivity          &           &   12   & \\
+            Ferrite initial permeability  & $\mu_i$   &  1600  & \\
+            Ferrite saturation frequency  & $\omega_s$&  20.0  & \si{\mega\radian\per\second}\\
+            Ceramic permittivity          &           &  9.3   & \\
+            Titanium conductivity         &           &  1.6   & \si{\mega\siemens\per\meter}\\
+            FeSi conductivity             &           &  2.0   & \si{\mega\siemens\per\meter}\\
+            FeSi permeability             &           & 40     & \\
             \bottomrule
         \end{tabular}
     \end{table}
@@ -1399,7 +1399,7 @@
     Based on this study, we defined the impedance of the non-linear kicker as a round multi--layer chamber with: vacuum, Titanium, ceramic, air, FeSi and Copper. Besides the substitution of the ferrite with the FeSi as the magnet core, this component does not have the parallel copper plates to induce a dipole kick on the beam, creating a much more complex transverse field dependence using copper wires displaced transversely. Figure~\ref{fig:non_linear_kicker}
     \begin{figure}[t]
         \centering
-        \includegraphics[width=0.6\textwidth]{MPP.pdf}
+        \includegraphics[width=0.45\textwidth]{MPP.png}
         \caption{Effect permeability wall impedance}
         \label{fig:non_linear_kicker}
     \end{figure}
@@ -1410,7 +1410,7 @@
     The Fast orbit correctors of the Sirius storage ring will operate at a update rate of \SI{100}{\kilo\hertz} in the \gls{fofb}~\cite{Tavares2013}, requiring special vacuum chambers in order for such high frequency fields to penetrate. The solution adopted was to brase small and thin stainless steel chambers in the otherwise copper chamber of the ring. The reduced conductance, only \SI{1}{\mega\siemens}, of this material provides a skin depth of \SI{1.6}{\milli\meter} at \SI{100}{\kilo\hertz}, which is much larger than the thickness of the chamber, which is \SI{0.1}{\milli\meter} and do not damp or distort significantly the external field of the magnet.
 
     The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi-layer chambers used so far. This question is answered by~\citeonline{Shoduba2009}, who calculate the impedance of a finite resistive insert of finite thickness on a otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for an insert whose length is smaller than its radius, if the thickness is of the order of \SI{100}{\micro\meter}, the impedance is already equal to the infinitely long chamber counterpart. This result shows that the use of the multi-layer formulas employed so far for the other components are still valid for the fast correctors chambers. Considering this, the relevant parameters used for the modelling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
-    \begin{table}[t]
+    \begin{table}[b]
         \centering
         \caption{Kicker main parameters}
         \label{tab:kicker_paramters}
@@ -1429,9 +1429,49 @@
 
 \section{Undulators Chambers}
 
-    For the first phase of operation of the Sirius light source it is predicted the installation of seven \gls{ids} on the storage ring, with four different types of devices: two Delta-type undulators~\cite{DeltaRef} and two \gls{apu}~\cite{APURef}. The design details as well as first experiences with the prototype measuments of the Sirius Delta undulator can be found elsewhere~\cite{SiriusDelta1} and the information regarding the radiation parameters of such devices can be found at~\cite{wikisirius}. All the \gls{ids} will be out of vacuum and their vacuum chamber will be made of copper and coated with \gls{neg}.
+    For the first phase of operation of the Sirius light source it is predicted the installation of seven \gls{ids} on the storage ring, with four different types of devices: two Delta-type undulators~\cite{Temnykh2008} and two \gls{apu}~\cite{Carr1991}. The design details as well as first experiences with the prototype measuments of the Sirius Delta undulator are described by~\citeonline{Vilela2017} and the information regarding the radiation parameters of such devices can be found elsewhere~\cite{Sirius2013}. All the \gls{ids} will be out of vacuum and their vacuum chamber will be made of copper and coated with \gls{neg}.
 
-    Table~\ref{tab:sirius_undulators} shows the main impedance related parameters of each device type. The close to round shape of the Delta chambers is a good feature, due to the reduced detuning impedance it will generate, which has demonstrated to complicate the operation of machines due to the incoherent tune shift in multibunch configurations~\cite{Nagaoka2001}. Even though the \gls{ids} for the seconde phase of operation are not defined yet, it was extrapolated that all the straight sections available for \gls{id} installation will be filled with the same devices of phase one.
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{undu_trans.png}
+        \caption{Effect permeability wall impedance}
+        \label{fig:undu_trans}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{undu_wall.png}
+        \caption{Effect permeability wall impedance}
+        \label{fig:undu_wall}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{undu_wall_lowfreq.png}
+        \caption{Effect permeability wall impedance}
+        \label{fig:undu_wall_lowfreq}
+    \end{figure}
+
+    Table~\ref{tab:undulators_parameters}
+    \begin{table}
+        \centering
+        \caption{Undulators parameters}
+        \label{tab:undulators_parameters}
+        \begin{tabular}{lccccl}
+            \toprule
+            Parameter         & APU19     & APU20      & Delta21   & Delta52   &Unit\\
+            \midrule
+            Length            &  2.4      & 2.4        & 2.4       &  3.6      & \si{\meter} \\
+            Quant. in Phase 1 &   1       &   1        &   2       &   3       & \\
+            Quant. in Phase 2 &   2       &   3        &   6       &   6       & \\
+            Straight type     & low--beta & high--beta & low--beta & low--beta & \\
+            Gap               &   5       &   6.2      &   7.0     &  13.8     &  \si{\milli\meter} \\
+            Chamber thickness &   0.1     &   0.1      &   0.8     &  1.0      & \si{\milli\meter} \\
+            Chamber Geometry  &   flat    &   flat     &   round   &  round    & \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    shows the main impedance related parameters of each device type. The close to round shape of the Delta chambers is a good feature, due to the reduced detuning impedance it will generate, which has demonstrated to complicate the operation of machines due to the incoherent tune shift in multibunch configurations~\cite{Nagaoka2001}. Even though the \gls{ids} for the seconde phase of operation are not defined yet, it was extrapolated that all the straight sections available for \gls{id} installation will be filled with the same devices of phase one.
 
     Figure~\ref{fig:undulators_impedance} shows the vertical dipole and longitudinal wall impedance of the four types of undulators. They were calculated using the parameters of Table~\ref{tab:sirius_undulators}, where the Yokoya factors were applied to the \gls{apu} chambers. These devices will also have quadrupolar impedances that, in this model, will be half of the value of the vertical dipole. Notice the transverse impedance is dominated by the \gls{apu}-19 chamber, while the largest contribution to the longitudinal impedance comes from the Delta-52. This difference comes from the fact that the transverse impedance is more sensitive to the inner radius of the chamber, scaling with $1/r^3$, while the longitudinal impedance goes with $1/r$ and the large length of the Delta-52 compensates for its larger radius.
 
