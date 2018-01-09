@@ -1296,22 +1296,22 @@
         \caption{Effect permeability wall impedance}
         \label{fig:wall_dipole_permeability}
     \end{figure}
-    where the infinitely thick layer of air was substituted by \SI{1}{\milli\meter} of air and a ferromagnetic material. Notice that the first betatron line, responsible for the coherent tune--shifts and the resistive--wall instability is completely determined by the copper chamber, but the zero frequency impedance is approximately \SI{1.5} times larger in the presence of the ferromagnet. One can argue that, since Sirius vacuum chamber is round, this dependence is not important because there is no quadrupolar impedance. However, considering that the impedance at these frequencies depend on the materials outside the chamber, it is reasonable to think it will depend on the geometry of the distribution of these materials around the chamber. Remembering that the storage ring is filled with magnets with cores made out of ferromagnets, and noticing that only dipoles can generate a quadrupolar impedance, because the symmetry of the poles of quadrupoles and sextupoles does not allow such component, we considered this effect on the total budget. The zero frequecy differece of the curves presented in Figure~\ref{fig:wall_dipole_permeability} is attributed the dipole and the \citeonline{Yokoya1993} factors are applied to obtain the quadrupolar impedance of this component.
+    where the infinitely thick layer of air was substituted by \SI{1}{\milli\meter} of air and a ferromagnetic material. Notice that the first betatron line, responsible for the coherent tune--shifts and the resistive--wall instability is completely determined by the copper chamber, but the zero frequency impedance is approximately \SI{1.5} times larger in the presence of the ferromagnet. One can argue that, since Sirius vacuum chamber is round, this dependence is not important because there is no quadrupolar impedance. However, considering that the impedance at these frequencies depend on the materials outside the chamber, it is reasonable to think it will depend on the geometry of the distribution of these materials around the chamber. Remembering that the storage ring is filled with magnets with cores made out of ferromagnets, and noticing that only dipoles can generate a quadrupolar impedance, because the symmetry of the poles of quadrupoles and sextupoles does not allow such component, we considered this effect on the total budget. The zero frequency difference of the curves presented in Figure~\ref{fig:wall_dipole_permeability} is attributed the dipole and the \citeonline{Yokoya1993} factors are applied to obtain the quadrupolar impedance of this component.
 
 \section{Kicker Chambers}
 
     The Sirius storage ring will have two kicker magnets, one standard dipole kicker and one non-linear kicker. While the first will be used for on-axis injection in the commissioning of the light source and as a pinger magnet for machine studies, the second will be used for injection in top-up mode~\cite{Liu2016a}. Even though the topology of both magnets is very different, their vacuum chamber will be identical: a ceramic chamber, coated with \SI{10}{\micro\meter} of Titanium with an additional layer of \gls{neg} of \SI{1}{\micro\meter}, which means at high frequencies their impedance will be identical too. To demonstrate that the impedance on the region of interest for Sirius is dominated by the properties of the coating, a detailed study of the standard window-frame dipole kicker impedance was carried out and the results were extrapolated to the non-linear kicker. Below there is a description of such study.
 
     Figure~\ref{fig:kicker_magnet} shows an schematic drawing of a transverse section of the window-frame dipole kicker magnet that will be used in Sirius storage ring.
-    \begin{figure}[b!]
+    \begin{figure}[t!]
         \centering
         \includegraphics[width=0.8\textwidth]{kicker_magnet.png}
         \caption{Kicker magnet}
         \label{fig:kicker_magnet}
     \end{figure}
-    According to the theory~\cite{Nassibian1979,Davino2003}, there are two main contributions to the impedance of this type of magnet: the losses and resonances defined by the materials of the vacuum chamber and the window-frame itself and the coupled flux of the beam with the external circuit that feeds the magnet. While the first contribution dominates the high frequency part of the spectrum, the second is important to the low frequency impedance.
+    According to~\citeonline{Nassibian1979} and also to~\citeonline{Davino2003}, there are two main contributions to the impedance of this type of magnet: the losses and resonances defined by the materials of the vacuum chamber and the window-frame itself and the coupled flux of the beam with the external circuit that feeds the magnet. While the first contribution dominates the high frequency part of the spectrum, the second is important to the low frequency impedance.
 
-    The coupled flux, first modeled by~\citeonline{Nassibian1979} and improved by~\citeonline{Davino2003} treats the window-frame as a transformer that couples the beam with the external circuit impedance, $Z_g(\omega)$, characterized by the impedance termination of the pulser circuit and the residual capacitances and resistences of the device, which can be accessed via twin wire measurements~\cite{Caspershandbook} of the opened and shorted circuits on the endplates~\cite{Davino2003}. This model predicts impedances for the coupled flux given by
+    The coupled flux, first modeled by~\citeonline{Nassibian1979} and improved by~\citeonline{Davino2003} treats the window-frame as a transformer that couples the beam with the external circuit impedance, $Z_g(\omega)$, characterized by the impedance termination of the pulser circuit and the residual capacitances and resistances of the device, which can be accessed via twin wire measurements~\cite{Mostacci2016} of the opened and shorted circuits on the endplates, as explained by~\citeonline{Davino2003}. This model predicts impedances for the coupled flux given by
     \begin{align}\label{eq:coupled_flux_impedance}
         Z_\parallel^* = \frac{\Delta^2}{h^2}\frac{i\omega L_2 Z_g}{i\omega L_2 + Z_g},
         \quad Z_X^D = \frac{c}{\omega\Delta^2}Z_\parallel
@@ -1322,22 +1322,39 @@
     \end{align}
     $L$ is the length of the magnet, $h$ and $w$ are the transverse dimensions defined in Figure~\ref{fig:kicker_magnet}, $t$ is the ferrite thickness and $\mu_r = \mu_r(\omega)$ is the frequency dependent relative magnetic permeability of the ferrite, which can be modeled by
     \begin{align}
-        \mu_r(\omega) = \frac{\mu_i-1}{1+i\frac{\omega}{\omega_s}}
+        \mu_r(\omega) = 1 + \frac{\mu_i}{1+i\frac{\omega}{\omega_s}}
     \end{align}
-    where $\mu_i$ is the initial permeability and $\omega_s$ is the saturation frequency of the material. Notice in equation~\ref{eq:coupled_flux_impedance} that the coupled flux does not contributes to the vertical impedance and that for a well centered beam, $\Delta=0$ the longitudinal impedance is zero too.
+    where $\mu_i$ is the initial permeability and $\omega_s$ is the saturation frequency of the material. In the case of Sirius, the ferrite that will be used in this magnet is the CMD5005~\cite{CeramicMagnets2017} and the $\mu_i$ and $\omega_s$ of the equation above were fitted to the datasheet curve and their values are shown in Table~\ref{tab:kicker_paramters}.
+    \begin{table}[t]
+        \centering
+        \caption{Kicker main parameters}
+        \begin{tabular}{lccc}
+            \toprule
+            Parameter                     & Symbol    & Value      & Unit \\
+            \midrule
+            Capacitance                   & $C_{bb}$  &  30.0      & \si{\pico\farad}\\
+            Parasitic Resistance          & $R_s$     &  500       & \si{\ohm}\\
+            Pulser circuit resistance     & $R_e$     &  50.0      & \si{\ohm}\\
+            Ferrite initial permeability  & $\mu_i$   &  1600      & \\
+            Ferrite saturation frequency  & $\omega_s$&  20.0      & \si{\mega\radian\per\second}\\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    Note in equation~\ref{eq:coupled_flux_impedance} that the coupled flux does not contributes to the vertical impedance and that for a well centered beam, $\Delta=0$ the longitudinal impedance is zero too.
 
     Considering there is no measurements yet for the circuit impedance, $Z_g(\omega)$, of the kicker magnet, the parametric dependency described in the reference~\cite[eq. 11]{Davino2003}
     \begin{align}
-        Z_g(\omega) = \frac{1}{\frac{1}{R_s}+i\omega C_{bb}}
+        Z_g(\omega) = R_e + \frac{1}{\frac{1}{R_s}+i\omega C_{bb}}
     \end{align}
-    was considered for Sirius, where $R_s$ is an equivalent resistance, which was considered \SI{50}{\ohm} in the same reference and $C_{bb}$ is the busbar capacitance, equal to \SI{30}{\pico\farad} for their kicker. Figure~\ref{fig:coupled_flux_impedance}
+    was considered for Sirius, where $C_{bb}$ is the busbar capacitance, equal to \SI{30}{\pico\farad} for their kicker, $R_s$ is a resistance in parallel with the capacitance to account for the ferrite losses, equals to \SI{490}{\ohm} in their case, and $R_e$ is the matching impedance of the external circuit, which we considered equal to \SI{50}{\ohm}. Figure~\ref{fig:coupled_flux_impedance}
     \begin{figure}[b!]
         \centering
         \includegraphics[width=0.8\textwidth]{kicker_coupled_flux.png}
         \caption{Kicker magnet}
         \label{fig:coupled_flux_impedance}
     \end{figure}
-    shows the coupled flux horizontal impedance for some values of capacitance and resistance, where it is possible to notice the resonant behaviour created by the parallel association of the inductance $L_2$ with the capacitance $C_{bb}$. Besides, it is evident that carefull designs
+    shows the coupled flux horizontal impedance for some values of $C_bb$ and $R_s$, where it is possible to notice the resonant behaviour created by the parallel association of the inductance $L_2$ with the capacitance $C_{bb}$. The high frequency peaks,
 
     Regarding the uncoupled flux, there are no formulas in the literature, to the knowledge of the author, to estimate the impedance of an out-of-vacuum window-frame magnet as the one presented in Figure~\ref{fig:kicker_magnet}. There are, however, a model for an in-vacuum magnet developed by Tsutsui in references~\cite{Tsutsui2000,Tsutsui2000a,Salvant2010a} that solves \gls{maxeq} exactly for an ultra-relativistic beam, considering the approximate geometry of Figure~\ref{fig:tsutsui_model},
     \begin{figure}[t!]
