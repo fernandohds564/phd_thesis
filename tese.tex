@@ -858,10 +858,12 @@
 	  	W_t(z) = \frac{i}{2\pi}\infint{\omega}{Z_t e^{-i\omega z/c}}
     \end{align}
     where $W_t$ and $Z_t$ denotes any of the transverse wakes and impedances. Considering that the wakes are real functions, the impedances must satisfy
-    \begin{align}
-  	  	Z_\parallel(\omega) &= Z_\parallel^*(-\omega)\\
+    \begin{subequations}\label{eq:impedance_even_odd}
+    \begin{align}\label{eq:impedance_even_odd_long}
+  	  	Z_\parallel(\omega) &= Z_\parallel^*(-\omega)\\\label{eq:impedance_even_odd_trans}
 	  	Z_t(\omega) &= -Z_t^*(-\omega)
     \end{align}
+    \end{subequations}
     or simply, the real part of the longitudinal impedance must be an even function of the frequency and the imaginary part must be an odd function, while for the transverses impedances the opposite is valid, the real part is odd and the imaginary part is even.
 
     Impedances have several other interesting mathematical properties, as presented in reference~\cite{Chao1993}. For example, when the wakes satisfy the causality condition the real and imaginary parts of the impedance are related by the Kramers-Kronig relations~\cite{Kronig1926}, also known as Hilbert Transforms. These other properties will be covered later in this work if they be deemed necessary for the development of the analysis
@@ -948,17 +950,20 @@
 	    	\frac{1}{M\omega_0} \sum_{j=-\infty}^\infty e^{-i\omega(j\frac{T_0}{M})},
     \end{align}
     where $\omega_0 = \sfrac{2\pi}{T_0}$ is the angular revolution frequency of the ring, equation~\eqref{eq:temp1} can be written as
-    \begin{align}\label{eq:impedance_interpretation}
+    \begin{align}\label{eq:impedance_interpretation_long}
 	  	V_0(z) = \frac{M\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z_\parallel(pM\omega_0)e^{-ipM\omega_0 z/c}.
     \end{align}
     where we notice the beam will only sample the impedance at multiples of the revolution frequency. Similar expressions can be obtained for the dipole and quadrupole effective wake functions:
-    \begin{align}
-  		V^D_X(z) = \frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{d}(pM\omega_0)Z^D_X(pM\omega_0)e^{-ipM\omega_0 z/c}\\
-		V^Q_X(x,z) = x\frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z^Q(pM\omega_0)e^{-ipM\omega_0 z/c}
+    \begin{subequations}\label{eq:impedance_interpretation_trans}
+    \begin{align}\label{eq:impedance_interpretation_dip}
+  		V^D_X(z) = -\frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{d}(pM\omega_0)Z^D_X(pM\omega_0)e^{-ipM\omega_0 z/c}\\
+        \label{eq:impedance_interpretation_quad}
+		V^Q_X(x,z) = -x\frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z^Q(pM\omega_0)e^{-ipM\omega_0 z/c}
     \end{align}
+    \end{subequations}
     and analogously to the vertical plane. Notice in the equations above that the dipole impedance does not generate any effective wake function if the beam is stable and well centered in the vacuum chamber, because in this condition the dipole moment of the beam is zero. This is the main characteristic of a coherent mechanism, it depends on the values of specific properties of the beam, in this case the longitudinal distribution of the dipole moment, and its effects are only visible through averages on the distribution. On the other hand, the detuning wake generates a $z$-dependent quadrupole strength on individual particles of the beam even if the beam is stationary, which is a the characterist of an incoherent effect, it affects the intra-bunch dynamics but not necessarely is reflected in the averages on the distribution.
 
-    Equation~\eqref{eq:impedance_interpretation} describes the meaning behind the concept of impedance and its analogy with an electric circuit impedance. Notice that the equation can be interpreted as the Fourier expansion of the wake in the interval $\sfrac{T_0}{M}$ and the coefficient that multiplies the exponential in the sum is the Fourier component of this expansion
+    Equation~\eqref{eq:impedance_interpretation_long} describes the meaning behind the concept of impedance and its analogy with an electric circuit impedance. Notice that the equation can be interpreted as the Fourier expansion of the wake in the interval $\sfrac{T_0}{M}$ and the coefficient that multiplies the exponential in the sum is the Fourier component of this expansion
     \begin{align}
   	  	\fourier{V}_0 = \fourier{\lambda}Z_\parallel,
     \end{align}
@@ -1125,7 +1130,7 @@
     \begin{align}
         \Delta E \approx c\Delta p \approx c\funcof{\frac{p_s}{p}\Delta p_s + x'\Delta p_x + y'\Delta p_y} \approx c\Delta p_s.
     \end{align}
-    This way the energy variation of a given particle due to wake-fields depends on which bunch it is and on its longitudinal deviation from the synchronous particle and is given, in the most general form, by the  equation~\eqref{eq:general_eff_long_wake} multiplied by the average charge of the bunches and the charge of the particle. If we consider the distributions are stationary and the ring is uniformly filled with charge, then the expression for the wake-potential is reduced to equation~\eqref{eq:impedance_interpretation}.
+    This way the energy variation of a given particle due to wake-fields depends on which bunch it is and on its longitudinal deviation from the synchronous particle and is given, in the most general form, by the  equation~\eqref{eq:general_eff_long_wake} multiplied by the average charge of the bunches and the charge of the particle. If we consider the distributions are stationary and the ring is uniformly filled with charge, then the expression for the wake-potential is reduced to equation~\eqref{eq:impedance_interpretation_long}.
 
     Under this approximation, the energy variation of a particle after passing througth the impedance source would be given by:
     \begin{align}\label{eq:part_energy_loss}
@@ -1188,11 +1193,11 @@
 
 \section{Incoherent Tune--shifts}
 
-    Another effect derivable of the Hamiltonean of equation~\eqref{eq:current_depend_hamiltonean} is the effect of the wakes on the transverse oscillation frequency as a function of the current,
+    Another effect derivable of the Hamiltonean of equation~\eqref{eq:current_depend_hamiltonean} is variation of the transverse oscillation frequency of the bunch as a function of the current,
     \begin{align}
         \Delta\nu_u^n = \frac{(\Delta\mu'_u)^n}{\omega_0/c} = \frac{1}{\omega_0/c}\left(\left.\derpar{H_n}{J_u}\right|_{\average{I}} - \left.\derpar{H_n}{J_u}\right|_{\average{I}=0}\right)
     \end{align}
-    where the superscript $n$ was used because, in principle the tune--shift is different for different bunches, if the filling pattern is not uniform and the wakes that generates it are multi--turn effects. considering the distributions are in equilibrium, we can show that
+    where the superscript $n$ was used because the tune--shift is different for different bunches if the filling pattern is not uniform and the wakes that generates it are multi--turn effects. considering the distributions are in equilibrium, we can show that
     \begin{align}
         \Delta\nu_u^n = \frac{\average{I}T_0}{2\pi(E_0/e)}
         \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
@@ -1201,11 +1206,23 @@
     \end{align}
     notice that for a well centered beam $d_l=0$ and the dipole wake does not influence the tune, and even in the case when the beam is off centered its average effect is zero, because of the term $cos(\mu_u)$ that averages to zero for each particle in the beam, unless the tune is very close to an integer value. The quadrupolar wake, on the other hand, creates a $z$ dependent tune--shift in the beam
     \begin{align}
-        \Delta\nu_u^n = \beta_u(1+\cos(2\mu_u))\frac{\average{I}T_0}{2\pi2(E_0/e)}
+        \Delta\nu_u^n = \beta_u(1+\cos(2\mu_u))\frac{\average{I}T_0}{4\pi(E_0/e)}
         \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
         \lambda_l(z') W^Q(z-z' + s_r)}
     \end{align}
-    Considering an uniform filling patern, with $M$ equal bunches equally spaced, we can follow the reasonings presented in subsection~\ref{ssec:relation_with_impedance} to show that
+    Considering an uniform filling patern, with $M$ equal bunches equally spaced, we can follow the reasonings presented in subsection~\ref{ssec:relation_with_impedance} and use equation~\eqref{eq:impedance_interpretation_quad} to show that
+    \begin{align}
+        \Delta\nu_u = -\beta_u(1+\cos(2\mu_u))\frac{I_bT_0}{4\pi(E_0/e)}
+        \frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z^Q(pM\omega_0)e^{-ipM\omega_0 z/c},
+    \end{align}
+    where $I_b$ is the current per bunch. Averaging this result with the bunch distribution and using the impedance property described in equation~\eqref{eq:impedance_even_odd_trans}, we get
+    \begin{align}
+        \Delta\nu_u = \beta_u\frac{I_bT_0}{4\pi(E_0/e)}
+        \overbrace{
+        \frac{M\omega_0}{2\pi} \sum_{p=-\infty}^\infty |\fourier{\lambda}(pM\omega_0)|^2\imag{Z^Q(pM\omega_0)}}^{\kappa^Q},
+    \end{align}
+    where $\kappa^Q$ is the quadrupolar kick factor.
+
 
 \section{Instabilities}
 \subsection{Multi-Turn Instabilities}
