@@ -477,7 +477,7 @@
 	\end{align}
     This formulation of the linear transverse motion is very usefull for numeric calculation of the evolution of the particles.
 
-\subsection{Chromaticity and Action Dependent Tune-shift}
+\subsection{Chromaticity and Action Dependent Tune-shift}\label{sec:chromaticity}
 
 	The quadrupoles correct the chromatic effects in the orbit of the beam that are generated in the dipoles and the result of such a correction is the finite value of the dispersion function. However the quadrupoles also are dispersive components, which means their focusing strength depends on the energy of the particles. This dependency comes from higher order terms of the Hamiltonean, not shown in equation~\eqref{eq:approximated_hamiltonean}, and causes an effect on the beam where particles with different relative energy offset have different tunes.
 
@@ -497,13 +497,13 @@
     they can be added to it simply by writting
     \begin{align}\label{eq:average_transverse_hamiltonean}\nonumber
         H_t(J_x, J_y, \delta) = \frac{\omega_0}{c}
-                            &\large(
-                             (\nu_{x,0} + \xi_x \delta) J_x +
+                                &\left(
+                                    (\nu_{x,0} + \xi_x \delta) J_x +
                                     (\nu_{y,0} + \xi_y \delta) J_y +
-                             \\ &\left.
-                             A_{xx} \frac{J_x^2}{2} + A_{xy} J_yJ_x +
+                                \vphantom{\frac{1_1^2}{2}}\right.\\ &\left.
+                                    A_{xx} \frac{J_x^2}{2} + A_{xy} J_yJ_x +
                                     A_{yy} \frac{J_y^2}{2}
-                            \right).
+                                \right).
     \end{align}
 
 \section{Longitudinal Dynamics}
@@ -587,7 +587,7 @@
                         }^{U(z)}
 	\end{align}
 	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy. When the oscillations are small the potential well can be expandend in power series of the longitudinal position. Generally the RF cavity of storage rings are adjusted with each other in such a way that their potentials always sum constructively, creating a practically linear potential $V(z)$ around the fixed point, which implies the Hamiltonean can often be approximated by
-    \begin{align}
+    \begin{align}\label{eq:quadractic_potential_well}
         H_\parallel = \frac\alpha2\delta^2 + \frac{V'}{2L_0}z^2
     \end{align}
     which is an harmonic oscillator, equivalent to the linear map of equation~\eqref{eq:longitudinal_linear_map}, if the damping is not considered. This harmonic Hamiltonean is often used for analytical treatments of instabilities because it is a good approximation for most RF systems and also due to the simple expressions of its action-angle variables.
@@ -649,36 +649,44 @@
     \end{align}
 
     With these considerations the distribution commutes with the total Hamiltonean and the \gls{lhs} of the Fokker-Planck equation,~\eqref{eq:fokker_planck_equation}, is zero. From the \gls{rhs} it can be shown that
-    \begin{align}
-        \Psi(\vect{q},\vect{p}) = \frac1A \exp\funcof{
-                                - \frac{J_x}{\varepsilon_x}
-                                - \frac{J_y}{\varepsilon_y}
-                                - \frac{1}{2\sigma_\delta^2}\funcof{\delta^2 + \frac2\alpha U(z)}}
+    \begin{align}\label{eq:equilibrium_distribution}
+        \Psi(\vect{q},\vect{p}) =
+        \overbrace{
+        \frac{\exp\funcof{-J_x/\varepsilon_x}}{2\pi\varepsilon_x}}^{f_x}\cdot
+        \overbrace{
+        \frac{\exp\funcof{-J_y/\varepsilon_y}}{2\pi\varepsilon_y}}^{f_y}\cdot
+        \overbrace{
+        \frac{\exp\funcof{-\frac{\delta^2}{2\sigma_\delta^2}}}{\sqrt{2\pi}\sigma_\delta}}^{f_\delta}\cdot
+        \overbrace{
+        \frac{\exp\funcof{-\frac{1}{2\sigma_\delta^2}\frac2\alpha U(z)}}{A}}^{\lambda}
     \end{align}
     with
     \begin{align}
         \varepsilon_x = \frac{cD_x}{2\alpha_x}, \quad
         \varepsilon_y = \frac{cD_y}{2\alpha_y}, \quad
-        \sigma_\delta = \frac{cD_z}{2\alpha_z}
+        \sigma_\delta = \frac{cD_z}{2\alpha_z},
     \end{align}
     where $\varepsilon_x$ and $\varepsilon_y$ are the horizontal and vertical emittances, $\sigma_\delta$ is the energy spread of the beam and $A$ is a normalization constant such that
     \begin{align}
-        \udefint{\vect{q}}{\udefint{\vect{p}}{\Psi(\vect{q},\vect{p})}} = 1.
+        \udefint{z'}{\lambda(z')}=1
     \end{align}
-
     It easy to see that the beam vertical size is given by
     \begin{align}
         \sigma_y^2(s) = \average{y^2} = 2\beta_y(s)\udefint{\theta_y}{\cos^2(\theta_y)\udefint{J_y}{f_y(J_y)J_y}} = \beta_y\varepsilon_y
-    \end{align}
-    where it was assumed $f_y(J_y) = \exp\funcof{J_y/\varepsilon_y}/2\pi\varepsilon_y$
-    \begin{align}
-        \udefint{\theta_y}{\udefint{-J_y}{f_y(J_y)}} = 1
     \end{align}
     and that for the horizontal plane the canonical transformation that shifted the off-momentum fixed point, represented by equation~\eqref{eq:off_momentum_canonical_transformation}, must be taken in account:
     \begin{align}
         \sigma_x^2 = \average{\funcof{x+\eta\delta}^2} = \average{x^2} + \average{2x\eta\delta} + \eta^2\average{\delta^2} = \beta_x\varepsilon_x + \eta^2\sigma_\delta^2.
     \end{align}
 
+    For the longitudinal plane, in the simple case of a quadractic potential well, as described by equation~\eqref{eq:quadractic_potential_well}, we have
+    \begin{align}
+        \sigma_z^2 = \udefint{z'}{\lambda\funcof{z'}z'^2} =
+        \frac1A\udefint{z'}{
+            \exp\funcof{-\frac{V'}{2L_0\alpha\sigma_\delta^2} z'^2}z'^2
+        } = \sigma_\delta^2\frac{L_0\alpha}{V'} = \sigma_\delta^2 \frac{c^2\alpha^2}{\omega_s^2},
+    \end{align}
+    where $\omega_s = \omega_0\nu_s$ is the synchrotron frequency.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -858,7 +866,7 @@
 
     Impedances have several other interesting mathematical properties, as presented in reference~\cite{Chao1993}. For example, when the wakes satisfy the causality condition the real and imaginary parts of the impedance are related by the Kramers-Kronig relations~\cite{Kronig1926}, also known as Hilbert Transforms. These other properties will be covered later in this work if they be deemed necessary for the development of the analysis
 
-\section{Potential of Bunch of particles}
+\section{Potential of Bunch of particles}\label{sec:potential_of_bunch}
 
     Now that all the important tools for describing the wake field effects were introduced we will calculate the change in momentum that a specific particle inside a bunch will feel due to the action of all the other particles. To do that we will assume that in the whole ring there is only one source of impedance, localized at a given point of the accelerator, and that the vacuum chamber is perfectly aligned with reference orbit of the storage ring in such a way that a particle that is on the reference orbit also is at the origin of the expansion made in equation~\eqref{eq:wake_potential_expansion}. Regarding the longitudinal position the synchronous position will be adopted as the origin and the positions of the particles will be measured in relation to it in accordance to the definitions made in section~\ref{sec:longitudinal_deviations}, specifically in accordance with equation~\ref{eq:longitudinal_deviations}, where particles behind the synchronous particle have positive deviations. Under such assumptions we get:
     \begin{align}\label{eq:def_effective_wake_potential}
@@ -866,8 +874,8 @@
     \end{align}
     where $V(\vect{\rho}_i, z_i)$ is denominated effective wake potential, because it is the net effect of the average of the Green wake potential over the bunch and the indices $i$ and $j$ are related to the witness and the source particles respectively. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons, besides this sum does not evidenciate properties of the beam such as time dependency. If the beam is in equilibrium or is slowly varying the \gls{lhs} of equation~\ref{eq:def_effective_wake_potential} is approximately the same for successives turns in the ring, or over several passages by the impedance source, but each term of the \gls{rhs} can be very different from turn to turn which means the sum must always be carried out. For all these reasons it is important to make an approximation and consider that the effective wake potential that any particle feels is an integral over the beam distribution:
     \begin{align}\label{eq:int_effective_wake_potential}
-  	  	V(\vect{\rho}, z, t) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
-	  			\Psi(\vect{p},\vect{\rho}',z'; t) W(\vect{\rho}',\vect{\rho},z-z')}}}
+  	  	V(\vect{\rho}, z, s) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
+	  			\Psi(\vect{p},\vect{\rho}',z'; s) W(\vect{\rho}',\vect{\rho},z-z')}}}
     \end{align}
     where $\vect{p} = (x', y', \delta)$ and $\text{d}\vect{p} = \text{d}x'\text{d}y'\text{d}\delta$ represents the momentum coordinates and $\Psi$ is beam density distribution function in phase space, which is time dependent in the general case.
 
@@ -875,43 +883,41 @@
 
     The equation~\eqref{eq:int_effective_wake_potential} is not general enough to take into account all the wake field forces on the particles. In some cases the wakes persist for so long that they last for a time equivalent to several turns in the ring, acting on the same particles that generate it in successive turns. Generally these wakes are generated by cavity-like structures in the vacuum chamber that trap their electromagnetic eigen-modes for long times. In this situation we must add a sum over the distribution in previous turns
     \begin{align}\nonumber
-  	  	V(\vect{\rho}, z, t) = \sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
-	  			&\Psi(\vect{p},\vect{\rho}',z'; t-kT_0)\times\\ &W(\vect{\rho}',\vect{\rho},z-z' + kcT_0)}}}
+  	  	V(\vect{\rho}, z, s) = \sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
+	  			&\Psi(\vect{p},\vect{\rho}',z'; s-kL_0)\times\\ &W(\vect{\rho}',\vect{\rho},z-z' + kcL_0)}}}
     \end{align}
     where the sum can be extended to infinity because the wake-potential is zero for relative positions between the source and the witness when there is no interaction between them. For example it would not make sense for a particle feel the wake field it will generate in the next turn, this means the wake potential must be zero for large negative values of $z-z'$. Yet, in the most general case there is more than one bunch stored in the ring, which means it is also necessary to take the influence of other bunches into account
     \begin{align}\label{eq:general_eff_wake_pot}\nonumber
-  	  	V_n(\vect{\rho}, z, t) = \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
-	  			&\Psi_l(\vect{p},\vect{\rho}',z'; t-kT_0-\frac{(s_l-s_n)}{c})
-				\times\\
-				&W(\vect{\rho}',\vect{\rho},z-z' + kcT_0 + (s_l-s_n))}}}
+  	  	V_n(\vect{\rho}, z, s) = \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
+	  			&\Psi_l(\vect{p},\vect{\rho}',z'; s - s_r) \times\\
+				&W(\vect{\rho}',\vect{\rho},z - z' + s_r)}}}
     \end{align}
-    where $I_l$ is the current and $s_l$ is the synchrotron position of the $l$-th bunch in the ring, $\average{I}=\sum_{l\in\mathscr{B}}I_l/M$ is the average current per bunch and $\mathscr{B}$ is a set of integer numbers to identify which bunchs are filled with particles. For example, if the bunches $1, 10, 500$ and $735$ are filled and the rest is empty, then $\mathscr{B} = \{ 1, 10, 500, 735 \}$ and for sure $n\in\mathscr{B}$. Also $V_n$ needs the subscript $n$ in order to identify that this is the wake potential felt by the $n$-th bunch in the ring.
+    where
+    \begin{align}\label{eq:retarded_time_definition}
+        s_r = kL_0-(s_l-s_n)
+    \end{align}
+    is the retarded position defining when the wakes were generated, $I_l$ is the current and $s_l$ is the synchrotron position of the $l$-th bunch in the ring, $\average{I}=\sum_{l\in\mathscr{B}}I_l/M$ is the average current per bunch and $\mathscr{B}$ is a set of integer numbers to identify which bunchs are filled with particles. For example, if the bunches $1, 10, 500$ and $735$ are filled and the rest is empty, then $\mathscr{B} = \{ 1, 10, 500, 735 \}$ and for sure $n\in\mathscr{B}$. Also $V_n$ needs the subscript $n$ in order to identify it as the wake potential felt by the $n$-th bunch in the ring.
 
     Combining equation~\eqref{eq:general_eff_wake_pot} with the expansion of equation~\eqref{eq:important_wakes} we can derive expressions for each component of the effective wake functions of the beam
+    \begin{subequations}\label{eq:general_eff_wakes}
     \begin{align}\label{eq:general_eff_long_wake}
-	  	(V_0)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
-	  			&\lambda_l(z'; t-kT_0-\frac{(s_l-s_n)}{c})
-				\times\\
-				&W'_0(z-z' + kcT_0 + (s_l-s_n))}\\[3mm]
-	  	(V^Q_X)_n(x, z, t) =\nonumber x\sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
-	  			&\lambda_l(z'; t-kT_0-\frac{(s_l-s_n)}{c})
-				\times\\
-				&W^Q(z-z' + kcT_0 + (s_l-s_n))}\\[3mm]
-	  	(V^D_X)_n(z, t) =\nonumber \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
-	  			&d_l(z'; t-kT_0-\frac{(s_l-s_n)}{c})
-				\times\\
-				&W^D_X(z-z' + kcT_0 + (s_l-s_n))}
+	  	(V_0)_n(z, s) &= \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{\lambda_l(z'; s - s_r)W'_0(z - z' + s_r)}
+        \\[3mm]\label{eq:general_eff_quad_wake}
+	  	(V^Q_X)_n(x, z, s) &= x\sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{\lambda_l(z'; s - s_r)W^Q(z-z' + s_r)}
+        \\[3mm]\label{eq:general_eff_dip_wake}
+	  	(V^D_X)_n(z, s) &= \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{d_l(z'; s - s_r)W^D_X(z-z' + s_r)}
     \end{align}
+    \end{subequations}
     where $\lambda_l$ is the longitudinal line distribution and $d_l$ is the horizontal dipole moment of the $l$-th bunch defined by
-    \begin{align}
-	  	\lambda_l(z; t) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{
-	  			&\Psi_l(\vect{p},\vect{\rho}',z; t)}}\\
-	  	d_l(z; t) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{
-	  			&x\Psi_l(\vect{p},\vect{\rho}',z; t)}}
+    \begin{align}\label{eq:definition_long_distributions}
+	  	\lambda_l(z; s) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{
+	  			&\Psi_l(\vect{p},\vect{\rho}',z; s)}}\\
+	  	d_l(z; s) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{
+	  			&x\Psi_l(\vect{p},\vect{\rho}',z; s)}}
     \end{align}
     and $V_0$, $V^D_X$ and $V^Q_X$ are the effective longitudinal, horizontal dipole and horizontal detuning wake functions of the bunch. The expressions for the vertical effective wakes $V^D_Y$ and $V^Q_Y$ are very similar to the horizontal ones, just changing $x$ for $y$.
 
-\subsection{Relation with Impedance}
+\subsection{Relation with Impedance}\label{ssec:relation_with_impedance}
 
     In order to demonstrate how the concept of impedance is useful in the calculations of beam dynamics and its interpretation lets consider the beam is stationary, which means the distribution does not depend on time, and that all bunches in the ring are identical and equally spaced. When we apply the last assumption to equation~\eqref{eq:general_eff_long_wake} we notice the double sum can be replaced by a single one, if we define a variable
     \begin{align*}
@@ -1146,19 +1152,61 @@
     \end{align}
     instead, where $z_0$ is the new synchronous position, measured in relation to the zero current one.
 
-\section{Static Effects}
+\section{Current dependent Hamiltonean}
 
-    The usual approach to calculate the effects of the wakes on the beam is by introducing the total wake potential of the machine on the one turn averaged Hamiltonean of the ring~\cite{Berg1996,Lindberg2016}, because the effects of the wakes on the beam are very slow, in such a way that the evolution of its parameters are counted in a turn by turn basis. In section~\ref{sec:sum_of_wakes} we define the method to sum all the wakes on the machine and the longitudinal Hamiltonean defined in subsection~\ref{ssec:potential_well} is already defined under such condition. The only part missing is the transverse Hamiltonean, which can be built from equation~\eqref{eq:average_transverse_hamiltonean} by simple integration in one turn,
+    The usual approach to calculate the effects of the wakes on the beam is by introducing the total wake potential of the machine on the one turn averaged Hamiltonean of the ring~\cite{Berg1996,Lindberg2016}. This is justified by the fact that the wake forces are weak and its effects on the beam are very slow, in such a way that the evolution of its parameters are counted in a turn by turn basis. In section~\ref{sec:sum_of_wakes} it was defined a method to sum all the wakes on the machine and the average transverse Hamiltonean was defined in section~\ref{sec:chromaticity}, especifically in equation~\eqref{eq:average_transverse_hamiltonean}, and the average longitudinal Hamiltonean was defined in subsection~\ref{ssec:potential_well}, by equation~\eqref{eq:longitudinal_hamiltonean}.
 
-
+    Besides, the coupling between both transverse planes is very small in normal conditions of operation of the machine. On the other side, the wakes strongly couples the evolution of the transverse dynamics with the longitudinal plane. For this reason, the transverse analysis of transverse collective effects usually deal with the Hamiltoneans of one transverse and the longitudinal planes togheter. The analysis of the longitudinal motion is again simplified, without the need of considering the transverse degrees of freedom of the particles. With these considerations, the total one turn Hamiltonean of the particles is
+    \begin{align}\label{eq:current_depend_hamiltonean}
+        H_n = J_u\funcof{\nu_u + \xi_u\delta + J_u\frac{A_{xx}}{2}} +
+                H_{\parallel} - \frac{\average{I}T_0V_n\funcof{u, z, s}}{(E_0/e)L_0}
+    \end{align}
+    where $\average{I}T_0$ is the average charge per bunch, the subscript $n$ in the Hamiltonean indicates that it is related to the $n$--th bunch of the machine and the effective wake potential is given according to the ideas developed in section~\ref{sec:potential_of_bunch}, specifically by equations~\eqref{eq:general_eff_wakes},
+    \begin{align}\label{eq:generalwake}
+        V_n\funcof{u, z, s} =\nonumber \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
+        &\left(\lambda_l(z'; s - s_r) W_0(z-z' + s_r) + \vphantom{\frac{u^2}{2}}\right.\\\nonumber
+        &\hphantom{u}ud_l(z'; s -s_r) W^D_u(z-z' + s_r) +\\
+        &\left. \frac{u^2}{2}\lambda_l(z'; s - s_r) W^Q(z-z' + s_r)\right)},
+    \end{align}
+    where $s_r$ is the retarded position defined in equation~\eqref{eq:retarded_time_definition}, $\lambda_l$ and $d_l$ are the longitudinal distribution and dipole moment of the beam, defined in equations~\eqref{eq:definition_long_distributions}, and $W_0$ is the primitive function of the longitudinal wake, $W'_0$.
 
 \section{Potential-Well Distortion}
 
-    Besides a shift of the synchronous phase, the wakes distort the potential well in the longitudinal plane, changing the
+    All the effects of the wakes on the beam can be calculated from the Hamiltonean defined in equation~\eqref{eq:current_depend_hamiltonean}. One particular effect is the distortion of the potential well created by the RF cavities, which changes the equilibrium distribution of the particles and the intrabunch dynamic properties such as the synchrotron tune.
 
-\section{Tune--shifts}
-\subsection{Coherent Tune--shifts}
-\subsection{Incoherent Tune--shifts}
+    To calculculate susch effect we consider a static distribution for the beam and neglect the effects of $W^D_u$ and $W^Q$, because they are small for a well centered beam in the vacuum chamber. Besides, apart from the effect of cavities, which will be discussed in Appendix~\ref{app:eq:passive_landau_cavity}, the distortions are dominated by short range wakes, in such a way that we can neglect the multi--bunch and multi--turn contributions. Under such considerations, the Hamiltonean of the particle becomes
+    \begin{align}
+        H = \frac\alpha2\delta^2 + U(z) -
+            \frac{I_bT_0}{(E_0/e)L_0}\udefint{z'}{\lambda(z') W_0(z-z')},
+    \end{align}
+    which is time--independent. Following the same reasonings performed in section~\ref{ssec:fokker_planck_equation} we notice that equation~\ref{eq:equilibrium_distribution} is still valid if we substitute the expression for the longitudinal distribution by
+    \begin{align}\label{eq:haissinski_equation}
+        \lambda(z) = \frac1A\exp\funcof{\frac{1}{\alpha\sigma_\delta^2}\funcof{
+            -U(z) + \frac{I_bT_0}{(E_0/e)L_0}\udefint{z'}{\lambda(z') W_0(z-z')}}},
+    \end{align}
+    which is a transcendental integral equation for the longitudinal distribution. This equation was first proposed and solved by \citeonline{Haissinski1973} and for this reason carries his name. Even though analytical solutions exist for some special impedances, such as the one presented by~\citeonline{Shobuda1999}, in general it must be solved numerically. In Appendix~\cite{app:codes_developed} we will describe the approach used in this work for such a solution.
+
+\section{Incoherent Tune--shifts}
+
+    Another effect derivable of the Hamiltonean of equation~\eqref{eq:current_depend_hamiltonean} is the effect of the wakes on the transverse oscillation frequency as a function of the current,
+    \begin{align}
+        \Delta\nu_u^n = \frac{(\Delta\mu'_u)^n}{\omega_0/c} = \frac{1}{\omega_0/c}\left(\left.\derpar{H_n}{J_u}\right|_{\average{I}} - \left.\derpar{H_n}{J_u}\right|_{\average{I}=0}\right)
+    \end{align}
+    where the superscript $n$ was used because, in principle the tune--shift is different for different bunches, if the filling pattern is not uniform and the wakes that generates it are multi--turn effects. considering the distributions are in equilibrium, we can show that
+    \begin{align}
+        \Delta\nu_u^n = \frac{\average{I}T_0}{2\pi(E_0/e)}
+        \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
+        &\left(\sqrt{\frac{\beta_u}{2J_u}}\cos(\mu_u)d_l(z') W^D_u(z-z' + s_r) +\right.\\
+        &\left.\phantom{\sqrt{\frac{1_1}{1_1}}}\beta_u\cos^2(\mu_u)\lambda_l(z') W^Q(z-z' + s_r)\right)},
+    \end{align}
+    notice that for a well centered beam $d_l=0$ and the dipole wake does not influence the tune, and even in the case when the beam is off centered its average effect is zero, because of the term $cos(\mu_u)$ that averages to zero for each particle in the beam, unless the tune is very close to an integer value. The quadrupolar wake, on the other hand, creates a $z$ dependent tune--shift in the beam
+    \begin{align}
+        \Delta\nu_u^n = \beta_u(1+\cos(2\mu_u))\frac{\average{I}T_0}{2\pi2(E_0/e)}
+        \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
+        \lambda_l(z') W^Q(z-z' + s_r)}
+    \end{align}
+    Considering an uniform filling patern, with $M$ equal bunches equally spaced, we can follow the reasonings presented in subsection~\ref{ssec:relation_with_impedance} to show that
+
 \section{Instabilities}
 \subsection{Multi-Turn Instabilities}
 \subsection{Single-Turn Instabilities}
@@ -1172,32 +1220,6 @@
 \subsubsection{High Current Limit: Mode Coupling Instabilities}
 \subsection{The Microwave Instability}
 \subsection{Strong Head-tail instability}
-
-
-% \chapter{Experimental Methods}
-% \section{Impedance Measurement}
-% \subsection{Direct Measurement}
-% \subsubsection{Wire technique}
-% \subsubsection{Double wire technique}
-% \subsection{Beam Measument}
-% \subsubsection{Single-bunch Current Dependent Tune--shifts}
-% \subsubsection{Multi-bunch Current Dependent Tune--shifts}
-% \subsubsection{Single-bunch Turn-by-Turn measurements}
-% \subsubsection{Orbit bump method}
-% \subsubsection{response matrix fitting}
-% \subsubsection{Instability Threshold Measurements}
-% \section{Instability Cures}
-% \subsection{Landau Cavity}
-% \subsection{Chromaticity}
-% \subsection{Cavity power absorbers}
-% \subsection{Cavity temperature adjustments}
-% \subsection{Bunch-by-Bunch Feedback System}
-% \subsubsection{How it works}
-% \subsubsection{Possible Experiments}
-% \paragraph{Grow-Damp Experiments}
-% \paragraph{Tune measurement}
-% \paragraph{Beam Response Function Measurement}
-% \subsubsection{Main Limitations}
 
 
 \chapter{Components Impedance Modelling}\label{cap:impedance_modelling}
@@ -2177,7 +2199,7 @@
     and all the skew terms are zero.
 
 
-\chapter{Passive Landau cavity simulation}
+\chapter{Passive Landau cavity simulation}\label{eq:passive_landau_cavity}
 
     Assuming the wake function of the main mode of the Landau cavity can be modelled by the longitudinal resonator impedance with parameters $\omega_R$, $R$ and $Q$:
     \begin{align}\label{eq:longitudinal_resonator_wake}
