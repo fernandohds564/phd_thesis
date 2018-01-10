@@ -488,7 +488,11 @@
 		\nu_x(\delta, J_x, J_y) \approx \nu_{x,0} + \xi_x \delta + A_{xx} J_x + A_{xy} J_y \\\nonumber
 		\nu_y(\delta, J_y, J_x) \approx \nu_{y,0} + \xi_y \delta + A_{yy} J_y + A_{yx} J_x
 	\end{align}
-	where $\xi_x$ and $\xi_y$ are the horizontal and vertical chromaticities, and $A_{xx}$, $A_{yy}$ and $A_{xy}=A_{yx}$ are the action dependent tune--shifts.
+	where $\xi_x$ and $\xi_y$ are the horizontal and vertical chromaticities, and $A_{xx}$, $A_{yy}$ and $A_{xy}=A_{yx}$ are the action dependent tune--shifts. This effects can be added to the Hamiltonean o
+    \begin{align}
+        H_t(J_x, J_y) = \udefoint{s}{K(s)} = 2\pi\funcof{\nu_xJ_x + \nu_yJ_y}.
+    \end{align}
+    This Hamiltonean can be extended to include effects of chromaticity and 
 
 \section{Longitudinal Dynamics}
 
@@ -556,7 +560,7 @@
 
 	The voltage gap has the same harmonic composition as function of the arrival time as the electric field as a function of time. This means that the condition imposed in equation~\eqref{eq:harmonic_number} implies that there are at least $h$ stable fixed point along the ring and, as in general the voltage is a pure senoid, these are the only stable points. This means that it is possible to store up to $h$ aglomerations of electrons, called bunches, in a storage ring.
 
-\subsection{The Potential Well}
+\subsection{The Potential Well}\label{ssec:potential_well}
 
 	There is an important approximation to the map equations derived in the previous sections that consists in considering the turn by turn iterations as inifinitesimal transformations and taking the limit to the continuum, considering differences between turns as derivatives. With this considerations, the equations of motion becomes:
 	\begin{align}
@@ -1073,7 +1077,7 @@
 
     In the previous chapter the mechanism of interation between particles was modelled and formulas for the momentum change of an arbitrary particle due to the action of all the other particles in the beam were derived. In this chapter we will try to include these interactions in the dynamic model of the particles and analyze how the beam will behave as whole.
 
-\section{Sum of the Wakes}
+\section{Sum of the Wakes}\label{sec:sum_of_wakes}
 
     With the theory developed so far it is formally possible to calculate the wake potential for all the structures of the ring and include their effects on the beam dynamics assuming the impulse approximation, which considers the variation of the particle momentum must be applied at the position in the ring equivalent to the center of the impedance source. However, a further approximation is usually done for the calculation of the effect of wake-fields in global parameters of the machine, such as tune--shifts, energy loss and even instabilities. This approximation considers all the impedances sources are located at a single point of ring, in other words, it neglects the phase advances between each wake source. This way the total longitudinal wake of a machine can be given by:
     \begin{align}\label{eq:scaling_longitudinal}
@@ -1126,9 +1130,15 @@
 
     The sum of the energy loss in each impedance source of the ring results in and additional energy loss per turn for the particles. This means the new fixed point of the longitudinal one turn map is not given by equation~\eqref{eq:synchronous_phase_condition}, but by
     \begin{align}
-        V(z_0) = U0 + \average[p]{\Delta E}
+        V(z_0) = U_0 + \average[p]{\Delta E}
     \end{align}
     instead, where $z_0$ is the new synchronous position, measured in relation to the zero current one.
+
+\section{Static Effects}
+
+    The usual approach to calculate the effects of the wakes on the beam is by introducing the total wake potential of the machine on the one turn Hamiltonean of the ring~\cite{Berg1996,Lindberg2016}, because the effects of the wakes on the beam are very slow, in such a way that the evolution of the beam parameters are counted in number of turns. In section~\ref{sec:sum_of_wakes} we define the method to sum all the wakes on the machine and the longitudinal Hamiltonean defined in subsection~\ref{ssec:potential_well} is already defined under such condition. The only part missing is the transverse Hamiltonean, which can be built from equation~\ref{eq:betatron_hamiltonean} by simple integration in one turn,
+
+
 
 \section{Potential-Well Distortion}
 
@@ -1150,12 +1160,6 @@
 \subsubsection{High Current Limit: Mode Coupling Instabilities}
 \subsection{The Microwave Instability}
 \subsection{Strong Head-tail instability}
-\section{Numerical Treatment}
-\subsection{Tracking Codes}
-\subsubsection{Lump of Impedance Kicks}
-\subsubsection{Slicing and particle deposition}
-\subsubsection{Single-Bunch tracking codes}
-\subsubsection{Multi-Bunch tracking codes}
 
 
 % \chapter{Experimental Methods}
