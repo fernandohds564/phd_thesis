@@ -488,11 +488,23 @@
 		\nu_x(\delta, J_x, J_y) \approx \nu_{x,0} + \xi_x \delta + A_{xx} J_x + A_{xy} J_y \\\nonumber
 		\nu_y(\delta, J_y, J_x) \approx \nu_{y,0} + \xi_y \delta + A_{yy} J_y + A_{yx} J_x
 	\end{align}
-	where $\xi_x$ and $\xi_y$ are the horizontal and vertical chromaticities, and $A_{xx}$, $A_{yy}$ and $A_{xy}=A_{yx}$ are the action dependent tune--shifts. This effects can be added to the Hamiltonean o
+	where $\xi_x$ and $\xi_y$ are the horizontal and vertical chromaticities, and $A_{xx}$, $A_{yy}$ and $A_{xy}=A_{yx}$ are the action dependent tune--shifts.
+
+    These are the most important one turn effects that affect the mid and long term dynamics of the electrons at small oscillation amplitudes, in such a way that if we average the Hamiltonean of equation~\eqref{eq:betatron_hamiltonean} in one turn,
     \begin{align}
-        H_t(J_x, J_y) = \udefoint{s}{K(s)} = 2\pi\funcof{\nu_xJ_x + \nu_yJ_y}.
+        H_t(J_x, J_y) = \frac1L_0\udefoint{s}{K(s)} = \frac{\omega_0}{c}\funcof{\nu_xJ_x + \nu_yJ_y},
     \end{align}
-    This Hamiltonean can be extended to include effects of chromaticity and 
+    they can be added to it simply by writting
+    \begin{align}\label{eq:average_transverse_hamiltonean}\nonumber
+        H_t(J_x, J_y, \delta) = \frac{\omega_0}{c}
+                            &\large(
+                             (\nu_{x,0} + \xi_x \delta) J_x +
+                                    (\nu_{y,0} + \xi_y \delta) J_y +
+                             \\ &\left.
+                             A_{xx} \frac{J_x^2}{2} + A_{xy} J_yJ_x +
+                                    A_{yy} \frac{J_y^2}{2}
+                            \right).
+    \end{align}
 
 \section{Longitudinal Dynamics}
 
@@ -1136,7 +1148,7 @@
 
 \section{Static Effects}
 
-    The usual approach to calculate the effects of the wakes on the beam is by introducing the total wake potential of the machine on the one turn Hamiltonean of the ring~\cite{Berg1996,Lindberg2016}, because the effects of the wakes on the beam are very slow, in such a way that the evolution of the beam parameters are counted in number of turns. In section~\ref{sec:sum_of_wakes} we define the method to sum all the wakes on the machine and the longitudinal Hamiltonean defined in subsection~\ref{ssec:potential_well} is already defined under such condition. The only part missing is the transverse Hamiltonean, which can be built from equation~\ref{eq:betatron_hamiltonean} by simple integration in one turn,
+    The usual approach to calculate the effects of the wakes on the beam is by introducing the total wake potential of the machine on the one turn averaged Hamiltonean of the ring~\cite{Berg1996,Lindberg2016}, because the effects of the wakes on the beam are very slow, in such a way that the evolution of its parameters are counted in a turn by turn basis. In section~\ref{sec:sum_of_wakes} we define the method to sum all the wakes on the machine and the longitudinal Hamiltonean defined in subsection~\ref{ssec:potential_well} is already defined under such condition. The only part missing is the transverse Hamiltonean, which can be built from equation~\eqref{eq:average_transverse_hamiltonean} by simple integration in one turn,
 
 
 
