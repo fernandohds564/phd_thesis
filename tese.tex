@@ -1125,12 +1125,21 @@
 
     \citeonline{Stupakov2007a} developed a method to find the low frequency impedance of tapers with general cross sections derived explicit formulas for a flat taper, consisting on a rectangular geometry with varying vertical gap and constant horizontal apperture,
     \begin{align}
-        \frac{\omega w^2}{ctb}\ll1\,\,\text{and}\,\,h\ll w\ll l: 
-        \begin{array}
-        &Z_\parallel = \frac{i \omega Z_0}{4\pi c}\infint{z}{(h')^2},\\
-        &Z_y = \frac{i Z_0}{4}\infint{z}{\frac{(h')^2}{h^3}},\\
-        &Z_x^D= -Z_x^Q= \frac{i Z_0}{4\pi}\infint{z}{\funcof{\frac{h'}{h}}^2},
-        \end{array}
+        \frac{\omega w^2}{2cth}\ll1\,\,\text{and}\,\,h\ll w\ll l:
+        \begin{aligned}
+        Z_\parallel &= -0.43\frac{i \omega Z_0}{\pi c}\infint{z}{(h')^2},\\
+        Z_y &= \frac{i Z_0w}{4}\infint{z}{\frac{(h')^2}{h^3}},\\
+        Z_x^D&= -Z_x^Q= \frac{i Z_0}{4\pi}\infint{z}{\funcof{\frac{h'}{h}}^2},
+        \end{aligned}
+    \end{align}
+    where $w$ is the chamber half--width and $h(z)$ is the half--gap. Again, for a linear taper these expressions become
+    \begin{align}
+        \frac{\omega w^2}{2cth}\ll1\,\,\text{and}\,\,h\ll w\ll l:
+        \begin{aligned}
+        Z_\parallel &= 0.43\frac{i \omega Z_0}{\pi c}\frac{|h_1-h_2|}{t},\\
+        Z_y &= \frac{i Z_0}{4}\frac{w}{t}\funcof{\frac{1}{h_2^2}-\frac{1}{h_1^2}},\\
+        Z_x^D&= -Z_x^Q= \frac{i Z_0}{4\pi}\frac{|h_1-h_2|}{th_1h_2},
+        \end{aligned}
     \end{align}
     where the first apprixmation Later~\citeonline{Podobedov2007} s \citeonline{Stupakov2010}
 
