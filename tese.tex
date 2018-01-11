@@ -1087,9 +1087,17 @@
 
 \section{Geometric Transitions}
 
-    The geometric transitions of the vacuum chamber, also called tapers, are necessary to smoothly change the cross section of the chamber from one geometry to another, in order to avoid discontinuities in the vacuum vessel. In several cases these transitions connect chambers with similar cross sections shapes and different dimensions. When the dimensions of the chamber at the end of the transition is smaller the tapers are called taper-in, and are called taper-out for the opposite case.
+    The geometric transitions of the vacuum chamber, also called tapers, are necessary to smoothly change the cross section of the chamber from one geometry to another, in order to avoid discontinuities in the vacuum vessel. In several cases these transitions connect chambers with similar cross section shapes and different dimensions. When the dimensions of the chamber at the end of the transition is smaller the tapers are called taper-in, and are called taper-out for the opposite case.
 
-    This type of impedance is a
+    This type of impedance have a strong impact on the total impedance budget of storage ring, mainly in the transverse plane, see for example a paper by~\citeonline{Gunzel2006} which describes the impedance budget of the ESRF storage ring or another work of the same author, \citeonline{Gunzel2008}, where the impedance budget of ALBA is analysed.
+
+    Analytical studies of this component were carried out by~\citeonline{Yokoya1990} for a round geometry, who derived expressions for the low frequency limit, the impedances are given by
+    \begin{align}
+        \frac{\omega b^2}{cl}:\quad\quad
+        &Z_\parallel = \frac{i\omega Z_0}{4\pi c}\infint{z}{\funcof{b'}^2}, &
+        Z_t = -\frac{i Z_0}{2\pi}\infint{z}{\funcof{\frac{b'}{b}}^2}
+    \end{align}
+    where $b=b(z)$ is the radius of the chamber, $b'=b'(z)$ is the derivative of the radius and $Z_0=120\pi$~\si{\ohm} is the vacuum impedance. \citeonline{Stupakov1996a} \citeonline{Stupakov1996b} \citeonline{Podobedov2007} \citeonline{Stupakov2010}
 
 \section{Coherent Synchrotron Radiation}
 
@@ -1191,43 +1199,41 @@
     \end{align}
     which is a transcendental integral equation for the longitudinal distribution. This equation was first proposed and solved by \citeonline{Haissinski1973} and for this reason carries his name. Even though analytical solutions exist for some special impedances, such as the one presented by~\citeonline{Shobuda1999}, in general it must be solved numerically. In Appendix~\cite{app:codes_developed} we will describe the approach used in this work for such a solution.
 
-\section{Incoherent Tune--shifts}
+\section{Incoherent Tune--shifts}\label{sec:incoherent_tune_shift}
 
     Another effect derivable of the Hamiltonean of equation~\eqref{eq:current_depend_hamiltonean} is variation of the transverse oscillation frequency of the bunch as a function of the current,
     \begin{align}
         \Delta\nu_u^n = \frac{(\Delta\mu'_u)^n}{\omega_0/c} = \frac{1}{\omega_0/c}\left(\left.\derpar{H_n}{J_u}\right|_{\average{I}} - \left.\derpar{H_n}{J_u}\right|_{\average{I}=0}\right)
     \end{align}
-    where the superscript $n$ was used because the tune--shift is different for different bunches if the filling pattern is not uniform and the wakes that generates it are multi--turn effects. considering the distributions are in equilibrium, we can show that
+    where the superscript $n$ was used because the tune--shift is different for different bunches if the filling pattern is not uniform and the wakes that generates it are multi--turn effects. Considering the distributions are in equilibrium, we can show that
     \begin{align}
         \Delta\nu_u^n = \frac{\average{I}T_0}{2\pi(E_0/e)}
         \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
         &\left(\sqrt{\frac{\beta_u}{2J_u}}\cos(\mu_u)d_l(z') W^D_u(z-z' + s_r) +\right.\\
-        &\left.\phantom{\sqrt{\frac{1_1}{1_1}}}\beta_u\cos^2(\mu_u)\lambda_l(z') W^Q(z-z' + s_r)\right)},
+        &\left.\phantom{\sqrt{\frac{1_1}{1_1}}}\beta_u\cos^2(\mu_u)\lambda_l(z') W^Q_u(z-z' + s_r)\right)},
     \end{align}
-    notice that for a well centered beam $d_l=0$ and the dipole wake does not influence the tune, and even in the case when the beam is off centered its average effect is zero, because of the term $cos(\mu_u)$ that averages to zero for each particle in the beam, unless the tune is very close to an integer value. The quadrupolar wake, on the other hand, creates a $z$ dependent tune--shift in the beam
+    where it was used $u = \sqrt{2J_u\beta_u}\cos(\mu_u)$. Notice that for a well centered beam $d_l=0$ and the dipole wake does not influence the tune, and even in the case when the beam is off centered its average effect is zero, because of the term $\cos(\mu_u)$ that averages to zero for each particle in the beam, unless the tune is very close to an integer value. The quadrupolar wake, on the other hand, creates a $z$ dependent tune--shift in the beam
     \begin{align}
         \Delta\nu_u^n = \beta_u(1+\cos(2\mu_u))\frac{\average{I}T_0}{4\pi(E_0/e)}
         \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
-        \lambda_l(z') W^Q(z-z' + s_r)}
+        \lambda_l(z') W^Q_u(z-z' + s_r)}
     \end{align}
     Considering an uniform filling patern, with $M$ equal bunches equally spaced, we can follow the reasonings presented in subsection~\ref{ssec:relation_with_impedance} and use equation~\eqref{eq:impedance_interpretation_quad} to show that
     \begin{align}
         \Delta\nu_u = -\beta_u(1+\cos(2\mu_u))\frac{I_bT_0}{4\pi(E_0/e)}
-        \frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z^Q(pM\omega_0)e^{-ipM\omega_0 z/c},
+        \frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z^Q_u(pM\omega_0)e^{-ipM\omega_0 z/c},
     \end{align}
     where $I_b$ is the current per bunch. Averaging this result with the bunch distribution and using the impedance property described in equation~\eqref{eq:impedance_even_odd_trans}, we get
-    \begin{align}
-        \Delta\nu_u = \beta_u\frac{I_bT_0}{4\pi(E_0/e)}
+    \begin{align}\label{eq:incoherent_tune_shift}
+        \average{\Delta\nu_u} = \beta_u\frac{I_bT_0}{4\pi(E_0/e)}
         \overbrace{
-        \frac{M\omega_0}{2\pi} \sum_{p=-\infty}^\infty |\fourier{\lambda}(pM\omega_0)|^2\imag{Z^Q(pM\omega_0)}}^{\kappa^Q},
+        \frac{M\omega_0}{2\pi} \sum_{p=-\infty}^\infty |\fourier{\lambda}(pM\omega_0)|^2\imag{Z^Q_u(pM\omega_0)}}^{\kappa^Q_u},
     \end{align}
-    where $\kappa^Q$ is the quadrupolar kick factor.
-
+    where $\kappa^Q_u$ is the quadrupolar kick factor. Notice that
 
 \section{Instabilities}
 \subsection{Multi-Turn Instabilities}
 \subsection{Single-Turn Instabilities}
-\section{Landau damping}
 \section{Analytical Treatment}
 \subsection{The Linearized Fokker-Planck Equation}
 \subsubsection{Modal expantion}
@@ -1342,7 +1348,7 @@
 
     The impedance of a multi-layer chamber can be grouped in several parts along the whole spectrum, depending on the mechanism that majorly defines its value. For example, the skin depth of \gls{neg} at \SI{30}{\giga\hertz} is approximately \SI{3}{\micro\meter}, which is three times larger than the thickness of the coating used in Sirius chambers, thus, in the frequency range analysed so far, from \SI{1}{} to \SI{50}{\giga\hertz}, most of the losses happens on the copper chamber and that is why the impedance is mostly inductive. For higher frequencies the \gls{neg} contribution will be resistive, and for lower it will not have any effect on the impedance. \citeonline{Shobuda2017} provide a complete analysis of a \gls{neg} coated chamber, with physical intrepretation of all the ranges of the impedance. One particular range of interest for Sirius is the very low part of the impedance, which goes from \SI{0}{\hertz} to a few \si{\mega\hertz}, because in range is defines two important mechanisms which influence the dynamics of the beam.
 
-    The first is the incoherent tune--shift induced by the quadrupolar impedance, which depends on the DC value of the impedance. This mechanism was introduced in subsection\ref{ssec:incoherent_tune_shift} and is quantitatively described by equation~\eqref{eq:incoherent_tune_shift}. Considering that the resistive--wall impedance has a very sharp peak at zero frequency, this term has strong influence on the whole sum that defines the tune--shifts, mainly for multi-bunch operations. Actually the infinitely thick wall theory, from \citeonline{Gluckstern1993} and \cite{Yokoya1993}, provides divergent results for this tune--shift. \citeonline{Nagaoka2001} solved this problem to explain measurements in ESRF using a method developed by \citeonline{Heifets1998} and detailed explained by \citeonline{Chao2002}, which employed the concept of the diffusion time of the magnetic field in the chamber to truncate the multi--turn effect of this impedance as a way of considering the finite thickness of the wall. Later, \citeonline{Shobuda2002} showed that such approach is not needed when the impedance already takes into account the finite thickness.
+    The first is the incoherent tune--shift induced by the quadrupolar impedance, which depends on the DC value of the impedance. This mechanism was introduced in section~\ref{sec:incoherent_tune_shift} and is quantitatively described by equation~\eqref{eq:incoherent_tune_shift}. Considering that the resistive--wall impedance has a very sharp peak at zero frequency, this term has strong influence on the whole sum that defines the tune--shifts, mainly for multi-bunch operations. Actually the infinitely thick wall theory, from \citeonline{Gluckstern1993} and \cite{Yokoya1993}, provides divergent results for this tune--shift. \citeonline{Nagaoka2001} solved this problem to explain measurements in ESRF using a method developed by \citeonline{Heifets1998} and detailed explained by \citeonline{Chao2002}, which employed the concept of the diffusion time of the magnetic field in the chamber to truncate the multi--turn effect of this impedance as a way of considering the finite thickness of the wall. Later, \citeonline{Shobuda2002} showed that such approach is not needed when the impedance already takes into account the finite thickness.
 
     The impedance at very low frequencies is very difficult to calculate because it depends on what is outside the vacuum chamber, due to the increasingly large skin depth.~\citeonline{Shobuda2002} pointed this possibility out when they tried to explain the tune--shifts observed in KEKB with their finite--thick wall theory. With the multi--layer formulas used in this work it is possible to see the influence of materials outside the chamber on the impedance, as shown Figure~\ref{fig:wall_dipole_permeability},
     \begin{figure}
@@ -1462,13 +1468,13 @@
 
 \section{Fast Correctors Chambers}
 
-    The Fast orbit correctors of the Sirius storage ring will operate at a update rate of \SI{100}{\kilo\hertz} in the \gls{fofb}~\cite{Tavares2013}, requiring special vacuum chambers in order for such high frequency fields to penetrate. The solution adopted was to brase small and thin stainless steel chambers in the otherwise copper chamber of the ring. The reduced conductance, only \SI{1}{\mega\siemens}, of this material provides a skin depth of \SI{1.6}{\milli\meter} at \SI{100}{\kilo\hertz}, which is much larger than the thickness of the chamber, which is \SI{0.1}{\milli\meter} and do not damp or distort significantly the external field of the magnet.
+    The Fast orbit correctors of the Sirius storage ring will operate at a update rate of \SI{100}{\kilo\hertz} in the \gls{fofb}~\cite{Tavares2013}, requiring special vacuum chambers in order for such high frequency fields to penetrate. The solution adopted was to brase small and thin stainless steel chambers in the standard copper chamber of the ring. The reduced conductance, only \SI{1}{\mega\siemens}, of this material provides a skin depth of \SI{1.6}{\milli\meter} at \SI{100}{\kilo\hertz}, which is much larger than the thickness of the chamber, which is \SI{0.1}{\milli\meter}, and do not damp or distort significantly the external field of the magnet.
 
-    The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi-layer chambers used so far. This question is answered by~\citeonline{Shoduba2009}, who calculate the impedance of a finite resistive insert of finite thickness on a otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for an insert whose length is smaller than its radius, if the thickness is of the order of \SI{100}{\micro\meter}, the impedance is already equal to the infinitely long chamber counterpart. This result shows that the use of the multi-layer formulas employed so far for the other components are still valid for the fast correctors chambers. Considering this, the relevant parameters used for the modelling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
+    The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi-layer chambers used so far. This question is answered by~\citeonline{Shoduba2009}, who calculate the impedance of a finite resistive insert of finite thickness on an otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for an insert whose length is smaller than its radius, if the thickness is of the order of \SI{100}{\micro\meter}, the impedance is already equal to the infinitely long chamber counterpart. This result shows that the use of the multi-layer formulas employed so far for the other components are still valid for the fast correctors chambers. Considering this, the relevant parameters used for modelling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
     \begin{table}[b]
         \centering
         \caption{Kicker main parameters}
-        \label{tab:kicker_paramters}
+        \label{tab:fast_correctors_chamber_parameters}
         \begin{tabular}{lccc}
             \toprule
             Parameter            & Value      & Unit \\
@@ -1484,7 +1490,29 @@
 
 \section{Undulators Chambers}
 
-    For the first phase of operation of the Sirius light source it is predicted the installation of seven \gls{ids} on the storage ring, with four different types of devices: two Delta-type undulators~\cite{Temnykh2008} and two \gls{apu}~\cite{Carr1991}. The design details as well as first experiences with the prototype measuments of the Sirius Delta undulator are described by~\citeonline{Vilela2017} and the information regarding the radiation parameters of such devices can be found elsewhere~\cite{Sirius2013}. All the \gls{ids} will be out of vacuum and their vacuum chamber will be made of copper and coated with \gls{neg}.
+    For the first phase of operation of the Sirius light source it is predicted the installation of seven \gls{ids} on the storage ring, with four different types of devices: two Delta-type undulators~\cite{Temnykh2008} and two \gls{apu}~\cite{Carr1991}. The design details as well as first experiences with the prototype measuments of the Sirius Delta undulator are described by~\citeonline{Vilela2017} and the information regarding the radiation parameters of such devices can be found elsewhere~\cite{Sirius2013}. All the \gls{ids} will be out of vacuum and their vacuum chamber will be made of copper and coated with \gls{neg}. Regarding the impedance issues, on the one hand this is good because it simplifies the design of the tapers, allowing further optimization of its parameters for impedance reduction, but on the other hand the resistive wall impedance will always be there, regardless of the existence or not of the additional damping provided by radiation emittion\footnote{One important remark is that both types of undulators that will be used in Sirius does not have the degree of freedom to change their gap. This way, when they are not being used there is no way to "turn off" the magnetic field they generate. What is usually done is to change the phases among the Halbach cassets~\cite{Halbach1985} in such a way that the field lays down in the longitudinal direction, so the electron beam stops radiating.}.
+
+    Table~\ref{tab:undulators_parameters}
+    \begin{table}[t]
+        \centering
+        \caption{Undulators parameters}
+        \label{tab:undulators_parameters}
+        \begin{tabular}{lccccl}
+            \toprule
+            Parameter         & APU19     & APU20      & Delta21   & Delta52   &Unit\\
+            \midrule
+            Length            &  2.4      & 2.4        & 2.4       &  3.6      & \si{\meter} \\
+            Quant. in Phase 1 &   1       &   1        &   2       &   3       & \\
+            Quant. in Phase 2 &   2       &   3        &   6       &   6       & \\
+            Straight type     & low--beta & high--beta & low--beta & low--beta & \\
+            Full Magnetic Gap &   5       &   6.2      &   7.0     &  13.8     &  \si{\milli\meter} \\
+            Chamber inner Radius&   2.4   &   3.0      &   2.5     &  5.6      & \si{\milli\meter} \\
+            Chamber thickness &   0.1     &   0.1      &   0.8     &  1.0      & \si{\milli\meter} \\
+            Chamber Geometry  &   flat    &   flat     &   round   &  round    & \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    shows the main impedance related parameters of each device type. Note that while the \gls{apu} devices have chambers with a flat geometry, the Delta undulators have a round chamber. It is The close to round shape of the Delta chambers is a good feature, due to the reduced detuning impedance it will generate, which has demonstrated to complicate the operation of machines due to the incoherent tune shift in multibunch configurations~\cite{Nagaoka2001}. Even though the \gls{ids} for the seconde phase of operation are not defined yet, it was extrapolated that all the straight sections available for \gls{id} installation will be filled with the same devices of phase one.
 
     \begin{figure}
         \centering
@@ -1506,27 +1534,6 @@
         \caption{Effect permeability wall impedance}
         \label{fig:undu_wall_lowfreq}
     \end{figure}
-
-    Table~\ref{tab:undulators_parameters}
-    \begin{table}
-        \centering
-        \caption{Undulators parameters}
-        \label{tab:undulators_parameters}
-        \begin{tabular}{lccccl}
-            \toprule
-            Parameter         & APU19     & APU20      & Delta21   & Delta52   &Unit\\
-            \midrule
-            Length            &  2.4      & 2.4        & 2.4       &  3.6      & \si{\meter} \\
-            Quant. in Phase 1 &   1       &   1        &   2       &   3       & \\
-            Quant. in Phase 2 &   2       &   3        &   6       &   6       & \\
-            Straight type     & low--beta & high--beta & low--beta & low--beta & \\
-            Gap               &   5       &   6.2      &   7.0     &  13.8     &  \si{\milli\meter} \\
-            Chamber thickness &   0.1     &   0.1      &   0.8     &  1.0      & \si{\milli\meter} \\
-            Chamber Geometry  &   flat    &   flat     &   round   &  round    & \\
-            \bottomrule
-        \end{tabular}
-    \end{table}
-    shows the main impedance related parameters of each device type. The close to round shape of the Delta chambers is a good feature, due to the reduced detuning impedance it will generate, which has demonstrated to complicate the operation of machines due to the incoherent tune shift in multibunch configurations~\cite{Nagaoka2001}. Even though the \gls{ids} for the seconde phase of operation are not defined yet, it was extrapolated that all the straight sections available for \gls{id} installation will be filled with the same devices of phase one.
 
     Figure~\ref{fig:undulators_impedance} shows the vertical dipole and longitudinal wall impedance of the four types of undulators. They were calculated using the parameters of Table~\ref{tab:sirius_undulators}, where the Yokoya factors were applied to the \gls{apu} chambers. These devices will also have quadrupolar impedances that, in this model, will be half of the value of the vertical dipole. Notice the transverse impedance is dominated by the \gls{apu}-19 chamber, while the largest contribution to the longitudinal impedance comes from the Delta-52. This difference comes from the fact that the transverse impedance is more sensitive to the inner radius of the chamber, scaling with $1/r^3$, while the longitudinal impedance goes with $1/r$ and the large length of the Delta-52 compensates for its larger radius.
 
