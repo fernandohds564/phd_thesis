@@ -339,17 +339,17 @@
 
     When such calculations are performed for current synchrotrons it is noticeable that the dynamics of the longitudinal motion is much slower than the dynamics of the transverse motion. As an example, in the Sirius storage ring particles take approximately 215 revolutions around the ring to complete one turn around the fixed point in the longitudinal direction while they oscillate 49 times per revolution around the fixed point in the transverse plane. This property makes it possible to separate the study of the longitudinal plane from the transverse one, considering the energy deviation of one particle as a constant parameter in the transverse equations of motion. The effects of the radiation energy loss are even slower than the longidudinal motion, taking a few thousands of turns in the ring to significantly change the transverse motion.
 
-    Neglecting the energy variations of the particles, and the randonnes of the radiation emission, the motion of the particles can be described by a hamiltonean in the Frenet-Serret coordinate system defined by the ideal orbit. Procceding in the approximations, considering the paraxial motion of the particles around the closed orbit, this hamiltonean can be simplified to a quadratic form in the momenta coordinates. See, for example, the second chapter of reference~\cite[pp. 32]{Lee1999}.
+    Neglecting the energy variations of the particles, and the randonnes of the radiation emission, the motion of the particles can be described by a hamiltonian in the Frenet-Serret coordinate system defined by the ideal orbit. Procceding in the approximations, considering the paraxial motion of the particles around the closed orbit, this hamiltonian can be simplified to a quadratic form in the momenta coordinates. See, for example, the second chapter of reference~\cite[pp. 32]{Lee1999}.
 
-    This Hamiltonean generates two second order coupled and non-linear equations of motion for the transverse coordinates that accurately describe the short and mid-term stability of the particles. Most of the non-linearities and coupling in these equations come from the magnetic fields of the magnets along the ring, being the other contributor the curvature of the reference orbit and the energy deviation of each particle. At this stage of the simplification of the problem the dynamics of the electrons still is very complicated, mainly for storage rings such as Sirius, with several and very strong Sextupoles that introduce chaos in the system in regions of the phase-space that are close to the fixed point.
+    This Hamiltonian generates two second order coupled and non-linear equations of motion for the transverse coordinates that accurately describe the short and mid-term stability of the particles. Most of the non-linearities and coupling in these equations come from the magnetic fields of the magnets along the ring, being the other contributor the curvature of the reference orbit and the energy deviation of each particle. At this stage of the simplification of the problem the dynamics of the electrons still is very complicated, mainly for storage rings such as Sirius, with several and very strong Sextupoles that introduce chaos in the system in regions of the phase-space that are close to the fixed point.
 
 \subsection{Linear Equations of Motion}
 
-	With further approximations, considering only the terms of the equations of motion that are linear with the phase-space coordinates and eliminating all coupling between the two transverse directions, the analysis of the dynamics becomes simple enough to allow its complete understanding, with analytical solutions to the equations of motion and physically significant parametrizations, that summarizes and simply describes a given machine. In this regime, the transverse movement of the electron is only dependent on the fields of dipoles and quadrupoles. Under such considerations, the Hamiltonean of an arbitrary particle stored in the ring is given by
-    \begin{align}\label{eq:approximated_hamiltonean}
+	With further approximations, considering only the terms of the equations of motion that are linear with the phase-space coordinates and eliminating all coupling between the two transverse directions, the analysis of the dynamics becomes simple enough to allow its complete understanding, with analytical solutions to the equations of motion and physically significant parametrizations, that summarizes and simply describes a given machine. In this regime, the transverse movement of the electron is only dependent on the fields of dipoles and quadrupoles. Under such considerations, the Hamiltonian of an arbitrary particle stored in the ring is given by
+    \begin{align}\label{eq:approximated_hamiltonian}
         H \approx \frac{x'^2}{2} + \frac{y'^2}{2} + \frac{G^2(s)}{2}x^2 + \frac{K(s)}{2}\funcof{x^2-y^2} - G(s)x\delta
     \end{align}
-    where we notice the Hamiltonean is normalized by the total momentum of the particle, $p$, and expanded up to second order in the transverse phase space coordinates, in such a way that only dipoles, $G(s)$, and quadrupoles, $K(s)$, contribute to the dynamics. Besides, the independent variable was changed from time to the longitudinal position of the particle along the Frenet-Serret frame, which is possible because $s$ is a monotonic function of the time in storage rings, which allow easy invertion of derivatives. All the steps to get the equation above are described in details in the literature~\cite{Bengtsson1997,Lee1999,Wiedemann2007}. The equations of motion will be:
+    where we notice the Hamiltonian is normalized by the total momentum of the particle, $p$, and expanded up to second order in the transverse phase space coordinates, in such a way that only dipoles, $G(s)$, and quadrupoles, $K(s)$, contribute to the dynamics. Besides, the independent variable was changed from time to the longitudinal position of the particle along the Frenet-Serret frame, which is possible because $s$ is a monotonic function of the time in storage rings, which allow easy invertion of derivatives. All the steps to get the equation above are described in details in the literature~\cite{Bengtsson1997,Lee1999,Wiedemann2007}. The equations of motion will be:
     \begin{align}\label{eq:linear_equation_motion}
         x'' &= -\derpar{H}{x} = -\funcof{K(s)+G^2(s)}x + G(s)\delta\\\nonumber
         y'' &= -\derpar{H}{y} = K(s)y
@@ -427,19 +427,19 @@
 
 \subsection{Action-Angle Variables}
 
-    Finding the action angle variables for a given Hamiltonean is equivalent to solve the equations of motion, due to the simple time, or $s$, evolution of such variables. For  hamiltoneans with one elliptic fixed point, this task is achieved by performing canonical transformations in the phase space variables that brings them to the normal form, where the movement is a simple harmonic oscillator. Then, the radius in phase space is an invariant of motion and is recognized as the action. This procedure can be applied to the Hamiltonean of equation~\eqref{eq:approximated_hamiltonean} by recognizing the dispersion orbit as a canonical transformation that changes the origin of the phase space~\cite[Appendix A2]{Berg1996}
+    Finding the action angle variables for a given Hamiltonian is equivalent to solve the equations of motion, due to the simple time, or $s$, evolution of such variables. For  hamiltonians with one elliptic fixed point, this task is achieved by performing canonical transformations in the phase space variables that brings them to the normal form, where the movement is a simple harmonic oscillator. Then, the radius in phase space is an invariant of motion and is recognized as the action. This procedure can be applied to the Hamiltonian of equation~\eqref{eq:approximated_hamiltonian} by recognizing the dispersion orbit as a canonical transformation that changes the origin of the phase space~\cite[Appendix A2]{Berg1996}
     \begin{align}\label{eq:off_momentum_canonical_transformation}
         x (s) \to \overbrace{x(s) - x_\delta (s)}^{x_\beta},
     \end{align}
-    where $x_\delta (s)$ is given by equation~\eqref{eq:dispersion_function}, in such a way that the new Hamiltonean is purely a quadractic form, without the crossed term $x\delta$. This pure betatronic Hamiltonean can than easily be written in action-angle variables in the following way:
-    \begin{align}\label{eq:betatron_hamiltonean}
+    where $x_\delta (s)$ is given by equation~\eqref{eq:dispersion_function}, in such a way that the new Hamiltonian is purely a quadractic form, without the crossed term $x\delta$. This pure betatronic Hamiltonian can than easily be written in action-angle variables in the following way:
+    \begin{align}\label{eq:betatron_hamiltonian}
         K = \frac{J_x}{\beta_x(s)} + \frac{J_y}{\beta_y(s)}
     \end{align}
     where $J_x$ and $J_y$, defined by equation~\eqref{eq:linear_invariant} are recognized as horizontal and vertical actions and the equation of motion shows that the angle variable, $\theta$, is the phase advance, defined in equation~\eqref{eq:phase_advance}:
     \begin{align}
         J'_u = \derpar{K}{\theta_u} = 0 \quad \text{and} \quad \theta'_u = \derpar{K}{J_u} = \frac{1}{\beta(s)} = \mu'_u
     \end{align}
-    These variables will be very important for this work, because the wake-fields will be included in the electron dynamics as perturbations to the Hamiltonean presented above.
+    These variables will be very important for this work, because the wake-fields will be included in the electron dynamics as perturbations to the Hamiltonian presented above.
 
 \subsection{Linear Map Formulation: Matrix Theory}
 
@@ -479,7 +479,7 @@
 
 \subsection{Chromaticity and Action Dependent Tune-shift}\label{sec:chromaticity}
 
-	The quadrupoles correct the chromatic effects in the orbit of the beam that are generated in the dipoles and the result of such a correction is the finite value of the dispersion function. However the quadrupoles also are dispersive components, which means their focusing strength depends on the energy of the particles. This dependency comes from higher order terms of the Hamiltonean, not shown in equation~\eqref{eq:approximated_hamiltonean}, and causes an effect on the beam where particles with different relative energy offset have different tunes.
+	The quadrupoles correct the chromatic effects in the orbit of the beam that are generated in the dipoles and the result of such a correction is the finite value of the dispersion function. However the quadrupoles also are dispersive components, which means their focusing strength depends on the energy of the particles. This dependency comes from higher order terms of the Hamiltonian, not shown in equation~\eqref{eq:approximated_hamiltonian}, and causes an effect on the beam where particles with different relative energy offset have different tunes.
 
     The linear part of this dependency is called linear chromaticity, which, if not corrected, reduces the lifetime of the beam to a few seconds in most storage rings. For example, for the case of Sirius the chromaticity of the ring without sextupoles is $\approx -130$ for the horizontal direction. This means that particles with an energy deviation of only \SI{0.15}{\percent} would have a tune that is \SI{0.2}{} smaller than the tune of a particle with zero energy deviation. As the energy deviation oscillates in the scale of hundreds of turns, this particle would almost certainly cross a resonance that would induce its loss. Considering the equilibrium energy spread of the Sirius storage ring is only half of this value, $\approx$ \SI{0.09}{\percent}, without chromaticity correction all particles with energy deviation above two sigma of this distribution would be lost.
 
@@ -490,12 +490,12 @@
 	\end{align}
 	where $\xi_x$ and $\xi_y$ are the horizontal and vertical chromaticities, and $A_{xx}$, $A_{yy}$ and $A_{xy}=A_{yx}$ are the action dependent tune--shifts.
 
-    These are the most important one turn effects that affect the mid and long term dynamics of the electrons at small oscillation amplitudes, in such a way that if we average the Hamiltonean of equation~\eqref{eq:betatron_hamiltonean} in one turn,
+    These are the most important one turn effects that affect the mid and long term dynamics of the electrons at small oscillation amplitudes, in such a way that if we average the Hamiltonian of equation~\eqref{eq:betatron_hamiltonian} in one turn,
     \begin{align}
         H_t(J_x, J_y) = \frac1L_0\udefoint{s}{K(s)} = \frac{\omega_0}{c}\funcof{\nu_xJ_x + \nu_yJ_y},
     \end{align}
     they can be added to it simply by writting
-    \begin{align}\label{eq:average_transverse_hamiltonean}\nonumber
+    \begin{align}\label{eq:average_transverse_hamiltonian}\nonumber
         H_t(J_x, J_y, \delta) = \frac{\omega_0}{c}
                                 &\left(
                                     (\nu_{x,0} + \xi_x \delta) J_x +
@@ -580,17 +580,17 @@
 		\dertot{\delta}{s} &= \alpha_z\delta(s) + \frac{V(z(s))-U_0}{L_0E_0}.
 	\end{align}
 
-    If the damping term is not considered, the equations of motion can be derived from a static Hamiltonean, given by:
-	\begin{align}\label{eq:longitudinal_hamiltonean}
+    If the damping term is not considered, the equations of motion can be derived from a static Hamiltonian, given by:
+	\begin{align}\label{eq:longitudinal_hamiltonian}
 		H_\parallel = \frac\alpha2\delta^2 \quad \overbrace{-
                             \defint{w}{\frac{V(w)-U_0}{L_0E_0}}{0}{z}
                         }^{U(z)}
 	\end{align}
-	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy. When the oscillations are small the potential well can be expandend in power series of the longitudinal position. Generally the RF cavity of storage rings are adjusted with each other in such a way that their potentials always sum constructively, creating a practically linear potential $V(z)$ around the fixed point, which implies the Hamiltonean can often be approximated by
+	where the first term of the \gls{rhs} is the kinetic term and $U(z)$ is called the potential well, in an analogy with a potential energy. When the oscillations are small the potential well can be expandend in power series of the longitudinal position. Generally the RF cavity of storage rings are adjusted with each other in such a way that their potentials always sum constructively, creating a practically linear potential $V(z)$ around the fixed point, which implies the Hamiltonian can often be approximated by
     \begin{align}\label{eq:quadractic_potential_well}
         H_\parallel = \frac\alpha2\delta^2 + \frac{V'}{2L_0}z^2
     \end{align}
-    which is an harmonic oscillator, equivalent to the linear map of equation~\eqref{eq:longitudinal_linear_map}, if the damping is not considered. This harmonic Hamiltonean is often used for analytical treatments of instabilities because it is a good approximation for most RF systems and also due to the simple expressions of its action-angle variables.
+    which is an harmonic oscillator, equivalent to the linear map of equation~\eqref{eq:longitudinal_linear_map}, if the damping is not considered. This harmonic Hamiltonian is often used for analytical treatments of instabilities because it is a good approximation for most RF systems and also due to the simple expressions of its action-angle variables.
 
 \section{Radiation Damping and Equilibrium Parameters}
 
@@ -615,7 +615,7 @@
         \poison{\Psi, H} = \derpar{\Psi}{\vect{q}}\cdot\derpar{H}{\vect{p}} -
                            \derpar{\Psi}{\vect{p}}\cdot\derpar{H}{\vect{q}}
     \end{align}
-    is the Poison bracket between the Hamiltonean and the particle distribution, where the operators $\derpar{}{\vect{q}}$ and $\derpar{}{\vect{p}}$ are the gradients in relation to the positions and momenta of the phase space, and $\mathscr{F}(\cdot)$ is the Fokker-Planck operator for the accelerator, explicitly given by~\cite[eq. 33]{Lindberg2016}
+    is the Poison bracket between the Hamiltonian and the particle distribution, where the operators $\derpar{}{\vect{q}}$ and $\derpar{}{\vect{p}}$ are the gradients in relation to the positions and momenta of the phase space, and $\mathscr{F}(\cdot)$ is the Fokker-Planck operator for the accelerator, explicitly given by~\cite[eq. 33]{Lindberg2016}
     \begin{align}\nonumber
         \mathscr{F}\funcof{\Psi} = & \frac{2\alpha_z}{c}\funcof{
                                             \Psi + \delta\derpar{\Psi}{\delta}
@@ -635,9 +635,9 @@
     \end{align}
     where $c$ is the speed of light, $\{J_x, \theta_x\}$ and $\{J_y, \theta_y\}$ are the action-angle variables of the horizontal and vertical planes, as defined in equation~\eqref{eq:linear_invariant}, and $\alpha_u$ and $D_u$ are the damping and diffusion terms introduced by the radiation emission in the three planes of motion, for which~\citeonline{Sands1970} and~\citeonline{Wiedemann2007} derive explict expressions.
 
-    Notice that equation~\eqref{eq:fokker_planck_equation} separates the hamiltonean forces in the \gls{lhs} and the dissipative and random forces in the \gls{rhs}. If the effect of radiation emission were not taken into account, the \gls{rhs} of would be zero and the \gls{lhs} would be a statement of the Liuville Theorem for Hamiltonean flow, which in the accelerators physics community is also known as Vlasov Equation. For machines that operate with heavy particles, such as the colliders that use protons or ions, this is approximately true and the beam never reaches the equilibrium, but for storage rings of synchrotron light sources, which mostly employ electrons, the Fokker-Planck terms are very important to describe the behaviour of the beam in time scales of the order of \si{\milli\second} or higher, which are the scales where impedance related collective instabilities happen.
+    Notice that equation~\eqref{eq:fokker_planck_equation} separates the hamiltonian forces in the \gls{lhs} and the dissipative and random forces in the \gls{rhs}. If the effect of radiation emission were not taken into account, the \gls{rhs} of would be zero and the \gls{lhs} would be a statement of the Liuville Theorem for Hamiltonian flow, which in the accelerators physics community is also known as Vlasov Equation. For machines that operate with heavy particles, such as the colliders that use protons or ions, this is approximately true and the beam never reaches the equilibrium, but for storage rings of synchrotron light sources, which mostly employ electrons, the Fokker-Planck terms are very important to describe the behaviour of the beam in time scales of the order of \si{\milli\second} or higher, which are the scales where impedance related collective instabilities happen.
 
-    The Fokker-Planck equation can be used to calculate the equilibrium distribution of the beam. Considering the total Hamiltonean of the ring is given by the sum of equations~\eqref{eq:longitudinal_hamiltonean} and~\eqref{eq:betatron_hamiltonean},
+    The Fokker-Planck equation can be used to calculate the equilibrium distribution of the beam. Considering the total Hamiltonian of the ring is given by the sum of equations~\eqref{eq:longitudinal_hamiltonian} and~\eqref{eq:betatron_hamiltonian},
     \begin{align}
         H = \frac{J_x}{\beta_x} + \frac{J_y}{\beta_x} + \frac\alpha2\delta^2 + U(z),
     \end{align}
@@ -648,7 +648,7 @@
         f_x(J_x)f_y(J_y)f_z(H_\parallel).
     \end{align}
 
-    With these considerations the distribution commutes with the total Hamiltonean and the \gls{lhs} of the Fokker-Planck equation,~\eqref{eq:fokker_planck_equation}, is zero. From the \gls{rhs} it can be shown that
+    With these considerations the distribution commutes with the total Hamiltonian and the \gls{lhs} of the Fokker-Planck equation,~\eqref{eq:fokker_planck_equation}, is zero. From the \gls{rhs} it can be shown that
     \begin{align}\label{eq:equilibrium_distribution}
         \Psi(\vect{q},\vect{p}) =
         \overbrace{
@@ -737,7 +737,7 @@
 
     The second aspect is related to the consideration that the particles traverse the structure parallel to the axis, because, in principle, sloping straight trajectories could also be considered and the momentum gain would be dependent on the angles $x'$ and $y'$ of the source and the witness particle. An inclined trajectory of the source particle could generate different electromagnetic fields in the structure, because the coupling between the two would be affected. Besides, an inclined trajectory of the witness particle would make it sample different fields yielding to a different momentum change. There is one study in literature made by \citeonline{Danilov2000} where the author calculates the angular wake for a stripline and one experimental work of the same author~\cite{Danilov1993} where a current dependent damping of the oscillations is measured at the injection energy, \SI{120}{\mega\electronvolt}, of the BEP electron storage ring. There are also some other related studies in literature~\cite{Jones1998}, however, there is no strong experimental evidence of the importance of such effect in the total impedance budget of a storage ring, maybe because of the paraxial nature of the movement of the particles.
 
-    One interesting feature of the impulse approximation is that, even though the interaction between two particles via wake fields does not respect Newton's third law of motion (action-reaction law) and, consequently, cannot be cast into an Hamiltonean formulation, the mean-field interaction, where the degrees of freedom of all the source particles of the beam are averaged out, does respect the Hamilton equations, because, as can be seen in equation~\eqref{eq:momentum_gain}, the change in momentum of the witness particle depends only on its position.
+    One interesting feature of the impulse approximation is that, even though the interaction between two particles via wake fields does not respect Newton's third law of motion (action-reaction law) and, consequently, cannot be cast into an Hamiltonian formulation, the mean-field interaction, where the degrees of freedom of all the source particles of the beam are averaged out, does respect the Hamilton equations, because, as can be seen in equation~\eqref{eq:momentum_gain}, the change in momentum of the witness particle depends only on its position.
 
 \section{Wake Functions}\label{sec:wake_functions}
 
@@ -1237,16 +1237,16 @@
     \end{align}
     instead, where $z_0$ is the new synchronous position, measured in relation to the zero current one.
 
-\section{Current dependent Hamiltonean}
+\section{Current dependent Hamiltonian}
 
-    The usual approach to calculate the effects of the wakes on the beam is by introducing the total wake potential of the machine on the one turn averaged Hamiltonean of the ring~\cite{Berg1996,Lindberg2016}. This is justified by the fact that the wake forces are weak and its effects on the beam are very slow, in such a way that the evolution of its parameters are counted in a turn by turn basis. In section~\ref{sec:sum_of_wakes} it was defined a method to sum all the wakes on the machine and the average transverse Hamiltonean was defined in section~\ref{sec:chromaticity}, especifically in equation~\eqref{eq:average_transverse_hamiltonean}, and the average longitudinal Hamiltonean was defined in subsection~\ref{ssec:potential_well}, by equation~\eqref{eq:longitudinal_hamiltonean}.
+    The usual approach to calculate the effects of the wakes on the beam is by introducing the total wake potential of the machine on the one turn averaged Hamiltonian of the ring~\cite{Berg1996,Lindberg2016}. This is justified by the fact that the wake forces are weak and its effects on the beam are very slow, in such a way that the evolution of its parameters are counted in a turn by turn basis. In section~\ref{sec:sum_of_wakes} it was defined a method to sum all the wakes on the machine and the average transverse Hamiltonian was defined in section~\ref{sec:chromaticity}, especifically in equation~\eqref{eq:average_transverse_hamiltonian}, and the average longitudinal Hamiltonian was defined in subsection~\ref{ssec:potential_well}, by equation~\eqref{eq:longitudinal_hamiltonian}.
 
-    Besides, the coupling between both transverse planes is very small in normal conditions of operation of the machine. On the other side, the wakes strongly couples the evolution of the transverse dynamics with the longitudinal plane. For this reason, the transverse analysis of transverse collective effects usually deal with the Hamiltoneans of one transverse and the longitudinal planes togheter. The analysis of the longitudinal motion is again simplified, without the need of considering the transverse degrees of freedom of the particles. With these considerations, the total one turn Hamiltonean of the particles is
-    \begin{align}\label{eq:current_depend_hamiltonean}
+    Besides, the coupling between both transverse planes is very small in normal conditions of operation of the machine. On the other side, the wakes strongly couples the evolution of the transverse dynamics with the longitudinal plane. For this reason, the transverse analysis of transverse collective effects usually deal with the Hamiltonians of one transverse and the longitudinal planes togheter. The analysis of the longitudinal motion is again simplified, without the need of considering the transverse degrees of freedom of the particles. With these considerations, the total one turn Hamiltonian of the particles is
+    \begin{align}\label{eq:current_depend_hamiltonian}
         H_n = J_u\funcof{\nu_u + \xi_u\delta + J_u\frac{A_{xx}}{2}} +
                 H_{\parallel} - \frac{\average{I}T_0V_n\funcof{u, z, s}}{(E_0/e)L_0}
     \end{align}
-    where $\average{I}T_0$ is the average charge per bunch, the subscript $n$ in the Hamiltonean indicates that it is related to the $n$--th bunch of the machine and the effective wake potential is given according to the ideas developed in section~\ref{sec:potential_of_bunch}, specifically by equations~\eqref{eq:general_eff_wakes},
+    where $\average{I}T_0$ is the average charge per bunch, the subscript $n$ in the Hamiltonian indicates that it is related to the $n$--th bunch of the machine and the effective wake potential is given according to the ideas developed in section~\ref{sec:potential_of_bunch}, specifically by equations~\eqref{eq:general_eff_wakes},
     \begin{align}\label{eq:generalwake}
         V_n\funcof{u, z, s} =\nonumber \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
         &\left(\lambda_l(z'; s - s_r) W_0(z-z' + s_r) + \vphantom{\frac{u^2}{2}}\right.\\\nonumber
@@ -1257,9 +1257,9 @@
 
 \section{Potential-Well Distortion}
 
-    All the effects of the wakes on the beam can be calculated from the Hamiltonean defined in equation~\eqref{eq:current_depend_hamiltonean}. One particular effect is the distortion of the potential well created by the RF cavities, which changes the equilibrium distribution of the particles and the intrabunch dynamic properties such as the synchrotron tune.
+    All the effects of the wakes on the beam can be calculated from the Hamiltonian defined in equation~\eqref{eq:current_depend_hamiltonian}. One particular effect is the distortion of the potential well created by the RF cavities, which changes the equilibrium distribution of the particles and the intrabunch dynamic properties such as the synchrotron tune.
 
-    To calculculate susch effect we consider a static distribution for the beam and neglect the effects of $W^D_u$ and $W^Q$, because they are small for a well centered beam in the vacuum chamber. Besides, apart from the effect of cavities, which will be discussed in Appendix~\ref{app:eq:passive_landau_cavity}, the distortions are dominated by short range wakes, in such a way that we can neglect the multi--bunch and multi--turn contributions. Under such considerations, the Hamiltonean of the particle becomes
+    To calculculate susch effect we consider a static distribution for the beam and neglect the effects of $W^D_u$ and $W^Q$, because they are small for a well centered beam in the vacuum chamber. Besides, apart from the effect of cavities, which will be discussed in Appendix~\ref{app:eq:passive_landau_cavity}, the distortions are dominated by short range wakes, in such a way that we can neglect the multi--bunch and multi--turn contributions. Under such considerations, the Hamiltonian of the particle becomes
     \begin{align}
         H = \frac\alpha2\delta^2 + U(z) -
             \frac{I_bT_0}{(E_0/e)L_0}\udefint{z'}{\lambda(z') W_0(z-z')},
@@ -1273,7 +1273,7 @@
 
 \section{Incoherent Tune--shifts}\label{sec:incoherent_tune_shift}
 
-    Another effect derivable of the Hamiltonean of equation~\eqref{eq:current_depend_hamiltonean} is variation of the transverse oscillation frequency of the bunch as a function of the current,
+    Another effect derivable of the Hamiltonian of equation~\eqref{eq:current_depend_hamiltonian} is variation of the transverse oscillation frequency of the bunch as a function of the current,
     \begin{align}
         \Delta\nu_u^n = \frac{(\Delta\mu'_u)^n}{\omega_0/c} = \frac{1}{\omega_0/c}\left(\left.\derpar{H_n}{J_u}\right|_{\average{I}} - \left.\derpar{H_n}{J_u}\right|_{\average{I}=0}\right)
     \end{align}
