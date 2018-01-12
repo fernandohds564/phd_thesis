@@ -1269,7 +1269,7 @@
         \lambda(z) = \frac1A\exp\funcof{\frac{1}{\alpha\sigma_\delta^2}\funcof{
             -U(z) + \frac{I_bT_0}{(E_0/e)L_0}\udefint{z'}{\lambda(z') W_0(z-z')}}},
     \end{align}
-    which is a transcendental integral equation for the longitudinal distribution. This equation was first proposed and solved by \citeonline{Haissinski1973} and for this reason carries his name. Even though analytical solutions exist for some special impedances, such as the one presented by~\citeonline{Shobuda1999}, in general it must be solved numerically. In Appendix~\cite{app:codes_developed} we will describe the approach used in this work for such a solution.
+    which is a transcendental integral equation for the longitudinal distribution. This equation was first proposed and solved by \citeonline{Haissinski1973} and for this reason carries his name. Even though analytical solutions exist for some special impedances, such as the one presented by~\citeonline{Shobuda1999}, in general it must be solved numerically. In Appendix~\ref{assec:haissinski_solver} we will describe the approach used in this work for such a solution
 
 \section{Incoherent Tune--shifts}\label{sec:incoherent_tune_shift}
 
@@ -1536,13 +1536,13 @@
         \caption{Effect permeability wall impedance}
         \label{fig:non_linear_kicker}
     \end{figure}
-    shows an old version of this magnet. Such property makes the use of the \citeauthor{Tsutsui2000} model unapropriate for this case, and instead of multiplying the resultant impedance of the round chamber by the same factors of the dipole kicker, we decided to use the \citeauthor{Yokoya1993} factors. This magnet also does not have the coupled flux part of the impedance, because the external circuit does not couples with a bem close to the center of the magnet.
+    shows an old version of this magnet. Such property makes the use of the \citeauthor{Tsutsui2000} model unapropriate for this case, and instead of multiplying the resultant impedance of the round chamber by the same factors of the dipole kicker, we decided to use the \citeauthor{Yokoya1993} factors. This magnet also does not have the coupled flux part of the impedance, because the external circuit does not couples with a beam close to the center of the magnet.
 
 \section{Fast Correctors Chambers}
 
     The Fast orbit correctors of the Sirius storage ring will operate at a update rate of \SI{100}{\kilo\hertz} in the \gls{fofb}~\cite{Tavares2013}, requiring special vacuum chambers in order for such high frequency fields to penetrate. The solution adopted was to brase small and thin stainless steel chambers in the standard copper chamber of the ring. The reduced conductance, only \SI{1}{\mega\siemens}, of this material provides a skin depth of \SI{1.6}{\milli\meter} at \SI{100}{\kilo\hertz}, which is much larger than the thickness of the chamber, which is \SI{0.1}{\milli\meter}, and do not damp or distort significantly the external field of the magnet.
 
-    The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi-layer chambers used so far. This question is answered by~\citeonline{Shoduba2009}, who calculate the impedance of a finite resistive insert of finite thickness on an otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for an insert whose length is smaller than its radius, if the thickness is of the order of \SI{100}{\micro\meter}, the impedance is already equal to the infinitely long chamber counterpart. This result shows that the use of the multi-layer formulas employed so far for the other components are still valid for the fast correctors chambers. Considering this, the relevant parameters used for modelling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
+    The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi-layer chambers used so far. This question is answered by~\citeonline{Shobuda2009}, who calculated the impedance of a finite resistive insert of finite thickness on an otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for an insert whose length is smaller than its radius, if the thickness is of the order of \SI{100}{\micro\meter}, the impedance is already equal to the infinitely long chamber counterpart. This result shows that the use of the multi-layer formulas employed so far for the other components are still valid for the fast correctors chambers. Considering this, the relevant parameters used for modelling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
     \begin{table}[b]
         \centering
         \caption{Kicker main parameters}
@@ -2362,7 +2362,7 @@
 
 \section{Description of the Methods}\label{sec:description}
 
-\subsection{Haissinski Solver}
+\subsection{Haissinski Solver}\label{assec:haissinski_solver}
     The Haissinski equation can be written in the following form, $\rho(z) = \mathcal{H}(\rho,z)$, where
     \begin{gather}\nonumber
         \mathcal{H}(\rho,z) = B\exp\funcof{\frac{q}{\alpha L_0 E_0 \sigma_\delta^2}\funcof{U_\text{cav}(z)-I_b T_0\infint{z'}{W'_0(z-z')\rho(z')}}},\\
@@ -2389,7 +2389,7 @@
     \end{align}
     is calculated and compared to a threshold, $\epsilon$. When $d_{n_c}^{I_b}<\epsilon$, convergence is assumed and we set $\rho^{I_b} = \rho_{n_c}^{I_b}$. Then, the current is incremented by a small value $I_b + \Delta I$, with $\Delta I \ll I_b$, and the process is repeated with the initial guess $\rho_0^{I_b+\Delta I} = \rho^{I_b}$. Note that this method does not require the wakes to respect causality and can also be applied to non-parabolic RF cavity potentials.
 
-    This implementation was benchmarked with the results presented in Ref.~\citenum{Bane1989} for the inductive and resistive impedances\footnote{Since the code cannot handle wake functions that are given by distributions, such as the $\delta'(z)$ and the $\delta(z)$ of the inductive and resistive wakes, respectively, the functions used for the simulation in these cases were their convolution with a very small ($\sigma_z=20\mu$m) gaussian bunch.}. For the capacitive (positive inductance) the code fails to converge above a given threshold, close to the well known singularity point of such impedance\cite{Shobuda1999}, however this was not a problem for all the practical cases studied here.
+    This implementation was benchmarked with the results presented by~\citenum{Bane1989} for the inductive and resistive impedances\footnote{Since the code cannot handle wake functions that are given by distributions, such as the $\delta'(z)$ and the $\delta(z)$ of the inductive and resistive wakes, respectively, the functions used for the simulation in these cases were their convolution with a very small ($\sigma_z=20\mu$m) gaussian bunch.}. For the capacitive (positive inductance) the code fails to converge when the strength of the perturbation gets close to the well known singularity point of such impedance, as explained by~\citeonline{Shobuda1999}. However this was not a problem for all the practical cases studied here.
 
 \subsection{Tracking Code}
 
@@ -2410,6 +2410,7 @@
 
     Table~\ref{tab:resonator_model} shows the broad band resonators (BBR) model of the Sirius longitudinal impedance budget. The very high frequency BBR, the first in the table, is due to the NEG coated vacuum chamber, which has a very large inductive impedance at low frequencies, being the major contributor for the bunch lengthening. Besides, note that the last three resonators have a fairly large $Q$ factor. They are originated by the bellows and the BPMs of the machine, and, as explained below, are important to explain the behavior of the beam above the threshold of the microwave instability.
     \begin{table}[t]
+        \centering
         \caption{Broad band resonators model of the Sirius longitudinal impedance budget.}
         \label{tab:resonator_model}
         \begin{tabular}{@{}lcccccccccc@{}}\toprule
