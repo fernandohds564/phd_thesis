@@ -1087,35 +1087,52 @@
 
 \section{Tapered Transitions}
 
-    Some components in a storage ring require transverse apertures that are different from the standard vacuum chamber. For example, undulators need narrower chambers because their magnetic gap is small to achieve larger fields and improve the radiation quality. RF cavities, on the other hand, have exit ports at their axis that are larger than the standard pipe. These two types of structures in the vacuum chamber are called collimators, borrowing the name of a device with the same geometry generally installed in colliders to screen the transverse tail of the beam, and cavities, respectively. This type of impedance have a strong impact on the total impedance budget of storage ring, mainly in the transverse plane, see for example a paper by~\citeonline{Gunzel2006} which describes the impedance budget of the ESRF storage ring or another work of the same author, \citeonline{Gunzel2008}, where the impedance budget of ALBA is analysed.
+    Some components in a storage ring require transverse apertures that are different from the standard vacuum chamber. For example, undulators need narrower chambers because their magnetic gap is small to achieve larger fields and improve the radiation quality. The beam ports of the RF cavities, on the other hand, are larger than the standard pipe. These two types of structures in the vacuum chamber are called collimators\footnote{Actually there is a device called collimator which have the same concave geometry of the pairs of transtions defined with this name here. Their function is to screen the transverse tail of the beam.} and cavities, respectively, and have a strong impact on the total impedance budget of a storage ring, mainly in the transverse plane. See for example a paper by~\citeonline{Gunzel2006} which describes the impedance budget of the ESRF storage ring or another work of the same author, \citeonline{Gunzel2008}, where the impedance budget of ALBA is analysed.
 
     Figure~\ref{fig:collimator_geometry}
     \begin{figure}[t]
         \centering
-        \includegraphics[width=0.7\textwidth]{scheme_collimator.png}
-        \caption[Scheme of a geometric transition.]{Scheme of a geometric transition. When $r>R$ the element is called cavity and when $r<R$ it is called collimator. The tapers are the slow transitions of the chamber, region where the radius varys. When the transition has no tapers it are called step--in or step--out, depending on the relation between the initial and final radius.}
-        \label{fig:collimator_geometry}
+        \begin{subfigure}[b]{0.24\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{flat_model.png}
+            \caption{Flat transition.}
+            \label{fig:flat_transition}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.24\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{round_model.png}
+            \caption{Round transition.}
+            \label{fig:round_transition}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{scheme_collimator.png}
+            \caption{Scheme of a tapered transition.}
+            \label{fig:collimator_geometry}
+        \end{subfigure}
+        \caption[Scheme of a tapered transition.]{When $r>R$ the element is called cavity and when $r<R$ it is called collimator. The tapers are the slow transitions of the chamber, region where the radius varys. When the transition has no tapers it are called step--in or step--out, depending on the relation between the initial and final radius.}
+        \label{fig:collimator_geometry_types}
     \end{figure}
-    shows a scheme of such type of geometry, with the important parameters for the impedance calculation. Such geometry can be separated in two independent contributions from the two cross section variations if the gap, $g$, is large. As discussed by~\citeonline{Heifets1991}, when the beam passes through the transitions two forces act on it: one from the change of the energy stored in the synchronous component of the field that travels with the beam, $Z_s$, originated due to the difference in the cross sections, and another one due to the radiation emitted by the image charges on the wall, $Z_r$,
+    shows a scheme of such type of geometry, with the important parameters for the impedance calculation. Such geometry can be separated in two independent contributions from the two cross section variations if the gap, $g$, is large, according to~\citeonline{Bane2007}. As discussed by~\citeonline{Heifets1991}, when the beam passes through the transitions two forces act on it: one from the change of the energy stored in the synchronous component of the field that travels with the beam, $Z_s$, originated due to the difference in the cross sections, and another one due to the radiation emitted by the image charges on the wall, $Z_r$,
     \begin{subequations}
         \begin{align}
             Z_0^\text{out} &= Z_r + Z_s\\
             Z_0^\text{in}  &= Z_r - Z_s
         \end{align}
     \end{subequations}
-    where $Z_0^\text{out}$ is the total impedance of the transition where the beam goes from a smaller chamber to a larger one (step--out), $Z_0^\text{in}$ is the impedance from a larger chamber to a smaller one (step--in) and the equality of the terms $Z_r$ in both cases is a consequence of the beautiful theorem of directional symmetry of the impedance, demonstrated by~\cite{Heifets1990}. The first term, $Z_r$, is constant regardless of the frequency and tapering of the transition, generating an energy gain to the beam in the step--in case and energy loss for the step--out. For a transition with round cross--section this contribution to the impedance is given, according to~\citeonline{Palumbo1994}, by
-    \begin{align}
+    where $Z_0^\text{out}$ is the total impedance of the transition where the beam goes from a smaller chamber to a larger one (step--out), $Z_0^\text{in}$ is the impedance from a larger chamber to a smaller one (step--in) and the equality of the terms $Z_r$ in both cases is a consequence of the beautiful theorem of directional symmetry of the impedance, demonstrated by~\citeonline{Heifets1990}. The term $Z_s$ is constant regardless of the frequency and tapering of the transition, and causes energy gain in the step--in case and energy loss for the step--out. For a transition with round cross--section this contribution to the impedance is given, according to~\citeonline{Palumbo1994}, by
+    \begin{align}\label{eq:transition_high_frequency}
         Z_s \approx \frac{Z_0}{2\pi}\ln\funcof{\frac{r_1}{r_2}},
     \end{align}
     where $Z_0 = 120\pi$~\si{\ohm} is the impedance of free space and $r_1$ and $r_2$ are the radia of the chamber before and after the transition, respectively. Besides, for the step--in case the total energy loss by the beam must be approximately zero, $Z_0^\text{in}\approx 0$, because the radiation emitted propagates in the opposite direction of the beam. This means that all the energy of the radiation must be taken from the synchronous field, which yelds that in the high frequency limit $Z_r = Z_s$.
 
-    Notice that the average influence of the source term, $Z_s$, on the impedance in one turn around the ring is zero, because of the periodicity of the vacuum chamber. Thus, the term that really matters is the contribution of the radiation, which depends on the characteristics of the transition, such as the tapering. Analytical studies of this component were carried out by~\citeonline{Yokoya1990} for a round geometry, where the author derived expressions for the low frequency range of smoothly varying tapered transitions. Later \citeonline{Stupakov1996a} corrected the upper frequency limit of the validity of these expressions and extended the lower limit to zero frequency. The result is the follwing:
+    Notice that the average influence of the source term, $Z_s$, on the impedance in one turn around the ring is zero, because of the periodicity of the vacuum chamber. Thus, the term that really matters is the contribution of the radiation, which depends on the characteristics of the transition, such as the tapering. Analytical studies of this component were carried out by~\citeonline{Yokoya1990} for a round geometry (Figure~\ref{fig:round_transition}), where the author derived expressions for the low frequency range of smoothly varying tapered transitions. Later \citeonline{Stupakov1996a} corrected the upper frequency limit of the validity of these expressions and extended the lower limit to zero frequency. The result is the follwing:
     \begin{align}
         \frac{\omega r^2}{cl}\ll1:\quad\quad
         &Z_\parallel = -\frac{i\omega Z_0}{4\pi c}\infint{z}{\funcof{r'}^2}, &
-        Z_t = \frac{i Z_0}{2\pi}\infint{z}{\funcof{\frac{r'}{r}}^2},
+        Z_t = -\frac{i Z_0}{2\pi}\infint{z}{\funcof{\frac{r'}{r}}^2},
     \end{align}
-    where $r=r(z)$ is the radius of the chamber, $r'=r'(z)$ is the derivative of the radius, $l=(L-g)/2$ is the taper length, and $Z_0=120\pi$~\si{\ohm} is the impedance of free space. Note that this impedance is imaginary while the the one from the high frequency limit is real. This happens because below the cutoff frequency of the chamber, no radiation can propagate, what suggests that above this threshold a real part of the impedance will arise and after a frequency range for the transition of the to limits the imaginary part will tend to zero and the real one will approach the high frequency limit. Another feature of the equation above is that we notice the impedance goes to zero when the taper length goes to zero, for example, for a linear taper the formulas above simplifies to
+    where $r=r(z)$ is the radius of the chamber, $r'=r'(z)$ is the derivative of the radius and $l=(L-g)/2$ is the taper length. Note that this impedance is imaginary while the the one from the high frequency limit is real. This happens because below the cutoff frequency of the chamber, no radiation can propagate, what suggests that above this threshold a real part of the impedance will arise and, after a complex frequency range where the transition between the two limiting behaviors dominates, the imaginary part will tend to zero and the real one will approach the high frequency limit. Another feature of the equation above is that we notice the impedance tends to zero with the taper length. For example, for a linear taper the formulas above simplifies to
     \begin{align}
         \frac{\omega r^2}{cl}\ll1:\quad\quad
         &Z_\parallel = -\frac{i\omega Z_0}{4\pi c}\frac{|r_1-r_2|}{t}, &
@@ -1123,25 +1140,36 @@
     \end{align}
     where $t=\tan^{-1}\theta=l/|r_1-r_2|$ is the transition factor of the taper.
 
-    \citeonline{Stupakov2007a} developed a method to find the low frequency impedance of tapers with general cross sections derived explicit formulas for a flat taper, consisting on a rectangular geometry with varying vertical gap and constant horizontal apperture,
+    \citeonline{Stupakov2007a} developed a method to find the low frequency impedance of tapers with general cross sections and derived explicit formulas for a flat taper, consisting on a rectangular geometry with varying vertical gap and constant horizontal apperture, as shown in Figure~\ref{fig:flat_transition}. His results were:
     \begin{align}
         \frac{\omega w^2}{2cth}\ll1\,\,\text{and}\,\,h\ll w\ll l:
         \begin{aligned}
-        Z_\parallel &= -0.43\frac{i \omega Z_0}{\pi c}\infint{z}{(h')^2},\\
-        Z_y &= \frac{i Z_0w}{4}\infint{z}{\frac{(h')^2}{h^3}},\\
-        Z_x^D&= -Z_x^Q= \frac{i Z_0}{4\pi}\infint{z}{\funcof{\frac{h'}{h}}^2},
-        \end{aligned}
+        Z_\parallel &= -0.43\frac{i \omega Z_0}{\pi c}\infint{z}{(h')^2}\\[2mm]
+        Z_y &= -\frac{i Z_0w}{4}\infint{z}{\frac{(h')^2}{h^3}}\\[2mm]
+        Z_x^D&= -Z_x^Q= -\frac{i Z_0}{4\pi}\infint{z}{\funcof{\frac{h'}{h}}^2}
+        \end{aligned},
     \end{align}
-    where $w$ is the chamber half--width and $h(z)$ is the half--gap. Again, for a linear taper these expressions become
+    where $w$ is the chamber half--width and $h(z)$ is the half--gap. It is worth noting that the dipole horizontal and the quadrupolar impedances are equal to each other and a factor of 2 smaller than the transverse impedance in a conical taper, while the longitudinal impedance is $\approx7/4$ of its counterpart. The most interesting result, however, is the linear dependence of the vertical dipole impedance with the width of the chamber, which makes this impedance $\approx \pi/2w/\average[\text{harm}]{h}$ larger than the round chamber one. For example, for a linear taper these expressions become
     \begin{align}
         \frac{\omega w^2}{2cth}\ll1\,\,\text{and}\,\,h\ll w\ll l:
         \begin{aligned}
-        Z_\parallel &= 0.43\frac{i \omega Z_0}{\pi c}\frac{|h_1-h_2|}{t},\\
-        Z_y &= \frac{i Z_0}{4}\frac{w}{t}\funcof{\frac{1}{h_2^2}-\frac{1}{h_1^2}},\\
-        Z_x^D&= -Z_x^Q= \frac{i Z_0}{4\pi}\frac{|h_1-h_2|}{th_1h_2},
+        Z_\parallel &= -0.43\frac{i \omega Z_0}{\pi c}\frac{|h_1-h_2|}{t},\\[2mm]
+        Z_y &= -\frac{i Z_0}{2}\frac{w}{t}\frac{(h_1+h_2)|h_1-h_2|}{h_1^2h_2^2},\\[2mm]
+        Z_x^D&= -Z_x^Q= -\frac{i Z_0}{4\pi}\frac{|h_1-h_2|}{th_1h_2},
         \end{aligned}
     \end{align}
-    where the first apprixmation Later~\citeonline{Podobedov2007} s \citeonline{Stupakov2010}
+    where we note that $Z_y^\text{flat}/Z_y^\text{round} = \pi w(h_1+h_2)/(h_1h_2)$.
+
+    \citeonline{Podobedov2007} studied the low frequency limit of confocal\footnote{Confocal ellipses means they have the same foci. In the case of the transition cited here, the equation $a^2(z_1)-b^2(z_1)=a^2(z_2)-b^2(z_2)$ is valid for any longitudinal position $z_1$ and $z_2$, where $a$ and $b$ are the larger and smaller axes of the ellipse.} elliptical transitions and found results very similar than the expressions above for the flat geometry, which gives some confidence in trying to extend the qualitative results discussed here for approximated geometries.
+
+    Even though the low frequency impedance of long and short collimators and cavities are the same, because the equations showed above can be applied on both limits,~\citeonline{Heifets1990} found different limits for the high frequency impedances of a round cavity, depending on the length of their gap. Besides,~\citeonline{Stupakov2007} found equal limit values for the longitudinal impedance, but different for the transverse dipole impedance in a round collimator. While for the longitudinal limit the value is two times the quantity in equation~\eqref{eq:transition_high_frequency}, for the transverse plane they found
+    \begin{align}
+        \text{short:}\quad\quad Z_x^D = \frac{Z_0c}{2\pi\omega r^2}\funcof{1-\frac{r^4}{R^4}} &
+        \text{long:}\quad\quad Z_x^D = \frac{Z_0c}{\pi\omega R^2}\funcof{1-\frac{R^4}{r^4}}
+    \end{align}
+    where the notation of Figure~\ref{fig:collimator_geometry} was used. Besides, there is a very large frequency gap between the two limiting cases that are of great importance, mainly for storage rings such as Sirius, which have bunches  with length that samples these frequencies. For the round collimator, \citeonline{Stupakov2010} used the parabolic equation to calculate the impedance from a few dozens of \si{\giga\hertz} up to a few \si{\tera\hertz}, with excellent agreement with ECHO results. However for other geometries, or even the detailed behavior of the impedance for the round transitions can only be accessed with the aid of numerical solvers.
+
+    For example,~\citeonline{Blednykh2006} studied the impedance of the collimator--type flat chamber of a mini--gap undulator and found very intense narrow--band mode just above the cutoff of the pipe, that depended very strongly on the width of the cross--section. For all these reasons the formulas studied here, even though are very useful to the study of this type of impedance and qualitative analysis of the relevant parameters for impedance optimization, will not be used to quantitatively for any device of the impedance budget.
 
 \section{Coherent Synchrotron Radiation}
 
