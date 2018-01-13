@@ -286,7 +286,7 @@
 
     The first objectives of this work were to study the subject of wake fields and impedances in accelerators and their effects on the beam dynamics of electron storage rings. The following goals were to apply this knowledge gathered from the literature to the Sirius storage ring, building the impedance budget with semi-analytical and numeric calculations of the impedances of the main components\footnote{This part of the work was done togheter with other members of the \gls{lnls} team.}, with special care to the characterization of the effect of the \gls{neg} coating on the total impedance; and to perform calculations to predict the beam instabilities thresholds and study the possible cures for them.
 
-    This thesis is organized in the following manner: in Chapter~\ref{cap:single_particle_dynamics} the main concepts of the single particle dynamics, important for the development of the rest of the work, will be introduced; in Chapter~\ref{cap:wakes_impedances} the main aspects of the wake field theory will be presented with focus to the physical interpretation of the quantities introduced; in Chapter~\ref{cap:collective_effects} the methodology for computation of the impedance effects on the beam will be briefly described, with references for more detailed works and explanation of the derivation of the equations; in Chapter~\ref{cap:impedance_modelling} the models applied to the impedance calculation of the main components of the storage ring will be presented and justified;
+    This thesis is organized in the following manner: in Chapter~\ref{cap:single_particle_dynamics} the main concepts of the single particle dynamics, important for the development of the rest of the work, will be introduced; in Chapter~\ref{cap:wakes_impedances} the main aspects of the wake field theory will be presented with focus to the physical interpretation of the quantities introduced; in Chapter~\ref{cap:collective_effects} the methodology for computation of the impedance effects on the beam will be briefly described, with references for more detailed works and explanation of the derivation of the equations; in Chapter~\ref{cap:impedance_modeling} the models applied to the impedance calculation of the main components of the storage ring will be presented and justified;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -381,7 +381,7 @@
 	\end{align}
 	which represents the equation of an ellipse in phase space with $J$ being the area of such ellipse.
 
-	The relevance of this parametrization is that there are several very important practical informations regarding the properties and responses to perturbations of the beam that can be extracted directly from the betatron function. It can be seen from equation~\eqref{eq:betatron_motion} that the maximum excursion a given particle can experience in a fixed longitudinal point of the ring is proportional to the square root of the betatron function. Analogously, the beam size of a distribution in equilibrium will also be proportional to the square root of the local betatron function. Thus, the ratio between the amplitudes of movement in two different positions is proportional to the ratio of the square root of the betatron functions at the two locations, a property that is fundamental in the process of defining the transverse sizes of the vacuum chamber of a storage ring. For example, lets suppose the maximum betatron function of a lattice is \SI{16}{\meter} and at this place the vacuum chamber has an internal dimension of \SI{12}{\milli\meter}. This means that in another place where the betatron function is only \SI{1}{\meter} the vacuum chamber can be much smaller, only \SI{3}{\milli\meter}, without affecting the stored beam, which would allow the installation of devices that requires smaller appertures. This strategy of focusing the betatron function is commonly used in storage rings in straight sections where \gls{ids} are installed, with smaller gaps they can generate stronger magnetic fields, which is desirable for radiation emission.
+	The relevance of this parametrization is that there are several very important practical informations regarding the properties and responses to perturbations of the beam that can be extracted directly from the betatron function. It can be seen from equation~\eqref{eq:betatron_motion} that the maximum excursion a given particle can experience in a fixed longitudinal point of the ring is proportional to the square root of the betatron function. Analogously, the beam size of a distribution in equilibrium will also be proportional to the square root of the local betatron function. Thus, the ratio between the amplitudes of movement in two different positions is proportional to the ratio of the square root of the betatron functions at the two locations, a property that is fundamental in the process of defining the transverse sizes of the vacuum chamber of a storage ring. For example, lets suppose the maximum betatron function of a lattice is \SI{16}{\meter} and at this place the vacuum chamber has an internal dimension of \SI{12}{\milli\meter}. This means that in another place where the betatron function is only \SI{1}{\meter} the vacuum chamber can be much smaller, only \SI{3}{\milli\meter}, without affecting the stored beam, which would allow the installation of devices that requires smaller appertures. This strategy of focusing the betatron function is commonly used in storage rings in straight sections where \gls{ids} are installed, with smaller gaps they can generate stronger magnetic fields, which is desirable for radiation emission. The name of this curve that defines the minimum apperture the vacuum chamber can have along the ring is calles \gls{bsc}.
 
 	Another important property that can be infered from the betatron function is the sensitivity of the beam to spurious eletromagnetic fields. It can be shown that the larger the betatron function the larger the effect of such field in the beam dynamics. In the special case of dipolar fields, which are constant in the transverse plane, this dependency goes with $\sqrt{\beta(s_0)}$, for a quadrupolar field it is proportional to $\beta(s_0)$, for a sextupole $\beta^{3/2}(s_0)$ and so on.
 
@@ -520,7 +520,7 @@
 
 \subsection{The Energy Balance}
 
-	It can be shown that the rate of energy loss of a particle due to synchrotron radiation emission is proportial to the inverse of square of the local curvature radius of the particle times the fourth power of its total energy~\cite[pp. 661: eq. 14.31]{Jackson1975}. Translating this dependency to a storage ring, the energy loss in one turn depends on the magnetic fields of the lattice and on the energy deviation of the particle. For the ideal particle the average energy loss depends only on the magnetic field of the dipoles, but as the closed orbit for particles with non-zero energy deviation is different, its energy loss is also different, not only because of the intrinsic dependence of the emission, but also because of the slightly different magnetic fields it will experience in one turn. The combination of these effects can be modelled in the following linear approximation:
+	It can be shown that the rate of energy loss of a particle due to synchrotron radiation emission is proportial to the inverse of square of the local curvature radius of the particle times the fourth power of its total energy~\cite[pp. 661: eq. 14.31]{Jackson1975}. Translating this dependency to a storage ring, the energy loss in one turn depends on the magnetic fields of the lattice and on the energy deviation of the particle. For the ideal particle the average energy loss depends only on the magnetic field of the dipoles, but as the closed orbit for particles with non-zero energy deviation is different, its energy loss is also different, not only because of the intrinsic dependence of the emission, but also because of the slightly different magnetic fields it will experience in one turn. The combination of these effects can be modeled in the following linear approximation:
 	\begin{align}\label{eq:radiation_loss}
 		\Delta E_\text{Rad} \approx -U_0 - E_0L_0\alpha_z\delta_n
 	\end{align}
@@ -604,7 +604,7 @@
 
 \subsection{Fokker-Planck Equation}\label{ssec:fokker_planck_equation}
 
-	All the arguments described in the last section can be mathematically described by modelling the evolution of the beam distribution in terms of the Fokker-Planck equation. In this framework we can consider the interaction of the electrons with the radiation they emit as large particles subjected to a weak random and Markovian force, with an approximately white spectrum. These are the conditions imposed on a system by the kinect theory in order for the distribution function to be described by such equation, according to~\citeonline{Landau1981,Wang1945,Zwanzig2001}.
+	All the arguments described in the last section can be mathematically described by modeling the evolution of the beam distribution in terms of the Fokker-Planck equation. In this framework we can consider the interaction of the electrons with the radiation they emit as large particles subjected to a weak random and Markovian force, with an approximately white spectrum. These are the conditions imposed on a system by the kinect theory in order for the distribution function to be described by such equation, according to~\citeonline{Landau1981,Wang1945,Zwanzig2001}.
 
     There are several works that explain the use of the Fokker-Planck equation in storage rings~\cite{Lindberg2016,Suzuki1983,Suzuki1986,Lee1999,Wiedemann2007}. Here, only the main results will be presented:
     \begin{align}\label{eq:fokker_planck_equation}
@@ -843,19 +843,19 @@
 
     There are several different definitions of impedances in the literature. In this work we will adopt the definitions of the references~\cite{Chao1993, Stupakov2000a, Heifets1991}:
     \begin{align}\label{eq:impedances_definition}
-	  	\nonumber
-  	  	Z_\parallel(\omega) &= \frac1c \infint{z}{W'_0(z)e^{i\omega z/c}}\\
-  	  	\nonumber
-      	Z^D_X(\omega) &= -\frac{i}{c} \infint{z}{W^D_X(z)e^{i\omega z/c}}\\
-      	Z^D_Y(\omega) &= -\frac{i}{c} \infint{z}{W^D_Y(z)e^{i\omega z/c}}\\
-	  	\nonumber
-      	Z^Q(\omega) &= -\frac{i}{c} \infint{z}{W^Q(z)e^{i\omega z/c}}
+        \begin{aligned}
+      	  	Z_\parallel(\omega) &= \frac1c \infint{z}{W'_0(z)e^{i\omega z/c}}\\
+          	Z^D_X(\omega) &= -\frac{i}{c} \infint{z}{W^D_X(z)e^{i\omega z/c}}\\
+          	Z^D_Y(\omega) &= -\frac{i}{c} \infint{z}{W^D_Y(z)e^{i\omega z/c}}\\
+          	Z^Q(\omega) &= -\frac{i}{c} \infint{z}{W^Q(z)e^{i\omega z/c}}
+        \end{aligned}
     \end{align}
     where $Z_\parallel \equiv Z_s \equiv Z_L$ is the longitudinal impedance, $Z^D_X$ and $Z^D_Y$ are the horizontal and vertical dipole impedances and $Z^Q$ is the quadrupole, or detuning, impedance. In other references, such as in the book of \citeonline{Zotter1998}, the impedance is the conjugate complex of the definitions presented here. The wakes can be obtained back from the impedances by the inverse transform
     \begin{align}\label{eq:wake_as_impedance}
-	  	\nonumber
-  	  	W'_0(z) = \frac{1}{2\pi}\infint{\omega}{Z_\parallel e^{-i\omega z/c}}\\
-	  	W_t(z) = \frac{i}{2\pi}\infint{\omega}{Z_t e^{-i\omega z/c}}
+	  	\begin{aligned}
+            W'_0(z) = \frac{1}{2\pi}\infint{\omega}{Z_\parallel e^{-i\omega z/c}}\\
+            W_t(z) = \frac{i}{2\pi}\infint{\omega}{Z_t e^{-i\omega z/c}}
+        \end{aligned}
     \end{align}
     where $W_t$ and $Z_t$ denotes any of the transverse wakes and impedances. Considering that the wakes are real functions, the impedances must satisfy
     \begin{subequations}\label{eq:impedance_even_odd}
@@ -864,11 +864,21 @@
 	  	Z_t(\omega) &= -Z_t^*(-\omega)
     \end{align}
     \end{subequations}
-    or simply, the real part of the longitudinal impedance must be an even function of the frequency and the imaginary part must be an odd function, while for the transverses impedances the opposite is valid, the real part is odd and the imaginary part is even.
+    or simply, the real part of the longitudinal impedance must be an even function of the frequency and the imaginary part must be an odd function, while for the transverses impedances the opposite is valid, the real part is odd and the imaginary part is even. Impedances have several other interesting mathematical properties, as presented in reference~\cite{Chao1993}. For example, when the wakes satisfy the causality condition the real and imaginary parts of the impedance are related by the Kramers-Kronig relations~\cite{Kronig1926}, also known as Hilbert Transforms. These other properties will be covered later in this work if they be deemed necessary for the development of the analysis.
 
-    Impedances have several other interesting mathematical properties, as presented in reference~\cite{Chao1993}. For example, when the wakes satisfy the causality condition the real and imaginary parts of the impedance are related by the Kramers-Kronig relations~\cite{Kronig1926}, also known as Hilbert Transforms. These other properties will be covered later in this work if they be deemed necessary for the development of the analysis
+    It is interesting to note that instead of defining the impedances by the set of equations~\eqref{eq:impedances_definition} we could have defined one generalized impedance from the wake potential
+    \begin{align}\label{eq:generalized_impedance_definition}
+            Z(\vect{\rho}_s, \vect{\rho}_w, \omega) &= -\frac{i}{c} \infint{z}{W(\vect{\rho}_s, \vect{\rho}_w, z)e^{i\omega z/c}}
+    \end{align}
+    and the imdedances could be get from it simply by considering its expansion in the transverse coordinates:
+    \begin{align}
+        Z(\vect{\rho}_s, \vect{\rho}_w, \omega) &=
+	  		\frac{c}{\omega}Z_\parallel +
+			x_w\left(Z^D_Xx_s - Z^Qx_w\right) +
+			y_w\left(Z^D_Yy_s + Z^Qy_w\right).
+    \end{align}
 
-\section{Potential of Bunch of particles}\label{sec:potential_of_bunch}
+\section{Potential of bunches of particles}\label{sec:potential_of_bunch}
 
     Now that all the important tools for describing the wake field effects were introduced we will calculate the change in momentum that a specific particle inside a bunch will feel due to the action of all the other particles. To do that we will assume that in the whole ring there is only one source of impedance, localized at a given point of the accelerator, and that the vacuum chamber is perfectly aligned with reference orbit of the storage ring in such a way that a particle that is on the reference orbit also is at the origin of the expansion made in equation~\eqref{eq:wake_potential_expansion}. Regarding the longitudinal position the synchronous position will be adopted as the origin and the positions of the particles will be measured in relation to it in accordance to the definitions made in section~\ref{sec:longitudinal_deviations}, specifically in accordance with equation~\ref{eq:longitudinal_deviations}, where particles behind the synchronous particle have positive deviations. Under such assumptions we get:
     \begin{align}\label{eq:def_effective_wake_potential}
@@ -881,7 +891,7 @@
     \end{align}
     where $\vect{p} = (x', y', \delta)$ and $\text{d}\vect{p} = \text{d}x'\text{d}y'\text{d}\delta$ represents the momentum coordinates and $\Psi$ is beam density distribution function in phase space, which is time dependent in the general case.
 
-\subsection{Mult-Turn and Mult-Bunch Effects}
+\subsection{Multi-turn and multi-munch effects}
 
     The equation~\eqref{eq:int_effective_wake_potential} is not general enough to take into account all the wake field forces on the particles. In some cases the wakes persist for so long that they last for a time equivalent to several turns in the ring, acting on the same particles that generate it in successive turns. Generally these wakes are generated by cavity-like structures in the vacuum chamber that trap their electromagnetic eigen-modes for long times. In this situation we must add a sum over the distribution in previous turns
     \begin{align}\nonumber
@@ -967,75 +977,7 @@
     \begin{align}
   	  	\fourier{V}_0 = \fourier{\lambda}Z_\parallel,
     \end{align}
-    where $\fourier{\lambda}$ is the analog of the current in a circuit and $\fourier{V}_0$ is the voltage induced by this current. The same analogy can be extended to the impedance in other planes. Actually, the modelling of the vaccum chamber as a circuit is a resource widely used to model the low frequency part of the impedance~\cite{Sessler1967,Zotter1998,Davino2003}.
-
-\section{Impedance Calculation}
-
-    For most practical cases, determining the impedance of a given component of the storage ring is a very difficult task because of the complexity of the boundary conditions involved. The exact analitic solution of the \gls{maxeq} can only be performed for a limited number of cases, and even in this cases some idealizations of the real system must be performed. In order to tackle this problem the accelerator physics community resorts to all possible ways of finding approximate results and all these efforts can be grouped in two categories, the analytic treatments and the numeric solutions.
-
-	An adequate description of the analytic methods for finding such solutions is far beyond the current competencies of the author and the scope of this work. At this point we strongly recommend the book written by~\citeonline{Zotter1998} and the report written by \citeonline{Gluckstern2000} for the interested reader. Besides, \citeonline{Chao1993} and \citeonline{Palumbo1994} also discuss some of the approximate methods in a very intuitive way; and~\citeonline{Ng2010} presents a table with some of the most important results for common types of accelerator structures. Not covered in any of these references is the explanation of the use of the parabolic equation, which is a paraxial approximation of the \gls{maxeq}, to the impedances calculation, presented by \citeonline{Stupakov2006}. From these equations it can be shown that the wakes must satisfy a very interesting scaling feature that is very useful for numeric simulations~\cite{stupakov2011}.
-
-    Most analytic methods are employed in frequency domain, which means the result of the calculation is an expression for the impedance, not the wake. This expression generally is valid for a certain range of frequencies and the most common type of approximations consider frequencies much lower than the cutoff frequency\footnote{Cutoff frequency is the frequency of the lowest eigen-mode of the pipe, above which the fields can propagate through the tube.} of the pipe ($\omega\sim2.4c/b$) or very high frequencies. While the first kind of approximations are valid for bunches longer than the characteristic transverse dimension of structure, the latter is a good approximation for very short bunches.
-
-    In the case of Sirius, the standard vacuum chamber has a radius of \SI{12}{\milli\meter} while the bunch will have approximately \SI{3}{\milli\meter}. This combination of dimensions is delicate because the bunch is not long enough for the low frequency approximations to be valid nor short enough for the high frequency regime to dominate, which means we cannot rely only on these methods to compose the Sirius Impedance budget.
-
-\subsection{Numeric Methods}\label{ssec:numeric_methods}
-
-    The numerical solvers can be grouped in two categories, the frequency domain codes, that are more indicated for calculation of resonant modes below the cutoff of the chamber, and the time domain solvers. While the first class computes the eigen-values and eigen-modes of the structures and the user must identify which ones can be excited by the beam passage, the latter solves \gls{maxeq} computing directly the fields that are generated by the beam. In this type of solvers the beam is modelled by a line density of charge, $\lambda$, that traverses the structure at the speed of light with a constant transverse displacement, $\vect{\rho}'_0$, and then, by discretization of the space-time in grids and approximations of the derivatives by linear operators on the fields in the vertices and faces of each grid, the electromagnetic field can be calculated up to the desired distance behind the source, so the integral defined in equation~\eqref{eq:momentum_gain} can be carried out. Depending on the methods employed in the discretization and the properties of the linear operators in each grid, different convergencies of the solutions in relation to the number and size of the grids can be achieved. There are several different methods and codes in the literature dedicated to this purpose. For a good review on numeric methods it is recommended \citeonline{Niedermayer2016} and its references.
-
-\subsubsection{Finite Line Density Issue}
-
-    This procedure employed to find the impedances has an intrinsic limitation: the line density used as source particle in simulations must allways spread over a few grids, which means a delta-like function can never be used and the wake functions, or wake potential, cannot be obtained. Instead, the effective wake potencial, given by
-    \begin{align}
-        V(\vect{\rho}'_0, \vect{\rho}, z) = \udefint{z'}{
-                \lambda(z') W(\vect{\rho}'_0,\vect{\rho},z-z')},
-    \end{align}
-    is the result of the simulations. In principle this equation could be inverted with the aid of the convolution theorem~\cite{wiki2017a}, where after the Fourier Transform on both sides of the equation one could get
-    \begin{align}\label{eq:deconvolution}
-        \fourier{W} = \frac{\fourier{V}}{\fourier{\lambda}}.
-    \end{align}
-    However, this procedure fails to give the values of the impedance at large frequencies due to two effects: the most obvious is the limitations imposed by the Nyquist theorem applied to the grid length of the simulation and the other comes from the fact that the line density Fourier transform has a tail at large frequencies that makes the denominator of equation~\eqref{eq:deconvolution} very small, which, in turn, increases the effect of the noise of the simulations for this frequency range. This limitation on the knowledge of the impedance for high frequencies makes it not possible to obtain the wake function accurately for short distances from the source.
-
-    The line density generally used for such calculations is the Gaussian distribution:
-    \begin{align}
-        \lambda(z) = \frac{1}{\sigma\sqrt{2\pi}}
-        \exp\left(-\frac{(z-n\sigma)^2}{2\sigma^2}\right)
-    \end{align}
-    due to its minimal duration-bandwidth product~\cite{Niedermayer2016}. A rule of thumb for these calculations is to consider the impedance only up to frequencies $\omega<=2\sigma/c$ to avoid strong influences of the numerical noises as discussed above, which is much more limiting that the Nyquist requirement, given that in simulations the bunch length must be at least five times larger than the grid size.
-
-    The authors \citeonline{Podobedov2013} found a way to overcome this problem, as long as the bunch length used in the simulation is short enough. However, a more practical approach comes from the fact that a real bunch also has a finite length and cannot excite wakes with arbritarely large frequencies, which means if the line density used to obtain the wakes is smaller than the smallest longitudinal structure in the bunch expected to generate any macroscopic significant effect we want to study, than the impedance extracted from that simulation is enough. Notice this method is intrinsically non-consistent, because we must know \emph{a priori} how the beam will behave to compute the impedance that will drive this behavior. However, the knowlegde gathered by the accelerator physics community in the last fifty years, through several experiments and confrontation of these results with simulated and analytic calculated beam dynamics, led to some rules of thumb that determines the maximum frequency can be expected to influence the dynamics of a bunch, given its natural bunch length.
-
-    This approach may be conflicting in some situations when the high frequency content of the wake is desired but the structure being analysed has strong resonant modes that take hundreads of meters behind the source to damp. Running a simulation with a short line density will drastically increase the time of the simulation because of the smaller mesh size. The solution for these cases is to run two simulations, one with a short bunch and small wake length and other with a longer bunch and long wake length, to characterize the resonant mode. Another approach would be to simulate the resonant modes with a frequency domain code.
-
-\subsubsection{ECHO Code}
-
-    There are some solvers in the literature that were developed specifically for rotationally symmetric geometries, such as ABCI~\cite{Chin1994a}, due to the high recurrency of this type of structure in accelerators. In this type of systems the wake potential in the ultra-relativistic approximation can be partially solved without the need of specifying the \gls{bcon}, only by the application of the Panofsky-Wenzel theorem and equation~\eqref{eq:potential_harmonic}. It can be shown~\cite{Stupakov2000a} that the most general form for the wake potential in such conditions is:
-    \begin{align}
-	       W(\rho_s, \rho_w, \theta, z) = \sum_{m=0}^\infty W_m(z) \rho_w^m\rho_s^m\cos(m\theta)
-    \end{align}
-    where $\rho = |\vect{\rho}|$ is the distance of the particles to the center of the chamber, $\theta$ is the angle between the the source and the witness particles and it was assumed the source particle is in the $\versor{x}$ direction. The wake functions can be obtained from the gradient of the wake potential. Expanding the wake functions in the leading order we notice
-    \begin{align}
-	    w_s(z) &\approx W'_0(z)\\
-	    \vect{w}_t(x_s, z) &\approx W_1\rho_s(\versor{r}\cos(\theta)-\versor{\theta}\sin(\theta)) =
-						W_1x\versor{x}
-    \end{align}
-    where we notice the force is in the same direction of the displacement of the source particle.
-
-    This partial solution of the wake potential allow us to solve each azimuthal component of the wake potential separatelly, which implies the numerical solution can be found for a single plane of the structure, for example, the plane $x-s$, or $y=0$. This bidimensional mesh drastically reduces the simulation time for such components and this class of codes are called 2D solvers. Among such codes we highlight ECHOz1 and ECHOz2~\cite{Zagorodnov2003, Zagorodnov2005, Zagorodnov2006a}, which are distributed free of charge by the author. While ECHOz1 calculates only the azimuthal mode $m=0$, ECHOz2 provides the longitudinal and transverse wake functions for an arbitrary mode $m$.  This code employes several solutions to common problems of numeric simulations that makes it the state of the art for impedances calculation. Among the advantages of this code we highlight:
-    \begin{itemize}
-	    \item zero dispersion in the longitudinal plane, which is a numeric effect that introduces a non-physical dependency of the phase velocity of the electromagnetic waves with their frequency, which deteriorates the precision of the wakes;
-	    \item fast convergence of the relation bunch size over grid length, $\sigma/h$: in other codes this ratio must be one order of magnitude larger than ECHO's for the results to have the same precision. In ECHO a ratio of \SI{5}{} already gives convergent results, which greatly reduces the simulation time for a given frequency requirement on the knowlegde of the impedance;
-	    \item moving mesh: instead of discretize the whole structure, the grids move with the source and this region extends behind it only down to the desired length of the wake. This approach helps reducing the simulation time in cases where the structure is larger than the wake length and is applied in other codes too, such as GdfidL;
-	    \item indirect integration: for the wake calculation, the infinite integral in the longitudinal direction can be substituted by finite integrals in closed contorns that spans the structure longitudinally. The first method proposed by~\citeonline{Weiland1983} was valid only for cavity-like structures, but then it was generalized for any rotationally symmetric structure by~\citeonline{Napoly1993} and finally generalized for any 3D structure by~\citeonline{Zagorodnov2006a}. This procedure greatly reduces the computational time because otherwise it would be necessary to propagate the beam for a very long distance only for the integral to converge. Besides, it improves the precision of the results, because the long integral in the direct method suffers from numerical errors accumulation.
-    \end{itemize}
-
-    There is another code provided by the same author, ECHOzR, that calculates the wakes for structures with rectangular cross sections~\cite{Zagorodnov2015}. The conditions imposed on the geometry are that the lateral walls are composed of infinite vertical and perfectly conducting parallel plates displaced one from another by a distance $w$ and that the horizontal walls that define the vertical gap has an arbitrary longitudinal profile and electrical conductivity. Employing the conditions of harmonicity of the wake potencial on the transverse coordinates of the source and witness particles, presented in equations~\eqref{eq:potential_harmonic} and~\eqref{eq:potential_harmonic_source}, the author solves partially the wake potential by expanding it in trigonometric functions that automatically satisfy the \gls{bcon} in the vertical plates. This way, similarly to the rotationally symmetric case, the numerical computation is reduced to a bidimensional problem that is solved independently for each term of the expansion. All the advantages presented for ECHOz2 regarding the precision of the results and simulation time also applies for ECHOzR. The main difference between the two codes is that for the recangular code significant post-processing of the results is needed, because the lowest order longitudinal and transverse wake functions are an infinite sum of the modes of the expansion. However, close to center of the chamber, convergence can be achieved by summation of approximately the first ten modes. In Appendix~\ref{app:wake_from_echozr} we discuss on the post processing necessary to retrieve the wakes from the simulation data.
-
-    There is also a generic version of the ECHO code, called ECHO3D, that can be used to compute the wakes for an arbitrary geometry. This code has all the advantages of the bidimensional codes, but lacks a key feature: it is not parallelized. For 3D structures this limitation imposes great restrictions on the type of simulation that can be performed, due to the extremelly large computational time.
-
-\subsubsection{GdfidL Code}
-
-    When the components of the vacuum chamber do not respect the symmetries required by the 2D solvers or cannot be approximated by one that does, 3D codes must be used. They are also used when a detailed simulation is needed to compute not only the wake potential but also the distribution of the electromagnetic field density in the structure, to calculate heating effects and also the transmission of the fields through ports. The most well-known platforms for this type of simulations are GdfidL~\cite{Bruns1997, Bruns2017} and CST Particle Studio~\cite{CST2017}, being the first the code used for Sirius components design and simulation. In Appendix~\ref{app:wake_from_gdfidl} we discuss on the post-processing of GdfidL computation data.
+    where $\fourier{\lambda}$ is the analog of the current in a circuit and $\fourier{V}_0$ is the voltage induced by this current. The same analogy can be extended to the impedance in other planes. Actually, the modeling of the vaccum chamber as a circuit is a resource widely used to model the low frequency part of the impedance~\cite{Sessler1967,Zotter1998,Davino2003}.
 
 \section{Models for Impedances and Wakes}
 
@@ -1049,43 +991,19 @@
 \subsubsection{Capacitive}
 \subsubsection{Resistive}
 
-\section{Multi-Layer Resistive Wall}
+\section{Impedance Calculation}
 
-    The standard resistive wall effect is known for a long time, being first observed to generate coherent oscillations in electron streams coupled to circuits by \citeonline{Pierce1951} and then used to create a resistive-wall amplifier by \citeonline{Birdsall1953}. This idea was first applied to the study of collective effects in accelerators by \citeonline{Neil1965} and \citeonline{Laslett1965} to explain longitudinal and transverse coherent oscillations of coasting beams and then by \citeonline{Courant1966} to describe instabilities of bunched beams. Since then the theory for calculation of the now called resistive-wall impedance evolved~\cite{Chao1993}, being exactly solved by \citeonline{Bane1991} for a round and infinitely thick and long vacuum chamber, where the author provided analytic formulas for the short-range wake-fields, and for an arbitrary transverse cross section by \citeonline{Yokoya1993}, who based its work on a formalism developed by \citeonline{Gluckstern1993}. In his work, \citeauthor{Yokoya1993} also showed that the spectral dependency of the longitudinal and transverse dipole and quadrupole impedances of elliptic chambers with different excentricities but equal smaller radius are identical, in such a way that their wake functions differ from each other only by a constant factor. In the special cases of a round and a flat chamber, which are the limiting cases of an ellipse, with excentricities equal to $0$ and $1$ respectively, the so called \citeauthor{Yokoya1993} factors are given by
-    \begin{align}
-        \funcof{Z_\parallel}_\text{flat} &=
-                        \funcof{Z_\parallel}_\text{round}\\
-        \funcof{Z_x^D}_\text{flat} &= \frac{\pi^2}{24}
-                        \funcof{Z_x^D}_\text{round}\\
-        \funcof{Z_y^D}_\text{flat} &= \frac{\pi^2}{12}
-                        \funcof{Z_x^D}_\text{round}\\
-        \funcof{Z^Q}_\text{flat} &= \frac{\pi^2}{24}
-                        \funcof{Z_x^D}_\text{round},
-    \end{align}
-    where we notice the net horizontal force felt by the witness particle with the same horizontal position as the source particle is zero. Actually, this is a particular case of the general result that the wake potential of this structure must not depend individually on the horizontal positions of the source and witness particles, but only on their difference
-    \begin{align}\nonumber
-        W_\text{flat}(x_s,y_s,x_w,y_w,z)=W_\text{flat}(y_s,y_w,x_s-x_w,z),
-    \end{align}
-    to respect the condition of translational symmetry in the horizontal direction.
+    For most practical cases, determining the impedance of a given component of the storage ring is a very difficult task because of the complexity of the boundary conditions involved. The exact analytic solution of the \gls{maxeq} can only be performed for a limited number of cases, and even in this cases some idealizations of the real system must be performed. In order to tackle this problem the accelerator physics community resorts to all possible ways of finding approximate results and all these efforts can be grouped in two categories, the analytic treatments and the numeric solutions.
 
-    It is very recurrent in accelerators to have chambers that are composed of different laminar layers of materials. For example, the chambers of fast time-varying magnets, such as the injection kickers of a storage ring, must be made of a bad conductor, generally a ceramic. To avoid discontinuities in the path of the image current of the beam\footnote{This is equivalent to say: "to decrease the impedance of the beam".}, which could lead to excessive heating and consequent melting or burning of the magnet components and the accumulation of static charges in the ceramic, a thin layer of metal is deposited, coated, in the inner surface of the chamber. The thickness of the coating must be of a few microns: thin enough to not distort the external field as it penetrates the walls, which has frequencies of the order of hundreds of kilo Hertz, and thick enough to shield most of the frequencies of the beam, which extend to a few dozens of giga Hertz. Especifically for the kicker magnet, outside the ceramic vacuum chamber there is a layer of ferrite, which is used to guide the external field of the kicker. In the low frequency part of the spectrum, all these different layers of materials are seen by the self fields of the beam and contribute to the impedance.
+	An adequate description of the analytic methods for finding such solutions is far beyond the current competencies of the author and the scope of this work. At this point we strongly recommend the book written by~\citeonline{Zotter1998} and the report written by \citeonline{Gluckstern2000} for the interested reader. Besides, \citeonline{Chao1993} and \citeonline{Palumbo1994} also discuss some of the approximate methods in a very intuitive way; and~\citeonline{Ng2010} presents a table with some of the most important results for common types of accelerator structures. Not covered in any of these references is the explanation of the use of the parabolic equation, which is a paraxial approximation of the \gls{maxeq}, to the impedances calculation, presented by \citeonline{Stupakov2006}. From these equations it can be shown that the wakes must satisfy a very interesting scaling feature that is very useful for numeric simulations~\cite{stupakov2011}.
 
-    Besides, the multi-layer chamber also appear in the simple case of a standard vacuum chamber of an accelerator, where the finite thickness of wall can be interpreted as a multi-layer chamber composed of metal and air. This finite thickness of the metal strongly influences the low frequency part of the impedance because the skin depth of the fields becomes much larger than the thickness of the chamber and the losses diminishe, which causes the real part of the impedance to go to zero and the imaginary part to a constant value as the frequency tends to zero, while the infinitely thick formula predicts that both impedances diverge to plus and minus infinity, respectively, when the same limit is taken. This low frequency of the resistive wall has a very narrow band nature and influences the long range wake fields, which are directly related to the coupled bunch resistive wall instability and the incoherent tune--shifts caused by chambers without circular symmetry, as explained by \citeonline{Chao2002}.
+    Most analytic methods are employed in frequency domain, which means the result of the calculation is an expression for the impedance, not the wake. This expression generally is valid for a certain range of frequencies and the most common type of approximations consider frequencies much lower than the cutoff frequency\footnote{Cutoff frequency is the frequency of the lowest eigen-mode of the pipe, above which the fields can propagate through the tube.} of the pipe ($\omega\sim2.4c/b$) or very high frequencies. While the first kind of approximations are valid for bunches longer than the characteristic transverse dimension of structure, the latter is a good approximation for very short bunches.
 
-    The multi-layer chambers problem was first tackled by \citeonline{Zotter1969}, who created an algorithm that solved the problem for an arbitrary number of layers of materials with arbitrary electric and magnetic properties, as long as they were linear, homogeneous and isotropic~\cite{Zotter1969,Zotter1969a,Zotter1970}. Even though his method was general enough to be applied to any azimuthal mode $m$ of the source, he only calculated the fields for the azimuthal modes $m=0$ and $m=1$\footnote{It is remarkable that his method goes beyond the rigid beam approximation, considering the source of the wake fields as an infinitely long beam oscilating in the transverse plane to calculate the mode $m=1$.}. This allowed him to derive explicit analytical formulas, under some approximations, for the longitudinal impedance of simplified configurations, such as a single wall with finite thickness, and a metallized ceramic chamber sorrounded by a \gls{pec}, where the author noticed the effectiveness of the coating in the inner wall was much higher than what is intuitively thought by comparing the thickness of the coating with the skin depth of the fields for a given frequency.
+    In the case of Sirius, the standard vacuum chamber has a radius of \SI{12}{\milli\meter} while the bunch will have approximately \SI{3}{\milli\meter}. This combination of dimensions is delicate because the bunch is not long enough for the low frequency approximations to be valid nor short enough for the high frequency regime to dominate, which means we cannot rely only on these methods to compose the Sirius Impedance budget.
 
-    Later \citeonline{Piwinski1977} calculated the impedance generated by a gaussian bunch in a four-layer round chamber composed of metal, ceramic, ferrite and \gls{pec}, respectively, and confirmed what \citeonline{Zotter1970} had previously found, that for this type of multi-layer chambers, the fields will not penetrate through the coating if its thickness, $t$, satisfies
-    \begin{align}
-        t > \frac{\delta^2}{d}, \quad\text{with}\quad
-        \delta = \sqrt{\frac{2}{\mu_0\omega\sigma_c}}
-    \end{align}
-    where $\delta$ is the skin depth and $\sigma_c$ is the conductivity of the coating, $\mu_0$ is the magnetic permeability of vacuum, $\omega$ is the angular frequency of the fields and $d$ is the thickness of the ceramic. This means that, since generally $d\gg t$, the coating is efficient down to frequencies much lower than what is intuitively thought.
+    Bellow we will describe two cases of analytical calculation of impedances of fundamental importance to this work: the first is the tapered transition, which is an example of the arguments presented above, which indicates that numerical solvers are the most accurate way of calculating impedances, and the other is the resistive wall, which is a big exception to this rule. Finally, we will introduce the main concepts important for numerical simulations.
 
-    In a more recent work, \citeonline{Zotter2005} rederived his formalism for a point like charge, which was used by \citeonline{Mounet2009} to derive formulas for the electromagnetic fields and impedances for any azimuthal mode $m$, under the assumption of a rigid beam. Later, the same authors also derived expressions for a multi-layer flat chamber with possible different layers in the top and bottom plates~\cite{Mounet2010a} which allowed them to generalize the \citeauthor{Yokoya1993} factors~\cite{Mounet2010}. Then, in his PhD thesis, \citeonline{Mounet2012} developed a general method to compute Fourier Integrals which allowed him to compute the exact wake functions for short and long range using the impedances. All these developments in 2D impedance theory were implemented by \citeauthor{Mounet2011} in a code called ImpedanceWake2D that is available free-of-charge for the accelerators community. It is important to mention that other authors also solved the problem of multi-layer impedances using different methods, for example \citeonline{Hahn2008} and \citeonline{Al-Khateeb2005} also derived general methods valid for arbitrary energies and frequencies in round chambers and \citeonline{Burov2002,Burov2002a} also solved the problem under the assumption of long wavelengths, $c/\omega \ll a$, for round and flat geometries.
-
-    In summary, the theory of smooth multi-layer infinitely long round chambers is completely solved. In this work we implemented \citeauthor{Mounet2009} formulas to calculate the impedances for round chambers for the azimuthal modes $m=0$ and $m=1$ in Matlab\textregistered and Python3 and the wake functions were obtained using the code ImpedanceWake2D. In cases where the excentricity of the chambers are large, the \citeauthor{Yokoya1993} Factors were applied to the round chamber results.
-
-\section{Tapered Transitions}
+\subsection{Tapered Transitions}\label{ssec:tapered_transitions}
 
     Some components in a storage ring require transverse apertures that are different from the standard vacuum chamber. For example, undulators need narrower chambers because their magnetic gap is small to achieve larger fields and improve the radiation quality. The beam ports of the RF cavities, on the other hand, are larger than the standard pipe. These two types of structures in the vacuum chamber are called collimators\footnote{Actually there is a device called collimator which have the same concave geometry of the pairs of transtions defined with this name here. Their function is to screen the transverse tail of the beam.} and cavities, respectively, and have a strong impact on the total impedance budget of a storage ring, mainly in the transverse plane. See for example a paper by~\citeonline{Gunzel2006} which describes the impedance budget of the ESRF storage ring or another work of the same author, \citeonline{Gunzel2008}, where the impedance budget of ALBA is analysed.
 
@@ -1171,14 +1089,106 @@
 
     For example,~\citeonline{Blednykh2006} studied the impedance of the collimator--type flat chamber of a mini--gap undulator and found very intense narrow--band mode just above the cutoff of the pipe, that depended very strongly on the width of the cross--section. For all these reasons the formulas studied here, even though are very useful to the study of this type of impedance and qualitative analysis of the relevant parameters for impedance optimization, will not be used to quantitatively for any device of the impedance budget.
 
-\section{Coherent Synchrotron Radiation}
+\subsection{Multi-Layer Resistive Wall}
+
+    The standard resistive wall effect is known for a long time, being first observed to generate coherent oscillations in electron streams coupled to circuits by \citeonline{Pierce1951} and then used to create a resistive-wall amplifier by \citeonline{Birdsall1953}. This idea was first applied to the study of collective effects in accelerators by \citeonline{Neil1965} and \citeonline{Laslett1965} to explain longitudinal and transverse coherent oscillations of coasting beams and then by \citeonline{Courant1966} to describe instabilities of bunched beams. Since then the theory for calculation of the now called resistive-wall impedance evolved~\cite{Chao1993}, being exactly solved by \citeonline{Bane1991} for a round and infinitely thick and long vacuum chamber, where the author provided analytic formulas for the short-range wake-fields, and for an arbitrary transverse cross section by \citeonline{Yokoya1993}, who based its work on a formalism developed by \citeonline{Gluckstern1993}. In his work, \citeauthor{Yokoya1993} also showed that the spectral dependency of the longitudinal and transverse dipole and quadrupole impedances of elliptic chambers with different excentricities but equal smaller radius are identical, in such a way that their wake functions differ from each other only by a constant factor. In the special cases of a round and a flat chamber, which are the limiting cases of an ellipse, with excentricities equal to $0$ and $1$ respectively, the so called \citeauthor{Yokoya1993} factors are given by
+    \begin{align}
+        \funcof{Z_\parallel}_\text{flat} &=
+                        \funcof{Z_\parallel}_\text{round}\\
+        \funcof{Z_x^D}_\text{flat} &= \frac{\pi^2}{24}
+                        \funcof{Z_x^D}_\text{round}\\
+        \funcof{Z_y^D}_\text{flat} &= \frac{\pi^2}{12}
+                        \funcof{Z_x^D}_\text{round}\\
+        \funcof{Z^Q}_\text{flat} &= \frac{\pi^2}{24}
+                        \funcof{Z_x^D}_\text{round},
+    \end{align}
+    where we notice the net horizontal force felt by the witness particle with the same horizontal position as the source particle is zero. Actually, this is a particular case of the general result that the wake potential of this structure must not depend individually on the horizontal positions of the source and witness particles, but only on their difference
+    \begin{align}\nonumber
+        W_\text{flat}(x_s,y_s,x_w,y_w,z)=W_\text{flat}(y_s,y_w,x_s-x_w,z),
+    \end{align}
+    to respect the condition of translational symmetry in the horizontal direction.
+
+    It is very recurrent in accelerators to have chambers that are composed of different laminar layers of materials. For example, the chambers of fast time-varying magnets, such as the injection kickers of a storage ring, must be made of a bad conductor, generally a ceramic. To avoid discontinuities in the path of the image current of the beam\footnote{This is equivalent to say: "to decrease the impedance of the beam".}, which could lead to excessive heating and consequent melting or burning of the magnet components and the accumulation of static charges in the ceramic, a thin layer of metal is deposited, coated, in the inner surface of the chamber. The thickness of the coating must be of a few microns: thin enough to not distort the external field as it penetrates the walls, which has frequencies of the order of hundreds of kilo Hertz, and thick enough to shield most of the frequencies of the beam, which extend to a few dozens of giga Hertz. Especifically for the kicker magnet, outside the ceramic vacuum chamber there is a layer of ferrite, which is used to guide the external field of the kicker. In the low frequency part of the spectrum, all these different layers of materials are seen by the self fields of the beam and contribute to the impedance.
+
+    Besides, the multi-layer chamber also appear in the simple case of a standard vacuum chamber of an accelerator, where the finite thickness of wall can be interpreted as a multi-layer chamber composed of metal and air. This finite thickness of the metal strongly influences the low frequency part of the impedance because the skin depth of the fields becomes much larger than the thickness of the chamber and the losses diminishe, which causes the real part of the impedance to go to zero and the imaginary part to a constant value as the frequency tends to zero, while the infinitely thick formula predicts that both impedances diverge to plus and minus infinity, respectively, when the same limit is taken. This low frequency of the resistive wall has a very narrow band nature and influences the long range wake fields, which are directly related to the coupled bunch resistive wall instability and the incoherent tune--shifts caused by chambers without circular symmetry, as explained by \citeonline{Chao2002}.
+
+    The multi-layer chambers problem was first tackled by \citeonline{Zotter1969}, who created an algorithm that solved the problem for an arbitrary number of layers of materials with arbitrary electric and magnetic properties, as long as they were linear, homogeneous and isotropic~\cite{Zotter1969,Zotter1969a,Zotter1970}. Even though his method was general enough to be applied to any azimuthal mode $m$ of the source, he only calculated the fields for the azimuthal modes $m=0$ and $m=1$\footnote{It is remarkable that his method goes beyond the rigid beam approximation, considering the source of the wake fields as an infinitely long beam oscilating in the transverse plane to calculate the mode $m=1$.}. This allowed him to derive explicit analytical formulas, under some approximations, for the longitudinal impedance of simplified configurations, such as a single wall with finite thickness, and a metallized ceramic chamber sorrounded by a \gls{pec}, where the author noticed the effectiveness of the coating in the inner wall was much higher than what is intuitively thought by comparing the thickness of the coating with the skin depth of the fields for a given frequency.
+
+    Later \citeonline{Piwinski1977} calculated the impedance generated by a gaussian bunch in a four-layer round chamber composed of metal, ceramic, ferrite and \gls{pec}, respectively, and confirmed what \citeonline{Zotter1970} had previously found, that for this type of multi-layer chambers, the fields will not penetrate through the coating if its thickness, $t$, satisfies
+    \begin{align}
+        t > \frac{\delta^2}{d}, \quad\text{with}\quad
+        \delta = \sqrt{\frac{2}{\mu_0\omega\sigma_c}}
+    \end{align}
+    where $\delta$ is the skin depth and $\sigma_c$ is the conductivity of the coating, $\mu_0$ is the magnetic permeability of vacuum, $\omega$ is the angular frequency of the fields and $d$ is the thickness of the ceramic. This means that, since generally $d\gg t$, the coating is efficient down to frequencies much lower than what is intuitively thought.
+
+    In a more recent work, \citeonline{Zotter2005} rederived his formalism for a point like charge, which was used by \citeonline{Mounet2009} to derive formulas for the electromagnetic fields and impedances for any azimuthal mode $m$, under the assumption of a rigid beam. Later, the same authors also derived expressions for a multi-layer flat chamber with possible different layers in the top and bottom plates~\cite{Mounet2010a} which allowed them to generalize the \citeauthor{Yokoya1993} factors~\cite{Mounet2010}. Then, in his PhD thesis, \citeonline{Mounet2012} developed a general method to compute Fourier Integrals which allowed him to compute the exact wake functions for short and long range using the impedances. All these developments in 2D impedance theory were implemented by \citeauthor{Mounet2011} in a code called ImpedanceWake2D that is available free-of-charge for the accelerators community. It is important to mention that other authors also solved the problem of multi-layer impedances using different methods, for example \citeonline{Hahn2008} and \citeonline{Al-Khateeb2005} also derived general methods valid for arbitrary energies and frequencies in round chambers and \citeonline{Burov2002,Burov2002a} also solved the problem under the assumption of long wavelengths, $c/\omega \ll a$, for round and flat geometries.
+
+    In summary, the theory of smooth multi-layer infinitely long round chambers is completely solved. In this work we implemented \citeauthor{Mounet2009} formulas to calculate the impedances for round chambers for the azimuthal modes $m=0$ and $m=1$ in Matlab\textregistered and Python3 and the wake functions were obtained using the code ImpedanceWake2D. In cases where the excentricity of the chambers are large, the \citeauthor{Yokoya1993} Factors were applied to the round chamber results.
+
+\subsection{Numeric Methods}\label{ssec:numeric_methods}
+
+    The numerical solvers can be grouped in two categories, the frequency domain codes, that are more indicated for calculation of resonant modes below the cutoff of the chamber, and the time domain solvers. While the first class computes the eigen-values and eigen-modes of the structures and the user must identify which ones can be excited by the beam passage, the latter solves \gls{maxeq} computing directly the fields that are generated by the beam. In this type of solvers the beam is modeled by a line density of charge, $\lambda$, that traverses the structure at the speed of light with a constant transverse displacement, $\vect{\rho}'_0$, and then, by discretization of the space-time in grids and approximations of the derivatives by linear operators on the fields in the vertices and faces of each grid, the electromagnetic field can be calculated up to the desired distance behind the source, so the integral defined in equation~\eqref{eq:momentum_gain} can be carried out. Depending on the methods employed in the discretization and the properties of the linear operators in each grid, different convergencies of the solutions in relation to the number and size of the grids can be achieved. There are several different methods and codes in the literature dedicated to this purpose. For a good review on numeric methods it is recommended \citeonline{Niedermayer2016} and its references.
+
+\subsubsection{Finite Line Density Issue}
+
+    This procedure employed to find the impedances has an intrinsic limitation: the line density used as source particle in simulations must allways spread over a few grids, which means a delta-like function can never be used and the wake functions, or wake potential, cannot be obtained. Instead, the effective wake potencial, given by
+    \begin{align}
+        V(\vect{\rho}'_0, \vect{\rho}, z) = \udefint{z'}{
+                \lambda(z') W(\vect{\rho}'_0,\vect{\rho},z-z')},
+    \end{align}
+    is the result of the simulations. In principle this equation could be inverted with the aid of the convolution theorem~\cite{wiki2017a}, where after the Fourier Transform on both sides of the equation one could get
+    \begin{align}\label{eq:deconvolution}
+        \fourier{W} = \frac{\fourier{V}}{\fourier{\lambda}}.
+    \end{align}
+    However, this procedure fails to give the values of the impedance at large frequencies due to two effects: the most obvious is the limitations imposed by the Nyquist theorem applied to the grid length of the simulation and the other comes from the fact that the line density Fourier transform has a tail at large frequencies that makes the denominator of equation~\eqref{eq:deconvolution} very small, which, in turn, increases the effect of the noise of the simulations for this frequency range. This limitation on the knowledge of the impedance for high frequencies makes it not possible to obtain the wake function accurately for short distances from the source.
+
+    The line density generally used for such calculations is the Gaussian distribution:
+    \begin{align}
+        \lambda(z) = \frac{1}{\sigma\sqrt{2\pi}}
+        \exp\left(-\frac{(z-n\sigma)^2}{2\sigma^2}\right)
+    \end{align}
+    due to its minimal duration-bandwidth product~\cite{Niedermayer2016}. A rule of thumb for these calculations is to consider the impedance only up to frequencies $\omega<=2\sigma/c$ to avoid strong influences of the numerical noises as discussed above, which is much more limiting that the Nyquist requirement, given that in simulations the bunch length must be at least five times larger than the grid size.
+
+    The authors \citeonline{Podobedov2013} found a way to overcome this problem, as long as the bunch length used in the simulation is short enough. However, a more practical approach comes from the fact that a real bunch also has a finite length and cannot excite wakes with arbritarely large frequencies, which means if the line density used to obtain the wakes is smaller than the smallest longitudinal structure in the bunch expected to generate any macroscopic significant effect we want to study, than the impedance extracted from that simulation is enough. Notice this method is intrinsically non-consistent, because we must know \emph{a priori} how the beam will behave to compute the impedance that will drive this behavior. However, the knowlegde gathered by the accelerator physics community in the last fifty years, through several experiments and confrontation of these results with simulated and analytic calculated beam dynamics, led to some rules of thumb that determines the maximum frequency can be expected to influence the dynamics of a bunch, given its natural bunch length.
+
+    This approach may be conflicting in some situations when the high frequency content of the wake is desired but the structure being analysed has strong resonant modes that take hundreads of meters behind the source to damp. Running a simulation with a short line density will drastically increase the time of the simulation because of the smaller mesh size. The solution for these cases is to run two simulations, one with a short bunch and small wake length and other with a longer bunch and long wake length, to characterize the resonant mode. Another approach would be to simulate the resonant modes with a frequency domain code.
+
+\subsubsection{ECHO Code}
+
+    There are some solvers in the literature that were developed specifically for rotationally symmetric geometries, such as ABCI~\cite{Chin1994a}, due to the high recurrency of this type of structure in accelerators. In this type of systems the wake potential in the ultra-relativistic approximation can be partially solved without the need of specifying the \gls{bcon}, only by the application of the Panofsky-Wenzel theorem and equation~\eqref{eq:potential_harmonic}. It can be shown~\cite{Stupakov2000a} that the most general form for the wake potential in such conditions is:
+    \begin{align}
+	       W(\rho_s, \rho_w, \theta, z) = \sum_{m=0}^\infty W_m(z) \rho_w^m\rho_s^m\cos(m\theta)
+    \end{align}
+    where $\rho = |\vect{\rho}|$ is the distance of the particles to the center of the chamber, $\theta$ is the angle between the the source and the witness particles and it was assumed the source particle is in the $\versor{x}$ direction. The wake functions can be obtained from the gradient of the wake potential. Expanding the wake functions in the leading order we notice
+    \begin{align}
+	    w_s(z) &\approx W'_0(z)\\
+	    \vect{w}_t(x_s, z) &\approx W_1\rho_s(\versor{r}\cos(\theta)-\versor{\theta}\sin(\theta)) =
+						W_1x\versor{x}
+    \end{align}
+    where we notice the force is in the same direction of the displacement of the source particle.
+
+    This partial solution of the wake potential allow us to solve each azimuthal component of the wake potential separatelly, which implies the numerical solution can be found for a single plane of the structure, for example, the plane $x-s$, or $y=0$. This bidimensional mesh drastically reduces the simulation time for such components and this class of codes are called 2D solvers. Among such codes we highlight ECHOz1 and ECHOz2~\cite{Zagorodnov2003, Zagorodnov2005, Zagorodnov2006a}, which are distributed free of charge by the author. While ECHOz1 calculates only the azimuthal mode $m=0$, ECHOz2 provides the longitudinal and transverse wake functions for an arbitrary mode $m$.  This code employes several solutions to common problems of numeric simulations that makes it the state of the art for impedances calculation. Among the advantages of this code we highlight:
+    \begin{itemize}
+	    \item zero dispersion in the longitudinal plane, which is a numeric effect that introduces a non-physical dependency of the phase velocity of the electromagnetic waves with their frequency, which deteriorates the precision of the wakes;
+	    \item fast convergence of the relation bunch size over grid length, $\sigma/h$: in other codes this ratio must be one order of magnitude larger than ECHO's for the results to have the same precision. In ECHO a ratio of \SI{5}{} already gives convergent results, which greatly reduces the simulation time for a given frequency requirement on the knowlegde of the impedance;
+	    \item moving mesh: instead of discretize the whole structure, the grids move with the source and this region extends behind it only down to the desired length of the wake. This approach helps reducing the simulation time in cases where the structure is larger than the wake length and is applied in other codes too, such as GdfidL;
+	    \item indirect integration: for the wake calculation, the infinite integral in the longitudinal direction can be substituted by finite integrals in closed contorns that spans the structure longitudinally. The first method proposed by~\citeonline{Weiland1983} was valid only for cavity-like structures, but then it was generalized for any rotationally symmetric structure by~\citeonline{Napoly1993} and finally generalized for any 3D structure by~\citeonline{Zagorodnov2006a}. This procedure greatly reduces the computational time because otherwise it would be necessary to propagate the beam for a very long distance only for the integral to converge. Besides, it improves the precision of the results, because the long integral in the direct method suffers from numerical errors accumulation.
+    \end{itemize}
+
+    There is another code provided by the same author, ECHOzR, that calculates the wakes for structures with rectangular cross sections~\cite{Zagorodnov2015}. The conditions imposed on the geometry are that the lateral walls are composed of infinite vertical and perfectly conducting parallel plates displaced one from another by a distance $w$ and that the horizontal walls that define the vertical gap has an arbitrary longitudinal profile and electrical conductivity. Employing the conditions of harmonicity of the wake potencial on the transverse coordinates of the source and witness particles, presented in equations~\eqref{eq:potential_harmonic} and~\eqref{eq:potential_harmonic_source}, the author solves partially the wake potential by expanding it in trigonometric functions that automatically satisfy the \gls{bcon} in the vertical plates. This way, similarly to the rotationally symmetric case, the numerical computation is reduced to a bidimensional problem that is solved independently for each term of the expansion. All the advantages presented for ECHOz2 regarding the precision of the results and simulation time also applies for ECHOzR. The main difference between the two codes is that for the recangular code significant post-processing of the results is needed, because the lowest order longitudinal and transverse wake functions are an infinite sum of the modes of the expansion. However, close to center of the chamber, convergence can be achieved by summation of approximately the first ten modes. In Appendix~\ref{app:wake_from_echozr} we discuss on the post processing necessary to retrieve the wakes from the simulation data.
+
+    There is also a generic version of the ECHO code, called ECHO3D, that can be used to compute the wakes for an arbitrary geometry. This code has all the advantages of the bidimensional codes, but lacks a key feature: it is not parallelized. For 3D structures this limitation imposes great restrictions on the type of simulation that can be performed, due to the extremelly large computational time.
+
+\subsubsection{GdfidL Code}
+
+    When the components of the vacuum chamber do not respect the symmetries required by the 2D solvers or cannot be approximated by one that does, 3D codes must be used. They are also used when a detailed simulation is needed to compute not only the wake potential but also the distribution of the electromagnetic field density in the structure, to calculate heating effects and also the transmission of the fields through ports. The most well-known platforms for this type of simulations are GdfidL~\cite{Bruns1997, Bruns2017} and CST Particle Studio~\cite{CST2017}, being the first the code used for Sirius components design and simulation. In Appendix~\ref{app:wake_from_gdfidl} we discuss on the post-processing of GdfidL computation data.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Collective Effects}\label{cap:collective_effects}
 
-    In the previous chapter the mechanism of interation between particles was modelled and formulas for the momentum change of an arbitrary particle due to the action of all the other particles in the beam were derived. In this chapter we will try to include these interactions in the dynamic model of the particles and analyze how the beam will behave as whole.
+    In the previous chapter the mechanism of interation between particles was modeled and formulas for the momentum change of an arbitrary particle due to the action of all the other particles in the beam were derived. In this chapter we will try to include these interactions in the dynamic model of the particles and analyze how the beam will behave as whole.
 
 \section{Sum of the Wakes}\label{sec:sum_of_wakes}
 
@@ -1317,9 +1327,9 @@
 \subsection{Strong Head-tail instability}
 
 
-\chapter{Components Impedance Modelling}\label{cap:impedance_modelling}
+\chapter{Components Impedance Modeling}\label{cap:impedance_modeling}
 
-    Below we will discuss on the impedance modelling of the main components of the Sirius storage ring.
+    Below we will discuss on the impedance modeling of the main components of the Sirius storage ring.
 
 \section{Standard Chamber}
 
@@ -1433,7 +1443,7 @@
 
 \section{Kicker Chambers}
 
-    The Sirius storage ring will have two kicker magnets, one standard dipole kicker and one non-linear kicker. While the first will be used for on-axis injection in the commissioning of the light source and as a pinger magnet for machine studies, the second will be used for injection in top-up mode~\cite{Liu2016a}. Even though the topology of both magnets is very different, their vacuum chamber will be identical: a ceramic chamber, coated with \SI{10}{\micro\meter} of Titanium, which means at high frequencies their impedance will be identical too. Below we describe the considerations on the modelling of the impedance of the dipole kicker magnet and than extrapolate to the case of the non-linear kicker. Table~\ref{tab:kicker_paramters}
+    The Sirius storage ring will have two kicker magnets, one standard dipole kicker and one non-linear kicker. While the first will be used for on-axis injection in the commissioning of the light source and as a pinger magnet for machine studies, the second will be used for injection in top-up mode~\cite{Liu2016a}. Even though the topology of both magnets is very different, their vacuum chamber will be identical: a ceramic chamber, coated with \SI{10}{\micro\meter} of Titanium, which means at high frequencies their impedance will be identical too. Below we describe the considerations on the modeling of the impedance of the dipole kicker magnet and than extrapolate to the case of the non-linear kicker. Table~\ref{tab:kicker_paramters}
     \begin{table}[t]
         \centering
         \caption{Kicker main parameters}
@@ -1542,7 +1552,7 @@
 
     The Fast orbit correctors of the Sirius storage ring will operate at a update rate of \SI{100}{\kilo\hertz} in the \gls{fofb}~\cite{Tavares2013}, requiring special vacuum chambers in order for such high frequency fields to penetrate. The solution adopted was to brase small and thin stainless steel chambers in the standard copper chamber of the ring. The reduced conductance, only \SI{1}{\mega\siemens}, of this material provides a skin depth of \SI{1.6}{\milli\meter} at \SI{100}{\kilo\hertz}, which is much larger than the thickness of the chamber, which is \SI{0.1}{\milli\meter}, and do not damp or distort significantly the external field of the magnet.
 
-    The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi-layer chambers used so far. This question is answered by~\citeonline{Shobuda2009}, who calculated the impedance of a finite resistive insert of finite thickness on an otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for an insert whose length is smaller than its radius, if the thickness is of the order of \SI{100}{\micro\meter}, the impedance is already equal to the infinitely long chamber counterpart. This result shows that the use of the multi-layer formulas employed so far for the other components are still valid for the fast correctors chambers. Considering this, the relevant parameters used for modelling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
+    The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi-layer chambers used so far. This question is answered by~\citeonline{Shobuda2009}, who calculated the impedance of a finite resistive insert of finite thickness on an otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for an insert whose length is smaller than its radius, if the thickness is of the order of \SI{100}{\micro\meter}, the impedance is already equal to the infinitely long chamber counterpart. This result shows that the use of the multi-layer formulas employed so far for the other components are still valid for the fast correctors chambers. Considering this, the relevant parameters used for modeling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
     \begin{table}[b]
         \centering
         \caption{Kicker main parameters}
@@ -1562,10 +1572,10 @@
 
 \section{Undulators Chambers}
 
-    For the first phase of operation of the Sirius light source it is predicted the installation of seven \gls{ids} on the storage ring, with four different types of devices: two Delta-type undulators~\cite{Temnykh2008} and two \gls{apu}~\cite{Carr1991}. The design details as well as first experiences with the prototype measuments of the Sirius Delta undulator are described by~\citeonline{Vilela2017} and the information regarding the radiation parameters of such devices can be found elsewhere~\cite{Sirius2013}. All the \gls{ids} will be out of vacuum and their vacuum chamber will be made of copper and coated with \gls{neg}. Regarding the impedance issues, on the one hand this is good because it simplifies the design of the tapers, allowing further optimization of its parameters for impedance reduction, but on the other hand the resistive wall impedance will always be there, regardless of the existence or not of the additional damping provided by radiation emittion\footnote{One important remark is that both types of undulators that will be used in Sirius does not have the degree of freedom to change their gap. This way, when they are not being used there is no way to "turn off" the magnetic field they generate. What is usually done is to change the phases among the Halbach cassets~\cite{Halbach1985} in such a way that the field lays down in the longitudinal direction, so the electron beam stops radiating.}.
+    For the first phase of operation of the Sirius light source it is planned the installation of seven \gls{ids} on the storage ring, with four different types of devices: two Delta-type undulators~\cite{Temnykh2008} and two \gls{apu}~\cite{Carr1991}. The design details as well as first experiences with the prototype measuments of the Sirius Delta undulator are described by~\citeonline{Vilela2017} and the information regarding the radiation parameters of such devices can be found elsewhere~\cite{Sirius2013}. All the \gls{ids} will be out of vacuum and their vacuum chamber will be made of copper and coated with \gls{neg}. Regarding the impedance issues, on the one hand this is good because it simplifies the design of the tapers, allowing further optimization of its parameters for impedance reduction, but on the other hand the resistive wall impedance will always be there, regardless of the existence or not of the additional damping provided by radiation emittion\footnote{One important remark is that both types of undulators that will be used in Sirius does not have the degree of freedom to change their gap. This way, when they are not being used there is no way to "turn off" the magnetic field they generate. What is usually done is to change the phases among the Halbach cassets~\cite{Halbach1985} in such a way that the field lays down in the longitudinal direction, so the electron beam stops radiating.}.
 
     Table~\ref{tab:undulators_parameters}
-    \begin{table}[t]
+    \begin{table}[b]
         \centering
         \caption{Undulators parameters}
         \label{tab:undulators_parameters}
@@ -1578,34 +1588,46 @@
             Quant. in Phase 2 &   2       &   3        &   6       &   6       & \\
             Straight type     & low--beta & high--beta & low--beta & low--beta & \\
             Full Magnetic Gap &   5       &   6.2      &   7.0     &  13.8     &  \si{\milli\meter} \\
-            Chamber inner Radius&   2.4   &   3.0      &   2.5     &  5.6      & \si{\milli\meter} \\
-            Chamber thickness &   0.1     &   0.1      &   0.8     &  1.0      & \si{\milli\meter} \\
-            Chamber Geometry  &   flat    &   flat     &   round   &  round    & \\
+            Chamber thickness &   0.10    &   0.10     &   0.80    &  1.00     & \si{\milli\meter} \\
+            Hor. Beam Stay Clear&   24.0   &   24.0     &   8.2     &  11.2     & \si{\milli\meter} \\
+            Hor. Beam Stay Clear&   4.8    &   6.0     &   5.0    &  8.0     & \si{\milli\meter} \\
+            Transition factor ($t$)&  \mc{4}{c}{20}                             & \\
             \bottomrule
         \end{tabular}
     \end{table}
-    shows the main impedance related parameters of each device type. Note that while the \gls{apu} devices have chambers with a flat geometry, the Delta undulators have a round chamber. It is The close to round shape of the Delta chambers is a good feature, due to the reduced detuning impedance it will generate, which has demonstrated to complicate the operation of machines due to the incoherent tune shift in multibunch configurations~\cite{Nagaoka2001}. Even though the \gls{ids} for the seconde phase of operation are not defined yet, it was extrapolated that all the straight sections available for \gls{id} installation will be filled with the same devices of phase one.
+    shows the main impedance related parameters of each device type. These devices have two main source of impedance that will be modeled separately: one comes from the two tapers at both ends of the device and another from the resistive wall. The modeling of the tapers was performed with the whole collimator in the simulation, consideding perfectly conducting walls and linear transitions with factor $t$ equals to 20\footnote{Here we recall the notation defined in subsection~\ref{ssec:tapered_transitions}.}, which means the angle of the taper is \SI{2.86}{\degree} (\SI{50}{\milli\radian}), much lower than the rule of thumb of \SI{10}{\degree}. The \gls{apu} chambers were calculated with ECHOzR~\cite{Zagorodnov2015}, being modeled as flat collimators starting from a square chamber of sides equal to the radius of the real chamber and final gap equal to the Vertical \gls{bsc} defined in Table~\ref{tab:undulators_parameters}. The Delta--type undulators are a little more complicated to model, because their final chamber geometry is an ellipse with the major and minor axes given by the horizontal and vertical~\gls{bsc} presented in Table~\ref{tab:undulators_parameters}, which invalidates the consideration of a flat geometry, due to the non--negligible horizontal tapering. We delt with this problem by simulating a round transition with ECHOz2~\cite{Zagorodnov2005} and applying numerical factors given by~\citeonline[Figures 12a, 13 and 14]{Podobedov2007}, to the impedances. Even though their comparisons are valid for tapers with transverse sections composed by confocal ellipes, all the analytical formulas analysed in subsection~\ref{ssec:tapered_transitions} suggests that the parts of the tapers with lower gaps contributes more to the total impedance, which corroborates with this approach. The form factos used here were $(1,1.3,0.5,-0.4)$ for the longitudinal, vertical dipole, horizontal dipole and horizontal quadrupole impedances, respectively.
 
-    \begin{figure}
+    Figure~\ref{fig:undu_trans}
+    \begin{figure}[b]
         \centering
         \includegraphics[width=\textwidth]{undu_trans.png}
         \caption{Effect permeability wall impedance}
         \label{fig:undu_trans}
     \end{figure}
+    shows the impedances of the four \gls{id} types before the application of the form factors on the Delta--type undulators. Also shown is the low frequency analytic expressions discussed in subsection~\ref{ssec:tapered_transitions}. Note that in general their quantitative agreement with the numerical simulations is not very good, but the qualitative comparisons among all the types of undulators, mainly the differences between the round and flat geometry, are well predicted by the theory. In the case of the longitudinal and horizontal impedances of flat geometries this quantitative difference between theory and numerical simulations could be explained by the fact that the second condition imposed on the limits of validity of the expressions ($h\ll w$) is not met in these cases, because the tapers start with a square geometry. Besides the approximated formulas valid in this limit,~\citeonline{Stupakov2007a} provides expressions for any ratio $h/w$ and the form factors presented there could account for these differeces. In the case of the vertical dipole impedance the analytic formula overestimates the impedance by a factor larger than four (they are outside the upper limit of the graph) and disagreement is so large that even the form factors could not account for the difference observed. Another interesting aspect of the numerical calculated vertical dipole impedance is the presence of the narrow--band trapped mode studied by~\citeonline{Blednykh2006} for the APU19. Considering these mode depends strongly on the width of the chamber and the fact that these devices were not desined yet,  the complete effect of the this peak was not studied in details, however, it was verified that it does not induce transverse coupled--bunch oscillations.
 
-    \begin{figure}
+    Note that while the \gls{apu} devices have chambers with a flat geometry, the Delta undulators have a round chamber. The close to round shape of the Delta chambers is a good feature, due to the reduced detuning impedance it will generate, which has demonstrated to influence the operation of machines due to the incoherent tune shift in multibunch configurations, as showed by \citeonline{Nagaoka2001}. Even though the \gls{ids} for the seconde phase of operation are not defined yet, it was extrapolated that all the straight sections available for \gls{id} installation will be filled with the same devices of phase one.
+
+    \begin{figure}[t]
         \centering
-        \includegraphics[width=\textwidth]{undu_wall.png}
+        \begin{subfigure}[c]{0.65\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{undu_wall.png}
+            \caption{High frequency impedance}
+            \label{fig:undu_wall_highfreq}
+        \end{subfigure}
+        \begin{subfigure}[c]{0.34\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{undu_wall_lowfreq.png}
+            \caption{Low Frequency}
+            \label{fig:undu_wall_lowfreq}
+        \end{subfigure}
         \caption{Effect permeability wall impedance}
         \label{fig:undu_wall}
     \end{figure}
 
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{undu_wall_lowfreq.png}
-        \caption{Effect permeability wall impedance}
-        \label{fig:undu_wall_lowfreq}
-    \end{figure}
+
+
 
     Figure~\ref{fig:undulators_impedance} shows the vertical dipole and longitudinal wall impedance of the four types of undulators. They were calculated using the parameters of Table~\ref{tab:sirius_undulators}, where the Yokoya factors were applied to the \gls{apu} chambers. These devices will also have quadrupolar impedances that, in this model, will be half of the value of the vertical dipole. Notice the transverse impedance is dominated by the \gls{apu}-19 chamber, while the largest contribution to the longitudinal impedance comes from the Delta-52. This difference comes from the fact that the transverse impedance is more sensitive to the inner radius of the chamber, scaling with $1/r^3$, while the longitudinal impedance goes with $1/r$ and the large length of the Delta-52 compensates for its larger radius.
 
@@ -1621,8 +1643,6 @@
 
 
 \section{RF Cavity taper}
-
-\section{Undulators Tapers}
 
 \section{3D-Calculations}
 \subsection{BPMs}
@@ -2297,7 +2317,7 @@
 
 \chapter{Passive Landau cavity simulation}\label{eq:passive_landau_cavity}
 
-    Assuming the wake function of the main mode of the Landau cavity can be modelled by the longitudinal resonator impedance with parameters $\omega_R$, $R$ and $Q$:
+    Assuming the wake function of the main mode of the Landau cavity can be modeled by the longitudinal resonator impedance with parameters $\omega_R$, $R$ and $Q$:
     \begin{align}\label{eq:longitudinal_resonator_wake}
         W'_0(z) = 2\alpha Re^{-\alpha z/c}\left(\cos\left(\frac{\bar{\omega}_Rz}{c}\right)-
                                 \frac{\alpha}{\bar{\omega}_R}
