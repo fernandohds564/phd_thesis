@@ -1214,7 +1214,7 @@
     \end{align}
     where $\funcof{\beta_u}_i$ is the value of the betatron function at the position of the wake source. However, as seen in Appendix~\ref{app:causality}, depending on the transverse sizes of the chamber the fields can only catch up with the witness at distances of the order of centimeters away from the point where the fields were generated. For \gls{4gls}, where the focusing is very strong, such a distance is enough for the betatron function to have changed considerably. The effect of this consideration can be a study topic for future studies.
 
-\section{Energy Loss}
+\section{Energy Loss}\label{sec:energy_loss}
 
     One of the most important effects is the energy loss by the beam. It can be computed considering only the leading order term in the momentum change expansion
     \begin{align}
@@ -1227,7 +1227,7 @@
 	  	\Delta E\funcof{z} = -eI_bT_0V_0(z) = -eI_bT_0\frac{M\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z_\parallel(pM\omega_0)e^{-ipM\omega_0 z/c}.
     \end{align}
     where $I_b=Q_b/T_0=N_be/T_0$ is the current per bunch, $T_0$ is the revoluton time, $N$ is the number of particles per bunch and $e$ is the absolute value of the elemetary charge of the electron. The average total energy lost by one bunch is given by
-    \begin{align}
+    \begin{align}\label{eq:energy_loss_bunch}
         \average[b]{\Delta E} = N_b\infint{z}{\lambda\funcof{z}\Delta E\funcof{z}} = -\funcof{I_bT_0}^2\overbrace{\frac{M\omega_0}{2\pi} \sum_{p=-\infty}^\infty |\fourier{\lambda}(pM\omega_0)|^2\real{Z_\parallel(pM\omega_0)}}^{\kappa_\parallel}
     \end{align}
     where $\kappa_\parallel$ is called the longitudinal loss factor, $|\fourier{\lambda\funcof{\omega}}|^2 = \fourier{\lambda}\funcof{\omega}\fourier{\lambda}^*\funcof{\omega}$ must be an even function of the frequency, given that $\lambda$ is real. Notice that only the real part of the impedance contributes to the energy loss, because the imaginary part is an odd function of the frequency. The average energy loss per particle can be defined as
@@ -1604,11 +1604,10 @@
         \caption{Effect permeability wall impedance}
         \label{fig:undu_trans}
     \end{figure}
-    shows the impedances of the four \gls{id} types before the application of the form factors on the Delta--type undulators. Also shown is the low frequency analytic expressions discussed in subsection~\ref{ssec:tapered_transitions}. Note that in general their quantitative agreement with the numerical simulations is not very good, but the qualitative comparisons among all the types of undulators, mainly the differences between the round and flat geometry, are well predicted by the theory. In the case of the longitudinal and horizontal impedances of flat geometries this quantitative difference between theory and numerical simulations could be explained by the fact that the second condition imposed on the limits of validity of the expressions ($h\ll w$) is not met in these cases, because the tapers start with a square geometry. Besides the approximated formulas valid in this limit,~\citeonline{Stupakov2007a} provides expressions for any ratio $h/w$ and the form factors presented there could account for these differeces. In the case of the vertical dipole impedance the analytic formula overestimates the impedance by a factor larger than four (they are outside the upper limit of the graph) and disagreement is so large that even the form factors could not account for the difference observed. Another interesting aspect of the numerical calculated vertical dipole impedance is the presence of the narrow--band trapped mode studied by~\citeonline{Blednykh2006} for the APU19. Considering these mode depends strongly on the width of the chamber and the fact that these devices were not desined yet,  the complete effect of the this peak was not studied in details, however, it was verified that it does not induce transverse coupled--bunch oscillations.
+    shows the impedances of the four \gls{id} types before the application of the form factors on the Delta--type undulators. Also shown is the low frequency analytic expressions discussed in subsection~\ref{ssec:tapered_transitions}. Note that in general their quantitative agreement with the numerical simulations is not very good, but the qualitative comparisons among all the types of undulators, mainly the differences between the round and flat geometry, are well predicted by the theory. In the case of the longitudinal and horizontal impedances of flat geometries this quantitative difference between theory and numerical simulations could be explained by the fact that the second condition imposed on the limits of validity of the expressions ($h\ll w$) is not met in these cases, because the tapers start with a square geometry. Besides the approximated formulas valid in this limit,~\citeonline{Stupakov2007a} provides expressions for any ratio $h/w$ and the form factors presented there could account for these differeces. In the case of the vertical dipole impedance the analytic formula overestimates the impedance by a factor larger than four (they are above the upper limit of the graphic and are not shown), which is so large that even the form factors could not account for the difference observed. Another interesting aspect of the numerical calculated vertical dipole impedance is the presence of the narrow--band trapped mode studied by~\citeonline{Blednykh2006} for the APU19. Considering these mode depends strongly on the width of the chamber and the fact that these devices were not desined yet,  the complete effect of the this peak was not studied in details, however, it was verified that it does not induce transverse coupled--bunch oscillations.
 
-    Note that while the \gls{apu} devices have chambers with a flat geometry, the Delta undulators have a round chamber. The close to round shape of the Delta chambers is a good feature, due to the reduced detuning impedance it will generate, which has demonstrated to influence the operation of machines due to the incoherent tune shift in multibunch configurations, as showed by \citeonline{Nagaoka2001}. Even though the \gls{ids} for the seconde phase of operation are not defined yet, it was extrapolated that all the straight sections available for \gls{id} installation will be filled with the same devices of phase one.
-
-    \begin{figure}[t]
+    Figure~\ref{fig:undu_wall}
+    \begin{figure}[b]
         \centering
         \begin{subfigure}[c]{0.65\textwidth}
             \centering
@@ -1625,11 +1624,22 @@
         \caption{Effect permeability wall impedance}
         \label{fig:undu_wall}
     \end{figure}
+    shows the vertical dipole and longitudinal wall impedance of the four types of undulators. They were calculated using the multi--layer formulas for the round chambers with posterior application of the Yokoya factors. The layers used in calculation were: \gls{neg}, Copper, air, high $\mu$--material. The last layer was added in an attempt to consider the effect of the magnet blocks of the \gls{ids} on the zero frequency impedance, which can be noted in Figure~\ref{fig:undu_wall_lowfreq}.~\citeonline{Blednykh2016} created a more sofisticated model, where the authors considered that a fraction of the suface of the pole of the \gls{ids} were composed by the $\mu$--materials and the other part by saturated ferromagnet blocks, with $\mu\approx1$. With this impedance they successfully explained the incoherent tune--shifts caused by these devices in LNLS2. Once the detailed model of the \gls{ids} are available we intent to improve their impedance model in a similar way.
 
-
-
-
-    Figure~\ref{fig:undulators_impedance} shows the vertical dipole and longitudinal wall impedance of the four types of undulators. They were calculated using the parameters of Table~\ref{tab:sirius_undulators}, where the Yokoya factors were applied to the \gls{apu} chambers. These devices will also have quadrupolar impedances that, in this model, will be half of the value of the vertical dipole. Notice the transverse impedance is dominated by the \gls{apu}-19 chamber, while the largest contribution to the longitudinal impedance comes from the Delta-52. This difference comes from the fact that the transverse impedance is more sensitive to the inner radius of the chamber, scaling with $1/r^3$, while the longitudinal impedance goes with $1/r$ and the large length of the Delta-52 compensates for its larger radius.
+    One important parameter to consider in the design of the undulators is the power deposited in the wall per unit of area by the beam due to wake fields. To calculate such quantity we recall the derivations made in section~\ref{sec:energy_loss} and start from equation~\ref{eq:energy_loss_bunch} which computes the total energy lost by the bunch due to the undulator's impedance in each turn, assuming uniform filling. Multiplying that equation by the number of bunches and dividing by the revolution time we get the power loss of the whole beam,
+    \begin{align}
+        P_w = \frac{\average[T]{\Delta E}}{T_0} = \frac{M}{T_0}\average[b]{\Delta E} =
+        T_0\frac{I_0^2}{M}\kappa_\parallel
+    \end{align}
+    where $I_0=MI_b$ is the total current stored. If the chamber were round, the power per unit of area, $D_s$ could be get simply by
+    \begin{align}
+        \funcof{D_s}_\text{circle} = \frac{P_w}{2\pi b L}
+    \end{align}
+    where $L$ and $b$ are the length and radius of the chamber. However, as the chamber is elliptical one needs to know the distribution of the intensity of the longitudinal component of the electric field on the surface of the chamber.~\citeonline{Piwinski1992} solved such a problem for two parallel plates and~\citeonline{Nagaoka2006} used his results to derive a formula that relates the power density of the parallel plates at a distance $b$ from the particle with the one from the round chamber,
+    \begin{align}
+        D_s(x) = \frac{\pi^2}{4\cosh^2\funcof{\frac{\pi x}{2b}}}\funcof{D_s}_\text{circle},
+    \end{align}
+    where $x$ is the transverse position on the plate from the point of minimum distance between the particle and the plate. This function has a maximum value of \SI{2.5}{} at $x=0$ and decays to negligible values above $x\approx4b$. Even though the undulators chambers are not flat, the estimation of the peak density using this formula is a worst case scenario for the real density.
 
 \section{BC Chamber}
 
