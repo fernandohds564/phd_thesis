@@ -1247,6 +1247,21 @@
     \end{align}
     instead, where $z_0$ is the new synchronous position, measured in relation to the zero current one.
 
+    Another important parameter to consider in the design of several components of the vacuum chamber is the power deposited in the wall per unit of area by the beam due to wake fields. To calculate such quantity we need the power loss of the whole beam, which is obtained from equation~\eqref{eq:energy_loss_bunch} by multiplying it by the number of bunches and dividing by the revolution time of the ring,
+    \begin{align}\label{eq:total_power}
+        P_w = \frac{\average[T]{\Delta E}}{T_0} = \frac{M}{T_0}\average[b]{\Delta E} =
+        T_0\frac{I_0^2}{M}\kappa_\parallel
+    \end{align}
+    where $I_0=MI_b$ is the total current stored. Now, to compute the power density one needs to know the distribution of the tangential component of the electric field on the walls of the geometry. For complex geometries simulated in numerical solvers, this is done automatically by the codes, through the computation of the tangential magnetic field and application of the Leontovich boundary conditions~\cite[pp. 280]{Landau1961} to get the tangential electric field. When the calculation is performed analytically, not only the impedance, but also the fields in all regions of space must be known. For the round chamber, the symmetry helps and the power per unit of area, $D_s$, can be get simply by
+    \begin{align}\label{eq:power_density_circle}
+        \funcof{D_s}_\text{circle} = \frac{P_w}{2\pi b L}
+    \end{align}
+    where $L$ and $b$ are the length and radius of the chamber. For flat chambers, which can be approximated by two infinitely large parallel plates, this problem was solved by~\citeonline{Piwinski1992}, whose results were used by~\citeonline{Nagaoka2006} to derive a formula that relates the power density of the parallel plates, at a distance $b$ from the particle, with the one from the round chamber,
+    \begin{align}\label{eq:power_density_flat}
+        D_s(x) = \frac{\pi^2}{4\cosh^2\funcof{\frac{\pi x}{2b}}}\funcof{D_s}_\text{circle},
+    \end{align}
+    where $x$ is the transverse position on the plate from the point of minimum distance between the particle and the plate. This function has a maximum value of \SI{2.5}{} at $x=0$ and decays to negligible values above $x\approx4b$.
+
 \section{Current dependent Hamiltonian}
 
     The usual approach to calculate the effects of the wakes on the beam is by introducing the total wake potential of the machine on the one turn averaged Hamiltonian of the ring~\cite{Berg1996,Lindberg2016}. This is justified by the fact that the wake forces are weak and its effects on the beam are very slow, in such a way that the evolution of its parameters are counted in a turn by turn basis. In section~\ref{sec:sum_of_wakes} it was defined a method to sum all the wakes on the machine and the average transverse Hamiltonian was defined in section~\ref{sec:chromaticity}, especifically in equation~\eqref{eq:average_transverse_hamiltonian}, and the average longitudinal Hamiltonian was defined in subsection~\ref{ssec:potential_well}, by equation~\eqref{eq:longitudinal_hamiltonian}.
@@ -1522,22 +1537,22 @@
         \item[No Coating (NC):] To show the effect of the Titanium coating, this layer was removed from the analysis of the worst case model: vacuum, ceramic, ferrite, air and Copper.
     \end{description}
     Figure~\ref{fig:uncoupled_flux_impedance}
-    \begin{figure}[t]
+    \begin{figure}[b!]
         \centering
         \includegraphics[width=\textwidth]{kicker_comp_models.png}
         \caption{Effect permeability wall impedance}
         \label{fig:uncoupled_flux_impedance}
     \end{figure}
-    shows the transverse impedances of the four models analysed. Note that the W curve matches the low frequency limit of the NC case, but at approximately \SI{1}{\mega\hertz} the coating starts to affect the impedance, damping all of them to very low values. Besides, notice that the impedance predicted by the tsutsui model is even lower than the B case, and that the relations between the three of them cannot be described by the constant \citeonline{Yokoya1993} factors, a property already pointed out by \citeonline{Salvant2010a}. Considering that this component have a stronger influence on the total budget due to the low frequency limit of the impedance, the model adopted for the transverse plane was the W case, multiplied by constant factors that matches its impedance to the tsutsui model.
+    shows the transverse impedances of the four models analysed. Note that the W curve matches the low frequency limit of the NC case, but at approximately \SI{1}{\mega\hertz} the coating starts to affect the impedance, damping all of them to very low values. Besides, notice that the impedance predicted by the Tsutsui model is even lower than the B case, and that the relations between the three of them cannot be described by the constant \citeonline{Yokoya1993} factors, a property already pointed out by \citeonline{Salvant2010a}. Considering that this component have a stronger influence on the total budget due to the low frequency limit of the impedance, the model adopted for the transverse plane was the W case, multiplied by constant factors that matches its impedance to the tsutsui model.
 
-    For the longitudinal plane it is well--known from the works of \citeonline{Zotter1969} and \citeonline{Piwinski1977} that the coating influences the impedance at much lower frequencies than the skin depth of the metal. For this reason we varied the thickness of the Titanium layer in our simulations to check if it could be thinner than the nominal value, as shown in Figure~\ref{fig:kicker_comp_models_long}.
-    \begin{figure}[t]
+    For the longitudinal plane it is well--known from the works of \citeonline{Zotter1969} and \citeonline{Piwinski1977} that the coating influences the impedance at much lower frequencies than the skin depth of the metal. For this reason we varied the thickness of the Titanium layer in our simulations to check if it could be thinner than the nominal value. The results are shown in Figure~\ref{fig:kicker_comp_models_long},
+    \begin{figure}[b]
         \centering
-        \includegraphics[width=0.8\textwidth]{kicker_comp_models_long.png}
+        \includegraphics[width=\textwidth]{kicker_comp_models_long.png}
         \caption{Effect permeability wall impedance}
         \label{fig:kicker_comp_models_long}
     \end{figure}
-    Note that coatings as thin as \SI{2}{\micro\meter} would not compromise the impedance of this element in neither of the planes.
+    where we note that indeed the coating is effective since very low frequencies, because of the difference from the result without coating. For almost all the relevant frequency range, the longitudinal impedance is constant, starting increasing only at large frequencies, because in this limit it is dominated by skin--depth effect on the Titanium and standard resistive wall characteristics apply. However, note that the baseline of the impedance is almost inversely proportional to the thickness of the coating. This effect is seen in the behavior of the loss factor also shown in Figure~\ref{fig:kicker_comp_models_long}, which can be used to calculate the power density on the wall through equations~\eqref{eq:total_power},~\eqref{eq:power_density_circle}, and~\eqref{eq:power_density_flat}. Note that a reduction of the coating thickness to~\SI{4}{\micro\meter} would not impact the impedance and heating issues. In the transverse plane, the effect of the coating reduction is only to cause a linear shift on the frequency where the impedance is damped, which does not affect the effect on the beam, as can be seen by the quadrupolar kick factor.
 
     Based on this study, we defined the impedance of the non-linear kicker as a round multi--layer chamber with: vacuum, Titanium, ceramic, air, FeSi and Copper. Besides the substitution of the ferrite with the FeSi as the magnet core, this component does not have the parallel copper plates to induce a dipole kick on the beam, creating a much more complex transverse field dependence using copper wires displaced transversely. Figure~\ref{fig:non_linear_kicker}
     \begin{figure}[t]
@@ -1626,20 +1641,7 @@
     \end{figure}
     shows the vertical dipole and longitudinal wall impedance of the four types of undulators. They were calculated using the multi--layer formulas for the round chambers with posterior application of the Yokoya factors. The layers used in calculation were: \gls{neg}, Copper, air, high $\mu$--material. The last layer was added in an attempt to consider the effect of the magnet blocks of the \gls{ids} on the zero frequency impedance, which can be noted in Figure~\ref{fig:undu_wall_lowfreq}.~\citeonline{Blednykh2016} created a more sofisticated model, where the authors considered that a fraction of the suface of the pole of the \gls{ids} were composed by the $\mu$--materials and the other part by saturated ferromagnet blocks, with $\mu\approx1$. With this impedance they successfully explained the incoherent tune--shifts caused by these devices in LNLS2. Once the detailed model of the \gls{ids} are available we intent to improve their impedance model in a similar way.
 
-    One important parameter to consider in the design of the undulators is the power deposited in the wall per unit of area by the beam due to wake fields. To calculate such quantity we recall the derivations made in section~\ref{sec:energy_loss} and start from equation~\ref{eq:energy_loss_bunch} which computes the total energy lost by the bunch due to the undulator's impedance in each turn, assuming uniform filling. Multiplying that equation by the number of bunches and dividing by the revolution time we get the power loss of the whole beam,
-    \begin{align}
-        P_w = \frac{\average[T]{\Delta E}}{T_0} = \frac{M}{T_0}\average[b]{\Delta E} =
-        T_0\frac{I_0^2}{M}\kappa_\parallel
-    \end{align}
-    where $I_0=MI_b$ is the total current stored. If the chamber were round, the power per unit of area, $D_s$ could be get simply by
-    \begin{align}
-        \funcof{D_s}_\text{circle} = \frac{P_w}{2\pi b L}
-    \end{align}
-    where $L$ and $b$ are the length and radius of the chamber. However, as the chamber is elliptical one needs to know the distribution of the intensity of the longitudinal component of the electric field on the surface of the chamber.~\citeonline{Piwinski1992} solved such a problem for two parallel plates and~\citeonline{Nagaoka2006} used his results to derive a formula that relates the power density of the parallel plates at a distance $b$ from the particle with the one from the round chamber,
-    \begin{align}
-        D_s(x) = \frac{\pi^2}{4\cosh^2\funcof{\frac{\pi x}{2b}}}\funcof{D_s}_\text{circle},
-    \end{align}
-    where $x$ is the transverse position on the plate from the point of minimum distance between the particle and the plate. This function has a maximum value of \SI{2.5}{} at $x=0$ and decays to negligible values above $x\approx4b$. Even though the undulators chambers are not flat, the estimation of the peak density using this formula is a worst case scenario for the real density.
+    For the undulators the chamber heating is also an important aspect of the design to be considered, because it is difficult insert cooling systems in devices with such small gap, mainly in the Delta--type undulators, which have small appertures in both transverse directions. To estimate the power density for these devices we used the flat chamber approximation, described in equation~\eqref{eq:power_density_flat}. Even though the undulators chambers are not flat, the estimation of the peak density using this formula is a worst case scenario for the real value and, even in this case it was verified through heating simulations that the power deposited by the wake fields is not an issue.
 
 \section{BC Chamber}
 
