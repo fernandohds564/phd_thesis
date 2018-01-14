@@ -1059,14 +1059,16 @@
     where $t=\tan^{-1}\theta=l/|r_1-r_2|$ is the transition factor of the taper.
 
     \citeonline{Stupakov2007a} developed a method to find the low frequency impedance of tapers with general cross sections and derived explicit formulas for a flat taper, consisting on a rectangular geometry with varying vertical gap and constant horizontal apperture, as shown in Figure~\ref{fig:flat_transition}. His results were:
-    \begin{align}
-        \frac{\omega w^2}{2cth}\ll1\,\,\text{and}\,\,h\ll w\ll l:
-        \begin{aligned}
-        Z_\parallel &= -0.43\frac{i \omega Z_0}{\pi c}\infint{z}{(h')^2}\\[2mm]
-        Z_y &= -\frac{i Z_0w}{4}\infint{z}{\frac{(h')^2}{h^3}}\\[2mm]
-        Z_x^D&= -Z_x^Q= -\frac{i Z_0}{4\pi}\infint{z}{\funcof{\frac{h'}{h}}^2}
-        \end{aligned},
-    \end{align}
+    \begin{subequations}\label{eq:flat_transitions}
+        \begin{align}
+            \frac{\omega w^2}{2cth}\ll1\,\,\text{and}\,\,h\ll w\ll l:
+            \begin{aligned}
+                Z_\parallel &= -0.43\frac{i \omega Z_0}{\pi c}\infint{z}{(h')^2}\\[2mm]
+                Z_y &= -\frac{i Z_0w}{4}\infint{z}{\frac{(h')^2}{h^3}}\\[2mm]
+                Z_x^D&= -Z_x^Q= -\frac{i Z_0}{4\pi}\infint{z}{\funcof{\frac{h'}{h}}^2}
+            \end{aligned},
+        \end{align}
+    \end{subequations}
     where $w$ is the chamber half--width and $h(z)$ is the half--gap. It is worth noting that the dipole horizontal and the quadrupolar impedances are equal to each other and a factor of 2 smaller than the transverse impedance in a conical taper, while the longitudinal impedance is $\approx7/4$ of its counterpart. The most interesting result, however, is the linear dependence of the vertical dipole impedance with the width of the chamber, which makes this impedance $\approx \pi/2w/\average[\text{harm}]{h}$ larger than the round chamber one. For example, for a linear taper these expressions become
     \begin{align}
         \frac{\omega w^2}{2cth}\ll1\,\,\text{and}\,\,h\ll w\ll l:
@@ -1344,7 +1346,7 @@
 
 \chapter{Components Impedance Modeling}\label{cap:impedance_modeling}
 
-    Below we will discuss on the impedance modeling of the main components of the Sirius storage ring.
+    In this chapter the modelling of the impedance of some components of the storage ring will be described, nly the ones which were m
 
 \section{Standard Chamber}
 
@@ -1435,7 +1437,11 @@
         \caption{Effect permeability wall impedance}
         \label{fig:wall_imp_dipole_distance}
     \end{figure}
-    where the infinitely thick layer of air was substituted by \SI{1}{\milli\meter} of air and a NdFeB ($\mu_r=40$), used in the magnetic poles of Sirius magnets. Note that the first betatron line, responsible for the coherent tune--shifts and the resistive--wall instability is completely determined by the copper chamber, but the zero frequency impedance depends on the distance of the magnet to the external part of the wall. One can argue that, since Sirius vacuum chamber is round, this dependence is not important because there is no quadrupolar impedance. However, considering that the impedance at these frequencies depend on the materials outside the chamber, it is reasonable to think it will depend on how they are distributed too. Remembering that the storage ring is filled with magnets with cores made out of ferromagnets, and noticing that only dipoles can generate a quadrupolar impedance, because the symmetry of the poles of quadrupoles and sextupoles does not allow such component, we considered this effect on the total budget. The zero frequency difference of the curves presented in Figure~\ref{fig:wall_imp_dipole_distance} is attributed the cancellation of the magnetic field at the dipole poles and the~\citeonline{Yokoya1993} factors are applied to obtain the quadrupolar impedance of this component. As the Sirius dipoles are straight magnets with inclined poles to produce a quadrupole gradient and the chambers, as well as the beam trajectory, is curved along them, the distance of the poles to the chamber is variable. Nevertheless, a good estimate for the average distance is \SI{3}{\milli\meter}, which corresponds to a total distance from the beam of \SI{16}{\milli\meter}. The impedance calculated in the way described above is close the predicted by the~\citeonline{Laslett1963} formulas for incoherent tune--shift.
+    where the infinitely thick layer of air was substituted by \SI{1}{\milli\meter} of air and a NdFeB ($\mu_r=40$), used in the magnetic poles of Sirius magnets. Note that the first betatron line, responsible for the coherent tune--shifts and the resistive--wall instability is completely determined by the copper chamber, but the zero frequency impedance depends on the distance of the magnet to the external part of the wall. One can argue that, since Sirius vacuum chamber is round, this dependence is not important because there is no quadrupolar impedance. However, considering that the impedance at these frequencies depend on the materials outside the chamber, it is reasonable to think it will depend on how they are distributed too. Remembering that the storage ring is filled with magnets with cores made out of ferromagnets, and noticing that only dipoles can generate a quadrupolar impedance, because the symmetry of the poles of quadrupoles and sextupoles does not allow such component, we considered this effect on the total budget. The zero frequency difference of the curves presented in Figure~\ref{fig:wall_imp_dipole_distance} is attributed the cancellation of the magnetic field at the dipole poles and the~\citeonline{Yokoya1993} factors are applied to obtain the quadrupolar impedance of this component. As the Sirius dipoles are straight magnets with inclined poles to produce a quadrupole gradient and the chambers, as well as the beam trajectory, is curved along them, the distance of the poles to the chamber is variable. Nevertheless, a good estimate for the average distance is \SI{3}{\milli\meter}, which corresponds to a total distance from the beam of \SI{16}{\milli\meter}. The impedance calculated in the way described above is close the predicted by the~\citeonline{Laslett1963} formulas for incoherent tune--shift, using \citeonline[pp. 71]{Chao1993} expressions for the impedance:
+    \begin{align}
+        Z_x^Q = i\frac{Z_0}{2\pi}\frac{L}{g^2}
+    \end{align}
+    where $Z_0$ is the impedance of free space, $L$ is length of the dipole chambers, and $g$ is the average dipole gap.
 
 \section{Kicker Chambers}
 
@@ -1568,7 +1574,7 @@
 
 \section{Undulators Chambers}
 
-    For the first phase of operation of the Sirius light source it is planned the installation of seven \gls{ids} on the storage ring, with four different types of devices: two Delta-type undulators~\cite{Temnykh2008} and two \gls{apu}~\cite{Carr1991}. The design details as well as first experiences with the prototype measuments of the Sirius Delta undulator are described by~\citeonline{Vilela2017} and the information regarding the radiation parameters of such devices can be found elsewhere~\cite{Sirius2013}. All the \gls{ids} will be out of vacuum and their vacuum chamber will be made of copper and coated with \gls{neg}. Regarding the impedance issues, on the one hand this is good because it simplifies the design of the tapers, allowing further optimization of its parameters for impedance reduction, but on the other hand the resistive wall impedance will always be there, regardless of the existence or not of the additional damping provided by radiation emittion\footnote{One important remark is that both types of undulators that will be used in Sirius does not have the degree of freedom to change their gap. This way, when they are not being used there is no way to "turn off" the magnetic field they generate. What is usually done is to change the phases among the Halbach cassets~\cite{Halbach1985} in such a way that the field lays down in the longitudinal direction, so the electron beam stops radiating.}.
+    For the first phase of operation of the Sirius light source it is planned the installation of seven \gls{ids} on the storage ring, with four different types of devices: two Delta-type undulators~\cite{Temnykh2008} and two \gls{apu}~\cite{Carr1991}. The design details as well as first experiences with the prototype measuments of the Sirius Delta undulator are described by~\citeonline{Vilela2017} and the information regarding the radiation parameters of such devices can be found elsewhere~\cite{Sirius2013}. All the \gls{ids} will be out of vacuum and their vacuum chamber will be made of copper and coated with \gls{neg}. Regarding the impedance issues, on the one hand this is good because it simplifies the design of the tapers, allowing further optimization of its parameters for impedance reduction, but on the other hand the resistive wall impedance will always be there, regardless of the existence or not of the additional damping provided by radiation emittion\footnote{One important remark is that both types of undulators that will be used in Sirius does not have the degree of freedom to change their gap, which means that when they are not being used there is no way to "turn off" their magnetic field. What is usually done is to change the phases among the~\citeonline{Halbach1985} cassets in such a way that the field lays down in the longitudinal direction, so the electron beam stops radiating.}.
 
     Table~\ref{tab:undulators_parameters}
     \begin{table}[b]
@@ -1586,12 +1592,14 @@
             Full Magnetic Gap &   5       &   6.2      &   7.0     &  13.8     &  \si{\milli\meter} \\
             Chamber thickness &   0.10    &   0.10     &   0.80    &  1.00     & \si{\milli\meter} \\
             Hor. Beam Stay Clear&   24.0   &   24.0     &   8.2     &  11.2     & \si{\milli\meter} \\
-            Hor. Beam Stay Clear&   4.8    &   6.0     &   5.0    &  8.0     & \si{\milli\meter} \\
+            Vert. Beam Stay Clear&   4.8    &   6.0     &   5.0    &  8.0     & \si{\milli\meter} \\
             Transition factor ($t$)&  \mc{4}{c}{20}                             & \\
             \bottomrule
         \end{tabular}
     \end{table}
-    shows the main impedance related parameters of each device type. These devices have two main source of impedance that will be modeled separately: one comes from the two tapers at both ends of the device and another from the resistive wall. The modeling of the tapers was performed with the whole collimator in the simulation, consideding perfectly conducting walls and linear transitions with factor $t$ equals to 20\footnote{Here we recall the notation defined in subsection~\ref{ssec:tapered_transitions}.}, which means the angle of the taper is \SI{2.86}{\degree} (\SI{50}{\milli\radian}), much lower than the rule of thumb of \SI{10}{\degree}. The \gls{apu} chambers were calculated with ECHOzR~\cite{Zagorodnov2015}, being modeled as flat collimators starting from a square chamber of sides equal to the radius of the real chamber and final gap equal to the Vertical \gls{bsc} defined in Table~\ref{tab:undulators_parameters}. The Delta--type undulators are a little more complicated to model, because their final chamber geometry is an ellipse with the major and minor axes given by the horizontal and vertical~\gls{bsc} presented in Table~\ref{tab:undulators_parameters}, which invalidates the consideration of a flat geometry, due to the non--negligible horizontal tapering. We delt with this problem by simulating a round transition with ECHOz2~\cite{Zagorodnov2005} and applying numerical factors given by~\citeonline[Figures 12a, 13 and 14]{Podobedov2007}, to the impedances. Even though their comparisons are valid for tapers with transverse sections composed by confocal ellipes, all the analytical formulas analysed in subsection~\ref{ssec:tapered_transitions} suggests that the parts of the tapers with lower gaps contributes more to the total impedance, which corroborates with this approach. The form factos used here were $(1,1.3,0.5,-0.4)$ for the longitudinal, vertical dipole, horizontal dipole and horizontal quadrupole impedances, respectively.
+    shows the main impedance related parameters of each device type. These devices have two main source of impedance that will be modeled separately: one comes from the two tapers at both ends of the device and another from the resistive wall. The modeling of the tapers was performed with the whole collimator in the simulation, consideding perfectly conducting walls and linear transitions with factor\footnote{Here we recall the notation defined in subsection~\ref{ssec:tapered_transitions}.} $t$ equals to 20, which means the angle of the taper is \SI{2.86}{\degree} (\SI{50}{\milli\radian}), much lower than the rule of thumb of \SI{10}{\degree}. The \gls{apu} chambers were calculated with ECHOzR~\cite{Zagorodnov2015}, being modeled as flat collimators starting from a square chamber of sides equal to the radius of the real chamber and final gap equal to the Vertical \gls{bsc} defined in
+    Table~\ref{tab:undulators_parameters}. The Delta--type undulators are a little more complicated to model, because their final chamber geometry is an ellipse with the major and minor axes given by the horizontal and vertical~\gls{bsc} presented in Table~\ref{tab:undulators_parameters}, which invalidates the consideration of a flat geometry, due to the non--negligible horizontal tapering. We delt with this problem by simulating a round transition with ECHOz2~\cite{Zagorodnov2005} and applying numerical factors given by~\citeonline[Figures 12a, 13 and 14]{Podobedov2007}, to the impedances. Even though their comparisons are valid for tapers with transverse sections composed by confocal ellipes, all the analytical formulas analysed in
+    subsection~\ref{ssec:tapered_transitions} suggests that the parts of the tapers with lower gaps contributes more to the total impedance, which corroborates with this approach. The form factos used here were $(1,1.3,0.5,-0.4)$ for the longitudinal, vertical dipole, horizontal dipole and horizontal quadrupole impedances, respectively.
 
     Figure~\ref{fig:undu_trans}
     \begin{figure}[b]
@@ -1600,7 +1608,7 @@
         \caption{Effect permeability wall impedance}
         \label{fig:undu_trans}
     \end{figure}
-    shows the impedances of the four \gls{id} types before the application of the form factors on the Delta--type undulators. Also shown is the low frequency analytic expressions discussed in subsection~\ref{ssec:tapered_transitions}. Note that in general their quantitative agreement with the numerical simulations is not very good, but the qualitative comparisons among all the types of undulators, mainly the differences between the round and flat geometry, are well predicted by the theory. In the case of the longitudinal and horizontal impedances of flat geometries this quantitative difference between theory and numerical simulations could be explained by the fact that the second condition imposed on the limits of validity of the expressions ($h\ll w$) is not met in these cases, because the tapers start with a square geometry. Besides the approximated formulas valid in this limit,~\citeonline{Stupakov2007a} provides expressions for any ratio $h/w$ and the form factors presented there could account for these differeces. In the case of the vertical dipole impedance the analytic formula overestimates the impedance by a factor larger than four (they are above the upper limit of the graphic and are not shown), which is so large that even the form factors could not account for the difference observed. Another interesting aspect of the numerical calculated vertical dipole impedance is the presence of the narrow--band trapped mode studied by~\citeonline{Blednykh2006} for the APU19. Considering these mode depends strongly on the width of the chamber and the fact that these devices were not desined yet,  the complete effect of the this peak was not studied in details, however, it was verified that it does not induce transverse coupled--bunch oscillations.
+    shows the impedances of the four \gls{id} types before the application of the form factors on the Delta--type undulators. Also shown is the low frequency analytic expressions discussed in subsection~\ref{ssec:tapered_transitions}. Note that in general their quantitative agreement with the numerical simulations is not very good, but the qualitative comparisons among all the types of undulators, mainly the differences between the round and flat geometry, are well predicted by the theory. In the case of the longitudinal and horizontal impedances of flat geometries this quantitative difference between theory and numerical simulations could be explained by the fact that the second condition imposed on the limits of validity of the expressions ($h\ll w$) is not met in the cases studied here, because the tapers start with a square geometry.~\citeonline{Stupakov2007a} provides expressions for impedances for any ratio $h/w$, which consists on multiplying the integrands of equations~\ref{eq:flat_transitions} by form factor functions that depends on $h(s)/w$. The paper has graphics that explicitly show the value of these form factors and, after a qualitative analysis, it can be concluded that they explain the differences observerd here. In the case of the vertical dipole impedance the analytic formula overestimates the impedance by a factor larger than four (they are above the upper limit of the graphic and are not shown), which is so large that even the form factors could not account for the difference observed. Another interesting aspect of the numerical calculated vertical dipole impedance is the presence of the narrow--band trapped mode studied by~\citeonline{Blednykh2006} for the APU19. Considering these mode depends strongly on the width of the chamber and the fact that these devices were not desined yet,  the complete effect of the this peak was not studied in details, however, it was verified that it does not induce transverse coupled--bunch oscillations.
 
     Figure~\ref{fig:undu_wall}
     \begin{figure}[b]
@@ -1626,22 +1634,69 @@
 
 \section{BC Chamber}
 
-    The BC magnet is the central dipole of the arch of the sirius unit cell. It is a permanent magnet with longitudinal gradient. At its center there is a very thin slice that will reach a peak magnetic flux density of \SI{3.2}{\tesla} and will be used as source for 20 beam lines, providing radiation with critical energy of \SI{19.2}{\kilo\electronvolt}. In order to achieve this high flux density the poles of central part must be very close to the beam and its gap is reduced from the standard~\SI{24}{\milli\meter} to only \SI{10}{\milli\meter}. Figure~\ref{fig:bc_magnet}
+    The BC magnet is the central dipole of the arch of the Sirius storage ring unit cell. It is a permanent magnet with longitudinal and transverse gradient and at its center there is a very thin slice that will reach a peak magnetic flux density of \SI{3.2}{\tesla} which will be used as source for 20 beamlines, providing radiation with critical energy of \SI{19.2}{\kilo\electronvolt}. In order to achieve this high flux density, the poles of central part must be very close to the beam, with a full gap of only \SI{10}{\milli\meter}. Figure~\ref{fig:bc_magnet_with_twiss}
     \begin{figure}
         \centering
-        \includegraphics[width=\textwidth]{bc_magnet.png}
+        \includegraphics[width=\textwidth]{bc_magnet_with_twiss.png}
         \caption{Effect permeability wall impedance}
-        \label{fig:bc_magnet}
+        \label{fig:bc_magnet_with_twiss}
     \end{figure}
-    shows a drawing of this magnet.
+    shows a drawing of this magnet and indicates the position where it will be installed in the ring.
+
+    The initial proposal for the chamber of the central section of this magnet was a elliptical chamber with inner minor semi--axis equal to \SI{4}{\milli\meter} and major semi--axis equal to the radius of the standard chamber, \SI{12}{\milli\meter}, connected by a smooth tapered transition with transition factor equal to 15. Motivated by the analytical formulas predicted by the theory, discussed in subsection~\ref{ssec:tapered_transitions}, we also investigated the impedance of a round chamber with inner radius equal to the minor radius of the proposed elliptical chamber. For the impedance calculations, the elliptical chamber was approximated by a flat one and simulated using ECHOzR~\cite{Zagorodnov2015}, while the round chamber was simulated with ECHOz1 and ECHOz2~\cite{Zagorodnov2005}. It was known, however, that the round chamber did not meet the vacuum requirements, because the radiation generated by the upstream dipole would hit strongly the inner part of the transition in the positive (outward the storage ring center) horizontal direction, causing heating problems. For this reason, a chamber which satisfies the requirements, with a "keyhole" shape, as shown in Figure~\ref{fig:bc_keyhole_model},
+    \begin{figure}[b]
+        \centering
+        \includegraphics[width=0.8\textwidth]{bc_keyhole_model.png}
+        \caption{Effect permeability wall impedance}
+        \label{fig:bc_keyhole_model}
+    \end{figure}
+    was also proposed and its impedance simulated with GdfdL~\cite{Bruns2017}.
+
+    Figure~\ref{fig:bc_zdy_comp}
+    \begin{figure}
+        \centering
+        \begin{subfigure}[c]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{bc_Zdy_comp_spec.png}
+            \caption{Vertical Impedance}
+            \label{fig:bc_zdy_comp}
+        \end{subfigure}\hfill
+        \begin{subfigure}[c]{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{bc_tmci.png}
+            \caption{TMCI}
+            \label{fig:bc_tmci}
+        \end{subfigure}
+        \caption{Comparison between different models of impedance}
+        \label{fig:bc_comparisons}
+    \end{figure}
+     shows the comparison of the vertical dipole impedance among the three models analysed. The theory predicts a higher low frequency inductive impedance for the flat chamber model and we note that this is indeed true. One interesting factor, however, is that the round chamber remains imaginary for all the frequency range analysed, its real part only emerges at frequencies larger than ~\SI{60}{\giga\hertz}, while the flat chamber has a very strong real part at low frequencies, which couples with the beam oscillation mode $g_{10}\cdot g_{00}$. From the theory of mode--coupling instability, discussed in subsection~\ref{ssec:transverse_mode_coupling}, we know that at zero chromaticity the imaginary part of the impedance causes the tune--shifts of the coherent modes and bring them close to each other, in this case the modes~0~and~-1, represented in the figure by the spectra $g_{00}\cdot g_{00}$ and $g_{10}\cdot g_{10}$, respectively; but it is the real part of the impedance that couples them causin the intability. We can see this mathematically recalling that the mode--coupling matrix has the following form, when only the modes~0~and~-1 are considered
+     \begin{align}\label{eq:bc_eigen_value}
+         \frac{M}{N} \propto
+         \begin{pmatrix} I_1 -\frac1N & R_1 \\ -R_1 & I_0 \end{pmatrix}
+         \Rightarrow
+         \frac{\lambda_{1,2}}{N} \propto \frac{I_0 + I_1 -\frac1N}{2} \pm \frac12\sqrt{\funcof{I_1-\frac1N - I_0}^2 - 4R_1^2}
+     \end{align}
+     where $N$ is the number of particles in the bunch,
+     \begin{align}
+         I_i &= \udefint{\omega}{\imag{Z^D_y}g_{i0}g_{i0}} \\
+         R_1 &= \udefint{\omega}{\real{Z^D_y}g_{10}g_{00}},
+     \end{align}
+     and $g_{ml}$ is given by equation~\eqref{eq:gaussian_oscillation_modes}. Henceforth, it is clear from the eigen--value expression in equation~\eqref{eq:bc_eigen_value} that the instability can only happen if the real part of the impedance is strong enough to couple with beam in such a way that
+     \begin{align}
+         2|R_1| \ge \left| I_1 - \frac1N - I_0 \right|.
+     \end{align}
+     Note that when the number of particles in the bunch is small, the \gls{rhs} of the inequality above is very large and when $N\to\infty$ it tends to $I_1-I_0$. If $R_1$ is not larger than this difference, the modes simply cross each other.
+
+     Note that some mechanism similar to the one explained above is happening in Figure~\ref{fig:bc_tmci} for the round and keyhole chambers, where even after being multiplied by a factor of 2.5 and 2.0, respectively, to match the tune--shifts, their real impedances is not strong enough to create the instability.
 
 
-\section{RF Cavity taper}
-
-\section{3D-Calculations}
-\subsection{BPMs}
-\subsection{Bellows}
-\subsection{Radiation Masks}
+% \section{RF Cavity taper}
+%
+% \section{3D-Calculations}
+% \subsection{BPMs}
+% \subsection{Bellows}
+% \subsection{Radiation Masks}
 
 % \section{\Glsentryfull{csr}}
 \section{Coherent Synchtrotron Radiation}
