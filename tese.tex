@@ -1756,9 +1756,8 @@
 
 \section{\Glsentryfull{csr}}
 % \section{Coherent Synchtrotron Radiation}
-    
 
-    The radiation emitted by one particle can influence other particles in the bunch in a similar way as the wake fields and, for this reason, is treated with the same formalism of impedances and wake functions discussed so far. Such mechanism is often refered to as \gls{csr} because its net effect is only relevant for wavelengths of the same order or larger than the bunch length, according to~\citeonline{Nagaoka2014}. The wake function of source particle moving in circular trajectory in free--space over a witness particle in this same trajectory, ahead or behind the source particle was calculated by~\citeonline{Derbenev1995} and is given by:
+    The radiation emitted by one particle can influence other particles in the bunch in a similar way as the wake fields and, for this reason, is treated with the same formalism of impedances and wake functions discussed so far. Such mechanism is often refered to as \gls{csr} because its net effect is only relevant for wavelengths of the same order or larger than the bunch length, according to~\citeonline{Nagaoka2014}. The wake function of a source particle moving in circular trajectory in free--space over a witness particle in this same trajectory was calculated by~\citeonline{Derbenev1995} and is given by:
     \begin{align}\label{eq:csr_wake_free_space}
         \frac{W'_0(z)}{L} =
         \begin{dcases}
@@ -1766,7 +1765,7 @@
             0 & z>0
         \end{dcases},
     \end{align}
-    where $\rho$ is the radius of curvature of the trajectory, $L=2\pi\rho$ is the total length of the circle and, contrary to other wakes, it only affects particles ahead of the source particle. Notice that this formula not only diverges at the origin as it predicts energy gain for all ranges of interaction. This happens because this equation is only the tail of a very short--range and intense wake. This wake starts at $W'_0(0^+)\approx\gamma^4/\rho^2$, crosses zero at $-z\approx 2\rho / 9\gamma^2$ and soon after that assumes the value of the asymptotic behavior described by the equation above\footnote{Figure 2 of  \citeonline{Murphy1997} has a graphic of this function.}. A fast calculation shows that the short--range scales of the complete wake ($\rho/\gamma^2 \approx $\SI{500}{\nano\meter} for Sirius) are much smaller than any characteristic length important for the stability analysis, which justifies the use of equation~\eqref{eq:csr_wake_free_space}.
+    where $\rho$ is the radius of curvature of the trajectory, $L=2\pi\rho$ is the total length of the circle and, contrary to other wakes, it only affects particles ahead of the source particle. Notice that this formula not only diverges at the origin as it predicts energy gain for all ranges of interaction. This happens because this equation is only the tail of a very short--range and intense wake. This wake starts at $W'_0(0^+)\approx\gamma^4/\rho^2$, crosses zero at $-z\approx 2\rho / 9\gamma^2$ and soon after that assumes the value of the asymptotic behavior described by the equation above\footnote{Figure 2 of  \citeonline{Murphy1997} has a graphic of this function.}. A fast calculation shows that the short--range scales of the complete wake ($\rho/\gamma^2 \approx $\SI{500}{\nano\meter} for Sirius) are much smaller than any characteristic length important for the stability analysis in Sirius, which justifies the use of equation~\eqref{eq:csr_wake_free_space}.
 
     \citeonline{Murphy1997} calculated the wake function of the same trajectory described above, but instead of considering the particles were in free space, the authors included two infinite parallel plates equally spaced from the particles trajectory. The asymptotic form of the wake they obtained has, in addition to the term of equation~\eqref{eq:csr_wake_free_space}, a contribution from the radiation of the image charges on the plates, given by
     \begin{align}
@@ -1796,9 +1795,9 @@
             \label{fig:csr_ykx}
         \end{subfigure}
     \end{figure}
-    shows $Y_k(x)$ as function of the term $3x/k^{3/2}$, where we note a smooth and well behaved depency, which guarantees a fast convergence of the infinite series that defines $G$, being necessary to compute only the first 25 to 30 terms.
+    shows $Y_k(x)$ as function of the term $3x/k^{3/2}$, where we note a smooth and well behaved dependency, which guarantees a fast convergence of the infinite series that defines $G$, being necessary to compute only the first 25 to 30 terms in almost all practical cases.
 
-
+    On the other hand, the impedance 
 
 \chapter{Impedance Budget}
 \section{Longitudinal Impedance}
