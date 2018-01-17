@@ -1112,7 +1112,7 @@
 
 \subsection{Multi-Layer Resistive Wall}
 
-    The standard resistive wall effect is known for a long time, being first observed to generate coherent oscillations in electron streams coupled to circuits by \citeonline{Pierce1951} and then used to create a resistive-wall amplifier by \citeonline{Birdsall1953}. This idea was first applied to the study of collective effects in accelerators by \citeonline{Neil1965} and \citeonline{Laslett1965} to explain longitudinal and transverse coherent oscillations of coasting beams and then by \citeonline{Courant1966} to describe instabilities of bunched beams. Since then the theory for calculation of the now called resistive-wall impedance evolved~\cite{Chao1993}, being exactly solved by \citeonline{Bane1991} for a round and infinitely thick and long vacuum chamber, where the author provided analytic formulas for the short-range wake-fields, and for an arbitrary transverse cross section by \citeonline{Yokoya1993}, who based its work on a formalism developed by \citeonline{Gluckstern1993}. In his work, \citeauthor{Yokoya1993} also showed that the spectral dependency of the longitudinal and transverse dipole and quadrupole impedances of elliptic chambers with different excentricities but equal smaller radius are identical, in such a way that their wake functions differ from each other only by a constant factor. In the special cases of a round and a flat chamber, which are the limiting cases of an ellipse, with excentricities equal to $0$ and $1$ respectively, the so called \citeauthor{Yokoya1993} factors are given by
+    The standard resistive wall effect is known for a long time, being first observed to generate coherent oscillations in electron streams coupled to circuits by \citeonline{Pierce1951} and then used to create a resistive-wall amplifier by \citeonline{Birdsall1953}. This idea was first applied to the study of collective effects in accelerators by \citeonline{Neil1965} and \citeonline{Laslett1965} to explain longitudinal and transverse coherent oscillations of coasting beams and then by \citeonline{Courant1966} to describe instabilities of bunched beams. Since then the theory for calculation of the now called resistive-wall impedance evolved~\cite{Chao1993}, being exactly solved by \citeonline{Bane1991} for a round and infinitely thick and long vacuum chamber, where the author provided analytic formulas for the short-range wake-fields, and for an arbitrary transverse cross section by \citeonline{Yokoya1993}, who based its work on a formalism developed by \citeonline{Gluckstern1993}. In his work, \citeauthor{Yokoya1993} also showed that the spectral dependency of the longitudinal and transverse dipole and quadrupole impedances of elliptic chambers with different eccentricities but equal smaller radius are identical, in such a way that their wake functions differ from each other only by a constant factor. In the special cases of a round and a flat chamber, which are the limiting cases of an ellipse, with eccentricities equal to $0$ and $1$ respectively, the so called \citeauthor{Yokoya1993} factors are given by
     \begin{align}
         \funcof{Z_\parallel}_\text{flat} &=
                         \funcof{Z_\parallel}_\text{round}\\
@@ -1144,7 +1144,7 @@
 
     In a more recent work, \citeonline{Zotter2005} rederived his formalism for a point like charge, which was used by \citeonline{Mounet2009} to derive formulas for the electromagnetic fields and impedances for any azimuthal mode $m$, under the assumption of a rigid beam. Later, the same authors also derived expressions for a multi-layer flat chamber with possible different layers in the top and bottom plates~\cite{Mounet2010a} which allowed them to generalize the \citeauthor{Yokoya1993} factors~\cite{Mounet2010}. Then, in his PhD thesis, \citeonline{Mounet2012} developed a general method to compute Fourier Integrals which allowed him to compute the exact wake functions for short and long range using the impedances. All these developments in 2D impedance theory were implemented by \citeauthor{Mounet2011} in a code called ImpedanceWake2D that is available free-of-charge for the accelerators community. It is important to mention that other authors also solved the problem of multi-layer impedances using different methods, for example \citeonline{Hahn2008} and \citeonline{Al-Khateeb2005} also derived general methods valid for arbitrary energies and frequencies in round chambers and \citeonline{Burov2002,Burov2002a} also solved the problem under the assumption of long wavelengths, $c/\omega \ll a$, for round and flat geometries.
 
-    In summary, the theory of smooth multi-layer infinitely long round chambers is completely solved. In this work we implemented \citeauthor{Mounet2009} formulas to calculate the impedances for round chambers for the azimuthal modes $m=0$ and $m=1$ in Matlab\textregistered and Python3 and the wake functions were obtained using the code ImpedanceWake2D. In cases where the excentricity of the chambers are large, the \citeauthor{Yokoya1993} Factors were applied to the round chamber results.
+    In summary, the theory of smooth multi-layer infinitely long round chambers is completely solved. In this work we implemented \citeauthor{Mounet2009} formulas to calculate the impedances for round chambers for the azimuthal modes $m=0$ and $m=1$ in Matlab\textregistered and Python3 and the wake functions were obtained using the code ImpedanceWake2D. In cases where the eccentricity of the chamber is large, the \citeauthor{Yokoya1993} Factors are applied to the round chamber results.
 
 \subsection{Numeric Methods}\label{ssec:numeric_methods}
 
@@ -1597,7 +1597,7 @@
 \section{Fast Correctors Chambers}
 
     The Fast orbit correctors of the Sirius storage ring will operate at an update rate of \SI{100}{\kilo\hertz} in the \gls{fofb}~\cite{Tavares2013}, requiring special vacuum chambers in order for such high frequency fields to penetrate. The solution adopted was to brase small and thin stainless steel chambers in the standard copper chamber of the ring. The reduced conductance, only \SI{1}{\mega\siemens}, of this material provides a skin depth of \SI{1.6}{\milli\meter} at \SI{100}{\kilo\hertz}, which is much larger than the thickness of the chamber, which is \SI{0.1}{\milli\meter}, and do not damp or distort significantly the external field of the magnet. The relevant parameters used for modeling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
-    \begin{table}[b]
+    \begin{table}[hb]
         \centering
         \caption{Main parameters for the fast correctors impedance model.}
         \label{tab:fast_correctors_chamber_parameters}
@@ -1674,32 +1674,34 @@
         \caption{Wall impedance of the four types of undulators planned for Sirius.}
         \label{fig:undu_wall}
     \end{figure}
-    shows the vertical dipole and longitudinal wall impedance of the four types of undulators. They were calculated using the multi--layer formulas for the round chambers with posterior application of the Yokoya factors. The layers used in calculation were: \gls{neg}, Copper, air, high $\mu$--material. The last layer was added in an attempt to consider the effect of the magnet blocks of the \gls{ids} on the zero frequency impedance, which can be noted in Figure~\ref{fig:undu_wall_lowfreq}.~\citeonline{Blednykh2016} created a more sofisticated model, where the authors considered that a fraction of the suface of the pole of the \gls{ids} were composed by the $\mu$--materials and the other part by saturated ferromagnet blocks, with $\mu\approx1$. With this impedance they successfully explained the incoherent tune--shifts caused by these devices in LNLS2. Once the detailed model of the \gls{ids} are available we intent to improve their impedance model in a similar way.
+    shows the vertical dipole and longitudinal wall impedance of the four types of undulators. They were calculated using the code ImpedanceWake2D~\cite{Mounet2011} for flat multi--layer chambers. The layers used in the calculations were: \gls{neg}, Copper, air, high $\mu$--material. The last layer was added in an attempt to consider the effect of the magnet blocks of the \gls{ids} on the zero frequency impedance, which can be noted in Figure~\ref{fig:undu_wall_lowfreq}. This figure also show in dashed lines the results obtained with the calculation of the impedance using the round chamber formulas and posterior application of the \citeauthor{Yokoya1993} factors. Note that for the undulators with small gap (APU19, APU20 and Delta21), this method underestimate the impedance, because the sum of the electric and magnetic \citeauthor{Laslett1963} coefficients are larger than the factor for the quadrupolar impedance, but for the Delta52 both formulas agree because in this case only the electric coefficient contributes significantly and it is equal to $\pi^2/24$.
+    ~\citeonline{Blednykh2016} created a more sofisticated model, where the authors considered that a fraction of the suface of the pole of the \gls{ids} was composed by the high $\mu$--materials and the other part by saturated ferromagnet blocks, with $\mu\approx1$. With this impedance they successfully explained the incoherent tune--shifts caused by these devices in LNLS2. Once the detailed model of the \gls{ids} are available we intent to improve these components impedance model in a similar way.
 
     The chamber heating is an important aspect to be considered in the design of the undulators, because it is difficult insert cooling systems in devices with such small gap, mainly in the Delta--type undulators, which have small appertures in both transverse directions. To estimate the power density for these devices we used the flat chamber approximation, described in equation~\eqref{eq:power_density_flat}. Even though the undulators chambers are not flat, the estimation of the peak density using this formula is a worst case scenario for the real value and, even in this case it was verified through heating simulations that the power deposited by the wake fields is not an issue.
 
 \section{BC Chamber}
 
-    The BC magnet is the central dipole of the arch of the Sirius storage ring unit cell. It is a permanent magnet with longitudinal and transverse gradient and at its center there is a very thin slice that will reach a peak magnetic flux density of \SI{3.2}{\tesla} which will be used as source for 20 beamlines, providing radiation with critical energy of \SI{19.2}{\kilo\electronvolt}. In order to achieve this high flux density, the poles of central part must be very close to the beam, with a full gap of only \SI{10}{\milli\meter}. Figure~\ref{fig:bc_magnet_with_twiss}
-    \begin{figure}[b]
-        \centering
-        \includegraphics[width=\textwidth]{bc_magnet_with_twiss.png}
-        \caption{Effect permeability wall impedance}
-        \label{fig:bc_magnet_with_twiss}
-    \end{figure}
-    shows a drawing of this magnet and indicates the position where it will be installed in the ring.
+    The BC magnet is the central dipole of the arch of the Sirius storage ring unit cell. It is a permanent magnet with longitudinal and transverse gradient and at its center there is a very thin slice that will reach a peak magnetic flux density of \SI{3.2}{\tesla} which will be used as source for 20 beamlines, providing radiation with critical energy of \SI{19.2}{\kilo\electronvolt}. In order to achieve this high flux density, the poles of central part must be very close to the beam, with a full gap of only \SI{10}{\milli\meter}.
+    % Figure~\ref{fig:bc_magnet_with_twiss}
+    % \begin{figure}[b]
+    %     \centering
+    %     \includegraphics[width=\textwidth]{bc_magnet_with_twiss.png}
+    %     \caption{Effect permeability wall impedance}
+    %     \label{fig:bc_magnet_with_twiss}
+    % \end{figure}
+    % shows a drawing of this magnet and indicates the position where it will be installed in the ring.
 
     The initial proposal for the chamber of the central section of this magnet was a elliptical chamber with inner minor semi--axis equal to \SI{4}{\milli\meter} and major semi--axis equal to the radius of the standard chamber, \SI{12}{\milli\meter}, connected by a smooth tapered transition with transition factor equal to 15. Motivated by the analytical formulas predicted by the theory, discussed in subsection~\ref{ssec:tapered_transitions}, we also investigated the impedance of a round chamber with inner radius equal to the minor radius of the proposed elliptical chamber. For the impedance calculations, the elliptical chamber was approximated by a flat one and simulated using ECHOzR~\cite{Zagorodnov2015}, while the round chamber was simulated with ECHOz1 and ECHOz2~\cite{Zagorodnov2005}. It was known, however, that the round chamber did not meet the vacuum requirements, because the radiation generated by the upstream dipole would hit strongly the inner part of the transition in the positive (outward the storage ring center) horizontal direction, causing heating problems. For this reason, a chamber which satisfies the requirements, with a "keyhole" shape, as shown in Figure~\ref{fig:bc_keyhole_model},
     \begin{figure}[b]
         \centering
         \includegraphics[width=0.8\textwidth]{bc_keyhole_model.png}
-        \caption{Effect permeability wall impedance}
+        \caption{Scheme of the keyhole--shaped chamber for the BC magnet.}
         \label{fig:bc_keyhole_model}
     \end{figure}
     was also proposed and its impedance simulated with GdfdL~\cite{Bruns2017}.
 
     Figure~\ref{fig:bc_zdy_comp}
-    \begin{figure}
+    \begin{figure}[t]
         \centering
         \begin{subfigure}[c]{0.48\textwidth}
             \centering
@@ -1713,7 +1715,7 @@
             \caption{Vertical \gls{tmci}}
             \label{fig:bc_tmci}
         \end{subfigure}
-        \caption{Comparison of different models of impedance.}
+        \caption[Comparison of the vertical dipole impedance among different models of BC chamber.]{Comparison of the impedance and its effect on the beam through simulations of mode--coupling instability for different models of impedance. For the \gls{tmci} a gaussian single bunch with \SI{2.5}{\milli\meter} \gls{rms} length was considered. The impedance used was that of the 20 components along the ring, multiplied by the averave betatron function at the magnet's position.}
         \label{fig:bc_comparisons}
     \end{figure}
      shows the comparison of the vertical dipole impedance among the three models analysed. The theory predicts a higher low frequency inductive impedance for the flat chamber model and we note that this is indeed true. One interesting factor, however, is that the round chamber remains imaginary for all the frequency range analysed, its real part only emerges at frequencies larger than ~\SI{60}{\giga\hertz}, while the flat chamber has a very strong real part at low frequencies, which couples with the beam oscillation mode $g_{10}\cdot g_{00}$. From the theory of mode--coupling instability, discussed in subsection~\ref{ssec:transverse_mode_coupling}, we know that at zero chromaticity the imaginary part of the impedance causes tune--shifts of the coherent modes and bring them close to each other, in this case the modes~0~and~-1, represented in the figure by the spectra $g_{00}\cdot g_{00}$ and $g_{10}\cdot g_{10}$, respectively; but it is the real part of the impedance that couples them causing the intability. We can see this mathematically recalling that the mode--coupling matrix has the following form, when only the modes~0~and~-1 are considered
@@ -1734,10 +1736,16 @@
      \begin{align}
          2|R_1| \ge \left| I_1 - \frac1N - I_0 \right|.
      \end{align}
-     Note that when the number of particles in the bunch is small, the \gls{rhs} of the inequality above is very large and when $N\to\infty$ it tends to $I_1-I_0$. If $R_1$ is not larger than this difference, the modes simply cross each other.
+     Note that when the number of particles in the bunch is small, the \gls{rhs} of the inequality above is very large and when $N\to\infty$ it tends to $I_1-I_0$. If $R_1$ is not larger than this difference, the modes simply cross each other. Note that some mechanism similar to the one explained above is happening in Figure~\ref{fig:bc_tmci} for the round and keyhole chambers, where even after being multiplied by a factor of 2.5 and 2.0, respectively, to match the tune--shifts, their real impedances is not strong enough to create the instability.
 
-     Note that some mechanism similar to the one explained above is happening in Figure~\ref{fig:bc_tmci} for the round and keyhole chambers, where even after being multiplied by a factor of 2.5 and 2.0, respectively, to match the tune--shifts, their real impedances is not strong enough to create the instability.
-
+     Figure~\ref{fig:bc_comp_spec}
+     \begin{figure}[t]
+         \centering
+         \includegraphics[width=\textwidth]{bc_comp_spec.png}
+         \caption[Comparison of impedances of different models of BC chamber.]{Longitudinal (left), dipole horizontal (center) and quadrupole horizontal (right) impedances for the three models of BC chamber considered. The dipole horizontal impedance of the keyhole chamber was not calculated yet and the round chamber does no have a quadrupole impedance.}
+         \label{fig:bc_comp_spec}
+     \end{figure}
+     shows the other impedances for the three models. Note that the imaginary part of the longitudinal impedance of the keyhole and round models are smaller than the one of the flat chamber by a factor of approximately 2, which is accordance with the theory predictions, and the quadrupolar impedance introduced by keyhole is negligible. The horizontal dipole impedance was not calculated for this model yet, but a calculation was performed for a keyhole geometry with the $hslot$, defined in Figure~\ref{fig:bc_keyhole_model}, equals to \SI{2}{\milli\meter} and it was similar to the transverse impedance of the round model.
 
 % \section{RF Cavity taper}
 %
