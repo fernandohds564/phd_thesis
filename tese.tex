@@ -845,12 +845,12 @@
     \begin{align}\label{eq:impedances_definition}
         \begin{aligned}
       	  	Z_\parallel(\omega) &= \frac1c \infint{z}{W'_0(z)e^{i\omega z/c}}\\
-          	Z^D_X(\omega) &= -\frac{i}{c} \infint{z}{W^D_X(z)e^{i\omega z/c}}\\
-          	Z^D_Y(\omega) &= -\frac{i}{c} \infint{z}{W^D_Y(z)e^{i\omega z/c}}\\
+          	Z^D_x(\omega) &= -\frac{i}{c} \infint{z}{W^D_X(z)e^{i\omega z/c}}\\
+          	Z^D_y(\omega) &= -\frac{i}{c} \infint{z}{W^D_Y(z)e^{i\omega z/c}}\\
           	Z^Q(\omega) &= -\frac{i}{c} \infint{z}{W^Q(z)e^{i\omega z/c}}
         \end{aligned}
     \end{align}
-    where $Z_\parallel \equiv Z_s \equiv Z_L$ is the longitudinal impedance, $Z^D_X$ and $Z^D_Y$ are the horizontal and vertical dipole impedances and $Z^Q$ is the quadrupole, or detuning, impedance. In other references, such as in the book of \citeonline{Zotter1998}, the impedance is the conjugate complex of the definitions presented here. The wakes can be obtained back from the impedances by the inverse transform
+    where $Z_\parallel \equiv Z_s \equiv Z_L$ is the longitudinal impedance, $Z^D_x$ and $Z^D_y$ are the horizontal and vertical dipole impedances and $Z^Q$ is the quadrupole, or detuning, impedance. In other references, such as in the book of \citeonline{Zotter1998}, the impedance is the conjugate complex of the definitions presented here. The wakes can be obtained back from the impedances by the inverse transform
     \begin{align}\label{eq:wake_as_impedance}
 	  	\begin{aligned}
             W'_0(z) = \frac{1}{2\pi}\infint{\omega}{Z_\parallel e^{-i\omega z/c}}\\
@@ -874,17 +874,17 @@
     \begin{align}
         Z(\vect{\rho}_s, \vect{\rho}_w, \omega) &=
 	  		\frac{c}{\omega}Z_\parallel +
-			x_w\left(Z^D_Xx_s - Z^Qx_w\right) +
-			y_w\left(Z^D_Yy_s + Z^Qy_w\right).
+			x_w\left(Z^D_xx_s - Z^Qx_w\right) +
+			y_w\left(Z^D_yy_s + Z^Qy_w\right).
     \end{align}
 
 \section{Potential of bunches of particles}\label{sec:potential_of_bunch}
 
-    Now that all the important tools for describing the wake field effects were introduced we will calculate the change in momentum that a specific particle inside a bunch will feel due to the action of all the other particles. To do that we will assume that in the whole ring there is only one source of impedance, localized at a given point of the accelerator, and that the vacuum chamber is perfectly aligned with reference orbit of the storage ring in such a way that a particle that is on the reference orbit also is at the origin of the expansion made in equation~\eqref{eq:wake_potential_expansion}. Regarding the longitudinal position the synchronous position will be adopted as the origin and the positions of the particles will be measured in relation to it in accordance to the definitions made in section~\ref{sec:longitudinal_deviations}, specifically in accordance with equation~\ref{eq:longitudinal_deviations}, where particles behind the synchronous particle have positive deviations. Under such assumptions we get:
+    Now that all the important tools for describing the wake field effects were introduced we will calculate the change in momentum that a specific particle inside a bunch will feel due to the action of all the other particles. To do that we will assume that in the whole ring there is only one source of impedance, localized at a given point of the accelerator, and that the vacuum chamber is perfectly aligned with reference orbit of the storage ring in such a way that a particle that is on the reference orbit also is at the origin of the expansion made in equation~\eqref{eq:wake_potential_expansion}. Regarding the longitudinal position the synchronous position will be adopted as the origin and the positions of the particles will be measured in relation to it in accordance to the definitions made in section~\ref{sec:longitudinal_deviations}, specifically in accordance with equation~\eqref{eq:longitudinal_deviations}, where particles behind the synchronous particle have positive deviations. Under such assumptions we get:
     \begin{align}\label{eq:def_effective_wake_potential}
   	    V(\vect{\rho}_i, z_i) = \sum_j W(\vect{\rho}_j,\vect{\rho}_i,z_i-z_j)
     \end{align}
-    where $V(\vect{\rho}_i, z_i)$ is denominated effective wake potential, because it is the net effect of the average of the Green wake potential over the bunch and the indices $i$ and $j$ are related to the witness and the source particles respectively. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons, besides this sum does not evidenciate properties of the beam such as time dependency. If the beam is in equilibrium or is slowly varying the \gls{lhs} of equation~\ref{eq:def_effective_wake_potential} is approximately the same for successives turns in the ring, or over several passages by the impedance source, but each term of the \gls{rhs} can be very different from turn to turn which means the sum must always be carried out. For all these reasons it is important to make an approximation and consider that the effective wake potential that any particle feels is an integral over the beam distribution:
+    where $V(\vect{\rho}_i, z_i)$ is denominated effective wake potential, because it is the net effect of the average of the Green wake potential over the bunch and the indices $i$ and $j$ are related to the witness and the source particles respectively. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons, besides this sum does not evidenciate properties of the beam such as time dependency. If the beam is in equilibrium or is slowly varying the \gls{lhs} of equation~\eqref{eq:def_effective_wake_potential} is approximately the same for successives turns in the ring, or over several passages by the impedance source, but each term of the \gls{rhs} can be very different from turn to turn which means the sum must always be carried out. For all these reasons it is important to make an approximation and consider that the effective wake potential that any particle feels is an integral over the beam distribution:
     \begin{align}\label{eq:int_effective_wake_potential}
   	  	V(\vect{\rho}, z, s) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
 	  			\Psi(\vect{p},\vect{\rho}',z'; s) W(\vect{\rho}',\vect{\rho},z-z')}}}
@@ -966,9 +966,9 @@
     where we notice the beam will only sample the impedance at multiples of the revolution frequency. Similar expressions can be obtained for the dipole and quadrupole effective wake functions:
     \begin{subequations}\label{eq:impedance_interpretation_trans}
     \begin{align}\label{eq:impedance_interpretation_dip}
-  		V^D_X(z) = -\frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{d}(pM\omega_0)Z^D_X(pM\omega_0)e^{-ipM\omega_0 z/c}\\
+  		V^D_x(z) = -\frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{d}(pM\omega_0)Z^D_x(pM\omega_0)e^{-ipM\omega_0 z/c}\\
         \label{eq:impedance_interpretation_quad}
-		V^Q_X(x,z) = -x\frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z^Q(pM\omega_0)e^{-ipM\omega_0 z/c}
+		V^Q_x(x,z) = -x\frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z^Q(pM\omega_0)e^{-ipM\omega_0 z/c}
     \end{align}
     \end{subequations}
     and analogously to the vertical plane. Notice in the equations above that the dipole impedance does not generate any effective wake function if the beam is stable and well centered in the vacuum chamber, because in this condition the dipole moment of the beam is zero. This is the main characteristic of a coherent mechanism, it depends on the values of specific properties of the beam, in this case the longitudinal distribution of the dipole moment, and its effects are only visible through averages on the distribution. On the other hand, the detuning wake generates a $z$-dependent quadrupole strength on individual particles of the beam even if the beam is stationary, which is a the characterist of an incoherent effect, it affects the intra-bunch dynamics but not necessarely is reflected in the averages on the distribution.
@@ -1307,7 +1307,7 @@
         H = \frac\alpha2\delta^2 + U(z) -
             \frac{I_bT_0}{(E_0/e)L_0}\udefint{z'}{\lambda(z') W_0(z-z')},
     \end{align}
-    which is time--independent. Following the same reasonings performed in section~\ref{ssec:fokker_planck_equation} we notice that equation~\ref{eq:equilibrium_distribution} is still valid if we substitute the expression for the longitudinal distribution by
+    which is time--independent. Following the same reasonings performed in section~\ref{ssec:fokker_planck_equation} we notice that equation~\eqref{eq:equilibrium_distribution} is still valid if we substitute the expression for the longitudinal distribution by
     \begin{align}\label{eq:haissinski_equation}
         \lambda(z) = \frac1A\exp\fof{\frac{1}{\alpha\sigma_\delta^2}\fof{
             -U(z) + \frac{I_bT_0}{(E_0/e)L_0}\udefint{z'}{\lambda(z') W_0(z-z')}}},
@@ -1524,7 +1524,7 @@
     The coupled flux, first modeled by~\citeonline{Nassibian1979} and improved by~\citeonline{Davino2003}, treats the window-frame as a transformer that couples the beam with the external circuit impedance, $Z_g(\omega)$, characterized by the impedance termination of the pulser circuit and the residual capacitances and resistances of the device, which can be accessed via twin wire measurements~\cite{Mostacci2016} of the opened and shorted circuits on the endplates, as explained by~\citeonline{Davino2003}. This model predicts impedances for the coupled flux given by
     \begin{align}\label{eq:coupled_flux_impedance}
         Z_\parallel^* = \frac{\Delta^2}{h^2}\frac{i\omega L_2 Z_g}{i\omega L_2 + Z_g},
-        \quad Z_X^D = \frac{c}{\omega\Delta^2}Z_\parallel
+        & & Z_x^D &= \frac{c}{\omega\Delta^2}Z_\parallel, & & Z^D_y=Z^Q_x = 0
     \end{align}
     where $\Delta$ is a transverse offset of the beam,
     \begin{align}
@@ -1536,7 +1536,7 @@
     \end{align}
     where $\mu_i$ is the initial permeability and $\omega_s$ is the saturation frequency of the material. In the case of Sirius, the ferrite that will be used in this magnet is the CMD5005~\cite{CeramicMagnets2017} and the $\mu_i$ and $\omega_s$ of the equation above were obtained by fitting the datasheet curve. The values found agreed well with direct measurements made by~\citeonline{Hahn2002}.
 
-    Note in equation~\ref{eq:coupled_flux_impedance} that the coupled flux does not contributes to the vertical impedance and that for a well centered beam, $\Delta=0$ the longitudinal impedance is zero too. Considering there is no measurements yet for the circuit impedance, $Z_g(\omega)$, of the kicker magnet, the parametric dependency described by~\citeonline{Davino2003}
+    Note in equation~\eqref{eq:coupled_flux_impedance} that the coupled flux does not contributes to the vertical impedance and that for a well centered beam, $\Delta=0$ the longitudinal impedance is zero too. Considering there is no measurements yet for the circuit impedance, $Z_g(\omega)$, of the kicker magnet, the parametric dependency described by~\citeonline{Davino2003}
     \begin{align}
         Z_g(\omega) = R_e + \frac{1}{\frac{1}{R_s}+i\omega C_{bb}}
     \end{align}
@@ -1571,10 +1571,10 @@
         \caption{Transverse impedances of the four models of kicker analysed.}
         \label{fig:uncoupled_flux_impedance}
     \end{figure}
-    shows the transverse impedances of the four models analysed. Note that the W curve matches the low frequency limit of the NC case, but at approximately \SI{1}{\mega\hertz} the coating starts to affect the impedance, damping all of them to very low values. Besides, notice that the impedance predicted by the Tsutsui model (TT) is even lower than the B case, and that the relations between the three of them cannot be described by the constant \citeonline{Yokoya1993} factors, a property already pointed out by \citeonline{Salvant2010a}. Considering that this component have a stronger influence on the total budget due to the low frequency limit of the impedance, the model adopted for the transverse plane was the W case, multiplied by constant factors that matches its impedance to the tsutsui model. The values used were (0.42, 0.52, 0.58) for the dipole horizontal, dipole vertical and quadrupole vertical impedances, respectively. Note that the factor for the dipole horizontal impedance is very close its counterpart given by \citeonline{Yokoya1993}, $\pi^2/12 \approx 0.41$, which is an indication that this wake function is strongly influenced by the copper plates of the magnet.
+    shows the transverse impedances of the four models analysed. Note that the W curve matches the low frequency limit of the NC case, but at approximately \SI{1}{\mega\hertz} the coating starts to affect the impedance, damping all of them to very low values. Besides, notice that the impedance predicted by the Tsutsui model (TT) is even lower than the B case, and that the relations between the three of them cannot be described by the constant \citeonline{Yokoya1993} factors, a property already pointed out by \citeonline{Salvant2010a}. Considering that this component have a stronger influence on the total budget due to the low frequency limit of the impedance, the model adopted for the transverse plane was the B case, multiplied by constant factors that matches its impedance to the tsutsui model. The values used were (0.42, 0.52, 0.58) for the dipole horizontal, dipole vertical and quadrupole vertical impedances, respectively.
 
     For the longitudinal plane it is well--known from the works of \citeonline{Zotter1969} and \citeonline{Piwinski1977} that the coating influences the impedance at much lower frequencies than the skin depth of the metal. For this reason we varied the thickness of the Titanium layer in our simulations to check if it could be thinner than the nominal value. The results are shown in Figure~\ref{fig:kicker_comp_models_long},
-    \begin{figure}[t]
+    \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{kicker_comp_models_long.png}
         \caption[Titanium coating thickness effect on impedance.]{Longitudinal (left) and dipole horizontal (middle) impedances as function of the frequency for several values of coating thickness, in \si{\micro\meter}. The spectrum of a \SI{2.5}{\milli\meter} bunch is also shown (solid black) in the left to highlight the important part of the frequency spectrum, and the first horizontal betatron line (black dashed) is shown in the middle. In the right is shown the loss factor (above) and quadrupolar kick factor (below) as function of the bunch length for several values of coating thickness.}
@@ -1593,7 +1593,7 @@
 
 \section{Fast Correctors Chambers}
 
-    The Fast orbit correctors of the Sirius storage ring will operate at an update rate of \SI{100}{\kilo\hertz} in the \gls{fofb}~\cite{Tavares2013}, requiring special vacuum chambers in order for such high frequency fields to penetrate. The solution adopted was to brase small and thin stainless steel chambers in the standard copper chamber of the ring. The reduced conductance, only \SI{1}{\mega\siemens}, of this material provides a skin depth of \SI{1.6}{\milli\meter} at \SI{100}{\kilo\hertz}, which is much larger than the thickness of the chamber, which is \SI{0.1}{\milli\meter}, and do not damp or distort significantly the external field of the magnet. The relevant parameters used for modeling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
+    The Fast orbit correctors of the Sirius storage ring will operate at an update rate of \SI{100}{\kilo\hertz} in the \gls{fofb}~\cite{Tavares2013}, requiring special vacuum chambers in order for such high frequency fields to penetrate. The solution adopted was to brase small and thin stainless steel chambers in the standard copper chamber of the ring. The reduced conductance, only \SI{1}{\mega\siemens}, of this material provides a skin depth of \SI{1.6}{\milli\meter} at \SI{100}{\kilo\hertz}, which is much larger than the thickness of the chamber, which is \SI{0.3}{\milli\meter}, and do not damp or distort significantly the external field of the magnet. The relevant parameters used for modeling of this type of chamber is presented in Table~\ref{tab:fast_correctors_chamber_parameters}.
     \begin{table}[hb]
         \centering
         \caption{Main parameters for the fast correctors impedance model.}
@@ -1603,7 +1603,7 @@
             Parameter            & Value      & Unit \\
             \midrule
             SS conductivity      & 1.3  & \si{\mega\siemens\per\meter}\\
-            Chamber thickness    & 100  & \si{\micro\meter}\\
+            Chamber thickness    & 300  & \si{\micro\meter}\\
             Chamber radius       & 12   & \si{\milli\meter}\\
             Chamber length       & 100  & \si{\milli\meter}\\
             Number of elements   &  80  & \\
@@ -2000,15 +2000,15 @@
     \end{align}
     where $\vect{R}$ is the vector which connects both particles, going from the source to the witness and  $R^{*2} = s^2 + x^2/\gamma^2$, e $\gamma = 1/(1-v^2/c^2)$.
 
-    Combining equation\,\ref{eq:fields_free_particle} with the Lorentz force, we get the longitudinal and transverse force over the witness particle:
+    Combining equation~\eqref{eq:fields_free_particle} with the Lorentz force, we get the longitudinal and transverse force over the witness particle:
     \begin{align}\label{eq:space_charge_force}
     	F_l &= E_z = -\frac{q}{4\pi\epsilon_0}\frac{s}{\gamma^2\left(s^2+x^2/\gamma^2\right)^{3/2}}, \\
     	F_t &= E_x - vB_y = -\frac{q}{4\pi\epsilon_0}\frac{x}{\gamma^4\left(s^2+x^2/\gamma^2\right)^{3/2}}
     \end{align}
 
-    In accelerator physics the force $\vect{F}$ is known as space charge force. We can infer from equation\,\ref{eq:space_charge_force} that for any position $s$ and $x$, the longitudinal force is proportional to $\gamma^{-2}$ and $F_t \sim \gamma^{-4}$ if $s \gg x/\gamma$ and  $F_t \sim \gamma^{-1}$ if $s \approx 0$. This way, in the ultra-relativistic limit, $\gamma \to \infty$, the electromagnetic interaction between particles moving parallel to each other in free space is zero. It is easy to show that in this limit, if the movement of the particles is not parallel, there is an interaction force only for $s=0$, but, as their speed is the same, this situation can only happen for an infinitesimal time.
+    In accelerator physics the force $\vect{F}$ is known as space charge force. We can infer from equation~\eqref{eq:space_charge_force} that for any position $s$ and $x$, the longitudinal force is proportional to $\gamma^{-2}$ and $F_t \sim \gamma^{-4}$ if $s \gg x/\gamma$ and  $F_t \sim \gamma^{-1}$ if $s \approx 0$. This way, in the ultra-relativistic limit, $\gamma \to \infty$, the electromagnetic interaction between particles moving parallel to each other in free space is zero. It is easy to show that in this limit, if the movement of the particles is not parallel, there is an interaction force only for $s=0$, but, as their speed is the same, this situation can only happen for an infinitesimal time.
 
-    In this work we are interested in the the interaction between particles in the ultra-relativistic limit, $v \to c$. The space charge effects discussed above are despicable in this limit and the interaction between the particles is due to the presence of the walls of the vacuum chamber. Note that taking the limit $v \to c$ in the equation\,\ref{eq:fields_free_particle} and remembering that $s = vt - z$, we can write the electromagnetic field of a ultra-relativistic charge as
+    In this work we are interested in the the interaction between particles in the ultra-relativistic limit, $v \to c$. The space charge effects discussed above are despicable in this limit and the interaction between the particles is due to the presence of the walls of the vacuum chamber. Note that taking the limit $v \to c$ in the equation~\eqref{eq:fields_free_particle} and remembering that $s = vt - z$, we can write the electromagnetic field of a ultra-relativistic charge as
     \begin{align}
     	\vect{E} =
 		\frac{q}{2\pi\epsilon_0}\frac{\vect{\hat{r}}}{r}\delta(z-ct), &
