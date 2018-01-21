@@ -1913,15 +1913,46 @@
     In this chapter the main aspects of the whole impedance budget of the Sirius storage ring will be discussed. Besides the components whose modeling were analyzed in Chapter~\ref{cap:impedance_modeling}, several others are also included. Table~\ref{tab:impedance_budget}
     \begin{table}
         \centering
-        \caption{Components included in the Sirius storage ring impedance budget for the first phase of operation.}
+        \caption{Components included in the Sirius storage ring impedance budget for the first phase of operation. RW stands for Resistive wall and Trans for transitions.}
         \label{tab:impedance_budget}
-        \begin{tabular}{lccc}
+        \begin{tabular}{l d{0} d{-1} d{-1}}
             \toprule
-            Component         &  Quant.   &$\beta_x$ [m]&$\beta_y$ [m]\\
+            Component         &\mathrm{Q} &\mc{1}{c}{$\beta_x$ [m]}&\mc{1}{c}{$\beta_y$ [m]}\\
             \midrule
-            Ring RW           &   1       &    6.0     &    11   \\
-            BC RW             &   1       &    6.0     &    11   \\
-            Kicker Trans.     &   1       &   18.0     &    7    \\
+            Pipe RW           &   1       &    6.0     &  11.0   \\
+            Delta21 RW        &   2       &    2.2     &   2.2   \\
+            Delta52 RW        &   3       &    2.6     &   2.6   \\
+            APU19 RW          &   1       &    2.2     &   2.2   \\
+            APU20 RW          &   1       &    17.8    &   5.0   \\
+            BC RW             &   20      &    0.4     &   5.2   \\
+            FOC RW            &   80      &    7.2     &   6.5   \\
+            NLK RW            &   1       &    18.2    &   7.3   \\
+            DIPK RW           &   1       &    18.0    &   6.7   \\
+            SL GSL07          &   1       &    7.0     &   7.0   \\
+            SL GSL15          &   1       &    7.0     &   7.0   \\
+            SL Monitor        &   2       &    20.1    &   4.7   \\
+            SL HKicker        &   1       &    13.0    &   13.3  \\
+            SL VKicker        &   1       &    22.0    &   2.0   \\
+            \bottomrule
+        \end{tabular}\hfill
+        \begin{tabular}{l d{0} d{-1} d{-1}}
+            \toprule
+            Component         &\mathrm{Q} &\mc{1}{c}{$\beta_x$ [m]}&\mc{1}{c}{$\beta_y$ [m]}\\
+            \midrule
+            CSR               &   1       &    6.0     &   11.0  \\
+            BC Trans          &   20      &    0.4     &   5.2   \\
+            Delta21 Trans     &   2       &    2.4     &   2.4   \\
+            Delta52 Trans     &   3       &    3.0     &   3.0   \\
+            APU19 Trans       &   1       &    2.4     &   2.4   \\
+            APU20 Trans       &   1       &    3.0     &   3.0   \\
+            RF CAV Trans      &   1       &    7.3     &   7.3   \\
+            KIKS Trans        &   1       &    18.2    &   7.1   \\
+            Blw BPM Blw       &  120      &    6.6     &   8.8   \\
+            Bellows           &   20      &    6.6     &   8.8   \\
+            Rad. Masks        &  360      &    6.6     &   11.0  \\
+            Valve Block       &   40      &    6.6     &   11.0  \\
+            DCCT              &   2       &    22.0    &   2.0   \\
+            Pump Slots        &  100      &    15.0    &   2.0   \\
             \bottomrule
         \end{tabular}
     \end{table}
@@ -1957,8 +1988,22 @@
 
     \begin{figure}
         \centering
+        \includegraphics[width=\textwidth]{budget_ph1_kickx.png}
+        \caption{Horizontal kick factors for single bunch operation mode.}
+        \label{fig:longitudinal_impedance_budget}
+    \end{figure}
+
+    \begin{figure}
+        \centering
         \includegraphics[width=\textwidth]{budget_ph1_imp_dip_vert.png}
         \caption{Vertical dipolar impedance budget for Sirius.}
+        \label{fig:longitudinal_impedance_budget}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{budget_ph1_kicky.png}
+        \caption{Vertical kick factors for single bunch operation mode.}
         \label{fig:longitudinal_impedance_budget}
     \end{figure}
 
