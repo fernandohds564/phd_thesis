@@ -1364,7 +1364,7 @@
 
     In this chapter the modelling of the impedance of some components of the storage ring will be described. The components described below are the ones for which the modeling is not trivial and required detailed analysis of some key aspects. The gathering of all the components and analysis of the whole impedance budget will be performed in the next chapter.
 
-\section{Standard Chamber}
+\section{Standard Chamber}\label{sec:standard_chamber}
 
     Sirius standard vacuum chamber will be round, made of copper and will have an internal radius, $b$, of \SI{12}{\milli\meter}, which is considerably smaller than the chambers of the \gls{3gls}, as showed by~\citeonline{Nagaoka2014}.
     This small chamber does not only affect the resistive wall impedance, which scales with $1/b^3$ for the transverse planes, but also all the other components impedance, because of the proximity of the walls with the beam~\cite{Nagaoka2014}. Besides, the solution adopted for the vacuum in Sirius employs the mixed and concomintant use of localized and distributed pumping, where the last is achieved through coating the vacuum vessel with \gls{neg}~\cite{Benvenuti1998,Prodromides2002}. In 2012 the \gls{lnls} signed a license agreement with \gls{cern} to use \gls{neg} and since then the Vacuum Group has been working on the development of the infrastructure and improvement of techniques for production, deposition and in--situ activation of \gls{neg}, to produce coatings with low surface roughness and good thickness uniformity in all vacuum chambers of the ring, as explained by~\citeonline{Seraphim2015} and~\citeonline{Rocha2017}.
@@ -1613,7 +1613,7 @@
 
     The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi-layer chambers used so far. This question is answered by~\citeonline{Shobuda2009}, who calculated the impedance of a finite resistive insert of finite thickness on an otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for an insert whose length is smaller than its radius, if the thickness is of the order of \SI{100}{\micro\meter}, the impedance is already equal to the infinitely long chamber counterpart. This result shows that the use of the multi-layer formulas employed so far for the other components are still valid for the fast correctors chambers.
 
-\section{Undulators Chambers}
+\section{Undulators Chambers}\label{sec:undulators_chambers}
 
     For the first phase of operation of the Sirius light source it is planned the installation of seven \gls{ids} on the storage ring, with four different types of devices: two Delta-type undulators~\cite{Temnykh2008} and two \gls{apu}~\cite{Carr1991}. The design details as well as first experiences with the prototype measuments of the Sirius Delta undulator are described by~\citeonline{Vilela2017} and the information regarding the radiation parameters of such devices can be found elsewhere~\cite{Sirius2013}. All the \gls{ids} will be out of vacuum and their vacuum chamber will be made of copper and coated with \gls{neg}. Regarding the impedance issues, on the one hand this is good because it simplifies the design of the tapers, allowing further optimization of its parameters for impedance reduction, but on the other hand the resistive wall impedance will always be there, regardless of the existence or not of the additional damping provided by radiation emittion\footnote{One important remark is that both types of undulators that will be used in Sirius does not have the degree of freedom to change their gap, which means that when they are not being used there is no way to "turn off" their magnetic field. What is usually done is to change the phases among the~\citeonline{Halbach1985} cassets in such a way that the field lays down in the longitudinal direction, so the electron beam stops radiating.}.
 
@@ -1676,7 +1676,7 @@
 
     The chamber heating is an important aspect to be considered in the design of the undulators, because it is difficult insert cooling systems in devices with such small gap, mainly in the Delta--type undulators, which have small appertures in both transverse directions. To estimate the power density for these devices we used the flat chamber approximation, described in equation~\eqref{eq:power_density_flat}. Even though the undulators chambers are not flat, the estimation of the peak density using this formula is a worst case scenario for the real value and, even in this case it was verified through heating simulations that the power deposited by the wake fields is not an issue.
 
-\section{BC Chamber}
+\section{BC Chamber}\label{sec:bc_chamber}
 
     The BC magnet is the central dipole of the arch of the Sirius storage ring unit cell. It is a permanent magnet with longitudinal and transverse gradient and at its center there is a very thin slice that will reach a peak magnetic flux density of \SI{3.2}{\tesla} which will be used as source for 20 beamlines, providing radiation with critical energy of \SI{19.2}{\kilo\electronvolt}. In order to achieve this high flux density, the poles of central part must be very close to the beam, with a full gap of only \SI{10}{\milli\meter}.
     % Figure~\ref{fig:bc_magnet_with_twiss}
@@ -1910,14 +1910,58 @@
 
 \chapter{Impedance Budget}
 
+    In this chapter the main aspects of the whole impedance budget of the Sirius storage ring will be discussed. Besides the components whose modeling were analyzed in Chapter~\ref{cap:impedance_modeling}, several others are also included. Table~\ref{tab:impedance_budget}
+    \begin{table}
+        \centering
+        \caption{Components included in the Sirius storage ring impedance budget for the first phase of operation.}
+        \label{tab:impedance_budget}
+        \begin{tabular}{lccc}
+            \toprule
+            Component         &  Quant.   &$\beta_x$ [m]&$\beta_y$ [m]\\
+            \midrule
+            Ring RW           &   1       &    6.0     &    11   \\
+            BC RW             &   1       &    6.0     &    11   \\
+            Kicker Trans.     &   1       &   18.0     &    7    \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    shows all the components and important parameters for weigthing their contribution to the budget, such as the quantity of elements and the average betatron function at their locations. Some of these components impedance, precisely the tapers for the superconducting RF cavity and the tapered transitions of the injection straight section, were calculated following the same methods of the undulators and the BC magnet transitions, discussed in Sections~\ref{sec:undulators_chambers} and~\ref{sec:bc_chamber}, respectively.
+
+    All the others were detailed studied with 3D modelings and calculations with GdfidL\footnote{All the 3D calculations and optimizations were performed by another member of the LNLS team, Henrique de Oliveira Caiafa Duarte.}~\cite{Bruns1997}, where issues such as wake heating and coupled--bunch instabilities were strongly attacked. The complexity and reachness of good ideas of such designs would require another thesis to be properly explained and will not be discussed in details here. Only some key aspects will be mentioned, for example, a closer look to Table~\ref{tab:impedance_budget} reveals that the flanges, which are an important source of impedance for other machines, as described by~\citeonline{Nagaoka2001}, are not included in our budget. That is because Sirius flanges are virtually free of any impedance, due to the new model {\Large blalbalbsl}, based on a previous design by KEKB, as explained by~\citeonline{Seraphim2015}. Another example are the scrapers, which are responsible for limiting the horizontal and vertical acceptance of the storage ring to avoid localized electron losses in other, more delicate, elements of the ring. Generally the impedance of such device is optimized for its nominal position, but creates abrupt changes in the vacuum chamber if it is closer or farther from the center of the vacuum chamber. For Sirius a new design, proposed by Ricardo Rodrigues, will be used, with a negligible impedance for any transverse offet.
+
+    Figure~\ref{fig:longitudinal_impedance_budget}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{budget_ph1_imp_longitudinal.png}
+        \caption{Longitudinal impedance budget for Sirius.}
+        \label{fig:longitudinal_impedance_budget}
+    \end{figure}
+    shows the longitudinal impedance budget of the storage ring for its first phase of operation and Figure~\ref{fig:ph1_kLoss_Z_eff}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{budget_ph1_kLoss_Z_eff.png}
+        \caption{Single bunch Loss factor (left, blue) and effective impedance (right, orange) calculated for the nominal operation mode of phase1 for Sirius.}
+        \label{fig:ph1_kLoss_Z_eff}
+    \end{figure}
+    shows the loss factor and effective impedance, which were defined in sections~\ref{sec:energy_loss} and~\ref{sec:mode_coupling}, respectively. Note that the imaginary part of the impedance is mostly inductive and is dominated by the resistive wall impedance of the vacuum chamber. We know from section~\ref{sec:standard_chamber} most of this impedance is due to the~\gls{neg} coating of the chamber.
 
 
 
-\section{Longitudinal Impedance}
-\subsection{Effective Z/n}
-\subsection{Multi-bunch Kloss and Dissipated Power}
-\section{Vertical Impedance}
-\section{Horizontal Impedance}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{budget_ph1_imp_dip_hor.png}
+        \caption{Horizontal dipolar impedance budget for Sirius.}
+        \label{fig:longitudinal_impedance_budget}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{budget_ph1_imp_dip_vert.png}
+        \caption{Vertical dipolar impedance budget for Sirius.}
+        \label{fig:longitudinal_impedance_budget}
+    \end{figure}
+
 
 \chapter{Simulations and Instabilities Thresholds}
 \section{Frequency Domain Calculations}
