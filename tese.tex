@@ -1774,15 +1774,16 @@
         \begin{subfigure}[c]{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]{csr_ykx.png}
-            \caption{lakd}
+            \caption{}
             \label{fig:csr_ykx}
         \end{subfigure}\hfill
         \begin{subfigure}[c]{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]{csr_shielding.png}
-            \caption{lakd}
+            \caption{}
             \label{fig:csr_shielding}
         \end{subfigure}
+        \caption{(a) shows the behavior of the the function $Y_k(x)$ as function of $3x/k^{3/2}$ evidenciating its smooth dependency. (b) shows the sum of the two terms of the \gls{csr} impedance: the free--space contribution, $W'_0$ and the shielding term, $W'_1$, where it becomes clear the cancelation of the long tail at positions ahead of the emitting particle ($z$ negative).}
     \end{figure}
     shows $Y_k(x)$ as function of the term $3x/k^{3/2}$, where we note a smooth and well behaved dependency, which guarantees a fast convergence of the infinite series that defines $G$, being necessary to compute only the first 25 to 30 terms in almost all practical cases. Figure~\ref{fig:csr_shielding} shows the effect of the plates on the total wake, where we can note that, contrary to the free--space term, it is non--zero behind the source particle and that its contribution in the portion ahead is to cancel the long tail of the free--space wake, working as a shield for low frequency terms.
 
@@ -1849,17 +1850,17 @@
             \bottomrule
         \end{tabular}
     \end{table}
-    The impedance was directly calculated from equation~\eqref{eq:csr_imp_shielding}, but the method to obtain the wake was more envolving. Instead of the wake-function of the point charge, we convolved the the expressions of equations~\eqref{eq:csr_wake_free_space} and~\eqref{eq:csr_wake_shielding} with a small gaussian beam of $\sigma = 80~$\si{\micro\meter} to avoid the divergence of the free--space wake and used this effective wake function as input for tracking simulations. The convolution with the shielded contribution to the impedance was done in the standard numeric way, but the one with the free--space contribution was performed following the trick described by~\citeonline{Nagaoka2014}
+    The impedance was directly calculated from equation~\eqref{eq:csr_imp_shielding}, but the method to obtain the wake was more envolving. Instead of the wake-function of the point charge, we convolved the the expressions of equations~\eqref{eq:csr_wake_free_space} and~\eqref{eq:csr_wake_shielding} with a small gaussian beam of $\sigma = 5~$\si{\micro\meter} to avoid the divergence of the free--space wake and used this effective wake function as input for tracking simulations. The convolution with the shielded contribution was done in the standard numeric way, but the one with the free--space part of the wake was performed following the trick described by~\citeonline{Nagaoka2014}
     \begin{align}\label{eq:csr_convolution}
-        V_0(z) = -\defint{z'}{W'_0(z')\lambda(z-z')}{-\infty}{0} = \defint{z'}{W_0(z')\lambda'(z-z')}{-\infty}{0}
+        V_0(z) = \infint{z'}{W'_0(z')\lambda(z-z')} = -\infint{z'}{W_0(z')\lambda'(z-z')}
     \end{align}
-    where
+    where the divergence of the first integral of the equation above is neglected and the remainder is integrable. This procedure is justified by the fact that what causes this divergence is the approximated expression of the wake; the real physical one is finite. This is just a clever way to remain using the useful approximation for the free-space wake which does not depend on the particle's energy. The explicit expressions for the integrands are
     \begin{align}
         \frac{W_0(z)}{L} =
         \begin{dcases}
-            \frac{Z_0 c}{2 \pi 3^{1/3}} \frac{1}{\rho^{2/3}(-z)^{1/3}} & z<0\\
+            \frac{-Z_0 c}{2 \pi 3^{1/3}} \frac{1}{\rho^{2/3}(-z)^{1/3}} & z<0\\
             0 & z>0
-        \end{dcases}& &\text{and} &&\lambda(z) = \frac{1}{\sqrt{2\pi}\sigma}\exp\fof{-\frac{z^2}{2\sigma^2}}.
+        \end{dcases}& &\text{and} &&\lambda'(z) = -\frac{z}{\sqrt{2\pi}\sigma^3}\exp\fof{-\frac{z^2}{2\sigma^2}}.
     \end{align}
     Note that $W_0(z)$ also diverges at the origin, but slower, in such a way that the convolution can be carried out numerically or analytically. The analytic result was obtained with Wolfram Mathematica~\cite{WolframResearchInc.2016} and it reads
     \begin{align}\nonumber
@@ -1892,21 +1893,23 @@
             \caption{lakd}
             \label{fig:csr_impedance}
         \end{subfigure}
+        \caption{}
     \end{figure}
     shows the two components of the wake and their sum, while Figure~\ref{fig:csr_impedance} shows the impedance calculated via the Inverse Fourier Transform and posterior deconvolution of equation~\eqref{eq:csr_convolution}, compared with the calculation using equation~\eqref{eq:csr_imp_shielding} and the free-space impedance~\eqref{eq:csr_imp_free_space}. Note the very good agreement between the two methods of calculating the impedance, which validates the trick for calculation of the effective wake function.
     Besides, note that the shielding virtually eliminates the resistive part of the impedance up to approximately~\SI{100}{\giga\hertz} and changes the sign of the imaginary part from positive, which is generally refered as capacitive in the accelerators comunity, to negative, often called inductive. However, the impedance in for this range of frequencies may depend very strongly on the parameters of the vacuum chamber geometry, for example,~\citeonline{Warnock1990a} calculated the radiation impedance for a beam in a circular smooth toroidal chamber with rectangular cross sections and found that the impedance at low frequencies would also be imaginary, but capacitive. The importance of this impedance to the budget is not in the frequency region of the stationary beam spectrum, but the very strong impedance at high frequencies, because the instability arises when modulations in the beam distribution starts radiating coherently, as explained by~\citeonline{Stupakov2002}.
 
-    Figure~\ref{fig:csr_total_impedance}
-    \begin{figure}[t]
-        \centering
-        \includegraphics[width=0.48\textwidth]{csr_imp_comp_b1b2_bc}\hfill
-        \includegraphics[width=0.48\textwidth]{csr_wake_comp_b1b2_bc}
-        \caption{kaldjoeialdke}
-        \label{fig:csr_total_impedance}
-    \end{figure}
-    shows the total impedance considered for Sirius. The contribution from both types of dipoles was calculated considering their total length along the ring. Note that the strong shielding factor of the BC magnet helps reducing the toal impedance.
+    % Figure~\ref{fig:csr_total_impedance}
+    % \begin{figure}[b]
+    %     \centering
+    %     \includegraphics[width=0.48\textwidth]{csr_imp_comp_b1b2_bc}\hfill
+    %     \includegraphics[width=0.48\textwidth]{csr_wake_comp_b1b2_bc}
+    %     \caption{kaldjoeialdke}
+    %     \label{fig:csr_total_impedance}
+    % \end{figure}
+    % shows the total impedance considered for Sirius. The contribution from both types of dipoles was calculated considering their total length along the ring. Note that the strong shielding factor of the BC magnet helps reducing the total impedance.
 
-    As a final remark we reinforce that this is only the initial model for the impedance, future works could consider the analytic results obtained by~\citeonline{Stupakov2016}, where the authors developed a general method to calculate the impedance for any planar trajectory in free space or with the parallel plates shielding and applied to some practical cases, including the case of a finite dipole followed by a straight section, or the ones from~\citeonline{Stupakov2009b} where the authors used a method developed in a previous paper~\cite{Stupakov2003} to calculate the impedance of a finite dipole in a closed, rectangular chamber. Besides, numerical solvers such as the one developed and described by~\citeonline{Zhou2012} based on a method for solving the parabolic equation by~\citeonline{Agoh2004} could be pursued.
+    As a final remark we reinforce that this is only the initial model for the impedance, future works could consider the analytic results obtained by~\citeonline{Stupakov2016}, where the authors developed a general method to calculate the impedance for any planar trajectory in free space or with the parallel plates shielding and applied to some practical cases, including the case of a finite dipole followed by a straight section, or the ones from~\citeonline{Stupakov2009b} where the authors used a method developed in a previous paper~\cite{Stupakov2003} to calculate the impedance of a finite dipole in a rectangular chamber. Besides, numerical solvers such as the one developed and described by~\citeonline{Zhou2012} based on a method for solving the parabolic equation by~\citeonline{Agoh2004} could be pursued.
+
 
 \chapter{Impedance Budget}
 
@@ -1956,25 +1959,37 @@
             \bottomrule
         \end{tabular}
     \end{table}
-    shows all the components and important parameters for weigthing their contribution to the budget, such as the quantity of elements and the average betatron function at their locations. Some of these components impedance, precisely the tapers for the superconducting RF cavity and the tapered transitions of the injection straight section, were calculated following the same methods of the undulators and the BC magnet transitions, discussed in Sections~\ref{sec:undulators_chambers} and~\ref{sec:bc_chamber}, respectively.
+    shows all the components and important parameters for weigthing their contribution to the budget, such as the quantity of elements and the average betatron function at their locations. Some of these components, precisely the tapers for the superconducting RF cavity and the tapered transitions of the injection straight section, had their impedance calculated following the same methods of the undulators and the BC magnet transitions, discussed in Sections~\ref{sec:undulators_chambers} and~\ref{sec:bc_chamber}, respectively. All the others were detailed designed with 3D modeling and calculations with GdfidL\footnote{All the 3D calculations and optimizations were performed by another member of the LNLS team, Henrique de Oliveira Caiafa Duarte.}~\cite{Bruns1997}, to minimize issues related to wake heating and avoid the  coupled--bunch instabilities. In this work, only the key aspects of these designs will be mentioned and their detailed impedance characterization as well as the design process can be found elsewhere~\cite{Duarte2013,Duarte2017,Duarte2017a}.
 
-    All the others were detailed studied with 3D modelings and calculations with GdfidL\footnote{All the 3D calculations and optimizations were performed by another member of the LNLS team, Henrique de Oliveira Caiafa Duarte.}~\cite{Bruns1997}, where issues such as wake heating and coupled--bunch instabilities were strongly attacked. The complexity and reachness of good ideas of such designs would require another thesis to be properly explained and will not be discussed in details here. Only some key aspects will be mentioned, for example, a closer look to Table~\ref{tab:impedance_budget} reveals that the flanges, which are an important source of impedance for other machines, as described by~\citeonline{Nagaoka2001}, are not included in our budget. That is because Sirius flanges are virtually free of any impedance, due to the new model {\Large blalbalbsl}, based on a previous design by KEKB, as explained by~\citeonline{Seraphim2015}. Another example are the scrapers, which are responsible for limiting the horizontal and vertical acceptance of the storage ring to avoid localized electron losses in other, more delicate, elements of the ring. Generally the impedance of such device is optimized for its nominal position, but creates abrupt changes in the vacuum chamber if it is closer or farther from the center of the vacuum chamber. For Sirius a new design, proposed by Ricardo Rodrigues, will be used, with a negligible impedance for any transverse offet.
+    A closer look to Table~\ref{tab:impedance_budget} reveals that the flanges, which are an important source of impedance for other machines, as described by~\citeonline{Nagaoka2004a}, are not included in our budget, because Sirius flanges are virtually free of any impedance. They were based on a modified version of a KEK MO--type flange~\cite{Suetsugu2005} and, as explained by~\citeonline{Seraphim2015}, they do not present material transition and the vacuum seal is made at the inner surface, without the formation of cavities. Another type of component missing in the impedance budget is the scraper, which is responsible for limiting the horizontal or vertical acceptance of the storage ring to avoid localized electron losses in other, more delicate, elements by creating transverse obtrusions with variable gap. Generally the impedance of such device is optimized for its nominal position, which is defined by taking into account the \gls{bsc} at the scraper location, but the abrupt transitions created when it is in any other position, farther or closer from the center of the vacuum chamber, generate a large impedance. The Sirius design, presented by~\citeonline{Duarte2017a}, will not have this problem, presenting negligible impedance for any transverse offset.
 
-    Figure~\ref{fig:longitudinal_impedance_budget}
-    \begin{figure}
+    In order to simplify the presentation of the results, the components presented in Table~\ref{tab:impedance_budget} were divided in some groups:
+    \begin{description}
+        \item[Ring RW:] comprises the elements BC RW, Pipe RW (standard chamber), FOC RW (Fast orbit correctors), NLK RW (Non--linear Kicker), DIPK RW (Dipole Kicker). The element that dominates the impedance of this group is the standard chamber resistive wall;
+        \item[ID RW:] composed of the unudulators resistive wall impedance, APU19 RW, APU20 RW, Delta21 RW, Delta52 RW, and the CSR impedance. This last one was included here because it does not fit in any of the groups and its contribution in the frequency range of the equilibrium beam spectrum is too small to be separated;
+        \item[Ring Geom:] Transitions of cross section of the ring, formed by the RF CAV Trans, BC Trans and KIKS Trans (Transitions for both kickers). This group is largely dominated by the RF cavity transition impedance, because due to space limitations in the straight section where it will be installed have a transition factor, $t$, small, which means larger taper angles and, consequently, impedance too;
+        \item[ID Geom:] all the transitions for the~\gls{ids};
+        \item[Vac. \& Diag:] Composed of all the stripline kickers and pick ups, SL GSL07, SL GSL15, SL Monitor, SL HShaker, SL VShaker, SL HKicker, SL VKicker, the DCCT (current meter) and the Pump Slots.
+        \item[Blw \& BPM:] This group contains the isolated bellows and the Blw BPM Blw block, which was simulated as a single piece because all BPMs of the storage ring have two bellows by its side, one upstream and another downstream, which means there could be coupling between the resonant modes of each device;
+        \item[Valve Block:] All the valves of the storage ring will have a Blw BPM Blw block followed by a Radiation Mask in the upstream direction and a bellow downstream. For the same reasons as the previous component, all these elements were simulated as single block.~\citeonline{Duarte2017a} shows a Figure of these components and the impedance comparison of the sum of individual impedances and the block impedance, demonstrating the differences among both approaches.
+        \item[Rad. Masks:] This group is composed of a single type of component to show it large contribution to the budget and also to highlight the large impact of its optimization, as described by~\citeonline{Duarte2017a}.
+    \end{description}
+
+    Figure~\ref{fig:long_imp_budget}
+    \begin{figure}[b]
         \centering
         \includegraphics[width=\textwidth]{budget_ph1_imp_longitudinal.png}
         \caption{Longitudinal impedance budget for Sirius.}
-        \label{fig:longitudinal_impedance_budget}
+        \label{fig:long_imp_budget}
     \end{figure}
     shows the longitudinal impedance budget of the storage ring for its first phase of operation and Figure~\ref{fig:ph1_kLoss_Z_eff}
-    \begin{figure}
+    \begin{figure}[t]
         \centering
         \includegraphics[width=\textwidth]{budget_ph1_kLoss_Z_eff.png}
         \caption{Single bunch Loss factor (left, blue) and effective impedance (right, orange) calculated for the nominal operation mode of phase1 for Sirius.}
         \label{fig:ph1_kLoss_Z_eff}
     \end{figure}
-    shows the loss factor and effective impedance, which were defined in sections~\ref{sec:energy_loss} and~\ref{sec:mode_coupling}, respectively. Note that the imaginary part of the impedance is mostly inductive and is dominated by the resistive wall impedance of the vacuum chamber. We know from section~\ref{sec:standard_chamber} most of this impedance is due to the~\gls{neg} coating of the chamber.
+    shows the single bunch loss factor and effective impedance, which were defined in sections~\ref{sec:energy_loss} and~\ref{sec:mode_coupling}, respectively. Note that the imaginary part of the impedance is mostly inductive and is dominated by the resistive wall impedance of the vacuum chamber, which we know from section~\ref{sec:standard_chamber} that is mostly determined by the~\gls{neg} coating of the chamber. This large contribution is responsible for approximately one third of the total effective impedance of the storage ring and, consequently to the bunch lengthening that will be discussed in Chapter~\ref{cap:instabilities_thresholds}.
 
 
 
@@ -1983,32 +1998,32 @@
         \centering
         \includegraphics[width=\textwidth]{budget_ph1_imp_dip_hor.png}
         \caption{Horizontal dipolar impedance budget for Sirius.}
-        \label{fig:longitudinal_impedance_budget}
+        \label{fig:dipole_hor_imp_budget}
     \end{figure}
 
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{budget_ph1_kickx.png}
         \caption{Horizontal kick factors for single bunch operation mode.}
-        \label{fig:longitudinal_impedance_budget}
+        \label{fig:ph1_kickx}
     \end{figure}
 
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{budget_ph1_imp_dip_vert.png}
         \caption{Vertical dipolar impedance budget for Sirius.}
-        \label{fig:longitudinal_impedance_budget}
+        \label{fig:dipole_vert_imp_budget}
     \end{figure}
 
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{budget_ph1_kicky.png}
         \caption{Vertical kick factors for single bunch operation mode.}
-        \label{fig:longitudinal_impedance_budget}
+        \label{fig:ph1_kicky}
     \end{figure}
 
 
-\chapter{Simulations and Instabilities Thresholds}
+\chapter{Simulations and Instabilities Thresholds}\label{cap:instabilities_thresholds}
 \section{Frequency Domain Calculations}
 \subsection{Vertical Plane}
 \subsubsection{Single-bunch Tune--Shifts}
@@ -2613,16 +2628,18 @@
     where it is clear that is necessary other simulation to extract the quadrupolar wake.
 
 
-\chapter{Cálculo dos wake-potential a partir do ECHOzR} \label{app:wake_from_echozr}
+\chapter{ECHOzR Post--Processing} \label{app:wake_from_echozr}
 
-    De acordo com a referência, temos que:
-
+    According to~\citeonline{Zagorodnov2015} the wake functions are given by
     \begin{align}
-		W_{||}(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty W_m(y_0,y,s)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\[4mm]
-		W_y(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty k_{x,m}W_{y,m}(y_0,y,s)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\[4mm]
-		W_x(x_0,y_0,x,y,s) &= \frac1w\sum_{m=1}^\infty k_{x,m}W_{x,m}(y_0,y,s)\sin(k_{x,m}x_0)\cos(k_{x,m}x),
+		W_{||}(x_0,y_0,x,y,s) &=
+            \frac1w\sum_{m=1}^\infty W_m(y_0,y,z)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\[4mm]
+		W_y(x_0,y_0,x,y,s) &=
+            \frac1w\sum_{m=1}^\infty k_{x,m}W_{y,m}(y_0,y,z)\sin(k_{x,m}x_0)\sin(k_{x,m}x), \\[4mm]
+		W_x(x_0,y_0,x,y,s) &=
+            \frac1w\sum_{m=1}^\infty k_{x,m}W_{x,m}(y_0,y,z)\sin(k_{x,m}x_0)\cos(k_{x,m}x),
     \end{align}
-    where $w$ is the half-width of the structure, $0<x<2w$ is the horizontal position of the trailing particle, $0<x_0<2w$ is the horizontal position of the source particle, $y$ is vertical position of the trailing particle, $y_0$ is vertical position of the source particle, $s=z-ct$ is the position of the trailing particle relative to the source particle and
+    where $w$ is the half-width of the structure, $0<x<2w$ is the horizontal position of the trailing particle, $0<x_0<2w$ is the horizontal position of the source particle, $y$ is vertical position of the trailing particle, $y_0$ is vertical position of the source particle, $z=ct-s$ is the position of the trailing particle relative to the source particle and
     \begin{equation}
     k_{x,m} = \frac{\pi}{2w}m
     \end{equation}
