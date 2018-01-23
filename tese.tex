@@ -1970,7 +1970,7 @@
         \item[Ring Geom:] Transitions of cross section of the ring, formed by the RF CAV Trans, BC Trans and KIKS Trans (transitions for both kickers). This group is largely dominated by the RF cavity transition impedance, because space limitations in the straight section where it will be installed forced the use of a small transition factor, $t$, which means larger taper angles and, consequently, impedance too;
         \item[ID Geom:] all the transitions for the~\gls{ids};
         \item[Vac. \& Diag:] Composed of all the stripline kickers and pick ups, SL GSL07, SL GSL15, SL Monitor, SL HShaker, SL VShaker, SL HKicker, SL VKicker, the DCCT (current meter) and the Pump Slots.
-        \item[Blw \& BPM:] This group contains the isolated bellows and the Blw BPM Blw block, which was simulated as a single piece because all BPMs of the storage ring have two bellows by its side, one upstream and another downstream, which means there could be coupling between the resonant modes of each device;
+        \item[Blw \& BPM:] This group contains the isolated bellows and the Blw BPM Blw block, which was simulated as a single piece because all \gls{bpms} of the storage ring have two bellows by its side, one upstream and another downstream, which means there could be coupling between the resonant modes of each device;
         \item[Valve Block:] All the valves of the storage ring will have a Blw BPM Blw block followed by a Radiation Mask in the upstream direction and a bellow downstream. For the same reasons as the previous component, all these elements were simulated as single block.~\citeonline{Duarte2017a} shows a Figure of these components and the impedance comparison of the sum of individual impedances and the block impedance, demonstrating the differences among both approaches.
         \item[Rad. Masks:] This group is composed of a single type of component to show its large contribution to the budget and also to highlight the positive impact of its optimization, as described by~\citeonline{Duarte2017a}.
     \end{description}
@@ -1991,37 +1991,42 @@
     \end{figure}
     shows the single bunch loss factor and effective impedance, which were defined in sections~\ref{sec:energy_loss} and~\ref{sec:mode_coupling}, respectively. Note that the imaginary part of the impedance is mostly inductive and is dominated by the resistive wall impedance of the vacuum chamber, which we know from section~\ref{sec:standard_chamber} that is mostly determined by the~\gls{neg} coating of the chamber. This large contribution is responsible for approximately one third of the total effective impedance of the storage ring and, consequently to the bunch lengthening, which will be discussed in Chapter~\ref{cap:instabilities_thresholds}.
 
-    The second largest contribution for the imaginary part of the impedance also is the major contributor to the real part. It is common for the bellows and the BPMs to dominate the longitudinal impedance of the ring, as can be noted from Max IV impedance budget analysed by~\citeonline{Klein2013a}
+    The second larger contribution for the imaginary part of the impedance is also the major contributor to the real part. It is common for the bellows and the \gls{bpms} to dominate the longitudinal impedance of the ring, as can be noted from Max IV impedance budget analysed by~\citeonline{Klein2013a} or from the Soleil's, presented by~\citeonline{Nagaoka2004a} or even in the work of~\citeonline{Blednykh2007} for NSLS-II. Note in Figure~\ref{fig:long_imp_budget} the existence of three main peaks in the impedance of these components, one very narrow-band, located at approximatelly \SI{9}{\giga\hertz}, close but below the cutoff of the chamber,  which is due to a trapped mode in the bellow cavity. Increasing the frequency, the next one, close to \SI{12}{\giga\hertz} also comes from the bellows, and the other, at~\SI{18}{\giga\hertz} is from the \gls{bpms}. It is interesting to note that this peak from the BPM is much broader than what was presented by~\citeonline[Figure 4a]{Duarte2013}, due to the resistive wall chamber that is included in the simulation presented here. The feature of performing electromagnetic simulations considering the finite conductivity of the metals of the chamber is reasonably new in most time domain codes, and was not available in GdfidL at the time when that paper was published.
+    Considering the material of the chamber of these components is stainless steel, with a resistivity, $\rho$, approximately 59 times larger than copper, that each component is \SI{5}{\centi\meter} long and that there are 120 of them in the ring, we note that this is roughly equivalent to \SI{6}{\meter} of stainless steel chamber, which in turns, because of the $\sqrt{\rho}$ dependence of the resistive wall impedance, is equivalent to ~\SI{60}{\meter} of copper chamber, which qualitatively accounts for the large broad band contribution. This contribution is enhanced by the fact that instead of a smooth chamber which would distribute the impedance over the whole spectrum, because of the the $1/\sqrt{\omega}$ dependence of the resistive wall, this components have cavities which increase the effective inner surface and concentrate the impedance around the frequency of the resoant modes, which is relatively low. However, this is rather inevitable for these components, and it is worth remember that the Sirius BPM has one of the lowest loss factors among several existent designs due to the bell shaped cavity of its buttom, as showed by~\citeonline{Duarte2013} and its first resonant peak is at a frequency as high as it can be, considering the state of the art for the production of such component.
 
+    Another component that is worth mentioning is the radiation mask. As described by~\citeonline{Duarte2017a} two proposals were studied, one axially symmetric, which basically creates a botleneck in the chamber, and one with only a lateral obtrusion in the inner horizontal side of the chamber, where all the radiation is concentrated. While the first design was easier and cheaper to produce, the second had a longitudinal impedance five times smaller and for this reason was chosen as the official model. Looking at Figure~\ref{fig:ph1_kLoss_Z_eff} we note that if the impedance of this component were five times larger its contribution to the budget would be as large as the one from the BPM for the loss factor, and its effective impedance would be \SI{-58}{\milli\ohm}, which is much larger than the \SI{-46}{\milli\ohm} of the resistive wall. Such significant increase would strongly impact the threshold of the microwave instability, which will be studied in Chapter~\ref{cap:instabilities_thresholds}.
 
-
+    Figure~\ref{fig:dipole_hor_imp_budget}
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{budget_ph1_imp_dip_hor.png}
         \caption{Horizontal dipolar impedance budget for Sirius.}
         \label{fig:dipole_hor_imp_budget}
     \end{figure}
-
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{budget_ph1_kickx.png}
-        \caption{Horizontal kick factors for single bunch operation mode.}
-        \label{fig:ph1_kickx}
-    \end{figure}
-
+    and Figure~\ref{fig:dipole_vert_imp_budget}
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{budget_ph1_imp_dip_vert.png}
         \caption{Vertical dipolar impedance budget for Sirius.}
         \label{fig:dipole_vert_imp_budget}
     \end{figure}
-
+    shows the $\beta_{x,y}$ weighted horizontal and vertical dipole impedance budgets for the first phase of operation of Sirius, and Figure~\ref{fig:ph1_kickx}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{budget_ph1_kickx.png}
+        \caption{Horizontal kick factors for single bunch operation mode.}
+        \label{fig:ph1_kickx}
+    \end{figure}
+    and Figure~\ref{fig:ph1_kicky}
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{budget_ph1_kicky.png}
         \caption{Vertical kick factors for single bunch operation mode.}
         \label{fig:ph1_kicky}
     \end{figure}
+    shows the $\beta_{x,y}$ weighted single bunch kick factor for the horizontal and vertical dipole and quadrupole impedances. Note that the impedance in both planes are very similar to each other, due to the predominating round chamber of the machine. With exception of the \gls{ids} the main differences come from the local betatron functions at the position of the impedance.
+
+    Here we recall that the quadrupolar kick factor is what originates the incoherent tune--shifts of the beam and the dipolar kick factor is related to orbit changes .
 
 
 \chapter{Simulations and Instabilities Thresholds}\label{cap:instabilities_thresholds}
@@ -2795,7 +2800,7 @@
 
 \section{Impedance Model}\label{sec:imp_model}
 
-    Table~\ref{tab:resonator_model} shows the broad band resonators (BBR) model of the Sirius longitudinal impedance budget. The very high frequency BBR, the first in the table, is due to the NEG coated vacuum chamber, which has a very large inductive impedance at low frequencies, being the major contributor for the bunch lengthening. Besides, note that the last three resonators have a fairly large $Q$ factor. They are originated by the bellows and the BPMs of the machine, and, as explained below, are important to explain the behavior of the beam above the threshold of the microwave instability.
+    Table~\ref{tab:resonator_model} shows the broad band resonators (BBR) model of the Sirius longitudinal impedance budget. The very high frequency BBR, the first in the table, is due to the NEG coated vacuum chamber, which has a very large inductive impedance at low frequencies, being the major contributor for the bunch lengthening. Besides, note that the last three resonators have a fairly large $Q$ factor. They are originated by the bellows and the \gls{bpms} of the machine, and, as explained below, are important to explain the behavior of the beam above the threshold of the microwave instability.
     \begin{table}[t]
         \centering
         \caption{Broad band resonators model of the Sirius longitudinal impedance budget.}
