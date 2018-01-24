@@ -7,9 +7,11 @@
 \newcommand{\average}[2][{}]{\left\langle #2 \right\rangle_{#1}}  % insert brackets for averaged
 \newcommand{\poison}[1]{\left\{ #1 \right\}}    % poison brackets
 \newcommand{\fof}[1]{\left(#1\right)} % for easily adjusting parentesis size in expressions of the type f(a,b,c)
-\newcommand{\vect}[1]{\overrightarrow{\boldsymbol{#1}}}
+% \newcommand{\vect}[1]{\overrightarrow{\boldsymbol{#1}}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
 \newcommand{\versor}[1]{\boldsymbol{\hat#1}}
-\newcommand{\tensor}[1]{\overleftrightarrow{\boldsymbol{#1}}} % Tensor
+% \newcommand{\tensor}[1]{\overleftrightarrow{\boldsymbol{#1}}} % Tensor
+\newcommand{\tensor}[1]{\mathcal{#1}} % Tensor
 \newcommand{\fourier}[1]{\tilde{#1}}  % representation of the Fourier Transform
 \newcommand{\real}[1]{\Re\left\{#1\right\}}
 \newcommand{\imag}[1]{\Im\left\{#1\right\}}
@@ -18,5 +20,5 @@
  \newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}  %multicolumn short cut in tables
  \newcommand{\mr}[3]{\multirow{#1}{#2}{#3}}     %multirow short cut in tables
 
-\newcommand{\pFq}[4][1]{{\,}_{#1}\!\text{F}_{1}\fof{#2;#3;#4}}
+\newcommand{\pFq}[4][1]{{\,}_{#1}\!\text{F}_{1}\fof{#2;#3;#4}}  %hypergeometric function
 \newcolumntype{d}[1]{D{.}{.}{#1} }
