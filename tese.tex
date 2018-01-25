@@ -156,9 +156,9 @@
 
     Besides the mode used to feed energy to the beam, a cavity can have several other modes of higher resonant frequencies with a high quality factor, $Q$, that can be excited by the beam. When the beam passes through the cavity it deposites electromagnetic fields with a very wide spectrum of frequencies. Most of these frequency components are rapidly scattered and dissipated, but some of them, close to the resonant frequency of these modes, can last for very long times and, assuming the beam is constantly feeding them, strong electric potentials, or wake fields, can be formed. These potentials, in turn, influence the beam dynamics, causing energy loss, distortion of the bunches and instabilities.
 
-    There are some methods to avoid this problem with cavities. For example, it is possible to insert couplers in the cavity, similar to the one that feeds the fundamental mode, but designed and positioned specially to interact with one or a group of these higher order modes to absorb the energy deposited by the beam, which is later transformed in thermal energy by resistors outside the cavity, or to design wave guides in the cavity, through which the modes can propagate and be dissipated in the resistive endings. Another method involve shifting the frequency of the modes, via thermal or mechanical deformation, in such a way that they do not couple with any frequency of the beam.
+    There are some methods to avoid this problem with cavities. For example, it is possible to insert couplers in the cavity, similar to the one that feeds the fundamental mode, but designed and positioned specially to interact with one or a group of these \gls{homs} to absorb the energy deposited by the beam, which is later transformed in thermal energy by resistors outside the cavity, or to design wave guides in the cavity, through which the modes can propagate and be dissipated in the resistive endings. Another method involve shifting the frequency of the modes, via thermal or mechanical deformation, in such a way that they do not couple with any frequency of the beam.
 
-    The superconducting RF cavities also do not have this problem because they are built with very large tubes for the beam passage, in such a way that the higher order modes can propagate through them. Even though for the main mode the ratio of the shunt impedance by the quality factor, $R_s/Q$, which depends only on the geometry of the cavity, as explained by~\citeonline[Sec. 15.4]{Wiedemann2007}, is strongly reduced by this approach, the zero resistivity of the wall still provides very large values for $Q$ and $R_s$. Sirius will adopt this type of cavity and, based on the operation reports of other laboratories which also employed this solution, we do not expect to have problems with higher order modes.
+    The superconducting RF cavities also do not have this problem because they are built with very large tubes for the beam passage, in such a way that the \gls{homs} can propagate through them. Even though for the main mode the ratio of the shunt impedance by the quality factor, $R_s/Q$, which depends only on the geometry of the cavity, as explained by~\citeonline[Sec. 15.4]{Wiedemann2007}, is strongly reduced by this approach, the zero resistivity of the wall still provides very large values for $Q$ and $R_s$. Sirius will adopt this type of cavity and, based on the operation reports of other laboratories which also employed this solution, we do not expect to have problems with \gls{homs}.
 
 \subsection{Vacuum System}
 
@@ -993,9 +993,9 @@
 \section{Models for Impedances and Wakes}
 
     Even though the impedances and wake functions of each component in the ring is a result of a complex interaction between a particle and its environment, they often can be represented by simple physical models. A good example that is widely used, either to model the interaction of the beam with a trapped mode of a RF cavity, as described by~\citeonline[Appendix 1.B]{Zotter1998}, or to represent the whole impedance budget of a storage ring, is the resonator impedance, given by the RLC circuit in parallel
-    \begin{align}
+    \begin{align}\label{eq:long_resonator_impedance}
         \frac1Z_\parallel =  \frac1R_s + \frac{i}{\omega L} - i\omega C \Rightarrow
-        Z_\parallel = \frac{R_s}{1 + Q\fof{\frac{\omega_R}{\omega}-\frac{\omega}{\omega_R}}}
+        Z_\parallel = \frac{R_s}{1 + iQ\fof{\frac{\omega_R}{\omega}-\frac{\omega}{\omega_R}}}
     \end{align}
     where $R_s$ is called the shunt resistence of the cavity, $Q = R_s\sqrt{C/L}$ is the quality factor, $\omega_R = 1/\sqrt{LC}$ is the resonant frequency and  $L$ and $C$ are the inductance and the capacitance. The wake function associated with this impedance is given by the damped harmonic oscillator
     \begin{align}
@@ -1970,7 +1970,9 @@
             \bottomrule
         \end{tabular}
     \end{sidewaystable}
-    shows all the components and important parameters for weigthing their contribution to the budget, such as the quantity of elements and the average betatron function at their locations. The longitudinal parameters, the loss factor, effective impedance and power loss by the beam, were calculated considering multi--bunch operation with uniform filling in all the 864 RF buckets of the ring and, additionally, for the power loss it was considered \SI{100}{\milli\ampere} in the machine. The transverse figure of merits, however, were calculated for the single bunch case Some of these components, precisely the tapers for the superconducting RF cavity and the tapered transitions of the injection straight section, had their impedance calculated following the same methods of the undulators and the BC magnet transitions, discussed in Sections~\ref{sec:undulators_chambers} and~\ref{sec:bc_chamber}, respectively. All the others were detailedly designed with 3D modeling and calculations with GdfidL\footnote{All the 3D calculations and optimizations were performed by another member of the LNLS team, Henrique de Oliveira Caiafa Duarte.}~\cite{Bruns1997}, to minimize issues related to wake heating and avoid the  coupled--bunch instabilities. In this work, only the key aspects of these designs will be mentioned and their detailed impedance characterization as well as the design process can be found elsewhere~\cite{Duarte2013,Duarte2017,Duarte2017a}.
+    shows all the components and important parameters for weigthing their contribution to the budget, such as the quantity of elements and the average betatron function at their locations. The longitudinal parameters, the loss factor, effective impedance and power loss by the beam, were calculated considering multi--bunch operation with uniform filling in all the 864 RF buckets of the ring and, additionally, for the power loss it was considered \SI{100}{\milli\ampere} in the machine. The transverse figure of merits, however, were calculated for the single bunch case and, in all of them it was considered a \SI{2.5}{\milli\meter} bunch.
+
+    Some of these components, precisely the tapers for the superconducting RF cavity and the tapered transitions of the injection straight section, had their impedance calculated following the same methods of the undulators and the BC magnet transitions, discussed in Sections~\ref{sec:undulators_chambers} and~\ref{sec:bc_chamber}, respectively. All the others were detailedly designed with 3D modeling and calculations with GdfidL\footnote{All the 3D calculations and optimizations were performed by another member of the LNLS team, Henrique de Oliveira Caiafa Duarte.}~\cite{Bruns1997}, to minimize issues related to wake heating and avoid the  coupled--bunch instabilities. In this work, only the key aspects of these designs will be mentioned and their detailed impedance characterization as well as the design process can be found elsewhere~\cite{Duarte2013,Duarte2017,Duarte2017a}.
 
     A closer look to Table~\ref{tab:impedance_budget} reveals that the flanges, which are an important source of impedance for other machines, as described by~\citeonline{Nagaoka2004a}, are not included in our budget, because Sirius flanges are virtually free of any impedance. They were based on a modified version of a KEK MO--type flange~\cite{Suetsugu2005} and, as explained by~\citeonline{Seraphim2015}, they do not present material transition and the vacuum seal is made at the inner surface, forming a cavity with negligible size. Another type of component missing in the impedance budget is the scraper, which is responsible for limiting the horizontal or vertical acceptance of the storage ring to avoid localized electron losses in other, more delicate, elements by creating transverse obtrusions with variable gap. Generally the impedance of such device is optimized for its nominal position, which is defined by taking into account the \gls{bsc} at the scraper location, but the abrupt transitions created when it is in any other position, farther or closer from the center of the vacuum chamber, generate a large impedance. The Sirius design, presented by~\citeonline{Duarte2017a}, will not have this problem, presenting negligible impedance for any transverse offset.
 
@@ -2056,6 +2058,70 @@
     \end{figure}
 
 \chapter{Instabilities Studies}\label{cap:instabilities_studies}
+
+    The impedance budget presented in the last chapter will be used here to calculate some beam parameters at equilibrium, or stationary state, and the thresholds for instabilities as well as the behavior of the beam above the threshold. It is important to remark that this is an ongoing work and the results presented here are not final. For example, the inclusion of the \gls{csr} in the budget only happened in the last month of production of this thesis (January 2018) and its tracking simulations are still being analysed for convergence. However, its large influence on the longitudinal dynamics justifies the presentation of such results. Another example is the tracking code we developed, which is capable of simulate transverse dipole and quadrupole wake functions and effective wake functions, but it was not properly tested yet and, for this reason will not be used in this work.
+
+    In the first section of this chapter we will briefly discuss the effect of the PETRA 7--Cell cavity on the coupled bunch instabilities of Sirius during commissioning; In the second section the longitudinal dynamics of the storage ring will be analysed and use the main results to study the transverse plane, in the subsequent section.
+
+\section{The PETRA 7--Cell Cavity}
+
+    According to the impedance budget gathered for Sirius, there will be no long--range wake fields capable of generating longitudinal coupled--bunch instabilities. All the elements simulated were tested individually to check if their impedances could to create this type of instability and none of them can do it. Actually, this was a criteria adopted in the design of the components, not only for the longitudinal plane, but also for both transverse planes. However, a PETRA 7--Cell cavity will be used in the commissioning phase and it is known that this type of cavity can generate coupled--bunch instabilities, as shown by~\citeonline{Bassi2016b} for the case of NSLS--II, for which this same commissioning strategy was adopted.~\citeonline{Bassi2016b} presents a table with the simulated values of the longitudinal \gls{homs} of this cavity, which we will use here to estimate the instabilities for Sirius.
+
+    The procedure we adopted to perform this analysis was the following: first we identified which of these modes have potential to cause coupled--bunch instabilities in the Sirius storage ring. This was done by finding the minimum value for the impedance as function of the frequency for which equation~\eqref{eq:long_coupled_bunch_instability} gives a positive growth rate. Isolating the impedance in that equation we get
+    \begin{align}\label{eq:long_cbi_minimum_impedance}
+        Z_\parallel^\text{min}\fof{\omega} = \frac{\omega\alpha_z}{I_T\omega_0\alpha}\frac{2\pi E_0\fof{\omega_s\sigma_z/c}^2}{h_m^2(\omega)}.
+    \end{align}
+    Notice that this procedure is pessimistic, because it neglects the negavite contributions of the sampling of the negative frequencies on equation~\eqref{eq:long_coupled_bunch_instability}, which would require the difference
+    \begin{align}
+        \real{Z\fof{\omega_0(p+\nu_s)} - Z\fof{\omega_0(-p+\nu_s)}} =
+        \real{Z\fof{\omega_0(p+\nu_s)} - Z\fof{\omega_0(p-\nu_s)}}
+    \end{align}
+    to be larger than the \gls{rhs} of equation~\eqref{eq:long_cbi_minimum_impedance}, and not the value of the impedance. Figure~\ref{fig:long_cbi_minimum_impedance}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{long_cbi_minimum_impedance.png}
+        \caption{Figure ashoelke}
+        \label{fig:long_cbi_minimum_impedance}
+    \end{figure}
+    shows the comparison of the minimum impedance with the impedance of the cavity for different values of current, considering the azimuthal mode $m=1$. For higher order azimuthal modes, the minimum impedance is much larger than any of the shunt impedances of the cavity. Note that with~\SI{10}{\milli\ampere} three modes are already larger than the minimum impedance and have potential to create instabilities.
+
+    Next, for the modes with shunt impedance larger than the mininum impedance, we found the frequency range in which their impedance satisfy this condition. Considering the modes can be represented by the resonator impedance, introduced in equation~\eqref{eq:long_resonator_impedance} we want to find the interval in frequency such that
+    \begin{align}
+        Z_\parallel^\text{min} \le \real{\frac{R_s}{1 + iQ\fof{\frac{\omega_R}{\omega}-\frac{\omega}{\omega_R}}}}.
+    \end{align}
+    Solving for $\omega$ we find four possible solutions for the limiting frequencies. We are interested in the ones which define an interval with positive frequencies, given by
+    \begin{align}
+        \Delta \omega = \left\{\omega \in \mathbb{R} \middle| -\frac{f}{2} \le \frac{\omega}{\omega_R} - \sqrt{\fof{\frac{f}{2}}^2+1} \le
+        \frac{f}{2} \right\}
+    \end{align}
+    where $f = 1/Q\sqrt{R_s/Z_\parallel^\text{min}-1}$. Now we recall equation~\eqref{eq:long_coupled_bunch_instability} to argue that the beam will sample the impedance at frequencies equal to $\omega_p=\omega_0\fof{Mp + \mu + \nu_s}$. Since all coupled--bunch modes, $\mu$, are possible and if one of them is unstable it means the whole beam will be unstable, we are interested to know if the frequency range defined above applied for each of the \gls{homs} are close to a multiple of the revolution frequency of the ring, because $\nu_s$ is fractionary and very small. To do that, we take the fractionary part of the division of $\Delta \omega$ to the revolution frequency,
+    \begin{align}
+        \Delta \nu = \left\{\nu \in \mathbb{R} \middle| \nu=\frac{\omega}{\omega_0} - \left\lfloor\frac{\omega_R}{\omega_0}\right\rfloor,\quad\text{with}\,\, \omega \in \Delta\omega \right\},
+    \end{align}
+    where $\lfloor\cdot\rfloor$ is the floor operation. Figure~\ref{fig:long_cbi_frac_frequencies}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{long_cbi_frac_frequencies.png}
+        \caption{Figure ashoelke}
+        \label{fig:long_cbi_frac_frequencies}
+    \end{figure}
+    shows the values of $\Delta \nu$ as function of the coupled--bunch mode closest to each resonator,
+    \begin{align}
+        \mu_R \equiv \left\lfloor\frac{\omega_R}{\omega_0}\right\rfloor \text{mod}(M),
+    \end{align}
+    for several values of frequencies. Each vertical line indicates the frequency range where instability could be generated if the beam sampled any frequency there. The frequencies sampled by the beam, on the other hand, are $\nu_s$ and $1-\nu_s$, where $\nu_s$ is approximately \SI{4e-3}{}, which means that according to this impedance model, the beam will be stable up to \SI{100}{\milli\ampere}. This hypotesis was tested with a direct application of the equation~\eqref{ed:long_coupled_bunch_instability}, which confirmed there would be no positive growth rates.
+
+    However, in the real cavity, the resonant frequencies of the~\gls{homs} have a strong dependence on the geometry of the cavity, which, in turn, will be adjusted to change the frequency of the main mode to be close to the Sirius RF frequency and also depends on the temperature. These frequency changes can be larger than the revolution frequency of the ring, which means the scenario presented in Figure~\ref{fig:long_cbi_frac_frequencies} could change drastically and some of the modes could cross the lines sampled by the beam, close to zero and one. The first analysis, based on the results presented in Figure~\ref{fig:long_cbi_minimum_impedance}, is more reliable, because the shunt impedance is much less sensitive to small changes in the cavity. For these reason, since we plan to commission the ring with currents up to \SI{30}{\milli\ampere}, and also predicting a possible delay in the installation of the superconducting RF cavity, a longitudinal kicker was designed and will be installed in the ring, together with a longitudinal bunch--by--bunch feedback system to control the longitudinal coupled--bunch instabilities.
+
+    This kicker will have a shunt impedance, $R_K$, of \SI{900}{\ohm} and an amplifier of \SI{30}{\watt}. Considering the losses in the cables, the maximum effective power applied to the beam will be \SI{9}{\watt}~\cite{Duart2018}. According to~\citeonline{Lonza2007}, the relation between the power, $P$, and the damping time provided by the kicker, $\tau_K$, is given by
+    \begin{align}
+        \alpha_K = \frac{1}{\tau_K} =
+        \sqrt{\frac{R_kP}{2}}\frac{\alpha}{2\pi\nu_s(E_0/e)}\frac{c}{z_\text{max}},
+    \end{align}
+    where $z_\text{max}$ is the maximum amplitude of the movement. The requirement for the maximum longitudinal oscillation of the beam for stable operation is \SI{10}{\percent} of the beam size, which corresponds to \SI{2.5}{\milli\meter} and, consequently, via the equation above, an additional damping rate of \SI{175}{\hertz}, which is approximately two times larger than the natural damping rate of the storage ring. With this factor of three in the damping, operations with \SI{30}{\milli\ampere} will be possibel. Actually, the estimative made above is pessimistic, because in the measurement of the longitudinal oscillations will be much better than the requirement presented above, which means the instability will be controlled at smaller amplitudes, requiring less power. Besides, if more power were needed it will be possible to install another amplifier in parallel, doubling the total power of the system. Finally, 
+
+
+
 \section{Frequency Domain Calculations}
 \subsection{Vertical Plane}
 \subsubsection{Single-bunch Tune--Shifts}
