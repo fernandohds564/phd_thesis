@@ -1944,41 +1944,43 @@
         \begin{tabular}{l d{0} d{-1} d{-1} d{-1} d{-1} d{-1} c d{-1} d{-1} d{-1} d{-1}}
         % \begin{tabular}{l *{7}{c}}
             \toprule
-                          & & & & \mc{3}{c}{Multi bunch {@} \SI{100}{\milli\ampere}} & & \mc{4}{c}{Single bunch} \\\cmidrule{5-7}\cmidrule{9-12}
-                          & \mr{2}{*}{Q} &\mc{1}{c}{$\beta_x$} & \mc{1}{c}{$\beta_y$}
-                          & \mc{1}{c}{$\kappa_{Loss}$} & \mc{1}{c}{$Z_L/n|_{eff}$} & \mc{1}{c}{$P_{Loss}$} &
+                          & & & & \mc{3}{c}{Multi bunch {@} \SI{100}{\milli\ampere}} & & \mc{4}{c}{Single bunch [kV/pC]} \\\cmidrule{5-7}\cmidrule{9-12}
+                          & \mc{1}{c}{Q} &\mc{1}{c}{$\beta_x$ [m]} & \mc{1}{c}{$\beta_y$ [m]}
+                          & \mc{1}{c}{$\kappa_{Loss}$ [V/pC]} & \mc{1}{c}{$Z_L/n|_{eff}$ [$m\Omega$]} & \mc{1}{c}{$P_{Loss}$ [W]} &
                           & \mc{1}{c}{$\beta_x\kappa_x^D$} & \mc{1}{c}{$\beta_y\kappa_y^D$} & \mc{1}{c}{$\beta_x\kappa_x^Q$} & \mc{1}{c}{$\beta_y\kappa_y^Q$} \\
-                          & &\mc{1}{c}{[\si{\meter}]} & \mc{1}{c}{[\si{\meter}]} & \mc{1}{c}{[V/pC]} & \mc{1}{c}{[$m\Omega$]} & \mc{1}{c}{[W]} &
-                          & \mc{1}{c}{[kV/pC]} & \mc{1}{c}{[kV/pC]} & \mc{1}{c}{[kV/pC]} &\mc{1}{c}{[kV/pC]}\\
             \midrule
-            Pipe RW       &   1    &    6.0  &  11.0   &   6.80 &  -41.43 &  136.11 & &  -10.11 &   -18.52 &    0.02 &   -0.30 \\
-            Delta21 RW    &   2    &    2.2  &   2.2   &   0.31 &   -1.91 &    6.27 & &   -1.62 &    -3.22 &    1.66 &   -1.66 \\
-            Delta52 RW    &   3    &    2.6  &   2.6   &   0.44 &   -2.68 &    8.82 & &   -1.05 &    -2.09 &    1.09 &   -1.09 \\
-            APU19 RW      &   1    &    2.2  &   2.2   &   0.16 &   -0.99 &    3.27 & &   -0.91 &    -1.82 &    0.95 &   -0.95 \\
-            APU20 RW      &   1    &    17.8 &   5.0   &   0.13 &   -0.79 &    2.61 & &   -3.78 &    -2.11 &    3.95 &   -1.11 \\
-            BC RW         &   20   &    0.4  &   5.2   &   0.05 &   -0.30 &    0.98 & &   -0.04 &    -0.57 &         &         \\
-            FOC RW        &   80   &    7.2  &   6.5   &   0.60 &   -1.47 &   12.09 & &   -0.47 &    -0.42 &         &         \\
-            NLK RW        &   1    &    18.2 &   7.3   &   0.10 &   -0.11 &    1.91 & &   -0.48 &    -0.39 &    0.49 &   -0.20 \\
-            DIPK RW       &   1    &    18.0 &   6.7   &   0.11 &   -0.14 &    2.23 & &   -7.99 &    -0.22 &    0.67 &   -0.25 \\
-            Delta21 Trans &   2    &    2.4  &   2.4   &   0.01 &   -0.71 &    0.28 & &   -0.18 &    -0.46 &    0.14 &   -0.14 \\
-            Delta52 Trans &   3    &    3.0  &   3.0   &   0.02 &   -0.70 &    0.48 & &   -0.09 &    -0.23 &    0.07 &   -0.07 \\
-            APU19 Trans   &   1    &    2.4  &   2.4   &   0.01 &   -0.45 &    0.12 & &   -0.07 &    -0.64 &    0.10 &   -0.10 \\
-            APU20 Trans   &   1    &    3.0  &   3.0   &   0.01 &   -0.35 &    0.15 & &   -0.04 &    -0.24 &    0.06 &   -0.06 \\
-            BC Trans      &   20   &    0.4  &   5.2   &   0.10 &   -4.80 &    1.98 & &   -0.23 &    -2.94 &         &         \\
-            RF CAV Trans  &   1    &    7.3  &   7.3   &   5.71 &  -10.07 &  114.33 & &   -0.35 &    -0.35 &         &         \\
-            KIKS Trans    &   1    &    18.2 &   7.1   &   0.00 &   -0.22 &    0.10 & &   -0.12 &    -0.31 &    0.23 &   -0.09 \\
-            BPM Block     &  120   &    6.6  &   8.8   &  12.81 &  -28.19 &  256.30 & &   -6.86 &    -9.14 &         &         \\
-            Bellows       &   20   &    6.6  &   8.8   &   0.84 &   -2.08 &   16.86 & &   -0.49 &    -0.66 &   -0.00 &    0.00 \\
-            Rad. Masks    &  360   &    6.6  &   11.0  &   2.93 &  -11.45 &   58.71 & &   -5.04 &    -1.22 &   -4.39 &    7.31 \\
-            Valve Block   &   40   &    6.6  &   11.0  &   9.41 &  -24.51 &  188.40 & &   -5.00 &    -8.33 &   -0.10 &    0.17 \\
-            SL GSL07      &   1    &    7.0  &   7.0   &   0.34 &   -0.22 &    6.77 & &   -0.06 &    -0.06 &         &         \\
-            SL GSL15      &   1    &    7.0  &   7.0   &   0.14 &   -0.04 &    2.86 & &   -0.06 &    -0.06 &         &         \\
-            SL Monitor    &   2    &    20.1 &   4.7   &   0.19 &   -0.18 &    3.87 & &   -0.30 &    -0.07 &         &         \\
-            SL HKicker    &   1    &    13.0 &   13.3  &   0.56 &    0.07 &   11.15 & &   -0.42 &    -0.18 &   -0.15 &    0.16 \\
-            SL VKicker    &   1    &    22.0 &   2.0   &   0.56 &    0.07 &   11.15 & &   -0.30 &    -0.07 &    0.26 &   -0.02 \\
-            DCCT          &   2    &    22.0 &   2.0   &   0.76 &    2.18 &   15.18 & &   -0.36 &    -0.03 &         &         \\
-            Pump Slots    &  100   &    15.0 &   2.0   &   0.27 &   -1.27 &    5.49 & &   -0.72 &    -0.10 &   -0.00 &    0.00 \\
-            CSR           &   1    &    6.0  &   11.0  &   0.00 &   -0.20 &    0.00 & &         &          &         &         \\
+            Pipe RW        &  1   &  6.0   &  11.0   &   6.80 &  -41.43 &  136.11 & &  -10.11 &  -18.52 &   0.02 &  -0.30 \\
+            Delta21 RW     &  2   &  2.2   &  2.2    &   0.31 &   -1.91 &    6.27 & &   -1.62 &   -3.22 &   1.66 &  -1.66 \\
+            Delta52 RW     &  3   &  2.6   &  2.6    &   0.44 &   -2.68 &    8.82 & &   -1.05 &   -2.09 &   1.09 &  -1.09 \\
+            APU19 RW       &  1   &  2.2   &  2.2    &   0.16 &   -0.99 &    3.27 & &   -0.91 &   -1.82 &   0.95 &  -0.95 \\
+            APU20 RW       &  1   &  17.8  &  5.0    &   0.13 &   -0.79 &    2.61 & &   -3.78 &   -2.11 &   3.95 &  -1.11 \\
+            BC RW          &  20  &  0.4   &  5.2    &   0.05 &   -0.30 &    0.98 & &   -0.04 &   -0.57 &        &        \\
+            FOC RW         &  80  &  7.2   &  6.5    &   0.60 &   -1.47 &   12.09 & &   -0.47 &   -0.42 &        &        \\
+            NLK RW         &  1   &  18.2  &  7.3    &   0.10 &   -0.11 &    1.91 & &   -0.48 &   -0.39 &   0.49 &  -0.20 \\
+            DIPK RW        &  1   &  18.0  &  6.7    &   0.10 &   -0.10 &    1.91 & &   -0.55 &   -0.22 &   0.67 &  -0.25 \\
+            Delta21 Trans  &  2   &  2.4   &  2.4    &   0.01 &   -0.71 &    0.28 & &   -0.18 &   -0.46 &   0.14 &  -0.14 \\
+            Delta52 Trans  &  3   &  3.0   &  3.0    &   0.02 &   -0.70 &    0.48 & &   -0.09 &   -0.23 &   0.07 &  -0.07 \\
+            APU19 Trans    &  1   &  2.4   &  2.4    &   0.01 &   -0.45 &    0.12 & &   -0.07 &   -0.64 &   0.10 &  -0.10 \\
+            APU20 Trans    &  1   &  3.0   &  3.0    &   0.01 &   -0.35 &    0.15 & &   -0.04 &   -0.24 &   0.06 &  -0.06 \\
+            BC Trans       &  20  &  0.4   &  5.2    &   0.10 &   -4.80 &    1.98 & &   -0.23 &   -2.94 &        &        \\
+            RF CAV Trans   &  1   &  7.3   &  7.3    &   5.71 &  -10.07 &  114.33 & &   -0.35 &   -0.35 &        &        \\
+            KIKS Trans     &  1   &  18.2  &  7.1    &   0.00 &   -0.22 &    0.10 & &   -0.12 &   -0.31 &   0.23 &  -0.09 \\
+            BPM Block      & 120  &  6.6   &  8.8    &  12.81 &  -28.19 &  256.30 & &   -6.86 &   -9.14 &        &        \\
+            Bellows        &  20  &  6.6   &  8.8    &   0.84 &   -2.08 &   16.86 & &   -0.49 &   -0.66 &  -0.00 &   0.00 \\
+            Rad. Masks     & 360  &  6.6   &  11.0   &   2.93 &  -11.45 &   58.71 & &   -5.04 &   -1.22 &  -4.39 &   7.31 \\
+            Valve Block    &  40  &  6.6   &  11.0   &   9.41 &  -24.51 &  188.40 & &   -5.00 &   -8.33 &  -0.10 &   0.17 \\
+            SL GSL07       &  1   &  7.0   &  7.0    &   0.34 &   -0.22 &    6.77 & &   -0.06 &   -0.06 &        &        \\
+            SL GSL15       &  1   &  7.0   &  7.0    &   0.14 &   -0.04 &    2.86 & &   -0.06 &   -0.06 &        &        \\
+            SL Monitor     &  2   &  4.8   &  14.5   &   0.19 &   -0.18 &    3.87 & &   -0.07 &   -0.22 &        &        \\
+            SL HShaker     &  1   &  18.2  &  7.3    &   0.53 &   -0.19 &   10.67 & &   -0.57 &   -0.09 &  -0.21 &   0.09 \\
+            SL VShaker     &  1   &  2.5   &  22.0   &   0.53 &   -0.19 &   10.67 & &   -0.03 &   -0.69 &   0.03 &  -0.26 \\
+            SL HKicker     &  1   &  18.2  &  7.3    &   0.56 &    0.07 &   11.15 & &   -0.59 &   -0.10 &  -0.21 &   0.09 \\
+            SL VKicker     &  1   &  2.5   &  22.0   &   0.56 &    0.07 &   11.15 & &   -0.03 &   -0.72 &   0.03 &  -0.26 \\
+            DCCT           &  2   &  2.5   &  22.0   &   0.76 &    2.18 &   15.18 & &   -0.04 &   -0.36 &        &        \\
+            Pump Slots     & 100  &  16.0  &  7.0    &   0.27 &   -1.27 &    5.49 & &   -0.77 &   -0.34 &  -0.00 &   0.00 \\
+            CSR            &  1   &  2.0   &  25.0   &   0.00 &   -0.20 &    0.00 & &         &         &        &        \\
+            \midrule
+            Total	       &      &        &         &  44.44 & -133.28 &  889.46 & &  -39.72 &  -56.52 &   4.57 &   1.12 \\
             \bottomrule
         \end{tabular}
     \end{sidewaystable}
@@ -2069,7 +2071,7 @@
         \label{fig:ph1_tush_wall_undu_multi_per_curr}
     \end{figure}
 
-\chapter{Instabilities Studies}\label{cap:instabilities_studies}
+\chapter{Instability Studies}\label{cap:instabilities_studies}
 
     The impedance budget presented in the last chapter will be used here to calculate some beam parameters at equilibrium, or stationary state, and the thresholds for instabilities as well as the behavior of the beam above the threshold. It is important to remark that this is an ongoing work and the results presented here are not final. For example, the inclusion of the \gls{csr} in the budget only happened in the last month of production of this thesis (January 2018) and its tracking simulations are still being analysed for convergence. However, its large influence on the longitudinal dynamics justifies the presentation of such results. Another example is the tracking code we developed, which is capable of simulate transverse dipole and quadrupole wake functions and effective wake functions, but it was not properly tested yet and, for this reason will not be used in this work.
 
@@ -2177,12 +2179,51 @@
 
     However, as discussed for the longitudinal plane, this phasing study is very ideal and it very likely that the real cavity will have a different configuration. For these reason the most pragmatic approach is to rely in transverse bunch--by--bunch feedback systems to assure the stability of the beam. These systems will be available for Sirius in the commissioning.
 
-\subsection{Longitudinal Plane}
+\section{Longitudinal Plane}
 
 \section{Transverse Plane}
-\subsection{Longitudinal Plane}
-\subsection{Vertical Plane}
-\subsection{Horizontal Plane}
+
+    Differently from the longitudinal plane, in the transverse plane there will be coupled--bunch instabilities because of the long--range wake field of the resistive--wall impedance from the standard beam pipe and from the \glspl{id}. On the other hand, the additional energy loss by radiation introduced by the \glspl{id} also increase the damping rate in all planes, and change the equilibrium parameters of the machine. These calculations were made for the Sirius storage ring assuming all \glspl{id} were in their configuration of maximum vertical field and the main results can be found in~\cite{Sirius2013}. When these effects are included in the instability threshold calculations, the increased damping rates help pushing the threshold to higher currents, but, since the \glspl{id} will be constantly moving, changing the configuration of the fields, in practice the damping rates of the machine will oscillate between the bare machine values and the maximum value presented in the mentioned reference. For this reason we decided to adopt the conservative approach and do not include the effect of the \glspl{id} on the damping time to calculate the instability thresholds. Figure~\ref{fig:ph1_coup_bunch}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{official_phase_1_coup_bunch}
+        \caption{Transverse coupled--bunch instabilities for the first phase of operation of the Sirius storage ring.}
+        \label{fig:ph1_chrom_bunch}
+    \end{figure}
+    shows the coupled--bunch growth rates at zero chromaticities calculated with equation~\ref{eq:trans_coupled_bunch_instability} for the phase one of operation of the machine, with the impedance of the \glspl{id} included, but without the additional damping they provide. Besides the resistive wall instability, which are characterized by the peaks in the coupled--bunch numbers at $864-50=814$ in the horizontal plane and $864-15=849$ in the vertical plane, the effect of other impedances we can be seen as well. In the horizontal plane the resistive wall contribution from the kickers is also driving the beam unstable and is responsible for the peak at the coupled--bunch mode close to 780. This is due to the large betatron function at the injection straight section, of approximately \SI{18}{\meter}. In the vertical plane only the resistive wall is driving the beam unstable, but there is a peak at a coupled--bunch number approximately equal to 650, which is being caused by the DCCT. This component is installed in the arc of the lattice, close to the dipole B2, where the vertical betatron function is very large, of the order of \SI{22}{\meter}.
+
+    Table~\ref{tab:ph1_coup_bunch}
+    \begin{table}
+        \centering
+        \caption{Transverse coupled--bunch instability thresholds at zero chromaticity for the phase one of operation for different assumptions on the \glspl{id} effects.}
+        \label{tab:ph1_coup_bunch}
+        \begin{tabular}{lccc}
+            \toprule
+            \mr{3}{*}{Plane} &  \mc{3}{c}{Threshold Current [mA]} \\
+            \cmidrule{2-4}
+                             & \mr{2}{*}{without \glspl{id}} & \mc{2}{c}{with \glspl{id}}\\
+            \cmidrule{3-4}
+                             &                               & w/o damping  & with damping \\
+            \midrule
+            Vertical         &       29.5                    &   21.4   &   32.0  \\
+            Horizontal       &       54.6                    &   37.9   &   56.8  \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    shows the current thresholds at zero chromaticity for the coupled--bunch instabilities for different assumptions on the effect of the \glspl{id} to show their influence on the impedance budget and also the contribution of the additional damping on the stabilization of the beam. The vertical threshold is almost twice as large as the one for the horizontal plane, even for the bare machine impedance. This is a consequence of the larger average vertical betatron function of the machine. Table~\ref{tab:ph1_coup_bunch} shows another feature, already discussed in chapter~\ref{cap:impedance_budget}, which is the relatively weak effect of the \glspl{id} on the instability threshold, given their gap is of the order of five times smaller than the standard vacuum chamber and the resistive wall goes with $1/b^3$, which, again, shows the advantage of having very small  betatron functions at the straight sections.
+
+    Figure~\ref{fig:ph1_chrom_coup}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{official_phase_1_chrom_coup}
+        \caption{Effect of chromaticity on the most unstable mode of the transverse coupled--bunch instabilities for the first phase of operation of the Sirius storage ring.}
+    \end{figure}
+    shows the effect of the chromaticity on the most unstable mode of the coupled--bunch instability calculate with two different approaches. One using the approximate expression of equation~\ref{eq:trans_coupled_bunch_instability} for azimuthal modes 0 and 1, which are the diagonal terms of the mode--coupling matrix, given by equation~\ref{eq:trans_mode_coupling_instability}, and another by solving the mode--coupling matrix, considering the first 7 radial modes and azimuthal modes from -7 to 7. There is a very good agreement between the two approaches at low chromaticities, when the azimuthal mode 0 dominates the instability, but at larger values of chromaticities the simplified approach overestimates the thresholds. This study shows that the beam will be stable when the ring is operated with chromaticities above 2.3 and 1.4 in the vertical and horizontal planes, respectively. Such dependency was foresaw a few years ago, which allowed the optimization of the non--linear optics of the storage ring to operate at this chromaticity, which avoids the usual problems of lifetime and dynamic apperture reduction related to this type of operation.
+
+    Even though the study above shows the possibility of operating the ring in stable conditions with a increased chromaticity, the most reliable way to solve this problem and which has demonstrated to be successful in dozens of \gls{3gls} along the last two decades is the use of transverse bunch--by--bunch feedback systems. Sirius will have two of these systems, one for the horizontal plane and another for the vertical. The kicker used for them will be striplines with shunt impedance of \SI{70}{\kilo\hom\per\meter} and the amplifier will have maximum power of \SI{75}{\watt} of which approximately \SI{30}{\watt} will be aplicable to the beam, due to cable losses.
+
+
+
 
 
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
