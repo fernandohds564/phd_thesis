@@ -1129,7 +1129,7 @@
 
     For example,~\citeonline{Blednykh2006} studied the impedance of the collimator--type flat chamber of a mini--gap undulator and found very intense narrow--band mode just above the cutoff of the pipe, that depended very strongly on the width of the cross--section. For all these reasons the formulas studied here, even though are very useful to the study of this type of impedance and qualitative analysis of the relevant parameters for impedance optimization, will not be used to quantitatively for any device of the impedance budget.
 
-\subsection{Multi-Layer Resistive Wall}
+\subsection{multi--layer Resistive Wall}
 
     The standard resistive wall effect is known for a long time, being first observed to generate coherent oscillations in electron streams coupled to circuits by \citeonline{Pierce1951} and then used to create a resistive-wall amplifier by \citeonline{Birdsall1953}. This idea was first applied to the study of collective effects in accelerators by \citeonline{Neil1965} and \citeonline{Laslett1965} to explain longitudinal and transverse coherent oscillations of coasting beams and then by \citeonline{Courant1966} to describe instabilities of bunched beams. Since then the theory for calculation of the now called resistive-wall impedance evolved~\cite{Chao1993}, being exactly solved by \citeonline{Bane1991} for a round and infinitely thick and long vacuum chamber, where the author provided analytic formulas for the short-range wake-fields, and for an arbitrary transverse cross section by \citeonline{Yokoya1993}, who based its work on a formalism developed by \citeonline{Gluckstern1993}. In his work, \citeauthor{Yokoya1993} also showed that the spectral dependency of the longitudinal and transverse dipole and quadrupole impedances of elliptic chambers with different eccentricities but equal smaller radius are identical, in such a way that their wake functions differ from each other only by a constant factor. In the special cases of a round and a flat chamber, which are the limiting cases of an ellipse, with eccentricities equal to $0$ and $1$ respectively, the so called \citeauthor{Yokoya1993} factors are given by
     \begin{align}
@@ -1150,20 +1150,20 @@
 
     It is very recurrent in accelerators to have chambers that are composed of different laminar layers of materials. For example, the chambers of fast time-varying magnets, such as the injection kickers of a storage ring, must be made of a bad conductor, generally a ceramic. To avoid discontinuities in the path of the image current of the beam\footnote{This is equivalent to say: "to decrease the impedance of the beam".}, which could lead to excessive heating and consequent melting or burning of the magnet components and the accumulation of static charges in the ceramic, a thin layer of metal is deposited, coated, in the inner surface of the chamber. The thickness of the coating must be of a few microns: thin enough to not distort the external field as it penetrates the walls, which has frequencies of the order of hundreds of kilo Hertz, and thick enough to shield most of the frequencies of the beam, which extend to a few dozens of giga Hertz. Especifically for the kicker magnet, outside the ceramic vacuum chamber there is a layer of ferrite, which is used to guide the external field of the kicker. In the low frequency part of the spectrum, all these different layers of materials are seen by the self fields of the beam and contribute to the impedance.
 
-    Besides, the multi-layer chamber also appear in the simple case of a standard vacuum chamber of an accelerator, where the finite thickness of wall can be interpreted as a multi-layer chamber composed of metal and air. This finite thickness of the metal strongly influences the low frequency part of the impedance because the skin depth of the fields becomes much larger than the thickness of the chamber and the losses diminishe, which causes the real part of the impedance to go to zero and the imaginary part to a constant value as the frequency tends to zero, while the infinitely thick formula predicts that both impedances diverge to plus and minus infinity, respectively, when the same limit is taken. This low frequency of the resistive wall has a very narrow band nature and influences the long range wake fields, which are directly related to the coupled bunch resistive wall instability and the incoherent tune--shifts caused by chambers without circular symmetry, as explained by \citeonline{Chao2002}.
+    Besides, the multi--layer chamber also appear in the simple case of a standard vacuum chamber of an accelerator, where the finite thickness of wall can be interpreted as a multi--layer chamber composed of metal and air. This finite thickness of the metal strongly influences the low frequency part of the impedance because the skin depth of the fields becomes much larger than the thickness of the chamber and the losses diminishe, which causes the real part of the impedance to go to zero and the imaginary part to a constant value as the frequency tends to zero, while the infinitely thick formula predicts that both impedances diverge to plus and minus infinity, respectively, when the same limit is taken. This low frequency of the resistive wall has a very narrow band nature and influences the long range wake fields, which are directly related to the coupled bunch resistive wall instability and the incoherent tune--shifts caused by chambers without circular symmetry, as explained by \citeonline{Chao2002}.
 
-    The multi-layer chambers problem was first tackled by \citeonline{Zotter1969}, who created an algorithm that solved the problem for an arbitrary number of layers of materials with arbitrary electric and magnetic properties, as long as they were linear, homogeneous and isotropic~\cite{Zotter1969,Zotter1969a,Zotter1970}. Even though his method was general enough to be applied to any azimuthal mode $m$ of the source, he only calculated the fields for the azimuthal modes $m=0$ and $m=1$\footnote{It is remarkable that his method goes beyond the rigid beam approximation, considering the source of the wake fields as an infinitely long beam oscilating in the transverse plane to calculate the mode $m=1$.}. This allowed him to derive explicit analytical formulas, under some approximations, for the longitudinal impedance of simplified configurations, such as a single wall with finite thickness, and a metallized ceramic chamber sorrounded by a \gls{pec}, where the author noticed the effectiveness of the coating in the inner wall was much higher than what is intuitively thought by comparing the thickness of the coating with the skin depth of the fields for a given frequency.
+    The multi--layer chambers problem was first tackled by \citeonline{Zotter1969}, who created an algorithm that solved the problem for an arbitrary number of layers of materials with arbitrary electric and magnetic properties, as long as they were linear, homogeneous and isotropic~\cite{Zotter1969,Zotter1969a,Zotter1970}. Even though his method was general enough to be applied to any azimuthal mode $m$ of the source, he only calculated the fields for the azimuthal modes $m=0$ and $m=1$\footnote{It is remarkable that his method goes beyond the rigid beam approximation, considering the source of the wake fields as an infinitely long beam oscilating in the transverse plane to calculate the mode $m=1$.}. This allowed him to derive explicit analytical formulas, under some approximations, for the longitudinal impedance of simplified configurations, such as a single wall with finite thickness, and a metallized ceramic chamber sorrounded by a \gls{pec}, where the author noticed the effectiveness of the coating in the inner wall was much higher than what is intuitively thought by comparing the thickness of the coating with the skin depth of the fields for a given frequency.
 
-    Later \citeonline{Piwinski1977} calculated the impedance generated by a gaussian bunch in a four-layer round chamber composed of metal, ceramic, ferrite and \gls{pec}, respectively, and confirmed what \citeonline{Zotter1970} had previously found, that for this type of multi-layer chambers, the fields will not penetrate through the coating if its thickness, $t$, satisfies
+    Later \citeonline{Piwinski1977} calculated the impedance generated by a gaussian bunch in a four-layer round chamber composed of metal, ceramic, ferrite and \gls{pec}, respectively, and confirmed what \citeonline{Zotter1970} had previously found, that for this type of multi--layer chambers, the fields will not penetrate through the coating if its thickness, $t$, satisfies
     \begin{align}
         t > \frac{\delta^2}{d}, \quad\text{with}\quad
         \delta = \sqrt{\frac{2}{\mu_0\omega\sigma_c}}
     \end{align}
     where $\delta$ is the skin depth and $\sigma_c$ is the conductivity of the coating, $\mu_0$ is the magnetic permeability of vacuum, $\omega$ is the angular frequency of the fields and $d$ is the thickness of the ceramic. This means that, since generally $d\gg t$, the coating is efficient down to frequencies much lower than what is intuitively thought.
 
-    In a more recent work, \citeonline{Zotter2005} rederived his formalism for a point like charge, which was used by \citeonline{Mounet2009} to derive formulas for the electromagnetic fields and impedances for any azimuthal mode $m$, under the assumption of a rigid beam. Later, the same authors also derived expressions for a multi-layer flat chamber with possible different layers in the top and bottom plates~\cite{Mounet2010a} which allowed them to generalize the \citeauthor{Yokoya1993} factors~\cite{Mounet2010}. Then, in his PhD thesis, \citeonline{Mounet2012} developed a general method to compute Fourier Integrals which allowed him to compute the exact wake functions for short and long range using the impedances. All these developments in 2D impedance theory were implemented by \citeauthor{Mounet2011} in a code called ImpedanceWake2D that is available free-of-charge for the accelerators community. It is important to mention that other authors also solved the problem of multi-layer impedances using different methods, for example \citeonline{Hahn2008} and \citeonline{Al-Khateeb2005} also derived general methods valid for arbitrary energies and frequencies in round chambers and \citeonline{Burov2002,Burov2002a} also solved the problem under the assumption of long wavelengths, $c/\omega \ll a$, for round and flat geometries.
+    In a more recent work, \citeonline{Zotter2005} rederived his formalism for a point like charge, which was used by \citeonline{Mounet2009} to derive formulas for the electromagnetic fields and impedances for any azimuthal mode $m$, under the assumption of a rigid beam. Later, the same authors also derived expressions for a multi--layer flat chamber with possible different layers in the top and bottom plates~\cite{Mounet2010a} which allowed them to generalize the \citeauthor{Yokoya1993} factors~\cite{Mounet2010}. Then, in his PhD thesis, \citeonline{Mounet2012} developed a general method to compute Fourier Integrals which allowed him to compute the exact wake functions for short and long range using the impedances. All these developments in 2D impedance theory were implemented by \citeauthor{Mounet2011} in a code called ImpedanceWake2D that is available free-of-charge for the accelerators community. It is important to mention that other authors also solved the problem of multi--layer impedances using different methods, for example \citeonline{Hahn2008} and \citeonline{Al-Khateeb2005} also derived general methods valid for arbitrary energies and frequencies in round chambers and \citeonline{Burov2002,Burov2002a} also solved the problem under the assumption of long wavelengths, $c/\omega \ll a$, for round and flat geometries.
 
-    In summary, the theory of smooth multi-layer infinitely long round chambers is completely solved. In this work we implemented \citeauthor{Mounet2009} formulas to calculate the impedances for round chambers for the azimuthal modes $m=0$ and $m=1$ in Matlab\textregistered and Python3 and the wake functions were obtained using the code ImpedanceWake2D. In cases where the eccentricity of the chamber is large, the \citeauthor{Yokoya1993} Factors are applied to the round chamber results.
+    In summary, the theory of smooth multi--layer infinitely long round chambers is completely solved. In this work we implemented \citeauthor{Mounet2009} formulas to calculate the impedances for round chambers for the azimuthal modes $m=0$ and $m=1$ in Matlab\textregistered and Python3 and the wake functions were obtained using the code ImpedanceWake2D. In cases where the eccentricity of the chamber is large, the \citeauthor{Yokoya1993} Factors are applied to the round chamber results.
 
 \subsection{Numeric Methods}\label{ssec:numeric_methods}
 
@@ -1419,10 +1419,9 @@
     This code was benchmarked with SPACE\cite{Bassi2016} and Elegant\cite{Borland2000}.
 
 
-
 \chapter{Impedance Modeling}\label{cap:impedance_modeling}
 
-    In this chapter the modelling of the impedance of some components of the storage ring will be described. The components described below are the ones for which the modeling is not trivial and required detailed analysis of some key aspects. The gathering of all the components and analysis of the whole impedance budget will be performed in the next chapter.
+    In this chapter the modeling of the impedance of some components of the storage ring will be described. The components described below are the ones for which the modeling is not trivial and required detailed analysis of some key aspects. The gathering of all the components and analysis of the whole impedance budget will be performed in the next chapter.
 
 \section{Standard Chamber}\label{sec:standard_chamber}
 
@@ -1546,7 +1545,7 @@
 
 \section{Kicker Chambers}
 
-    The Sirius storage ring will have two kicker magnets, one standard dipole kicker and one non-linear kicker. While the first will be used for on-axis injection in the commissioning of the light source and as a pinger magnet for machine studies, the second will be used for injection in top-up mode~\cite{Liu2016a}. Even though the topology of both magnets is very different, their vacuum chamber will be identical: a ceramic chamber, coated with \SI{10}{\micro\meter} of Titanium. This means that at high frequencies their impedance will be identical too. Below we describe the considerations on the modeling of the impedance of the dipole kicker magnet and then extrapolate to the case of the non-linear kicker. Table~\ref{tab:kicker_paramters}
+    The Sirius storage ring will have two kicker magnets, one standard dipole kicker and one non--linear kicker. While the first will be used for on--axis injection in the commissioning of the light source and as a pinger magnet for machine studies, the second will be used for injection in top-up mode~\cite{Liu2016a}. Even though the topology of both magnets is very different, their vacuum chamber will be identical: a ceramic chamber, coated with \SI{10}{\micro\meter} of Titanium. This means that at high frequencies their impedance will be identical too. Below we describe the considerations on the modeling of the impedance of the dipole kicker magnet and then extrapolate to the case of the non-linear kicker. Table~\ref{tab:kicker_paramters}
     \begin{table}
         \centering
         \caption{Main parameters of the Kicker magnet for impedance modeling}
@@ -1586,17 +1585,9 @@
         Z_\parallel^* = \frac{\Delta^2}{h^2}\frac{i\omega L_2 Z_g}{i\omega L_2 + Z_g},
         & & Z_x^D &= \frac{c}{\omega\Delta^2}Z_\parallel, & & Z^D_y=Z^Q_x = 0
     \end{align}
-    where $\Delta$ is a transverse offset of the beam,
-    \begin{align}
-        L_2 = \mu_0L\frac{h}{w}\frac{\mu_rt}{\mu_rt+h\fof{\frac{h}{w}+1}},
-    \end{align}
-    $L$ is the length of the magnet, $h$ and $w$ are the transverse dimensions defined in Figure~\ref{fig:kicker_magnet}, $t$ is the ferrite thickness and $\mu_r = \mu_r(\omega)$ is the frequency dependent relative magnetic permeability of the ferrite, which can be modeled by
-    \begin{align}
-        \mu_r(\omega) = 1 + \frac{\mu_i}{1+i\frac{\omega}{\omega_s}}
-    \end{align}
-    where $\mu_i$ is the initial permeability and $\omega_s$ is the saturation frequency of the material. In the case of Sirius, the ferrite that will be used in this magnet is the CMD5005~\cite{CeramicMagnets2017} and the $\mu_i$ and $\omega_s$ of the equation above were obtained by fitting the datasheet curve. The values found agreed well with direct measurements made by~\citeonline{Hahn2002}.
+    where $\Delta$ is a transverse offset of the beam, $L_2 = \mu_0Lh/w$, $L$ is the length of the magnet and $h$ and $w$ are the transverse dimensions defined in Figure~\ref{fig:kicker_magnet}.
 
-    Note in equation~\eqref{eq:coupled_flux_impedance} that the coupled flux does not contributes to the vertical impedance and that for a well centered beam, $\Delta=0$ the longitudinal impedance is zero too. Considering there is no measurements yet for the circuit impedance, $Z_g(\omega)$, of the kicker magnet, the parametric dependency described by~\citeonline{Davino2003}
+    Equation~\eqref{eq:coupled_flux_impedance} predicts zero vertical impedance and, for a well centered beam, $\Delta=0$, the longitudinal impedance is zero too. Considering there is no measurements yet for the circuit impedance, $Z_g(\omega)$, of the kicker magnet, the parametric dependency described by~\citeonline{Davino2003}
     \begin{align}
         Z_g(\omega) = R_e + \frac{1}{\frac{1}{R_s}+i\omega C_{bb}}
     \end{align}
@@ -1607,23 +1598,30 @@
         \caption{Coupled flux impedance of the dipole kicker magnet as function of the frequency for several values of capacitance (left) and resistance (right).}
         \label{fig:coupled_flux_impedance}
     \end{figure}
-    shows the coupled flux horizontal impedance for some values of $C_{bb}$ and $R_s$, where it is possible to notice the resonant behaviour created by the parallel association of the inductance $L_2$ with the capacitance $C_{bb}$. Note how these values influence the positioning, intensity and width of the resonant peaks, all around a few \si{\mega\hertz}, but do not change the value of the imaginary impedance at lower frequencies. As will be shown below, the Titanium coating in the vacuum chamber shields the electromagnetic fields of the beam starting from approximately the frequency range of these peaks, thus, it is expected they will be attenuated. However, the low frequency impedance will not, and will influence the coupled-bunch motion. This source of impedance will not contribute to the incoherent tune--shifts because there is no quadrupolar impedance associated with this mechanism.
+    shows the coupled flux horizontal impedance for some values of $C_{bb}$ and $R_s$, where the resonant behaviour created by the parallel association of the inductance $L_2$ with the capacitance $C_{bb}$ is evidenciated. In general, the variation of the parameters influence the positioning, intensity and width of the resonant peaks, all around a few \si{\mega\hertz}, but do not change the value of the imaginary impedance at lower frequencies. As will be shown below, the Titanium coating in the vacuum chamber shields the electromagnetic fields of the beam starting from approximately the frequency range of these peaks, thus, it is expected they will be attenuated. The low frequency impedance will not, and will influence the coupled-bunch motion, but not the incoherent tune shifts, because there is no quadrupolar impedance associated with this mechanism.
 
-    Regarding the uncoupled flux, there are no formulas in the literature to estimate the impedance of an out-of-vacuum window-frame magnet as the one presented in Figure~\ref{fig:kicker_magnet}. There is, however, a model for an in-vacuum magnet developed by~\citeonline{Tsutsui2000} for the longitudinal impedance, which was extended to the transverse dipole impedances by~\citeonline{Tsutsui2000a} and then to the quadrupolar impedance by \citeonline{Salvant2010a}. These formulas were derived by solving the \gls{maxeq} exactly for an ultra-relativistic beam, considering the geometry of Figure~\ref{fig:tsutsui_model},
+    Regarding the uncoupled flux, there are no formulas in the literature to estimate the impedance of an out--of--vacuum window--frame magnet as the one presented in Figure~\ref{fig:kicker_magnet}. There is, however, a model for an in--vacuum magnet developed by~\citeonline{Tsutsui2000} for the longitudinal impedance, which was extended to the transverse dipole impedances by~\citeonline{Tsutsui2000a} and then to the quadrupolar impedance by \citeonline{Salvant2010a}. These formulas were derived by solving the \gls{maxeq} exactly for an ultra-relativistic beam, considering the geometry of Figure~\ref{fig:tsutsui_model},
     \begin{figure}
         \centering
         \includegraphics[width=0.6\textwidth]{tsutsui_model.png}
         \caption{Tsutsui model for the window--frame kicker magnet.}
         \label{fig:tsutsui_model}
     \end{figure}
-    which is infinite in the longitudinal direction. Note that in this model the fraction of the fields generated by the beam that are inside the region defined by the angle $\theta$ directly interacts with a \gls{pec} material, which is an approximation to the cooper plates of the real magnet, and the rest of the field  directly see the ferrite, which is a lossy material. With the exception of the presence of the vacuum chamber, this is what happens in the real magnet, which makes this model a good approximation for its geometry.
+    which is infinite in the longitudinal direction. Note that in this model the fraction of the fields generated by the beam that are inside the region defined by the angle $\theta$ directly interacts with a \gls{pec} material, which is an approximated model for the cooper plates of the real magnet, and the rest of the field directly see the ferrite, which is a lossy material. With the exception of the presence of the vacuum chamber, this is what happens in the real magnet, which makes this model a good approximation for the window--frame geometry.
 
-    In order to estimate the effect of the vacuum chamber on the impedance, other models based on the round multi-layer formulas were analysed. The idea behind the formulation of these models is to try to account for limiting cases of the Tsutsui geometry in relation to the angle $\theta$, that defines the proportion of the fields that interact with a good conductor. Under these assumptions the models are:
+    The ferrite that will be used in this magnet is the CMD5005~\cite{CeramicMagnets2017}. Its frequency dependent relative magnetic permeability was modeled by
+    \begin{align}
+        \mu_r(\omega) = 1 + \frac{\mu_i}{1+i\frac{\omega}{\omega_s}}
+    \end{align}
+    where $\mu_i$ is the initial permeability and $\omega_s$ is the saturation frequency of the material, which were obtained by fitting the datasheet curve. The values found agreed well with direct measurements made by~\citeonline{Hahn2002}.
+
+    In order to estimate the effect of the vacuum chamber on the impedance, other models based on the round multi--layer formulas were analysed. The idea behind the formulation of these models is to try to account for limiting cases of the Tsutsui geometry in relation to the angle $\theta$, that defines the proportion of the fields that interact with a good conductor. Under these assumptions the models are:
     \begin{description}[align=left]
         \item[Worst case (W):] The beam only sees the ferrite. The layers of the round model in this case are composed by: Titanium, ceramic, air, ferrite and Copper;
         \item[Best case (B):] The beam only sees the good conductor: Titanium, ceramic, air and Copper;
         \item[No Coating (NC):] To show the effect of the Titanium coating, this layer was removed from the analysis of the worst case model: ceramic, ferrite, air and Copper.
     \end{description}
+
     Figure~\ref{fig:uncoupled_flux_impedance}
     \begin{figure}
         \centering
@@ -1631,7 +1629,7 @@
         \caption{Transverse impedances of the four models of kicker analysed.}
         \label{fig:uncoupled_flux_impedance}
     \end{figure}
-    shows the transverse impedances of the four models analysed. Note that the W curve matches the low frequency limit of the NC case, but at approximately \SI{1}{\mega\hertz} the coating starts to affect the impedance, damping all of them to very low values. Besides, notice that the impedance predicted by the Tsutsui model (TT) is even lower than the B case, and that the relations between the three of them cannot be described by the constant \citeonline{Yokoya1993} factors, a property already pointed out by \citeonline{Salvant2010a}. Considering that this component have a stronger influence on the total budget due to the low frequency limit of the impedance, the model adopted for the transverse plane was the B case, multiplied by constant factors that matches its impedance to the tsutsui model. The values used were (0.42, 0.52, 0.58) for the dipole horizontal, dipole vertical and quadrupole vertical impedances, respectively.
+    shows the transverse impedances of the four models analysed. The W curve matches the low frequency limit of the NC case, but at approximately \SI{1}{\mega\hertz} the coating starts to influence the impedance, damping all of them to very low values. Besides, the impedance predicted by the Tsutsui model (TT) is even lower than the B case, and that the relations between the three of them cannot be described by the constant \citeonline{Yokoya1993} factors, a property already pointed out by \citeonline{Salvant2010a}. Considering that this component have a stronger influence on the total budget due to the low frequency limit of the impedance, the model adopted for the transverse plane was the B case, multiplied by constant factors that matches its impedance to the tsutsui model. The values used were (0.42, 0.52, 0.58) for the dipole horizontal, dipole vertical and quadrupole vertical impedances, respectively.
 
     For the longitudinal plane it is well--known from the works of \citeonline{Zotter1969} and \citeonline{Piwinski1977} that the coating influences the impedance at much lower frequencies than the skin depth of the metal. For this reason we varied the thickness of the Titanium layer in our simulations to check if it could be thinner than the nominal value. The results are shown in Figure~\ref{fig:kicker_comp_models_long},
     \begin{figure}
@@ -1671,7 +1669,7 @@
         \end{tabular}
     \end{table}
 
-    The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi-layer chambers used so far. This question is answered by~\citeonline{Shobuda2009}, who calculated the impedance of a finite resistive insert of finite thickness on an otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for an insert whose length is smaller than its radius, if the thickness is of the order of \SI{100}{\micro\meter}, the impedance is already equal to the infinitely long chamber counterpart. This result shows that the use of the multi-layer formulas employed so far for the other components are still valid for the fast correctors chambers.
+    The small length of these chambers, only~\SI{10}{\centi\meter}, raises a question on the validity of the infinitely long formulas of the multi--layer chambers used so far. This question is answered by~\citeonline{Shobuda2009}, who calculated the impedance of a finite resistive insert of finite thickness on an otherwise perfectly conducting and infinitely long round chamber. The authors conclude that even for an insert whose length is smaller than its radius, if the thickness is of the order of \SI{100}{\micro\meter}, the impedance is already equal to the infinitely long chamber counterpart. This result shows that the use of the multi--layer formulas employed so far for the other components are still valid for the fast correctors chambers.
 
 \section{Undulators Chambers}\label{sec:undulators_chambers}
 
@@ -1804,8 +1802,8 @@
      \end{figure}
      shows the other impedances for the three models. Note that the imaginary part of the longitudinal impedance of the keyhole and round models are smaller than the one of the flat chamber by a factor of approximately 2, which is accordance with the theory predictions, and the quadrupolar impedance introduced by keyhole is negligible. The horizontal dipole impedance was not calculated for this model yet, but a calculation was performed for a keyhole geometry with the $hslot$, defined in Figure~\ref{fig:bc_keyhole_model}, equals to \SI{2}{\milli\meter} and it was similar to the transverse impedance of the round model.
 
-% \section{Coherent Synchtrotron Radiation}
 \section{\Glsentryfull{csr}}
+
     The radiation emitted by one particle can influence other particles in the bunch in a similar way as the wake fields and, for this reason, is treated with the same formalism of impedances and wake functions discussed so far. Such mechanism is often refered to as \gls{csr} because its net effect is only relevant for wavelengths of the same order or larger than the bunch length, according to~\citeonline{Nagaoka2014}. The wake function of a source particle moving in circular trajectory in free--space over a witness particle in this same trajectory was calculated by~\citeonline{Derbenev1995} and is given by:
     \begin{align}\label{eq:csr_wake_free_space}
         \frac{W'_0(z)}{L} =
@@ -1820,7 +1818,7 @@
     \begin{align}\label{eq:csr_wake_shielding}
         \frac{W'_1(z)}{L} = -\frac{Z_0 c}{4\pi}\frac{1}{2\pi h^2} G\fof{\frac{\rho^{1/2}}{h^{3/2}}z},
     \end{align}
-    where $h$ is the distance of any one of the plates to the beam trajectory. The function $G$ is given by
+    where $h$ is the distance of any one of the plates to the beam trajectory and the function $G$ is given by
     \begin{align}
         G(x) = 8\pi\sum_{k=1}^\infty \frac{(-1)^{k+1}}{k^2}\frac{Y_k(x)\fof{3-Y_k(x)}}{\fof{1+Y_k(x)}^3},
     \end{align}
@@ -1854,7 +1852,7 @@
                             \exp\fof{\frac{i\pi}{6}}
                             \fof{\frac{\omega}{c\rho^2}}^{1/3}.
     \end{align}
-    Calculations of the impedance of the shielded configuration with the parallel plates can be found in ~\citeonline{Warnock1990} and~\citeonline{Murphy1997}. However, recently~\citeonline{Cai2011} presented a approximated result that he built based on the exact equations given by~\citeauthor{Warnock1990} which is easy to calculate numerically and simply describes the impedance in terms of scaled results
+    Calculations of the impedance of the shielded configuration with the parallel plates can be found in ~\citeonline{Warnock1990} and~\citeonline{Murphy1997}. However, recently~\citeonline{Cai2011} presented an approximated result that he built based on the exact equations given by~\citeauthor{Warnock1990} which is easy to calculate numerically and simply describes the impedance in terms of scaled results
     \def \Ai {\text{Ai}}
     \def \Bi {\text{Bi}}
     \def \Ci {\text{Ci}}
@@ -1875,27 +1873,27 @@
     \end{align}
     where $\sigma_{z,0}$ is the bunch length at zero current and $I$ is a normalized bunch current (with unit of \si{\meter} in the \gls{si}) given by
     \begin{align}\label{eq:normalized_current}
-        I = \frac{Z_0c}{4\pi}\frac{I_0T_0}{2\pi\nu_{s,0}\fof{E_0/e}\sigma_{\delta,0}}
+        I = \frac{Z_0c}{4\pi}\frac{I_0T_0}{2\pi\nu_{s,0}\fof{E_0/e}\sigma_{\delta,0}},
     \end{align}
-    where $N_b$ is the number of particles in the bunch, $\nu_{s,0}$ is the zero current synchrotron tune and $\sigma_{\delta,0}$ is the zero current energy spread. Figure~\ref{fig:csr_bane_graphic_modified}
+    where $N_b$ is the number of particles in the bunch, $\nu_{s,0}$ is the zero--current synchrotron tune and $\sigma_{\delta,0}$ is the zero--current energy spread. Figure~\ref{fig:csr_bane_graphic_modified}
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{csr_bane_graphic_modified.png}
         \caption[CSR driven longitudinal instability (adapted from~\citeonline{Bane2010}).]{Plot adapted from~\citeonline{Bane2010}: \gls{csr} threshold strengh, $\Scsr$, as function of the shielding parameter, $\Pi$. Blue dots: simulations with the \gls{vfp} solver; red squares: results of the linearized Vlasov equation (does not include damping); olive diamonds: results with a damping factor two times larger; dashed line: the scaling $\Scsr = 0.5 + 0.12\Pi$; black line: shielding parameters for the low field dipoles of Sirius, B1, B2 and the low field part of the BC magnet (BC$_\text{LF}$). The shielding for the high field part of this same magnet (BC$_\text{HF}$) is larger than the maximum value showed.}
         \label{fig:csr_bane_graphic_modified}
     \end{figure}
-    shows their main results with the addition of one line indicating the shielding parameter for Sirius low field dipoles, where one can note that if the whole ring were composed of only this type of dipole the threshold would be $\Scsr=0.90$, which converted to bunch current is \SI{0.9}{\milli\ampere}.
+    shows their main results with the addition of one line indicating the shielding parameter for Sirius the low field dipoles, where one can note that if the whole ring were composed of only this type of dipole the threshold would be $\Scsr=0.90$, which converted to bunch current is \SI{0.9}{\milli\ampere}.
 
     Note that for most of the shielding range simulated, the threshold follows a simple dependency given by the line
-    \begin{align}
+    \begin{align}\label{eq:csr_scaling_instability}
         \Scsr = 0.5 + 0.12\Pi.
     \end{align}
     Despite of the simple model for the impedance used in these calculations, several expirements confirmed the instability predictions above, for example the one performed at the Metrology Light Source explained by~\citeonline{Ries2012} and the more recent results from ANKA, described in~\citeonline{Brosi2016}. However, the threshold calculated this way does not take into account the effect of other impedances, requiring a more specific study.
 
-    Inspired by these good agreements between the theory and the measuments we decided to create an initial model for the \gls{csr} impedance based on this parallel plate approximation. Table~\ref{tab:csr_main_parameters} shows the main parameters used for modeling the impedances and wakes for the case of the Sirius storage ring.
+    Inspired by these good agreements between theory and measuments we decided to create an initial model for the \gls{csr} impedance based on this parallel plate approximation. Table~\ref{tab:csr_main_parameters} shows the main parameters used for modeling the impedances and wakes for the case of the Sirius storage ring.
     \begin{table}
         \centering
-        \caption{Main parameters used for modelling the \gls{csr} impedance and effective wake function}
+        \caption{Main parameters used for modeling the \gls{csr} impedance and effective wake function}
         \label{tab:csr_main_parameters}
         \begin{tabular}{lccc}
             \toprule
@@ -1912,7 +1910,7 @@
     \end{table}
     The impedance was directly calculated from equation~\eqref{eq:csr_imp_shielding}, but the method to obtain the wake was more involving. Instead of the wake-function of the point charge, we convolved the the expressions of equations~\eqref{eq:csr_wake_free_space} and~\eqref{eq:csr_wake_shielding} with a small gaussian beam of $\sigma = 5~$\si{\micro\meter} to avoid the divergence of the free--space wake and used this effective wake function as input for tracking simulations. The convolution with the shielded contribution was done in the standard numeric way, but the one with the free--space part of the wake was performed following the trick described by~\citeonline{Nagaoka2014}
     \begin{align}\label{eq:csr_convolution}
-        V_0(z) = \infint{z'}{W'_0(z')\lambda(z-z')} = -\infint{z'}{W_0(z')\lambda'(z-z')}
+        V_0(z) = \infint{x}{W'_0(x)\lambda(z-x)} = -\infint{x}{W_0(x)\lambda'(z-x)},
     \end{align}
     where the divergence of the first integral of the equation above is neglected and the remainder is integrable. This procedure is justified by the fact that what causes this divergence is the approximated expression of the wake; the real physical one is finite. This is just a clever way to remain using the useful approximation for the free-space wake which does not depend on the particle's energy. The explicit expressions for the integrands are
     \begin{align}
@@ -1944,31 +1942,31 @@
         \begin{subfigure}[c]{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]{csr_wake.png}
-            \caption{lakd}
+            \caption{Effective wake functions.}
             \label{fig:csr_wake}
         \end{subfigure}\hfill
         \begin{subfigure}[c]{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]{csr_impedance.png}
-            \caption{lakd}
+            \caption{Impedances.}
             \label{fig:csr_impedance}
         \end{subfigure}
-        \caption{}
+        \caption{\gls{csr} effective wake functions and impedances calculated using the parameters of the Sirius low field dipoles.}
     \end{figure}
     shows the two components of the wake and their sum, while Figure~\ref{fig:csr_impedance} shows the impedance calculated via the Inverse Fourier Transform and posterior deconvolution of equation~\eqref{eq:csr_convolution}, compared with the calculation using equation~\eqref{eq:csr_imp_shielding} and the free-space impedance~\eqref{eq:csr_imp_free_space}. Note the very good agreement between the two methods of calculating the impedance, which validates the trick for calculation of the effective wake function.
-    Besides, note that the shielding virtually eliminates the resistive part of the impedance up to approximately~\SI{100}{\giga\hertz} and changes the sign of the imaginary part from positive, which is generally refered as capacitive in the accelerators comunity, to negative, often called inductive. However, the impedance in for this range of frequencies may depend very strongly on the parameters of the vacuum chamber geometry, for example,~\citeonline{Warnock1990a} calculated the radiation impedance for a beam in a circular smooth toroidal chamber with rectangular cross sections and found that the impedance at low frequencies would also be imaginary, but capacitive. The importance of this impedance to the budget is not in the frequency region of the stationary beam spectrum, but the very strong impedance at high frequencies, because the instability arises when modulations in the beam distribution starts radiating coherently, as explained by~\citeonline{Stupakov2002}.
+    Besides, note that the shielding virtually eliminates the resistive part of the impedance up to approximately~\SI{100}{\giga\hertz} and changes the sign of the imaginary part from positive, which is generally refered as capacitive in the accelerators comunity, to negative, often called inductive. However, the impedance in this range of frequencies may depend very strongly on the parameters of the vacuum chamber geometry, for example,~\citeonline{Warnock1990a} calculated the radiation impedance for a beam in a circular smooth toroidal chamber with rectangular cross sections and found that the impedance at low frequencies would also be imaginary, but capacitive. The importance of this impedance to the budget is not in the frequency region of the stationary beam spectrum, but the very strong impedance at high frequencies, because the instability arises when modulations in the beam distribution starts radiating coherently, as explained by~\citeonline{Stupakov2002}.
 
-    % Figure~\ref{fig:csr_total_impedance}
-    % \begin{figure}
-    %     \centering
-    %     \includegraphics[width=0.48\textwidth]{csr_imp_comp_b1b2_bc}\hfill
-    %     \includegraphics[width=0.48\textwidth]{csr_wake_comp_b1b2_bc}
-    %     \caption{kaldjoeialdke}
-    %     \label{fig:csr_total_impedance}
-    % \end{figure}
-    % shows the total impedance considered for Sirius. The contribution from both types of dipoles was calculated considering their total length along the ring. Note that the strong shielding factor of the BC magnet helps reducing the total impedance.
+    Figure~\ref{fig:csr_total_impedance}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.48\textwidth]{csr_imp_comp_b1b2_bc}\hfill
+        \includegraphics[width=0.48\textwidth]{csr_wake_comp_b1b2_bc}
+        \caption{Total \gls{csr} impedance model for Sirius, considering the two types of dipoles.}
+        \label{fig:csr_total_impedance}
+    \end{figure}
+    shows the total impedance considered for Sirius. The contribution from both types of dipoles was calculated considering their total length along the ring. Notice that the strong shielding factor of the BC magnet helps reducing the total impedance, in such a way that the threshold predicted by equation~\eqref{eq:csr_scaling_instability} rises to \SI{1}{\milli\ampere}.
 
-    As a final remark we reinforce that this is only the initial model for the impedance, future works could consider the analytic results obtained by~\citeonline{Stupakov2016}, where the authors developed a general method to calculate the impedance for any planar trajectory in free space or with the parallel plates shielding and applied to some practical cases, including the case of a finite dipole followed by a straight section, or the ones from~\citeonline{Stupakov2009b} where the authors used a method developed in a previous paper~\cite{Stupakov2003} to calculate the impedance of a finite dipole in a rectangular chamber. Besides, numerical solvers such as the one developed and described by~\citeonline{Zhou2012} based on a method for solving the parabolic equation by~\citeonline{Agoh2004} could be pursued.
+    As a final remark we reinforce that this is only the initial model for the impedance, future works could consider the analytic results obtained by~\citeonline{Stupakov2016}, where the authors developed a general method to calculate the impedance for any planar trajectory in free space, and with the parallel plates shielding, and applied it to some practical cases, including the case of a finite dipole followed by a straight section. Another possibility is to use the results from~\citeonline{Stupakov2009b}, where the authors used a method developed in a previous paper~\cite{Stupakov2003} to calculate the impedance of a finite dipole in a rectangular chamber. Besides, numerical solvers such as the one developed and described by~\citeonline{Zhou2012} based on a method for solving the parabolic equation by~\citeonline{Agoh2004} could be employed.
 
 
 \chapter{Impedance Budget}\label{cap:impedance_budget}
@@ -2097,7 +2095,7 @@
 
     The only components of ring with quadrupolar impedances with significative effect on the beam for the single--bunch operation mode are the \glspl{id} and the radiation masks, due to the assymetries of their chambers. Here we recall that the quadrupolar kick factor is what originates the incoherent tune shifts of the beam and the single--bunch dipolar kick factor is related to the coherent tune  shifts, which means that their sum is the measurable tune of the machine and that last one is the main factor that determines the threshold of the \gls{tmci} instability. Considering the the vertical dipole kick factor of the component Ring Geom is dominated by the impedance of the transition of the BC magnet, if the elliptical vacuum chamber were used instead of the keyhole geometry, as discussed in section~\ref{sec:bc_chamber}, their kick factor would be \num{2.5} times larger, being the third largest of all the groups presented here. The geometric transitions of the \glspl{id} also have a small effect on the impedance because of the low betatron function, as already explained, and due to the large transition factor, $t$, that was used in the tapers, which was only possible because the \glspl{id} are out--of--vacuum.
 
-    While the single--bunch tune shifts are mostly defined by the broad--band impedance of the whole spectrum, their multi--bunch counterpart depends majorly on the low--frequency components of the dipole impedance and on the zero--frequency component of the quadrupolar impedance, because, as shown in the small graphics of Figure~\ref{fig:dipole_hor_imp_budget} and Figure~\ref{fig:dipole_vert_imp_budget}, the impedance in this region is two or three orders of magnitude larger than the high frequency part of the spectrum, being dominated by the resistive--wall contributions from the standard chamber and the undulators.
+    While the single--bunch tune shifts are mostly defined by the broad--band impedance of the whole spectrum, their multi--bunch counterpart depends majorly on the low--frequency components of the dipolar impedance and on the zero--frequency component of the quadrupolar impedance, because, as shown in Figure~\ref{fig:dipole_hor_imp_budget} and Figure~\ref{fig:dipole_vert_imp_budget}, the impedance in this region is two or three orders of magnitude larger than the high--frequency part of the spectrum, being dominated by the resistive--wall contributions from the standard chamber and the undulators.
     Figure~\ref{fig:ph1_tush_multi_per_curr}
     \begin{figure}
         \centering
@@ -2105,14 +2103,14 @@
         \caption{Tune shift divided by the bunch current as function of the number of bunches in uniform filling.}
         \label{fig:ph1_tush_multi_per_curr}
     \end{figure}
-    shows the tune shift divided by the bunch current in uniform filling as function of the number of bunches filled with charge. Note that if the impedance were broad banded the curve in the graphic should be a horizontal line. At single--bunch operation mode the incoherent tune--shifts are completely negligible compared to the incoherent one, because of the much smaller quadrupolar impedance of the machine
-    Figure~\ref{fig:ph1_tush_wall_undu_multi_per_curr}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.9\textwidth]{budget_ph1_tush_wall_undu_multi_per_curr.png}
-        \caption{Tune shift divided by the bunch current as function of the number of bunches in uniform filling.}
-        \label{fig:ph1_tush_wall_undu_multi_per_curr}
-    \end{figure}
+    shows the tune shift divided by the bunch current in uniform filling as function of the number of filled bunches, which should be an horizontal line if the impedance were broad band. When all the bunches are filled, the incoherent tune shifts are almost five times larger than the coherent ones and, in the vertical plane, most part comes from the \citeonline{Laslett1963} incoherent tune shifts from the dipole magnets, as modeled in section~\ref{sec:standard_chamber}.
+    % Figure~\ref{fig:ph1_tush_wall_undu_multi_per_curr}
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics[width=0.9\textwidth]{budget_ph1_tush_wall_undu_multi_per_curr.png}
+    %     \caption{Tune shift divided by the bunch current as function of the number of bunches in uniform filling.}
+    %     \label{fig:ph1_tush_wall_undu_multi_per_curr}
+    % \end{figure}
 
 
 \chapter{Instability Studies}\label{cap:instabilities_studies}
