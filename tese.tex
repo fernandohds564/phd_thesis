@@ -1407,7 +1407,7 @@
 
     The structure of the tracking code used is very similar to the one described in Ref.~\citenum{Sa2015}, with the additional feature of including damping and quantum excitation terms for the single particle dynamics. Wake field kicks can be included in two different ways:
     \begin{description}
-        \item[General Wakes:] In this case the wakes do not need to respect the causality condition and are passed to the code as interpolation tables. The code uses the Particle In Cell (PIC) approach, where the total simulation length of the longitudinal direction, $L_c$, is segmented in $N_c$ intervals and the approximate beam distribution is calculated from the number of macroparticles in each cell. Then, the convolution theorem is used to calculate the kick curve\cite{Bassi2016}, which is interpolated according to each particle's position;
+        \item[General Wakes:] In this case the wakes do not need to respect the causality condition and are passed to the code as interpolation tables. The code uses the \gls{pic} approach, where the total simulation length of the longitudinal direction, $L_c$, is segmented in $N_c$ intervals and the approximate beam distribution is calculated from the number of macroparticles in each cell. Then, the convolution theorem is used to calculate the kick curve\cite{Bassi2016}, which is interpolated according to each particle's position;
         \item[Resonators:] The parameters of the resonators, $(R_s, \omega_r, Q)$, are used as input. The code does not use the PIC approach, each of the $N_p$ macroparticles being simulated interact with each other and the wake is calculated through the sum of the potentials left by each particle in each resonator.
     \end{description}
 
@@ -2267,7 +2267,7 @@
     Figure~\ref{fig:ph1_imp_model_comp}
     \begin{figure}
         \centering
-        \includegraphics[width=\textwidth]{official_phase_1_imp_model.png}
+        \includegraphics[width=0.85\textwidth]{official_phase_1_imp_model.png}
         \caption{Comparison of the complete longitudinal impedance calculated for the Sirius storage ring (blue) with the \glspl{bbr} fitting presented in Table~\ref{tab:resonator_model} (red).}
         \label{fig:ph1_imp_model_comp}
     \end{figure}
@@ -2297,9 +2297,33 @@
         \caption{Mode--coupling instability for }
         \label{fig:ph1_long_mode_coup}
     \end{figure}
-    shows the results, which are amazingly interesting. There is a fierce competition for mode-coupling between a group of modes of very high order, which are driven by the strong high--frequency components of the resistive--wall impedance and the low--frequency modes, driven by the other components of the machine, mainly the \glspl{bpm} and bellows. In the simulation with bunch length equal to \SI{2.5}{\milli\meter}, several of them couples almost togheter, being difficult to identify which one goes first. On the other hand, when a bunch of \SI{3}{\milli\meter} is used, all the coupling are shifted to higher currents and the coupling between a dipolar and a quadrupolar mode is the first one to happen. In both simulations there is the prediction of a weak instability, result of the coupling between two radial modes of the same dipolar azimuthal mode, that in fact sets the threshold for the instability at \SI{1.25}{\milli\ampere}. The \gls{bbr} model does not predict this coupling and so far we could not identify which part of the impedance budget is creating it, but it must be some component at the low--frequency part of the spectrum because it is present and unchanged in simulations with bunch lengths up to \SI{5}{\milli\meter}.
+    shows the results, which are amazingly interesting. There is a fierce competition for mode-coupling among modes with azimuthal number up to \num{17}, being the higher order modes driven by the strong high--frequency components of the resistive--wall impedance and the low--order modes driven by the other components of the machine, mainly the \glspl{bpm} and bellows. In the simulation with bunch length equal to \SI{2.5}{\milli\meter}, several of them couples almost togheter, being difficult to identify which one goes first. On the other hand, when a bunch of \SI{3}{\milli\meter} is used, all the coupling are shifted to higher currents and the coupling between a dipolar and a quadrupolar mode is the first one to happen. In both simulations there is the prediction of a weak instability, result of the coupling between two radial modes of the same dipolar azimuthal mode, that in fact sets the threshold for the instability at \SI{1.25}{\milli\ampere}. The \gls{bbr} model does not predict this coupling and so far we could not identify which part of the impedance budget is creating it, but it must be some component at the low--frequency part of the spectrum because it is present and unchanged in simulations with bunch lengths up to \SI{5}{\milli\meter}.
 
+    The tracking simulations were performed for \num{3e4} turns in the ring, using \num{e7} macroparticles and the \gls{pic} method was used to apply the wake kicks, where longitudinal direction was segmented in \num{5e4} bins from \SI{-5}{\centi\meter} to \SI{5}{\centi\meter}, which corresponds to \SI{2}{\micro\meter} per bin. With these parameters all the wakes of the budget can be completely described, with the requirement of the Nyquist theorem, expressed in equation~\eqref{eq:nyquist_theorem}, being met for all of them. As will be described in the next section, the Savitzky--Golay filter was applied in the beam distribution before the convolution with wake in every turn, as an attempt to control the effects of numerical noise to acceptable levels. The initial conditions for tracking were the stationary results obtained with the Haissinski equation, to minimize the initial oscillations of the beam, which would increase the time needed for observation of the instability build up.
 
+    Figure~\ref{fig:ph1_microwave_tracking}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{official_phase_1_microwave_tracking.png}
+        \caption[Longitudinal beam parameters obtained from tracking.]{Main parameters of the beam obtained from tracking (dots) as function of the current for the simulations with and without the effects of \gls{ibs}. The values shown here are averages over all the \num{3e4} turns of the simulation. The solid lines are the results obtained from the solution of the Haissinski equation.}
+        \label{fig:ph1_microwave_tracking}
+    \end{figure}
+    shows the main beam parameters averaged over all the turns of the simulation for two different situations, with and without the \gls{ibs} effects. A strong instability appears between \SI{2.8}{\milli\ampere} and \SI{3.0}{\milli\ampere}, increasing the average energy spread of the to values larger than the ones where the effects of \gls{ibs} are considered.
+    Figure~\ref{fig:ph1_microwave_frequency}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{official_phase_1_microwave_frequency.png}
+        \caption{Mode--coupling instability for }
+        \label{fig:ph1_microwave_frequency}
+    \end{figure}
+    shows the Discrete Figure~\ref{fig:ph1_microwave_time_evolution}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{official_phase_1_microwave_time_evolution.png}
+        \caption{Mode--coupling instability for }
+        \label{fig:ph1_microwave_time_evolution}
+    \end{figure}
+    This shows the difference of both effects, while the \gls{ibs} smoothly increases the temperature of the beam, all the energy of the
 
 
 
