@@ -2308,7 +2308,15 @@
         \caption[Longitudinal beam parameters obtained from tracking.]{Main parameters of the beam obtained from tracking (dots) as function of the current for the simulations with and without the effects of \gls{ibs}. The values shown here are averages over all the \num{3e4} turns of the simulation. The solid lines are the results obtained from the solution of the Haissinski equation.}
         \label{fig:ph1_microwave_tracking}
     \end{figure}
-    shows the main beam parameters averaged over all the turns of the simulation for two different situations, with and without the \gls{ibs} effects. A strong instability appears between \SI{2.8}{\milli\ampere} and \SI{3.0}{\milli\ampere}, increasing the average energy spread of the to values larger than the ones where the effects of \gls{ibs} are considered.
+    shows the main longitudinal beam parameters obtained from average over all the turns of the simulation. Two different situations were studied, with and without the \gls{ibs} effects, to account for the best and worst case scenarios, respectively, regading the instability threshold. For the simulation with only the wake effects, a strong instability appears between \SI{2.8}{\milli\ampere} and \SI{3.0}{\milli\ampere}, increasing drastically the average energy spread as function of the current, which reach values larger than the ones where the effects of \gls{ibs} are considered only \SI{0.5}{\milli\ampere} above the threshold. Even though their time average are comparable, the behavior of the beam above the threshold is completely different from the stationary state introduced by \gls{ibs}. This difference is evidenciated by
+    Figure~\ref{fig:ph1_microwave_time_evolution}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{official_phase_1_microwave_time_evolution.png}
+        \caption{Time evolution of the energy spread}
+        \label{fig:ph1_microwave_time_evolution}
+    \end{figure}
+    where the time evolution of the energy spread is shown. The coherent energy of the instability drives exponentialy increasing oscillations of the beam, deforming the longitudinal distribution of the particles. When this deformation is large, the interaction of the beam with the wake is weakened and radiation damping brings the beam to lower values of energy spread. Even though it is not shown here, simulations with a larger number of turns shows that this process of growth and damping repeats, forming a saw--tooth like pattern.
     Figure~\ref{fig:ph1_microwave_frequency}
     \begin{figure}
         \centering
@@ -2316,13 +2324,7 @@
         \caption{Mode--coupling instability for }
         \label{fig:ph1_microwave_frequency}
     \end{figure}
-    shows the Discrete Figure~\ref{fig:ph1_microwave_time_evolution}
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{official_phase_1_microwave_time_evolution.png}
-        \caption{Mode--coupling instability for }
-        \label{fig:ph1_microwave_time_evolution}
-    \end{figure}
+    shows the discrete fourier transform of the time evolution of the average bunch position. From \
     This shows the difference of both effects, while the \gls{ibs} smoothly increases the temperature of the beam, all the energy of the
 
 
