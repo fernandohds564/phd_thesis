@@ -569,11 +569,11 @@
         \lambda^2 - \text{Tr}\fof{M}\lambda + \text{Det}\fof{M} = 0
     \end{align}
     with $\text{Tr}\fof{M} = 2-L_0\fof{\alpha_z-V'_0\alpha}$ and $\text{Det}\fof{M} = 1-L_0\alpha_z\approx 1$. This means that for the matrix to be stable, $|\text{Tr}\fof{M}| <= 2$~\cite{Courant1958}, the derivative of the gap voltage must be positive/negative if $\alpha$ is positive/negative. To ilustrate this condition, consider that initially a particle arrives at the cavity ahead of the synchronous particle, the positive derivative means it will gain more energy, which makes it take longer to go around the ring if the momentum compaction is positive, diminishing the difference of its arrival time to the synchronous particle for the next turn. This way all particles remain in an oscillatory movement around the fixed point with frequency given by
-	\begin{align}
-		\text{Tr}(M) = 2\cos(2\pi\nu_s) \approx 2-(2\pi\nu_s)^2 \implies
-		\nu_s \approx \frac{1}{2\pi}\sqrt{L_0\alpha_z+V'_0\alpha L_0},
+	\begin{align}\label{eq:synchrotron_tune}
+		\text{Tr}(M) = 2\cos(2\pi\nu_z) \approx 2-(2\pi\nu_z)^2 \implies
+		\nu_z \approx \frac{1}{2\pi}\sqrt{L_0\alpha_z+V'_0\alpha L_0},
 	\end{align}
-	where $\nu_s$ is called synchrotron tune in analogy to the betatron tunes defined in subsection~\ref{ssub:betatron_function}.
+	where $\nu_z$ is called synchrotron tune in analogy to the betatron tunes defined in subsection~\ref{ssub:betatron_function}.
 
 	Additionally, the determinant of the one--turn matrix is $(1-L_0\alpha_z)$, which implies the oscillations are damped, with $\alpha_z$ being the damping factor. In most storage rings this effect is small compared to the oscillation time, requiring thousands of turns to influence the dynamics.
 
@@ -693,7 +693,7 @@
             \exp\fof{-\frac{V'}{2L_0\alpha\sigma_\delta^2} z'^2}z'^2
         } = \sigma_\delta^2\frac{L_0\alpha}{V'} = \sigma_\delta^2 \frac{c^2\alpha^2}{\omega_s^2},
     \end{align}
-    where $\omega_s = \omega_0\nu_s$ is the synchrotron frequency.
+    where $\omega_s = \omega_0\nu_z$ is the synchrotron frequency.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2129,8 +2129,8 @@
     \end{align}
     % Notice that this procedure is pessimistic, because it neglects the negavite contributions of the sampling of the negative frequencies on equation~\eqref{eq:long_coupled_bunch_instability}, which would require the difference
     % \begin{align}
-    %     \real{Z\fof{\omega_0(p\pm\nu_s)} - Z\fof{\omega_0(-p\pm\nu_s)}} =
-    %     \real{Z\fof{\omega_0(p\pm\nu_s)}} - \real{Z\fof{\omega_0(p\mp\nu_s)}}
+    %     \real{Z\fof{\omega_0(p\pm\nu_z)} - Z\fof{\omega_0(-p\pm\nu_z)}} =
+    %     \real{Z\fof{\omega_0(p\pm\nu_z)}} - \real{Z\fof{\omega_0(p\mp\nu_z)}}
     % \end{align}
     % to be larger than the \gls{rhs} of equation~\eqref{eq:long_cbi_minimum_impedance}, and not the value of the impedance.
     Figure~\ref{fig:long_cbi_minimum_impedance}
@@ -2144,7 +2144,7 @@
 
     Next, for the modes with shunt impedance larger than the mininum impedance, we found the frequency range, $\Delta\omega_\parallel$, in which their impedance is also larger than the minimum impedance, in such a way that, recalling equation~\eqref{eq:long_coupled_bunch_instability}, if the condition
     \begin{align}
-        \left.\forall p \in \mathbb{Z},\quad \exists \omega_p \in \Delta \omega \,\, \middle| \,\, \omega_p \coloneqq \omega_0\fof{Mp + \mu \pm \nu_s}\right.
+        \left.\forall p \in \mathbb{Z},\quad \exists \omega_p \in \Delta \omega \,\, \middle| \,\, \omega_p \coloneqq \omega_0\fof{Mp + \mu \pm \nu_z}\right.
     \end{align}
     is satisfied, it is very likely that the beam will be unstable. Considering the modes can be represented by the resonator impedance introduced in equation~\eqref{eq:long_resonator_impedance}, we can find $\Delta\omega_\parallel$ solving the inequality
     \begin{align}
@@ -2160,7 +2160,7 @@
         \Delta\nu_\parallel = \left\{\nu \in \mathbb{R},\,\,\omega \in \Delta\omega_\parallel\,\, \middle|\,\,
         \nu=\frac{\omega}{\omega_0} - \left\lfloor\frac{\omega}{\omega_0}\right\rfloor \right\},
     \end{align}
-    where $\lfloor\cdot\rfloor$ is the floor operation. In this space, the sampling lines for longitudinal instability are equal $\nu_s$ for the azimuthal mode $m=1$ and $1 - \nu_s$ for the mode $m=-1$, which are all very close to the extrems of the interval, remembering the synchrotron tune for Sirius is appximately \SI{4e-3}{}.
+    where $\lfloor\cdot\rfloor$ is the floor operation. In this space, the sampling lines for longitudinal instability are equal $\nu_z$ for the azimuthal mode $m=1$ and $1 - \nu_z$ for the mode $m=-1$, which are all very close to the extrems of the interval, remembering the synchrotron tune for Sirius is appximately \SI{4e-3}{}.
     Figure~\ref{fig:long_cbi_frac_frequencies}
     \begin{figure}
         \centering
@@ -2180,13 +2180,13 @@
     This kicker will have a shunt impedance, $R_K$, of \SI{900}{\ohm} and an amplifier of \SI{30}{\watt}. Considering the losses in the cables, the maximum effective power applied to the beam will be \SI{9}{\watt}~\cite{Duarte2018}. According to~\citeonline{Lonza2007}, the relation between the power, $P$, and the damping time provided by the kicker, $\tau_K$, is given by
     \begin{align}
         \alpha_K = \frac{1}{\tau_K} =
-        \sqrt{\frac{R_kP}{2}}\frac{\alpha}{2\pi\nu_s(E_0/e)}\frac{c}{z_\text{max}},
+        \sqrt{\frac{R_kP}{2}}\frac{\alpha}{2\pi\nu_z(E_0/e)}\frac{c}{z_\text{max}},
     \end{align}
     where $z_\text{max}$ is the maximum amplitude of the movement. The requirement for the maximum longitudinal oscillation of the beam for stable operation is \SI{10}{\percent} of the beam size, which corresponds to \SI{0.25}{\milli\meter} and, consequently, via the equation above, an additional damping rate of \SI{175}{\hertz} will be provided by the kicker, which is approximately two times larger than the natural damping rate of the storage ring. With this factor of three in the damping, operations with \SI{30}{\milli\ampere} will be possible. Actually, the estimative made above is pessimistic, because the measurement of the longitudinal oscillations will be much better than the requirement presented above, which means the instability will be controlled at smaller amplitudes, requiring less power. Besides, if more power were needed it will be possible to install another amplifier in parallel, doubling the total power of the system. Finally, even though Figure~\ref{fig:long_cbi_frac_frequencies} is not reliable to quantitatively describe the stability of the beam, it shows that there are regions of the $\Delta \nu$ space which are free of \glspl{hom} or at least have weaker ones, in such a way that in principle it will be possible to find more stable regions adjusting the temperature of the cavity.
 
     A similar study was performed for the transverse couple--bunch instabilities with the impedance model provided by~\citeonline{Bassi2016b}. In this case, we can use equation~\eqref{eq:trans_coupled_bunch_instability} to isolate the minimum impedance,
     \begin{align}
-        Z_u^\text{min}(\omega) = \frac{\fof{\alpha_u + |m|\alpha_z}}{\beta_u}\frac{4\pi\nu_sE_0}{I_Th_m^2(\omega-\omega_\xi)},
+        Z_u^\text{min}(\omega) = \frac{\fof{\alpha_u + |m|\alpha_z}}{\beta_u}\frac{4\pi\nu_zE_0}{I_Th_m^2(\omega-\omega_\xi)},
     \end{align}
     where $u$ stands for both, $x$ and $y$. Figure~\ref{fig:trans_cbi_minimum_impedance}
     \begin{figure}
@@ -2224,7 +2224,87 @@
 
 \section{Longitudinal Plane}\label{sec:longitudinal_plane}
 
-    In this section the studies of the longitudinal dynamics of the Sirius storage ring will be discussed
+    The studies of the longitudinal dynamics of the Sirius storage ring will be presented in this section. First, we will evaluate the effects of the standard impedance budget, without considering the \gls{csr} impedance, in the second part we will analyse the noise in tracking simulations induced by high--frequency components of the wake, togheter with the solutions for this problem that were adopted in this work and in the third part we will present the results of the simulations with \gls{csr}, trying to take into account the effect of the other impedance sources and \gls{ibs} as well.
+
+\subsection{Standard Impedance Budget Effects}\label{ssec:imp_bud_effects}
+
+    Table~\ref{tab:sirius_main_parameters} shows only the natural, or zero--current, values of the equilibrium parameters of the storage ring. When the bunch current increases, the \gls{ibs} change these parameters due to the temperature rise coming from collisions\footnote{The effect of \gls{ibs} on Sirius equilibrium parameters was not  calculated in this work. The values shown here were obtained by Natália Milas and Afonso Haruo Mukai}. The main impact of this effect for the wake field induced collective effects is the energy spread increase and the consequent bunch lengthening.  Figure~\ref{fig:ph1_eq_param}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{official_phase_1_eq_param.png}
+        \caption{Stationary parameters of the longitudinal plane, calculated from the solution of the Haissinski equation.}
+        \label{fig:ph1_eq_param}
+    \end{figure}
+    shows the equilibrium parameters of the storage ring as a function of current for three situations, where the last one, \gls{ibs}$+$Wake, is not self-consistent, because it was obtained by the solution of the \citeauthor{Haissinski1973} equation using the additional energy spread induced by \gls{ibs} as initial input. It means that the reduction of the \gls{ibs} effect caused by lengthening of the bunch by the wake is not considered in that curve. While this curve can be considered as a higher limit for the bunch length and energy spread, or optimistic in relation to the threshold of the instabilities which will be studied below, the curve in which only the wake function of the machine is considered can be interpreted as the other extreme. The strong inductance of the impedance budget becomes evident in Figure~\ref{fig:ph1_eq_param} when we notice the bunch is lengthened by a factor larger than \num{2} in the current range analysed, while the synchrotron position, $\langle z \rangle$, only changes by less than \SI{2}{\milli\meter}.
+
+    The average synchrotron tune, $\langle \nu_z \rangle$, and the synchrotron tune spread, $\sigma_{\nu_z}$, shown in Figure~\ref{fig:ph1_eq_param} were calculated based on a generalization of the synchrotron tune defined in equation~\ref{eq:synchrotron_tune} for a general voltage gap, $V(z)$. Neglecting the damping rate, $\alpha_z$, in that equation, we can define a $z$--dependent synchrotron tune as
+    \begin{align}
+        \nu_z(z) = \frac{1}{2\pi}\sqrt{V'(z)\alpha L_0},
+    \end{align}
+    where $V'(z)$ is the derivative of the effective voltage (RF cavity plus wake) obtained from the Haissinski equation, normalized by the nominal energy of the storage ring, $E_0$. This way, the average synchrotron tune and the synchrotron tune spread can be calculated with
+    \begin{align}
+        \langle \nu_z \rangle = \infint{x}{\nu_z(x)\lambda(x)},\quad
+        \sigma_{\nu_z} = \infint{x}{\fof{\nu_z(x)-\langle \nu_z \rangle}^2\lambda(x)},
+    \end{align}
+    respectively, where $\lambda(z)$ is the equilibrium distribution, solution of the Haissinski equation.
+
+    The current threshold for the microwave instability was calculated in frequency domain, using equation~\eqref{eq:long_mode_coupling_instability} and by macroparticle tracking. In this process, we also created a model based on \glspl{bbr} for the whole impedance budget as an attempt to summarize it in a small set of numbers that can be used in future calculations and try to understand the individual contribution of each structure to the behavior of the beam. Such task was accomplished with the \num{11} \glspl{bbr} shown in Table~\ref{tab:resonator_model}.
+    \begin{table}
+        \centering
+        \caption{Broad band resonators model of the Sirius longitudinal impedance budget.}
+        \label{tab:resonator_model}
+        \begin{tabular}{l *{10}{c}}
+            \toprule
+            $f_R$~[GHz]       & 716.2 & 206.9  & 138.4  &  79.6  &  57.3
+            &  35.0 &  17.5  & 17.8   &  11.9  &   9.2 \\
+            $R_s$~[k$\Omega$] & 30.0  &  6.5   &  2.0   &  2.0   &  2.5
+            &  2.5  &  1.7   &  3.0   &  4.0   &  20.0 \\
+            $Q$               &  0.7  &  1.3   &  4.0   &  1.0   &   4.5
+            &  3.0  &  1.0   & 24.0   &  24.0  &  100.0 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    Figure~\ref{fig:ph1_imp_model_comp}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{official_phase_1_imp_model.png}
+        \caption{Comparison of the complete longitudinal impedance calculated for the Sirius storage ring (blue) with the \glspl{bbr} fitting presented in Table~\ref{tab:resonator_model} (red).}
+        \label{fig:ph1_imp_model_comp}
+    \end{figure}
+    shows the comparison of the fitted and original impedances. Even though the agreement is not excellent and there is still room for improvement, this model explains very well the bunch lengthening, the energy loss, threshold of the instability and the behavior of the beam above the threshold. The very high frequency \gls{bbr}, the first in the table, is due to the NEG coated vacuum chamber, which has a very large inductive impedance at low frequencies, being the major contributor for the bunch lengthening and the last three resonators are originated by the bellows and the \glspl{bpm} of the machine and have a fairly large $Q$ factor. Their correct modeling was very important to reproduce the behavior of the beam above the threshold of the microwave instability.
+
+    % Fig.~\ref{fig:tracking_newbbr_vs_wake} and
+    % Fig.~\ref{fig:tracking_moments_new_BBR}.
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics[width=0.6\textwidth]{tracking_newbbr_vs_wake.eps}
+    %     \caption{Bunch length, synchrotron phase shift, and energy spread as function of the single bunch current for the BBR model and the real wake of the machine, calculated by tracking and using the Haissinski solver. Note that both impedance models agree very well and predict the threshold of the microwave instability at $\approx2.7$mA.}
+    %     \label{fig:tracking_newbbr_vs_wake}
+    % \end{figure}
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics[width=\textwidth]{tracking_moments_new_BBR.eps}
+    %     \caption{Time evolution of the energy spread in tracking simulations for different currents above the threshold of the microwave instability, showing one cycle of instability growth, saturation and damping. This sawtooth--like behavior continues indefinitely and seriously compromises the quality of the radiation emitted. Note the good agreement between the behavior predicted by the BBR model and the detailed computed wake of the machine. It is interesting that the BBR have higher growth rates at lower currents, 2.8~and~3.0~mA, but for higher currents the other model predict faster growths. Such behavior should be investigated further. }
+    %     \label{fig:tracking_moments_new_BBR}
+    % \end{figure}
+
+
+    For the frequency domain calculations we did not take into account the \gls{ibs} effect and, due to the limitation of the theory, the potential--well distortion is not included too. We ran the simulations of the mode--coupling instability considering the first \num{31} radial modes and the azimuthal modes from \num{-30} to \num{30}, totalizing \num{1860} modes, for two different bunch lengths: \SI{2.5}{\milli\meter} and \SI{3.0}{\milli\meter}, being the first condition related to zero--current parameters of the first phase of operation of the storage ring and the second was considered only for a better understanding of the physical phenomena, as described below.
+    Figure~\ref{fig:ph1_long_mode_coup}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{official_phase_1_long_mode_coup.png}
+        \caption{Mode--coupling instability for }
+        \label{fig:ph1_long_mode_coup}
+    \end{figure}
+    shows the results, which are amazingly interesting. There is a fierce competition for mode-coupling between a group of modes of very high order, which are driven by the strong high--frequency components of the resistive--wall impedance and the low--frequency modes, driven by the other components of the machine, mainly the \glspl{bpm} and bellows. In the simulation with bunch length equal to \SI{2.5}{\milli\meter}, several of them couples almost togheter, being difficult to identify which one goes first. On the other hand, when a bunch of \SI{3}{\milli\meter} is used, all the coupling are shifted to higher currents and the coupling between a dipolar and a quadrupolar mode is the first one to happen. In both simulations there is the prediction of a weak instability, result of the coupling between two radial modes of the same dipolar azimuthal mode, that in fact sets the threshold for the instability at \SI{1.25}{\milli\ampere}. The \gls{bbr} model does not predict this coupling and so far we could not identify which part of the impedance budget is creating it, but it must be some component at the low--frequency part of the spectrum because it is present and unchanged in simulations with bunch lengths up to \SI{5}{\milli\meter}.
+
+
+
+
+
+
+
 
 \subsection{Noise in tracking simulations}\label{ssec:noise}
 
@@ -2282,41 +2362,6 @@
     Even though this filtered model has a smaller baseline than the other curves, it was not enough to predict the instability at $\approx$2.5~mA, due to the additional energy spread introduced by the noise, like the unfiltered simulations with 100~k and 1~M particles. While Fig.~\ref{fig:noise_effect} shows that Eq.~\eqref{eq:energy_spread_variation} qualitatively explains the energy spread increase induced by noise in simulations, Fig.~\ref{fig:quantitative_noise_effect} shows that, even though several approximations were performed in its deduction, it can be used to quantitatively estimate the number of particles needed to avoid such problems.
 
     Even though all the simulations presented here were performed with the General Wakes mode of the tracking code, which uses the PIC method, the same results were also observed for tracking the pure Resonators. This indicates that the effect described above is not related to the PIC method, but is a limitation of the physical system used to replace the real one in the simulations. The reduced number of particles increase the fluctuations that already exist in the real beam and, as Eq.~\eqref{eq:energy_spread_variation} suggests, would also induce energy spread increase in the physical system if the wake were $\approx$100 times stronger.
-
-
-\subsection{Impedance Model}\label{ssec:imp_model}
-
-    Table~\ref{tab:resonator_model} shows the broad band resonators (BBR) model of the Sirius longitudinal impedance budget. The very high frequency BBR, the first in the table, is due to the NEG coated vacuum chamber, which has a very large inductive impedance at low frequencies, being the major contributor for the bunch lengthening. Besides, note that the last three resonators have a fairly large $Q$ factor. They are originated by the bellows and the \glspl{bpm} of the machine, and, as explained below, are important to explain the behavior of the beam above the threshold of the microwave instability.
-    \begin{table}
-        \centering
-        \caption{Broad band resonators model of the Sirius longitudinal impedance budget.}
-        \label{tab:resonator_model}
-        \begin{tabular}{@{}lcccccccccc@{}}\toprule
-            $f_R$~[GHz]       & 716.2 & 206.9  & 138.4  &  79.6  &  57.3
-                              &  35.0 &  17.5  & 17.8   &  11.9  &   9.2 \\
-            $R_s$~[k$\Omega$] & 30.0  &  6.5   &  2.0   &  2.0   &  2.5
-                              &  2.5  &  1.7   &  3.0   &  4.0   &  20.0 \\
-            $Q$               &  0.7  &  1.3   &  4.0   &  1.0   &   4.5
-                              &  3.0  &  1.0   & 24.0   &  24.0  &  100.0 \\\bottomrule
-        \end{tabular}
-    \end{table}
-
-    This impedance budget was built by fitting the total impedance and refined based on comparisons of the instabilities thresholds predicted by them in frequency domain, on the bunch-lengthening and synchrotron phase shift as function of the bunch current and also on the behavior of the distribution above the threshold, calculated by tracking. In this process it was noted that including only the first seven BBR is enough to explain the bunch-lengthening effects and the threshold for the microwave instability, but only with all the ten resonators it is possible to reproduce the behavior above the threshold, as shown in
-    Fig.~\ref{fig:tracking_newbbr_vs_wake} and
-    Fig.~\ref{fig:tracking_moments_new_BBR}.
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.6\textwidth]{tracking_newbbr_vs_wake.eps}
-        \caption{Bunch length, synchrotron phase shift, and energy spread as function of the single bunch current for the BBR model and the real wake of the machine, calculated by tracking and using the Haissinski solver. Note that both impedance models agree very well and predict the threshold of the microwave instability at $\approx2.7$mA.}
-        \label{fig:tracking_newbbr_vs_wake}
-    \end{figure}
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{tracking_moments_new_BBR.eps}
-        \caption{Time evolution of the energy spread in tracking simulations for different currents above the threshold of the microwave instability, showing one cycle of instability growth, saturation and damping. This sawtooth--like behavior continues indefinitely and seriously compromises the quality of the radiation emitted. Note the good agreement between the behavior predicted by the BBR model and the detailed computed wake of the machine. It is interesting that the BBR have higher growth rates at lower currents, 2.8~and~3.0~mA, but for higher currents the other model predict faster growths. Such behavior should be investigated further. }
-        \label{fig:tracking_moments_new_BBR}
-    \end{figure}
-
 
 \section{Transverse Plane}
 
