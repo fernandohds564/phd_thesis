@@ -2220,7 +2220,7 @@
     shows the fractionary frequency range, $\Delta\nu_u$ as function of the coupled--bunch mode calculated for the horizontal plane for all the transverse \glspl{hom}. Recalling equation~\eqref{eq:trans_coupled_bunch_instability}, the sampling of the impedance in the transverse plane when mapped to the space of $\Delta\nu_u$ happens at $\nu_{x,y}$, shown in the figure as black horizontal lines. Note taht the threshold for the horizontal and vertical instabilities is a little below \SI{50}{\milli\ampere}.
     Actually, the precise calculation, using equation~\eqref{eq:trans_coupled_bunch_instability}, showed that the treshold is, coincidently \SI{30}{\milli\ampere} for both planes. Besides, notice that at \SI{100}{\milli\ampere} another \gls{hom}, the same driving the vertical plane instability, also starts influence the horizontal plan. One interesting feature of this figure is that it reveals an island of stability in the region (0.34, 0.44) and, since the difference between the tunes is only \SI{0.07}{}, in principle it would be possible to try to ajust the temperature of the cavity to change the position of the \glspl{hom} in such a way that this region coincides with the beam.
 
-    However, as discussed for the longitudinal plane, this phasing study is very ideal and it very likely that the real cavity will have a different configuration. For these reason the most pragmatic approach is to rely in transverse bunch--by--bunch feedback systems to assure the stability of the beam. These systems will be available for Sirius in the commissioning.
+    However, as discussed for the longitudinal plane, this phasing study is very ideal and it very likely that the real cavity will have a different configuration. For these reason the most pragmatic approach is to rely in transverse bunch--by--bunch feedback systems to ensure the stability of the beam. These systems will be available for Sirius in the commissioning.
 
 \section{Longitudinal Plane}\label{sec:longitudinal_plane}
 
@@ -2244,7 +2244,7 @@
     where $V'(z)$ is the derivative of the effective voltage (RF cavity plus wake) obtained from the Haissinski equation, normalized by the nominal energy of the storage ring, $E_0$. This way, the average synchrotron tune and the synchrotron tune spread can be calculated with
     \begin{align}
         \langle \nu_z \rangle = \infint{x}{\nu_z(x)\lambda(x)},\quad
-        \sigma_{\nu_z} = \infint{x}{\fof{\nu_z(x)-\langle \nu_z \rangle}^2\lambda(x)},
+        \sigma_{\nu_z}^2 = \infint{x}{\fof{\nu_z(x)-\langle \nu_z \rangle}^2\lambda(x)},
     \end{align}
     respectively, where $\lambda(z)$ is the equilibrium distribution, solution of the Haissinski equation.
 
@@ -2305,13 +2305,13 @@
     \begin{figure}
         \centering
         \includegraphics[width=0.8\textwidth]{official_phase_1_microwave_frequency.png}
-        \caption{Mode--coupling instability for }
+        \caption{Discrete Fourier transform of the time dependent bunch centroid, as function of frequency in units of the zero--current synchrotron frequency.}
         \label{fig:ph1_microwave_frequency}
     \end{figure}
     shows the discrete fourier transform of the time evolution of the average bunch position, where the horizontal axis was normalized by the zero--current synchrotron tune for easy identification of the coherent modes. The dipole mode, as expected, remains fixed at one synchrotron tune, because of the single--bunch nature of the simulation, which carries the potential--well distortion togheter with the bunch.
     The mode which is driving the instability is the quadrupolar mode, close to \num{1.75}. Even though it is present in the spectrum below the threshold, its amplitude increases almost two orders of magnitude from current \SI{2.8}{\milli\ampere} to \SI{3.0}{\milli\ampere}. The peak at approximately \num{3.5} is not another coupling of modes, as Figure~\ref{fig:ph1_long_mode_coup} suggests, but only a multiple of the main mode that is driving the instability, being a result of the non-linearities created by both, the radiation damping and the different interaction of the beam with the wake as function of time.
 
-    Figure~\ref{ph1_microwave_tracking} also reveals a small sudden change in the average longitudinal position of the beam as function of the current from the simulations with \SI{2.2}{\milli\ampere} and \SI{2.4}{\milli\ampere} in both simulations presented there. This could be an indication of the weak instability predicted by the frequency domain analysis, but no other result besides this one corroborates with such interpretation, and further studies are required to confirm or reject this hypotesis.
+    Figure~\ref{fig:ph1_microwave_tracking} also reveals a small sudden change in the average longitudinal position of the beam as function of the current from the simulations with \SI{2.2}{\milli\ampere} and \SI{2.4}{\milli\ampere} in both simulations presented there. This could be an indication of the weak instability predicted by the frequency domain analysis, but no other result besides this one corroborates with such interpretation, and further studies are required to confirm or reject this hypotesis.
 
     Even though the threshold of the instability was not determined properly with the study presented here, because the behavior of the beam in the best and worst case scenarios is completely different, two important conclusions can be taken. The first is that the lower limit for the current threshold is much larger than any current predicted for operation of the machine. Even the single--bunch operation scenarios are currently limited to \SI{2}{\milli\ampere} due to lifetime issues. The second is that, as indicated by the frequency domain analysis, the current threshold is very sentivity in relation to an increase in the bunch length caused by energy spread increase, which suggests the real behavior of the beam will be closer to the simulated \gls{ibs}$+$Wake than to the only wake case. It is a work for future endeavors, however, to develop methods to self-consistently simulate the effects of wake fields and \gls{ibs} togheter, or at least use some iterations between both isolated simulations to obtain more realistic results.
 
@@ -2381,7 +2381,7 @@
 
 \subsection{Inclusion of \gls{csr} in the Budget}
 
-    Before including the \gls{csr} in the Sirius impedance budget, we performed simulations using only this source of impedance to test if we could find the same threshold as predicted by the theory.
+    Before including the \gls{csr} in the Sirius impedance budget, we performed simulations using only this source of impedance to test if we could find the same threshold predicted by the theory. We ran the mode--coupling instability simulations using the first \num{30} radial numbers and  azimuthal modes from \num{-40} to \num{40}, but no instability was predicted up to \SI{4}{\milli\ampere}. Simulations with more modes were not performed because of the large time they would take. The tracking simulations were performed with the same discretization of the longitudinal direction as the one used in subsection~\ref{ssec:imp_bud_effects}, with a grid size of~\SI{2}{\micro\meter}, and the number of macroparticles was increased to \num{5e7}, to
 
 \section{Transverse Plane}
 
