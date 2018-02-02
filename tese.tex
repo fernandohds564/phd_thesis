@@ -1403,7 +1403,7 @@
 \subsection{The Microwave Instability}
 \subsection{Strong Head-tail instability}
 
-\section{Tracking Code}
+\section{Tracking Code}\label{sec:tracking_code}
 
     The structure of the tracking code used is very similar to the one described in Ref.~\citenum{Sa2015}, with the additional feature of including damping and quantum excitation terms for the single particle dynamics. Wake field kicks can be included in two different ways:
     \begin{description}
@@ -2273,22 +2273,6 @@
     \end{figure}
     shows the comparison of the fitted and original impedances. Even though the agreement is not excellent and there is still room for improvement, this model explains very well the bunch lengthening, the energy loss, threshold of the instability and the behavior of the beam above the threshold. The very high frequency \gls{bbr}, the first in the table, is due to the NEG coated vacuum chamber, which has a very large inductive impedance at low frequencies, being the major contributor for the bunch lengthening and the last three resonators are originated by the bellows and the \glspl{bpm} of the machine and have a fairly large $Q$ factor. Their correct modeling was very important to reproduce the behavior of the beam above the threshold of the microwave instability.
 
-    % Fig.~\ref{fig:tracking_newbbr_vs_wake} and
-    % Fig.~\ref{fig:tracking_moments_new_BBR}.
-    % \begin{figure}
-    %     \centering
-    %     \includegraphics[width=0.6\textwidth]{tracking_newbbr_vs_wake.eps}
-    %     \caption{Bunch length, synchrotron phase shift, and energy spread as function of the single bunch current for the BBR model and the real wake of the machine, calculated by tracking and using the Haissinski solver. Note that both impedance models agree very well and predict the threshold of the microwave instability at $\approx2.7$mA.}
-    %     \label{fig:tracking_newbbr_vs_wake}
-    % \end{figure}
-    % \begin{figure}
-    %     \centering
-    %     \includegraphics[width=\textwidth]{tracking_moments_new_BBR.eps}
-    %     \caption{Time evolution of the energy spread in tracking simulations for different currents above the threshold of the microwave instability, showing one cycle of instability growth, saturation and damping. This sawtooth--like behavior continues indefinitely and seriously compromises the quality of the radiation emitted. Note the good agreement between the behavior predicted by the BBR model and the detailed computed wake of the machine. It is interesting that the BBR have higher growth rates at lower currents, 2.8~and~3.0~mA, but for higher currents the other model predict faster growths. Such behavior should be investigated further. }
-    %     \label{fig:tracking_moments_new_BBR}
-    % \end{figure}
-
-
     For the frequency domain calculations we did not take into account the \gls{ibs} effect and, due to the limitation of the theory, the potential--well distortion is not included too. We ran the simulations of the mode--coupling instability considering the first \num{31} radial modes and the azimuthal modes from \num{-30} to \num{30}, totalizing \num{1860} modes, for two different bunch lengths: \SI{2.5}{\milli\meter} and \SI{3.0}{\milli\meter}, being the first condition related to zero--current parameters of the first phase of operation of the storage ring and the second was considered only for a better understanding of the physical phenomena, as described below.
     Figure~\ref{fig:ph1_long_mode_coup}
     \begin{figure}
@@ -2308,48 +2292,51 @@
         \caption[Longitudinal beam parameters obtained from tracking.]{Main parameters of the beam obtained from tracking (dots) as function of the current for the simulations with and without the effects of \gls{ibs}. The values shown here are averages over all the \num{3e4} turns of the simulation. The solid lines are the results obtained from the solution of the Haissinski equation.}
         \label{fig:ph1_microwave_tracking}
     \end{figure}
-    shows the main longitudinal beam parameters obtained from average over all the turns of the simulation. Two different situations were studied, with and without the \gls{ibs} effects, to account for the best and worst case scenarios, respectively, regading the instability threshold. For the simulation with only the wake effects, a strong instability appears between \SI{2.8}{\milli\ampere} and \SI{3.0}{\milli\ampere}, increasing drastically the average energy spread as function of the current, which reach values larger than the ones where the effects of \gls{ibs} are considered only \SI{0.5}{\milli\ampere} above the threshold. Even though their time average are comparable, the behavior of the beam above the threshold is completely different from the stationary state introduced by \gls{ibs}. This difference is evidenciated by
+    shows the main longitudinal beam parameters obtained from average over all the turns of the simulation. Two different situations were studied, with and without the \gls{ibs} effects, to account for the best and worst case scenarios, respectively, regarding the instability threshold. A strong instability rises between \SI{2.8}{\milli\ampere} and \SI{3.0}{\milli\ampere} for the simulation with only the wake effects, and drastically increases the average energy spread as function of the current. Only \SI{0.5}{\milli\ampere} above the threshold, the energy sread reaches values larger than the one where the effects of \gls{ibs} are considered. Even though their time average are comparable, the behavior of the beam above the threshold is completely different in both situations. This difference is evidenciated by
     Figure~\ref{fig:ph1_microwave_time_evolution}
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{official_phase_1_microwave_time_evolution.png}
-        \caption{Time evolution of the energy spread}
+        \caption{Time evolution of the energy spread for different bunch currents close to the threshold of the saw--tooth like instability.}
         \label{fig:ph1_microwave_time_evolution}
     \end{figure}
     where the time evolution of the energy spread is shown. The coherent energy of the instability drives exponentialy increasing oscillations of the beam, deforming the longitudinal distribution of the particles. When this deformation is large, the interaction of the beam with the wake is weakened and radiation damping brings the beam to lower values of energy spread. Even though it is not shown here, simulations with a larger number of turns shows that this process of growth and damping repeats, forming a saw--tooth like pattern.
     Figure~\ref{fig:ph1_microwave_frequency}
     \begin{figure}
         \centering
-        \includegraphics[width=0.7\textwidth]{official_phase_1_microwave_frequency.png}
+        \includegraphics[width=0.8\textwidth]{official_phase_1_microwave_frequency.png}
         \caption{Mode--coupling instability for }
         \label{fig:ph1_microwave_frequency}
     \end{figure}
-    shows the discrete fourier transform of the time evolution of the average bunch position. From \
-    This shows the difference of both effects, while the \gls{ibs} smoothly increases the temperature of the beam, all the energy of the
+    shows the discrete fourier transform of the time evolution of the average bunch position, where the horizontal axis was normalized by the zero--current synchrotron tune for easy identification of the coherent modes. The dipole mode, as expected, remains fixed at one synchrotron tune, because of the single--bunch nature of the simulation, which carries the potential--well distortion togheter with the bunch.
+    The mode which is driving the instability is the quadrupolar mode, close to \num{1.75}. Even though it is present in the spectrum below the threshold, its amplitude increases almost two orders of magnitude from current \SI{2.8}{\milli\ampere} to \SI{3.0}{\milli\ampere}. The peak at approximately \num{3.5} is not another coupling of modes, as Figure~\ref{fig:ph1_long_mode_coup} suggests, but only a multiple of the main mode that is driving the instability, being a result of the non-linearities created by both, the radiation damping and the different interaction of the beam with the wake as function of time.
 
+    Figure~\ref{ph1_microwave_tracking} also reveals a small sudden change in the average longitudinal position of the beam as function of the current from the simulations with \SI{2.2}{\milli\ampere} and \SI{2.4}{\milli\ampere} in both simulations presented there. This could be an indication of the weak instability predicted by the frequency domain analysis, but no other result besides this one corroborates with such interpretation, and further studies are required to confirm or reject this hypotesis.
 
+    Even though the threshold of the instability was not determined properly with the study presented here, because the behavior of the beam in the best and worst case scenarios is completely different, two important conclusions can be taken. The first is that the lower limit for the current threshold is much larger than any current predicted for operation of the machine. Even the single--bunch operation scenarios are currently limited to \SI{2}{\milli\ampere} due to lifetime issues. The second is that, as indicated by the frequency domain analysis, the current threshold is very sentivity in relation to an increase in the bunch length caused by energy spread increase, which suggests the real behavior of the beam will be closer to the simulated \gls{ibs}$+$Wake than to the only wake case. It is a work for future endeavors, however, to develop methods to self-consistently simulate the effects of wake fields and \gls{ibs} togheter, or at least use some iterations between both isolated simulations to obtain more realistic results.
 
-
-
+    As a final remark, the tracking code and the Haissinski solver employed in this analysis can be directly applied to determine the single--bunch stability of the storage ring in the second phase of operation, when the Landau cavity will be installed. The calculations were not performed in this work mainly due to lack of time.
 
 \subsection{Noise in tracking simulations}\label{ssec:noise}
 
-    In order to simulate correctly the high frequency BBR of the impedance model, fulfilling the condition imposed by the Nyquist theorem expressed in equation~\eqref{eq:nyquist_theorem}, it was necessary to set $\Delta z_c= 2\mu$m. Figure~\ref{fig:first_tracking}
+    Prior to the study presented above, it was necessary to deal with the problem of noise in tracking simulations in order to extract reliable results. This problem can completely spoil longitudinal simulations, because it provides an additional source of energy spread for the bunch, which is bad for two reasons: first, because this is the main observable that indicates the onset of the instability we want to study; and second, because the increased energy spread lengthens the bunch, which changes, generally weakens, the effect of the wake, preventing the instability from happening. Figure~\ref{fig:first_tracking}
     \begin{figure}
         \centering
-        \includegraphics[width=0.6\textwidth]{first_tracking.eps}
-        \caption{Tracking results, showing the effect of noise as a function of the number of macroparticles used in the simulation.}
+        \includegraphics[width=\textwidth]{official_phase_1_noise_tracking.png}
+        \caption{Tracking results, showing the effect of noise as a function of current for different numbers of macroparticles in the simulation.}
         \label{fig:first_tracking}
     \end{figure}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.6\textwidth]{particle_noise.eps}
-        \caption{During tracking simulations one particle is followed and its position in phase space and kick received by the wake are stored for each turn. The figure above shows the integrated power spectrum of the kick as a function of the frequency for simulations with 4 mA in the bunch. As the number of particles simulated increase, the energy is concentrated in the synchrotron frequency.}
-        \label{fig:particle_noise}
-    \end{figure}
-    shows the results of tracking with the impedance budget of the Sirius storage ring for different numbers of macroparticles in comparison with the behavior predicted by the Haissinski solver and Fig.~\ref{fig:particle_noise} shows the integrated power spectrum of the kick received by an arbitrary particle in the bunch. Note that even with a number of particles as high as 1~M particles, there is still a strong influence of noise, and only with 10~M particles the results seem to have converged, where the onset of an instability is noted at approximately 3~mA. Such results motivated us to try to understand the mechanism that drives this behavior.
+    shows an example of this phenomena, where the first tracking results obtained for Sirius are presented. They were performed with a sligthly different configuration for the machine than the one presented in last section, and for this reason this figure does not exactly compares to Figure~\ref{fig:ph1_microwave_tracking}. Note that even with a number of particles as large as \num{e6}, there still is a strong influence of noise, and only with \num{e7} particles the results seem to have converged, where the onset of an instability happens at approximately \SI{3}{\milli\ampere}, as already known from the last section results.
 
-    Given a longitudinal density distribution $\rho(z)$, the number of particles in a small interval $\Delta z$ centered at the position $z$, $N_l(z)$, is a random variable that follows a binomial distribution. Thus, considering that there are $N_p$ particles in the bunch, we have
+    This additional energy spread is introduced by the interaction of very high--frequency components of the wake with fluctuations in the beam distribution due to the finite, and reduced in relation to the real physcal system, number of particles. There are some methods to avoid this problem, being the most obvious one to increase the number of particles until this effect is negligible. This approach generally works well. For example, in the benchmarking presented in subsection~\ref{sec:tracking_code} only \num{e5} macroparticles were enough to reproduce the results of Elegant~\cite{Borland2000} and SPACE~\cite{Bassi2016}, but in the case of the impedance budget of Sirius, the strong high--frequency components of the resistive--wall and the \gls{csr}, makes such approach impracticable. Another method is to increase the size of the grids in the longitudinal plane as a method to abruptly cut the high frequencies of the wake, avoiding the generation of noise. This method is also valid when one knows that the high--frequency components of the wake are not strong enough to generate coherent motion, which again, is not the case of \gls{csr} and neither what was being indicated by the frequency--domain analysis for the case of the resistive--wall. Even when the wakes are not strong enough to create instabilities and the application of this method is viable, depending on the parameters of the simulation, convergent results might be difficult to obtain, requiring several simulations with different number of particles and mesh sizes, until optimal parameters are found.
+
+    A conceptualy similar way of ignoring the high frequencies of the wake and, at least in parts, avoid the problem of spectral leakage is to convolve the original wake function with a small gaussian distribution, that filters out in a smoothly way the undesired frequencies without the need of increasing the mesh size and assuring the convergence of the results depends only on the number of particles. This method was successfully used for Sirius calculations considering the standard impedance budget presented in last section, but completely failed in the \gls{csr} simulations. Even the success with the impedance budget is due to the fact that, luckly, the mode which coupled first was the quadrupolar one, as showed in the last section. If the parameters of the simulation were slightly different it could have failed as well. Other filters, which are not as smooth as the gaussian could be a better alternative for handling this problem.
+
+    Another method, which is the hard way of dealing with noise, is to filter the noise at the source, i.e. filter the distribution of particles.~\citeonline{Terzic2011} shows a very detailed study where the authors compared different methods of performing this task. The study of these advanced methods will be addressed in future works. The solution currently adopted for this problem was the use of 9--point cubic Savitzky--Golay filter~\cite{Savitzky1964}, as it is done in Elegant~\cite{Borland2000}, according to \citeonline{Borland2001}. The results presented in last section were already calculated using this method and the ones from the next section, where the \gls{csr} will be analysed will use it too.
+
+    Considering the issues with noise are very difficult to be dealt with in tracking simulations, it is useful to know \emph{a priori} what will be its effect on the beam, given a wake function and the number of particles being simulated. This necessity motivated us to try to understand better how this coupling of the wake with the beam creates the additional energy spread. In the paragraphs below we describe a possible explanation for this process.
+
+    Given a longitudinal density distribution $\rho(z)$, the number of particles in a small interval $\Delta z$ centered at the position $z$, $N_l(z)$, is a random variable that follows a binomial distribution. Thus, considering that there are $N_p$ macroparticles in the bunch simulation, we have
     \begin{align}
         \langle N_l \rangle = \rho(z)\Delta z N_p
         \quad \text{and}\quad
@@ -2357,37 +2344,44 @@
     \end{align}
     where $\langle\cdot\rangle$ and $\text{var}\fof{\cdot}$ denotes average and variance, respectively, being the latter a measure of the fluctuations in the bunch due to the finite number of particles. If the particles were static, this fluctuation would also be, but, as they are moving due to the longitudinal dynamics of the storage ring, these fluctuations are constantly changing. For very small $\Delta z$, the value of $N_l(z)$ changes very fast, but as $\Delta z$ increases, this characteristic time becomes increasinly large.
 
-    It is possible to estimate the length scale where the behavior of the variance changes by considering the number of turns it takes for the stored particles to complete one oscillation in the longitudinal phase space, which is $1/\nu_z$. This means that, on average, the longitudinal position of each particle differs from its position in the last turn by $\Delta z_L \approx 4\nu_z\sigma_z$. Consequently, for scales below or on the order of this length, the fluctuations of the particle distribution changes in a turn by turn basis.
+    It is possible to estimate the length scale where the behavior of the variance changes by considering the number of turns it takes for the stored particles to complete one oscillation in the longitudinal phase space, which is $1/\nu_{z,0}$. This means that, on average, the longitudinal position of each particle differs from its position in the last turn by $\Delta z_L \approx 4\nu_{z,0}\sigma_{z,0}$. Consequently, for scales below or on the order of this length, the fluctuations of the particle distribution changes in a turn by turn basis.
 
     Now, lets consider there is a wake function $W(z)$ that is constant in a small interval $\Delta z_W \approx \Delta z_L$ behind the source particle and zero outside this interval. Then, any particle inside the bunch would receive random kicks $K = eI_b T_0 W N_l/N_p$. The average of this kick varies slowly in time, because it depends on the evolution of the density distribution, but the variance, given by
     \begin{align}
         \text{var}\fof{K} = \fof{qI_b T_0 W}^2 \frac{\text{var}\fof{N_l}}{N_p^2} \approx
-        \fof{qI_b T_0 W}^2 \frac{\Delta z_W}{\sqrt{2\pi e}N_p},
+        \fof{qI_b T_0 W}^2 \frac{\Delta z_W}{\sigma_zN_p\sqrt{2\pi \exp(1)}},
     \end{align}
-    varies from turn to turn, where in the last step it was assumed $z \approx \sigma_z$ and that the distribution is gaussian, $\rho(\sigma_z)=1/\sqrt{2\pi e}\sigma_z$. Summarizing, this mechanism introduce a random variation of the energy of the particles in a turn by turn basis, similarly to the quantum excitation process due to radiation emission. This means that it should change the energy spread of the beam by
+    varies from turn to turn, where in the last step it was assumed $z \approx \sigma_z$ and that the distribution is gaussian, $\rho(\sigma_z)=1/(\sqrt{2\pi \exp(1)}\sigma_z)$. Summarizing, this mechanism introduce a random variation of the energy of the particles in a turn by turn basis, similarly to the quantum excitation process due to radiation emission. This means that it should change the energy spread of the beam by
     \begin{align}\label{eq:energy_spread_variation}
-        \Delta \sigma^2 = \sigma_\delta^2 - \sigma_{\delta0}^2 \approx
-        \frac{\text{var}(K)/E_0^2}{\alpha_z T_0(2-\alpha_z T_0)} =
-        \fof{\frac{qI_b T_0 W}{E_0}}^2 \frac{\Delta z_W}{\sqrt{2\pi e}N_p} \frac{1}{\alpha_z T_0(2-\alpha_z T_0)}.
+        \Delta \sigma^2 = \sigma_\delta^2 - \sigma_{\delta0}^2 \approx&
+        \frac{4\text{var}(K)/E_0^2}{\alpha_z T_0(4-\alpha_z T_0)} =\nonumber\\
+        =&\fof{\frac{qI_b T_0 W}{E_0}}^2 \frac{\Delta z_W}{\sigma_zN_p\sqrt{2\pi \exp(1)}} \frac{4}{\alpha_z T_0(4-\alpha_z T_0)}.
     \end{align}
 
     Figure~\ref{fig:noise_effect}
     \begin{figure}
         \centering
-        \includegraphics[width=0.6\textwidth]{noise_effect.eps}
-        \caption{Energy spread increase in simulations multiplied by $N_p\sigma_s/I_b^2$. The curves 100~k, 1~M, 10~M and 50~M were performed with the same wake function, while for curve 1~M~+~Filter Wake a convolution with a $40\mu$m gaussian bunch was applied to the wake and for the other curve, the resonator with highest frequency presented in Tab.~\ref{tab:resonator_model} was not used. Note how the baselines change depending of the wake function used.}
+        \includegraphics[width=\textwidth]{official_phase_1noise_normalized.png}
+        \caption[Normalized energy spread increase in Simulations induced by noise.]{Energy spread increase in simulations multiplied by $N_p\sigma_z/I_b^2$. The curves \num{e5}, \num{e6}, \num{e7} and \num{5e7} were performed with the same wake function using the \gls{pic} method, while for curve (\num{e7}, \gls{bbr}) was simulated using directly the \glspl{bbr} from the impedance model presented in subsection~\ref{ssec:imp_bud_effects}.
+        For the curve (\num{e6}, Gauss) a convolution with a \SI{40}{\micro\meter} gaussian bunch was applied to the wake and a Savitzky--Golay filter was applied in the simulation of the results of (\num{e7}, Sav-Go).}
         \label{fig:noise_effect}
     \end{figure}
+    shows the energy spread variation from Sirius tracking simulations multiplied by $N_p\sigma_z/I_b^2$. According to equation~\eqref{eq:energy_spread_variation} this quantity should depend only on the storage ring properties and on the wake characteristics, $(W, \Delta z_W)$, and, therefore should be an horizontal straigth line. The curves \num{e5} and \num{e6} particles approximately follow this rule, having the same baseline, and the curves \num{e7} and (\num{e7}, \gls{bbr}), deviates from this behavior above \SI{2}{\milli\ampere}, but approaches the same baseline of the others for lower currents. This deviation is understood when the simulation with \num{5e7} particles is analysed, where the real microwave instability dominates the scaling. Besides, the fact that the tracking using directly the \gls{bbr} also follows this pattern, is an indication that this is not an artefact of the \gls{pic} method.
+
+    The curve (\num{e6}, Gauss) corresponds to the filtering of the wake with a gaussian of $\sigma=40$ \si{\micro\meter}. This filtering reduces the strength of the wake at short ranges and, consequently changes the baseline of this curve. The curve (\num{e7}, Sav-Go) is the result of using the Savitzky--Golay filter in the simulation, hence has the same short--range wake of the other curves, and, according to equation~\eqref{eq:energy_spread_variation}, should follow the same baseline of the other curves below the threshold of the instability. This is not what is happening because the filtering of the distribution changes its interaction with the high frequencies of the wake. Notice, however, that with the Savitzky--Golay filter, a simulation with \num{e7} particles have the same behavior above the threshold as a ordinary simulation with \si{5\times} more macroparticles.
+
+    While Figure~\ref{fig:noise_effect} shows that equation~\eqref{eq:energy_spread_variation} qualitatively explains the energy spread increase induced by noise in simulations, Figure~\ref{fig:quantitative_noise_effect}
     \begin{figure}
         \centering
-        \includegraphics[width=0.6\textwidth]{quantitative_noise_effect.eps}
-        \caption{Dots represents the energy spread increase in simulations with the same wake function (represented by the blue curve in the small graphic) and lines are the prediction of Eq.~\eqref{eq:energy_spread_variation} using a constant model for the wake (orange line in the small graphic), with $W=1\times10^7$V/C and $\Delta z_W = 80\mu$m. }
+        \includegraphics[width=\textwidth]{official_phase_1noise_quantitative_normalized.png}
+        \caption[Application of equation~\eqref{eq:energy_spread_variation} to account for energy spread increase.]{Dots represents the energy spread increase in simulations with the same wake function (represented by the blue curve in the small graphic) and lines are the prediction of equation~\eqref{eq:energy_spread_variation} using a constant model for the wake (orange line in the small graphic), with $W=1$ MV/C and $\Delta z_W = $\SI{80}{\micro\meter}.}
         \label{fig:quantitative_noise_effect}
-    \end{figure}%
-    shows the energy spread variation from Sirius tracking simulations multiplied by $N_p\sigma_s/I_b^2$. Note that according to Eq.~\eqref{eq:energy_spread_variation} this quantity should depend only on the storage ring properties and on the wake characteristics, $(W, \Delta z_W)$, and, therefore should be an horizontal straigth line. Note that this is the behavior for the 100~k and 1~M particles curve and that the 10~M curve deviates from this behavior above 2~mA, but approaches the same baseline of the others for lower currents. This deviation is understood when the simulation with 50~M particles is analysed, where the real microwave instability dominates the scaling. Other two simulations with 1~M particles are also shown, one without the high frequency resonator, where we note the real instability also happens, with approximately the same characteristics of the 50~M particles curve, and another with a filtered wake. This filter consists in convolving the total wake function with a small gaussian bunch ($\sigma_z=40\mu$m) and using this effective wake as input for the simulation, this approach changes the short range wake by filtering out high frequencies of the impedance spectrum.
-    Even though this filtered model has a smaller baseline than the other curves, it was not enough to predict the instability at $\approx$2.5~mA, due to the additional energy spread introduced by the noise, like the unfiltered simulations with 100~k and 1~M particles. While Fig.~\ref{fig:noise_effect} shows that Eq.~\eqref{eq:energy_spread_variation} qualitatively explains the energy spread increase induced by noise in simulations, Fig.~\ref{fig:quantitative_noise_effect} shows that, even though several approximations were performed in its deduction, it can be used to quantitatively estimate the number of particles needed to avoid such problems.
+    \end{figure}
+    shows that, even though several approximations were performed in its deduction, that equation can be used to quantitatively estimate the number of particles needed to avoid such problems. In this figure the behavior of the curve (\num{e7}, Sav-Go) again differs from the others, presenting a larger energy spread increase than its counterpart without filtering for low currents, but smaller noise close to the threshold. The understanding of this behavior is a subject for further studies.
 
-    Even though all the simulations presented here were performed with the General Wakes mode of the tracking code, which uses the PIC method, the same results were also observed for tracking the pure Resonators. This indicates that the effect described above is not related to the PIC method, but is a limitation of the physical system used to replace the real one in the simulations. The reduced number of particles increase the fluctuations that already exist in the real beam and, as Eq.~\eqref{eq:energy_spread_variation} suggests, would also induce energy spread increase in the physical system if the wake were $\approx$100 times stronger.
+\subsection{Inclusion of \gls{csr} in the Budget}
+
+    Before including the \gls{csr} in the Sirius impedance budget, we performed simulations using only this source of impedance to test if we could find the same threshold as predicted by the theory.
 
 \section{Transverse Plane}
 
