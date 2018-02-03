@@ -1333,7 +1333,9 @@
     \end{align}
     where $s_r$ is the retarded position defined in equation~\eqref{eq:retarded_time_definition}, $\lambda_l$ and $d_l$ are the longitudinal distribution and dipole moment of the beam, defined in equations~\eqref{eq:definition_long_distributions}, and $W_0$ is the primitive function of the longitudinal wake, $W'_0$.
 
-\section{Potential Well Distortion}
+\section{Stationary Effects}
+
+\subsection{Potential Well Distortion}
 
     All the effects of the wakes on the beam can be calculated from the Hamiltonian defined in equation~\eqref{eq:current_depend_hamiltonian}. One particular effect is the distortion of the potential well created by the RF cavities, which changes the equilibrium distribution of the particles and the intrabunch dynamic properties such as the synchrotron tune.
 
@@ -1371,9 +1373,9 @@
 
     This implementation was benchmarked with the results presented by~\citenum{Bane1989} for the inductive and resistive impedances, but it fails to converge for the capacitive wakes (negative inductance) when the strength of the perturbation gets close to the well known singularity point of such impedance, as explained by~\citeonline{Shobuda1999}. However this was not a problem for all the practical cases studied in this work.
 
-\section{Incoherent Tune shifts}\label{sec:incoherent_tune_shift}
+\subsection{Incoherent Tune shifts}\label{sec:incoherent_tune_shift}
 
-    the variation of the transverse oscillation frequency of the bunch as a function of the current is another effect which can be derived from the Hamiltonian of equation~\eqref{eq:current_depend_hamiltonian}:
+    The variation of the transverse oscillation frequency of the bunch as a function of the current is another effect which can be derived from the Hamiltonian of equation~\eqref{eq:current_depend_hamiltonian}:
     \begin{align}
         \Delta\nu_u^n = \frac{(\Delta\mu'_u)^n}{\omega_0/c} = \frac{1}{\omega_0/c}\left(\left.\derpar{H_n}{J_u}\right|_{\average{I}} - \left.\derpar{H_n}{J_u}\right|_{\average{I}=0}\right)
     \end{align}
@@ -1395,7 +1397,7 @@
         \Delta\nu_u = -\beta_u(1+\cos(2\mu_u))\frac{I_bT_0}{4\pi(E_0/e)}
         \frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z^Q_u(pM\omega_0)e^{-ipM\omega_0 z/c},
     \end{align}
-    where $I_b$ is the current per bunch. Averaging this result with the bunch distribution and using the impedance property described in equation~\eqref{eq:impedance_even_odd_trans}, we get
+    where $I_b$ is the current per bunch. Averaging this result with the bunch distribution and using the impedance property described in equation~\eqref{eq:impedance_even_odd_trans}, we get the average incoherent tune shift of an arbitrary particle in one synchrotron period, or simply, the incoherent tune shift of each bunch:
     \begin{align}\label{eq:incoherent_tune_shift}
         \average{\Delta\nu_u} = \beta_u\frac{I_bT_0}{4\pi(E_0/e)}
         \overbrace{
