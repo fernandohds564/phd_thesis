@@ -1957,7 +1957,7 @@
             \caption{Impedances.}
             \label{fig:csr_impedance}
         \end{subfigure}
-        \caption{\gls{csr} effective wake functions and impedances calculated using the parameters of the Sirius low field dipoles.}
+        \caption{\gls{csr} effective wake functions and impedances calculated using the parameters of the Sirius low field dipoles. Solid lines represent the real part of the impedance and dashed lines represent the imaginary part.}
     \end{figure}
     shows the two components of the wake and their sum, while Figure~\ref{fig:csr_impedance} shows the impedance calculated via the Inverse Fourier Transform and posterior deconvolution of equation~\eqref{eq:csr_convolution}, compared with the calculation using equation~\eqref{eq:csr_imp_shielding} and the free-space impedance~\eqref{eq:csr_imp_free_space}. Note the very good agreement between the two methods of calculating the impedance, which validates the trick for calculation of the effective wake function.
     Besides, note that the shielding virtually eliminates the resistive part of the impedance up to approximately~\SI{100}{\giga\hertz} and changes the sign of the imaginary part from positive, which is generally refered as capacitive in the accelerators comunity, to negative, often called inductive. However, the impedance in this range of frequencies may depend very strongly on the parameters of the vacuum chamber geometry, for example,~\citeonline{Warnock1990a} calculated the radiation impedance for a beam in a circular smooth toroidal chamber with rectangular cross sections and found that the impedance at low frequencies would also be imaginary, but capacitive. The importance of this impedance to the budget is not in the frequency region of the stationary beam spectrum, but the very strong impedance at high frequencies, because the instability arises when modulations in the beam distribution starts radiating coherently, as explained by~\citeonline{Stupakov2002}.
@@ -1967,7 +1967,7 @@
         \centering
         \includegraphics[width=0.48\textwidth]{csr_imp_comp_b1b2_bc}\hfill
         \includegraphics[width=0.48\textwidth]{csr_wake_comp_b1b2_bc}
-        \caption{Total \gls{csr} impedance model for Sirius, considering the two types of dipoles.}
+        \caption{Total \gls{csr} impedance (left) and wake (right) models for Sirius, considering the two types of dipoles. Solid lines represent the real part of the impedance and dashed lines represent the imaginary part.}
         \label{fig:csr_total_impedance}
     \end{figure}
     shows the total impedance considered for Sirius. The contribution from both types of dipoles was calculated considering their total length along the ring. Notice that the strong shielding factor of the BC magnet helps reducing the total impedance, in such a way that the threshold predicted by equation~\eqref{eq:csr_scaling_instability} rises to \SI{1}{\milli\ampere}.
@@ -2387,7 +2387,30 @@
 
 \subsection{Inclusion of \gls{csr} in the Budget}
 
-    Before including the \gls{csr} in the Sirius impedance budget, we performed simulations using only this source of impedance to test if we could find the same threshold predicted by the theory. We ran the mode--coupling instability simulations using the first \num{30} radial numbers and  azimuthal modes from \num{-40} to \num{40}, but no instability was predicted up to \SI{4}{\milli\ampere}. Simulations with more modes were not performed because of the large time they would take. The tracking simulations were performed with the same discretization of the longitudinal direction as the one used in subsection~\ref{ssec:imp_bud_effects}, with a grid size of~\SI{2}{\micro\meter}, and the number of macroparticles was increased to \num{5e7}, to
+    Before including the \gls{csr} in the Sirius impedance budget, we performed simulations using only this source of impedance to test if we could find the same threshold predicted by the theory. We ran the mode--coupling instability simulations using the first \num{30} radial numbers and  azimuthal modes from \num{-40} to \num{40}, but no instability was predicted up to \SI{4}{\milli\ampere}. Simulations with more modes were not performed because of the large time they would take. The tracking simulations were performed with the same discretization of the longitudinal direction as the one used in subsection~\ref{ssec:imp_bud_effects}, with a grid size of~\SI{2}{\micro\meter}, and the number of macroparticles was increased to \num{5e7}, to ensure convergence. At \SI{1.2}{\milli\ampere}, weak modulations of the longitudinal density distribution were already observed, as shown in Figure~\ref{fig:ph1_csr_threshold}.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{official_phase_1_csr_threshold.png}
+        \caption{Longitudinal beam distribution and its discrete Fourier transform for a \gls{csr} simulation with beam current of \SI{1.2}{\milli\ampere}.}
+        \label{fig:ph1_csr_threshold}
+    \end{figure}
+    The peak value of the coherent modes is centered at a wavenumber equal to \SI{7}{\per\milli\meter} and rise \si{3\times} above the simulation noise level. This wavenumber corresponds to a frequency of \SI{333}{\giga\hertz}, which is close to the first peak of real part of the \gls{csr} impedance, at \SI{400}{\giga\hertz}, shown by Figure~\ref{fig:csr_total_impedance}.
+
+    Recalling section~\ref{sec:csr_impedance}, the threshold predicted by equation~\eqref{eq:csr_scaling_instability} is \SI{1.0}{\milli\ampere} for Sirius, which is below the value found here, considering that a simulation was performed with \SI{1.1}{\milli\ampere} and no traces of microbunching were found.
+    However, a closer look to Figure~\ref{fig:csr_bane_graphic_modified} reveals that the threshold obtained with the \gls{vfp} solver, in the region close to the shielding parameter of the Sirius dipoles, is larger than the line defined by the mentioned equation. Besides, the damping rate used by \citeonline{Bane2010} in that simulation was approximately \num{3.5} times larger than Sirius longitudinal damping rate. If we consider the strength parameter at threshold given by the Linearized Vlasov solver, also shown in that figure, instead of the one predicted by equation~\eqref{eq:csr_scaling_instability}, the current threshold is between \SI{1.1}{\milli\ampere} and \SI{1.2}{\milli\ampere}, which agrees with the result found here.
+
+    Simulations with beam currents above the threshold have shown very good agreement with the qualitative explanation of the behavior of the beam given by \citeonline{Venturini2002}, with close to periodic bursts of \gls{csr} followed by a relaxation of the distributions and damping. For example, Figure~\ref{fig:ph1_csr_time_evolution}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{official_phase_1_csr_time_evolution.png}
+        \caption{Time evolution of the bunch size for a beam current of \SI{4.0}{\milli\ampere} under the effect of the microbunching instability driven by \gls{csr}.}
+        \label{fig:ph1_csr_time_evolution}
+    \end{figure}
+    agrees well with \cite[Fig. 2]{Venturini2002}, where the discontinuities in the bunch size oscillations are generated when the bursts happen.
+
+    
+
+
 
 \section{Transverse Plane}
 
@@ -2532,7 +2555,7 @@
         \label{fig:wake1}
     \end{figure}
 
-    To see this lets consider the interaction of a source particle $Q$ moving with velocity $\vect{v}=v{\vect{\hat{z}}}$ with a witness particle $q$ moving with the same velocity (parallel path) at a distance $s$ in the direction parallel to the movement and at a transverse distance $\rho$, as shown in Figure\,\ref{fig:wake1}. We want to determine the force that the source particle exerts on the witness particle. One way to do this is by calculating the electric field of the source particle in the co-moving frame of reference, $S'$, and Lorentz transforming it back to the laboratory's frame. After the math we obtain:
+    To see this let us consider the interaction of a source particle $Q$ moving with velocity $\vect{v}=v{\vect{\hat{z}}}$ with a witness particle $q$ moving with the same velocity (parallel path) at a distance $s$ in the direction parallel to the movement and at a transverse distance $\rho$, as shown in Figure\,\ref{fig:wake1}. We want to determine the force that the source particle exerts on the witness particle. One way to do this is by calculating the electric field of the source particle in the co-moving frame of reference, $S'$, and Lorentz transforming it back to the laboratory's frame. After the math we obtain:
 
     \begin{align}\label{eq:fields_free_particle}
     	\vect{E} = \frac{q}{4\pi\epsilon_0}\frac{\vect{R}}{\gamma^2 R^{*3}}, & & \vect{B} = \frac{1}{c^2}\vect{v} \times \vect{E}
@@ -2574,7 +2597,7 @@
         \label{fig:wake2}
     \end{figure}
 
-    Lets consider now a pipe with cylindrical symmetry\footnote{do not confuse cylindrical symmetry with cylinder. By cylindrical symmetry we mean a system with translational symmetry in one direction.}, hollow and with absolute vacuum in its interior, made of a perfect electric conductor material and with arbitrary cross section. If we put the particles of the previous example inside this pipe, moving parallel to symmetry axis, they will induce image charges in the surface of the wall which cancel the electromagnetic field inside the metal.
+    Let us consider now a pipe with cylindrical symmetry\footnote{do not confuse cylindrical symmetry with cylinder. By cylindrical symmetry we mean a system with translational symmetry in one direction.}, hollow and with absolute vacuum in its interior, made of a perfect electric conductor material and with arbitrary cross section. If we put the particles of the previous example inside this pipe, moving parallel to symmetry axis, they will induce image charges in the surface of the wall which cancel the electromagnetic field inside the metal.
 
     The image charges travel with the same velocity $\vect{v}$ of the particles (see Figure\,\ref{fig:wake2}). As they move in parallel paths with constant velocity, in the limit $v \to c$, according to the previous results, they do not interact, independently of how close they are from each other.
 
@@ -2716,7 +2739,7 @@
 
     Even though this property is not strictly true in the real world, because particles always travel at speeds lower than the light's, it is true in most practical cases, as we will see below.
 
-    Lets try to calculate the distance $z$ where the field generated by some discontinuity in the vacuum chamber will catch up with a witness particle at a distance $s$ behind the source particle. At the time $t=0$ the source particle passes through the discontinuity and an electromagnetic wave is generated with its wave front travelling at the speed of light in all directions, forming a sphere of radius $R$, see FigureXX. At any given time after this, the following relation holds:
+    Let us try to calculate the distance $z$ where the field generated by some discontinuity in the vacuum chamber will catch up with a witness particle at a distance $s$ behind the source particle. At the time $t=0$ the source particle passes through the discontinuity and an electromagnetic wave is generated with its wave front travelling at the speed of light in all directions, forming a sphere of radius $R$, see FigureXX. At any given time after this, the following relation holds:
     \begin{align}
 		ct = R \quad vt = z && \Rightarrow && R = \frac{z}{\beta} \quad \text{where} \,\, \beta = \frac{v}{c}
     \end{align}
@@ -2764,7 +2787,7 @@
     	\infint{t}{\derpar{a}{s}\derpar{s}{z}} =
     	-\infint{t}{\derpar{a}{s}}
     \end{align}
-    Also, lets remember the relations between the electromagnetic fields and the potentials:
+    Also, let us remember the relations between the electromagnetic fields and the potentials:
     \begin{align}
     	E_x &= -\derpar{A_x}{t} - \derpar{\phi}{x} &
         	& B_x = \derpar{A_y}{s} - \derpar{A_s}{y}\\
@@ -2792,7 +2815,7 @@
 
 \chapter{Symmetry analysis}\label{app:symmetry_analysis}
 
-    First lets consider the general expansion of the Wake potential of a bunch in the transverse coordinates of the centroid of the source $(x_s,y_s)$ and the integration path $(x,y)$ up to third order:
+    First let us consider the general expansion of the Wake potential of a bunch in the transverse coordinates of the centroid of the source $(x_s,y_s)$ and the integration path $(x,y)$ up to third order:
 
     \begin{align}
 		W(\vect{x},s) &= W_0(s) + \sum_{i=1}^4 M_i(s) x_i + \frac12\sum_{i,j=1}^4 D_{ij}(s) x_i x_j + \frac13\sum_{i,j,k=1}^4 Q_{ijk}(s) x_i x_j x_k
@@ -2811,7 +2834,7 @@
 		F_y(\vec{x},s) = \derpar{W(\vect{x},s)}{y} &= M_4 + \sum_{i=1}^4 D_{4i} x_i + \sum_{i,j=1}^4 Q_{4ij} x_i x_j
     \end{align}
 
-    Generally we are interested in obtaining the linear terms as function of the transverse coordinates correct up to second order. It means we want to isolate the linear from the quadract terms in the simulations. Thus, lets keep only the second order terms in the wake forces above.
+    Generally we are interested in obtaining the linear terms as function of the transverse coordinates correct up to second order. It means we want to isolate the linear from the quadract terms in the simulations. Thus, let us keep only the second order terms in the wake forces above.
     \begin{align}
 		F_L(\vect{x},s) &= W_0' + \vect{M'}^T \cdot \vect{x} + \frac12\vect{x}^T \cdot \tensor{D'}  \cdot \vect{x} \\
 		F_x(\vect{x},s) &= M_x + \vect{D_x}^T \cdot \vect{x} +        \vect{x}^T \cdot \tensor{Q_x} \cdot \vect{x} \\
@@ -3017,7 +3040,7 @@
 
     One simulation in GdfidL consists of passing a linear gaussian bunch with the velocity of light in the longitudinal direction and with a specific transverse position, say $(x_s,y_s)=(d_x,d_y)$ through the simulated structure solving Maxwell equations in time. While doing this, the code saves in memory the wake potential $W(d_x,d_y,x,y,s)$ for all transverse positions $(x,y)$ of integration and all $s$. This procedure is very time consuming and we gerally try to perform the mininum amount of simulations possible to get the results we need.
 
-    Lets suppose a simulation was performed with the position of the source in $(x_s,y_s)=(d,0)$. If we calculate the Horizontal Wake potential in a path where $y=0$ then, up to second order in the transverse coordinates we can write:
+    Let us suppose a simulation was performed with the position of the source in $(x_s,y_s)=(d,0)$. If we calculate the Horizontal Wake potential in a path where $y=0$ then, up to second order in the transverse coordinates we can write:
 
     \begin{align}
 		F_L(d,0,x,0) &= W_0  +  M_1d  +  M_3x + D_{11}d^2 + D_{13}dx + D_{33}x^2 \\
@@ -3048,7 +3071,7 @@
 
     Note that in general to isolate the dipolar component $D_x$, it is necessary to perform another two simulations. If another simulation is performed with the source at $(x_s,y_s) = (-d,0)$ it is also possible to isolate the dipolar component.
 
-    Now, lets try to extract the quadrupolar component
+    Now, let us try to extract the quadrupolar component
     \begin{align}
 		\Delta_1 = \frac{F_1 - F_2}{x_1-x_2} &= D_{x3} + Q_{x13}d + Q_{x33}(x_1 + x_2)
     \end{align}
@@ -3059,7 +3082,7 @@
     where it is clear that is necessary other simulation to extract the quadrupolar wake.
 
 
-\chapter{ECHOzR Post--Processing} \label{app:wake_from_echozr}
+\chapter{ECHOzR Post--Processing}\label{app:wake_from_echozr}
 
     According to~\citeonline{Zagorodnov2015} the wake functions are given by
     \begin{align}
@@ -3095,7 +3118,7 @@
     where $W_m^M(y_0,y,s)$ and $W_m^M(y_0,y,s)$ are the results of the simulation with magnetic and electric boundary conditions, respectively.
 
 
-    Our objective is to obtain the formulas for the monopole longitudinal, dipole and quarupolar transverse wake functions at the point $\vec{v} = (x_0=w,y_0=0,x=w,y=0)$ from these results. The monopolar wakes are readly obtained:
+    Our objective is to obtain the formulas for the monopole longitudinal, dipolar and quarupolar transverse wake functions at the point $\vec{v} = (x_0=w,y_0=0,x=w,y=0)$ from these results. The monopolar wakes are readly obtained:
     \begin{align}
 		W_m(0,0,s) = W^{cc}_m(s) &\Rightarrow W_{||}(\vec{v}) = \frac1w\sum^\infty_{m=1,\mathrm{odd}} W^{cc}_m(s), \\[4mm]
 		W_{y,m}(0,0,s) = 0 &\Rightarrow W_y(\vec{v}) = 0, \\[4mm]
@@ -3112,7 +3135,7 @@
     and all the skew terms are zero.
 
 
-\chapter{Passive Landau cavity simulation}\label{eq:passive_landau_cavity}
+\chapter{Passive Landau cavity simulation}\label{app:passive_landau_cavity}
 
     Assuming the wake function of the main mode of the Landau cavity can be modeled by the longitudinal resonator impedance with parameters $\omega_R$, $R$ and $Q$:
     \begin{align}\label{eq:longitudinal_resonator_wake}
@@ -3185,10 +3208,7 @@
 %     \lipsum[32]
 % \end{anexosenv}
 
-
 % Índice remissivo
 \printindex
-
-\printglossaries
 
 \end{document}
