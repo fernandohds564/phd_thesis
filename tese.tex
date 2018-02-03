@@ -1333,7 +1333,7 @@
     \end{align}
     where $s_r$ is the retarded position defined in equation~\eqref{eq:retarded_time_definition}, $\lambda_l$ and $d_l$ are the longitudinal distribution and dipole moment of the beam, defined in equations~\eqref{eq:definition_long_distributions}, and $W_0$ is the primitive function of the longitudinal wake, $W'_0$.
 
-\section{Potential-Well Distortion}
+\section{Potential Well Distortion}
 
     All the effects of the wakes on the beam can be calculated from the Hamiltonian defined in equation~\eqref{eq:current_depend_hamiltonian}. One particular effect is the distortion of the potential well created by the RF cavities, which changes the equilibrium distribution of the particles and the intrabunch dynamic properties such as the synchrotron tune.
 
@@ -1369,28 +1369,28 @@
     is calculated and compared to a threshold, $\epsilon$. When $d_{n_c}^{I_b}<\epsilon$, convergence is assumed and we set $\rho^{I_b} = \rho_{n_c}^{I_b}$. Then, the current is incremented by a small value $I_b + \Delta I$, with $\Delta I \ll I_b$, and the process is repeated with the initial guess $\rho_0^{I_b+\Delta I} = \rho^{I_b}$. This method does not require the wakes to respect causality and can also be applied to generic RF cavity potentials. The current version of the code implemented cannot handle wake functions that are given by distributions, such as the Dirac's delta function, $\delta(z)$, and its derivative, $\delta'(z)$, which corresponds to the resistive and the inductive wakes, respectively, but it could easily be extendend to manipulate such operators. Currently, when we want to simulate these wakes, the effective wake given by the convolution of these distributions with a small gaussian beam is used.
     For example, in the Sirius simulations, where the bunch length is of the order on a few millimeters, a gaussian bunch of approximately $\sigma_z=20$~\si{\micro\meter} is more than enough to reproduce the results of the $\delta(z)$ and the $\delta'(z)$ wakes.
 
-    This implementation was benchmarked with the results presented by~\citenum{Bane1989} for the inductive and resistive impedances. For the capacitive (positive inductance) the code fails to converge when the strength of the perturbation gets close to the well known singularity point of such impedance, as explained by~\citeonline{Shobuda1999}. However this was not a problem for all the practical cases studied in this work.
+    This implementation was benchmarked with the results presented by~\citenum{Bane1989} for the inductive and resistive impedances, but it fails to converge for the capacitive wakes (negative inductance) when the strength of the perturbation gets close to the well known singularity point of such impedance, as explained by~\citeonline{Shobuda1999}. However this was not a problem for all the practical cases studied in this work.
 
-\section{Incoherent Tune--shifts}\label{sec:incoherent_tune_shift}
+\section{Incoherent Tune shifts}\label{sec:incoherent_tune_shift}
 
-    Another effect derived from of the Hamiltonian of equation~\eqref{eq:current_depend_hamiltonian} is the variation of the transverse oscillation frequency of the bunch as a function of the current,
+    the variation of the transverse oscillation frequency of the bunch as a function of the current is another effect which can be derived from the Hamiltonian of equation~\eqref{eq:current_depend_hamiltonian}:
     \begin{align}
         \Delta\nu_u^n = \frac{(\Delta\mu'_u)^n}{\omega_0/c} = \frac{1}{\omega_0/c}\left(\left.\derpar{H_n}{J_u}\right|_{\average{I}} - \left.\derpar{H_n}{J_u}\right|_{\average{I}=0}\right)
     \end{align}
-    where the superscript $n$ was used because the tune--shift is different for different bunches if the filling pattern is not uniform and the wakes that generates it are multi--turn effects. Considering the distributions are in equilibrium, we can show that
+    where the superscript $n$ was used because the tune shift is different for different bunches if the filling pattern is not uniform and the wakes that generates it last for multiple turns. If the distributions are in equilibrium, we can show that:
     \begin{align}
         \Delta\nu_u^n = \frac{\average{I}T_0}{2\pi(E_0/e)}
         \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
         &\left(\sqrt{\frac{\beta_u}{2J_u}}\cos(\mu_u)d_l(z') W^D_u(z-z' + s_r) +\right.\\
         &\left.\phantom{\sqrt{\frac{1_1}{1_1}}}\beta_u\cos^2(\mu_u)\lambda_l(z') W^Q_u(z-z' + s_r)\right)},
     \end{align}
-    where $u = \sqrt{2J_u\beta_u}\cos(\mu_u)$. Notice that for a well centered beam $d_l=0$ and the dipolar wake does not influence the tune, and even in the case when the beam is off centered its average effect is zero, because of the term $\cos(\mu_u)$ that averages to zero for each particle in the beam. The quadrupolar wake, on the other hand, creates a $z$ dependent tune--shift in the beam
+    where it was used $u = \sqrt{2J_u\beta_u}\cos(\mu_u)$. For a well centered beam, $d_l=0$ and the dipolar wake does not influence the tune, and even in the case when the beam is off centered its average effect is zero, because the term $\cos(\mu_u)$ averages to zero for each particle in the beam. The quadrupolar wake, on the other hand, creates a $z$ dependent tune shift given by,
     \begin{align}
         \Delta\nu_u^n = \beta_u(1+\cos(2\mu_u))\frac{\average{I}T_0}{4\pi(E_0/e)}
         \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
-        \lambda_l(z') W^Q_u(z-z' + s_r)}
+        \lambda_l(z') W^Q_u(z-z' + s_r)}.
     \end{align}
-    Considering an uniform filling patern, with $M$ equal bunches equally spaced, we can follow the reasonings presented in subsection~\ref{ssec:relation_with_impedance} and use equation~\eqref{eq:impedance_interpretation_quad} to show that
+    For uniform filling paterns, with $M$ bunches, we can follow the reasonings presented in subsection~\ref{ssec:relation_with_impedance} and use equation~\eqref{eq:impedance_interpretation_quad} to show that:
     \begin{align}
         \Delta\nu_u = -\beta_u(1+\cos(2\mu_u))\frac{I_bT_0}{4\pi(E_0/e)}
         \frac{iM\omega_0}{2\pi} \sum_{p=-\infty}^\infty \fourier{\lambda}(pM\omega_0)Z^Q_u(pM\omega_0)e^{-ipM\omega_0 z/c},
@@ -1401,9 +1401,12 @@
         \overbrace{
         \frac{M\omega_0}{2\pi} \sum_{p=-\infty}^\infty |\fourier{\lambda}(pM\omega_0)|^2\imag{Z^Q_u(pM\omega_0)}}^{\kappa^Q_u},
     \end{align}
-    where $\kappa^Q_u$ is the quadrupolar kick factor. Notice that
+    where $\kappa^Q_u$ is the quadrupolar kick factor.
 
 \section{Instabilities}
+
+
+
 \subsection{Multi-Turn Instabilities}
 \subsection{Single-Turn Instabilities}
 \section{Analytic Treatment}
