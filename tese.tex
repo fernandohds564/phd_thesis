@@ -2385,7 +2385,7 @@
     \end{figure}
     shows that, even though several approximations were performed in its deduction, that equation can be used to quantitatively estimate the number of particles needed to avoid such problems. In this figure the behavior of the curve (\num{e7}, Sav-Go) again differs from the others, presenting a larger energy spread increase than its counterpart without filtering for low currents, but smaller noise close to the threshold. The understanding of this behavior is a subject for further studies.
 
-\subsection{Inclusion of \gls{csr} in the Budget}
+\subsection{Inclusion of \gls{csr} in the budget}
 
     Before including the \gls{csr} in the Sirius impedance budget, we performed simulations using only this source of impedance to test if we could find the same threshold predicted by the theory. We ran the mode--coupling instability simulations using the first \num{30} radial numbers and  azimuthal modes from \num{-40} to \num{40}, but no instability was predicted up to \SI{4}{\milli\ampere}. Simulations with more modes were not performed because of the large time they would take. The tracking simulations were performed with the same discretization of the longitudinal direction as the one used in subsection~\ref{ssec:imp_bud_effects}, with a grid size of~\SI{2}{\micro\meter}, and the number of macroparticles was increased to \num{5e7}, to ensure convergence. At \SI{1.2}{\milli\ampere}, weak modulations of the longitudinal density distribution were already observed, as shown in Figure~\ref{fig:ph1_csr_threshold}.
     \begin{figure}
@@ -2408,7 +2408,14 @@
     \end{figure}
     agrees well with \cite[Fig. 2]{Venturini2002}, where the discontinuities in the bunch size oscillations are generated when the bursts happen.
 
-    
+    The results shown above suggests all the parameters of the simulation are correctly tuned to identify the \gls{csr} instability and we proceeded with its inclusion in the storage ring impedance budget. The simulations without the effects of \gls{ibs} shows modulations of the beam density starting from a current of \SI{1.4}{\milli\ampere}. These modulations have approximately the same strength as the ones shown in Figure~\ref{fig:ph1_csr_threshold}. However, when only the \gls{csr} wake is included in the simulation, with a current only \SI{0.1}{\milli\ampere} above the threshold, the modulations are strong enough to distort the beam, changing significantly the time evolution of energy spread and bunch length. For the case where both, the machine impedance and \gls{csr}, are considered, the instability remains weak up to \SI{1.7}{\milli\ampere}, as shown in Figure~\ref{fig:ph1_csr_imp_equi_params}.
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{official_phase_1_csr_imp_equi_params.png}
+        \caption{Time evolution of the energy spread and bunch length for different bunch currents in the simulation with \gls{csr} and the machine impedance budget.}
+        \label{fig:ph1_csr_imp_equi_params}
+    \end{figure}
+    The threshold for the simulations with the effect of \gls{ibs} included is between \SI{3.4}{\milli\ampere} and \SI{3.6}{\milli\ampere}, but the instability is weak and do not change the equilibrium parameters up to \SI{4.0}{\milli\ampere}.
 
 
 
