@@ -597,7 +597,13 @@
     \begin{align}\label{eq:quadractic_potential_well}
         H_\parallel = \frac\alpha2\delta^2 + \frac{V'}{2L_0}z^2
     \end{align}
-    which is an harmonic oscillator, equivalent to the linear map of equation~\eqref{eq:longitudinal_linear_map}, if the damping is not considered. This harmonic Hamiltonian is often used for analytic treatments of instabilities because it is a good approximation for most RF systems and also due to the simple expressions of its action-angle variables.
+    which is an harmonic oscillator, equivalent to the linear map of equation~\eqref{eq:longitudinal_linear_map}, if the damping is not considered. This harmonic Hamiltonian is often used for analytic treatments of instabilities because it is a good approximation for most RF systems and also due to the simple expressions of its action-angle variables~\cite[sec. III]{Lindberg2016}:
+    \begin{align}
+        H_\parallel = \frac{\omega_z}{c}J_z && \text{with} &&
+        z = \sqrt{\frac{2J_z \alpha c}{\omega_z}}\cos\theta_z && \text{and} &&
+        \delta = \sqrt{\frac{2J_z\omega_z}{ \alpha c}}\sin\theta_z,
+    \end{align}
+    where $\omega_z = \omega_0\nu_z=\omega_0/2\pi\sqrt{V'_0\alpha L_0}$.
 
 \section{Radiation Damping and Equilibrium Parameters}
 
@@ -691,9 +697,9 @@
         \sigma_z^2 = \udefint{z'}{\lambda\fof{z'}z'^2} =
         \frac1A\udefint{z'}{
             \exp\fof{-\frac{V'}{2L_0\alpha\sigma_\delta^2} z'^2}z'^2
-        } = \sigma_\delta^2\frac{L_0\alpha}{V'} = \sigma_\delta^2 \frac{c^2\alpha^2}{\omega_s^2},
+        } = \sigma_\delta^2\frac{L_0\alpha}{V'} = \sigma_\delta^2 \frac{c^2\alpha^2}{\omega_z^2},
     \end{align}
-    where $\omega_s = \omega_0\nu_z$ is the synchrotron frequency.
+    where $\omega_z = \omega_0\nu_z$ is the synchrotron frequency.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1427,29 +1433,38 @@
         \Psi_0(\vect{J}) = f_0(J_u)g_0(J_z) && \Psi_1(\vect{J}, \vect{\theta}) = f_1(J_u, \theta_u)g_1(J_z, \theta_z)e^{-i\Omega s/c},
     \end{align}
     where $c$ is the light speed. This expansion is substituted in the Fokker-Planck equation
-    \begin{align}
-        -i\Omega s/c +
+    \begin{align}\label{eq:perturb_fokker_planck}
+        -i\frac{\Omega}{c}f_1g_1 +
         &g_0\dertot{f_0}{J_u}\derpar{H_1}{\theta_u} + f_0\dertot{g_0}{J_z}\derpar{H_1}{\theta_z} +\nonumber\\[3mm] &g_1\derpar{f_1}{\theta_u}\derpar{H_0}{J_u} +
         f_1\derpar{g_1}{\theta_z}\derpar{H_0}{J_z} = g_1\mathscr{F}(f_1) + f_1\mathscr{F}(g_1)
     \end{align}
     where the fact that $\Psi_0$ is the equilibrium distribution of the Fokker-Planck equation was used and also that the static Hamiltonian is function only of the action variables.
 
-    Assuming the ring is uniformly filled with $M$ equally spaced bunches, by symmetry, the equilibrium distribution must be the same for all of them and the time evolution of the perturbations in each bunch must be equal, only a phase difference between them is allowed. Since the system is periodic, we can expand this phase difference in the coupled--bunch base defined by
+    Assuming the ring is uniformly filled with $M$ equally spaced bunches, by symmetry, their equilibrium distribution must be the same and the time evolution of the perturbations in each bunch must be equal, only a phase difference between them is allowed. Since the system is periodic, we can express an arbitrary phase among the bunches in the coupled--bunch basis, in such a way that, for a pure eigenmode of this basis, the distribution of the $l$-th bunch can be written  between bunches $l$ and $n$ is given by
     \begin{align}
-        \mu \frac{n-l}{M}&& \text{with}&& \mu \in [0, M-1]
+        {\Psi_1}_l  = \fof{f_1g_1}_ne^{-i\Omega s/c}e^{i\mu\fof{l-n}/M}
+    \end{align}
+    where $\mu \in [0,M-1]$ is the coupled--bunch mode. With this consideration, in order to solve the problem, instead of solving the Fokker-Planck equation for $M$ bunches in the ring, we need to solve for the $M$ coupled--bunch modes. This transformation does not change the form of equation~\eqref{eq:perturb_fokker_planck} because the terms affected are the wake potential, which are implicitly defined through $H_0$ and $H_1$. The eigen frequency $\Omega$ also changes the implicit subscript $n$ to the implicit subscript $\mu$.
+
+    Several approximations are performed at this point. First, the stationary effects of the effective wake potential are neglected and the purely quadratic potential well of equation~\eqref{eq:quadractic_potential_well} is considered in the longitudinal plane. This perfectly harmonic potential defines a gaussian distribution for $g_0$ and a constant synchrotron tune, as shown in section~\ref{ssec:fokker_planck_equation}. Even though this is a good approximation for low bunch currents which is the case of multi--bunch operations in storage rings, the terms neglected here can have a significant contribution in the current range where single--bunch instabilities happen. Besides, this approximation exclude the possibility of using the equations derived here to study instabilities in the presence of a lenghthening cavity in the ring, which creates a quartic potential well. There are generalizations of this method in literature to include synchrotron tune shifts, such as the work of~\citeonline{Chin1983b}, or to consider the quartic potential well, by~\citeonline{Chin1983}, but they will not be used in this work.
+
+    Another approximation consists in breaking the analysis in two, one for each plane. When the longitudinal plane is analysed, the effects of the dipolar and quadrupolar terms of the wake potential are neglected and the transverse perturbation $f_1$ can be set to unit. Under this approximation, the Fokker-Planck equation reads
+    \begin{align}
+        \fof{-i\frac{\Omega}{c} +\frac{\omega_z}{c}\derpar{}{\theta_z}}g_1 + \dertot{g_0}{J_z}\derpar{H_1}{\theta_z} = \mathscr{F}(g_1),
+    \end{align}
+    which can be solved expanding the function $g_1$ in azimuthal and radial modes
+    \begin{align}
+        g_1(J_z, \theta_z) = e^1
     \end{align}
 
 
+
 \subsection{Multi-Turn Instabilities}
+
 \subsection{Single-Turn Instabilities}
-\section{Analytic Treatment}
-\subsection{The Linearized Fokker-Planck Equation}
-\subsubsection{Modal expantion}
-\paragraph{Head-tail modes}
-\subsubsection{Solution for Gaussian Bunches}
-\subsubsection{Low Current Limit: Multi-Turn Instabilities}
-\subsubsection{High Current Limit: Mode Coupling Instabilities}
+
 \subsection{The Microwave Instability}
+
 \subsection{Strong Head-tail instability}
 
 \section{Tracking Code}\label{sec:tracking_code}
@@ -2166,7 +2181,7 @@
 
     The procedure we adopted to perform this analysis was the following: first we identified which of these modes have potential to cause coupled--bunch instabilities in the Sirius storage ring. This was done by finding the minimum value for the impedance as function of the frequency for which equation~\eqref{eq:long_coupled_bunch_instability} gives a positive growth rate. Isolating the impedance in that equation we get
     \begin{align}\label{eq:long_cbi_minimum_impedance}
-        \left|Z_\parallel^\text{min}\fof{\omega}\right| = \frac{\omega\alpha_z}{I_T\omega_0\alpha}\frac{2\pi E_0\fof{\omega_s\sigma_z/c}^2}{h_m^2(\omega)}.
+        \left|Z_\parallel^\text{min}\fof{\omega}\right| = \frac{\omega\alpha_z}{I_T\omega_0\alpha}\frac{2\pi E_0\fof{\omega_z\sigma_z/c}^2}{h_m^2(\omega)}.
     \end{align}
     % Notice that this procedure is pessimistic, because it neglects the negavite contributions of the sampling of the negative frequencies on equation~\eqref{eq:long_coupled_bunch_instability}, which would require the difference
     % \begin{align}
