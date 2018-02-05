@@ -603,7 +603,7 @@
         z = \sqrt{\frac{2J_z \alpha c}{\omega_z}}\cos\theta_z && \text{and} &&
         \delta = \sqrt{\frac{2J_z\omega_z}{ \alpha c}}\sin\theta_z,
     \end{align}
-    where $\omega_z = \omega_0\nu_z=\omega_0/2\pi\sqrt{V'_0\alpha L_0}$.
+    where $\omega_z = \omega_0\nu_z=\omega_0/2\pi\sqrt{V'_0\alpha L_0}$ is the synchrotron frequency.
 
 \section{Radiation Damping and Equilibrium Parameters}
 
@@ -697,9 +697,8 @@
         \sigma_z^2 = \udefint{z'}{\lambda\fof{z'}z'^2} =
         \frac1A\udefint{z'}{
             \exp\fof{-\frac{V'}{2L_0\alpha\sigma_\delta^2} z'^2}z'^2
-        } = \sigma_\delta^2\frac{L_0\alpha}{V'} = \sigma_\delta^2 \frac{c^2\alpha^2}{\omega_z^2},
+        } = \sigma_\delta^2\frac{L_0\alpha}{V'} = \sigma_\delta^2 \frac{c^2\alpha^2}{\omega_z^2}.
     \end{align}
-    where $\omega_z = \omega_0\nu_z$ is the synchrotron frequency.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1413,49 +1412,61 @@
 
 \section{Coherent Motion (Instabilities)}
 
-    The single--particle dynamics of a typical \gls{sls} storage ring was studied in chapter~\ref{cap:single_particle_dynamics}, where it was seen that the forces used to control the beam are highgly harmonic. This hamonicity makes the beam very susceptible to coherent oscillations against any source of resonant perturbation. The wake fields are  type of perturbation that is always in resonance with the beam because it is self--driven, which also gives an exponential character to the amplitude growth of the coherent oscillations.
+    The single--particle dynamics of a typical \gls{sls} storage ring was studied in chapter~\ref{cap:single_particle_dynamics}, where it was seen that the forces used to control the beam are highly harmonic. This harmonicity makes the beam very susceptible to coherent oscillations against any source of resonant perturbation. The wake fields are a type of perturbation that is always in resonance with the beam because it is self--driven, which also gives an exponential character to the amplitude growth of the coherent oscillations.
 
     The most common way to analyse these instabilities analytically is througth the Fokker-Planck equation. Actually, most works in literature do not take into account the damping and diffusion terms of radiation emission, considering only the Liuville flow of the particles. Under this assumption, the \gls{rhs} of equation~\eqref{eq:fokker_planck} is zero and the resulting equation is commomly known in the accelerator community as Vlasov equation.~\citeonline{Sacherer1973} developed a method to solve this equation for low currents and then generalized it for high currents~\cite{Sacherer1977}. This method is widely used and was rederived in several subsequent works, using different basis functions for expansion of the coherent modes. The standard book for study of collective effects,~\citeonline{Chao1993}, and the book written by ~\citeonline{Ng2006} have a compilation of the solution of~\citeauthoronline{Sacherer1973} integral equation for several different types of basis functions.
 
-    In this work we will use the solution found by \citeonline{Suzuki1983} for the longitudinal Fokker-Planck equation and another work of the same author~\cite{Suzuki1986} to the transverse plane for the estimatives of single and multi--bunch instabilities. We will not follow in detail the derivation of this formulas here, but only highlight the main approximations made, in order to stabilish an easy interpretation of the results which will be presented in chapter~\ref{cap:instability_studies}. We recommend to the interested reader the original works and the more recent paper written by~\citeonline{Lindberg2016} where all the steps of the derivation are very well justified. Besides, since the Hamiltonean terms of this approach are identical to the solution of the Vlasov equation, all the references presented in the last paragraph are very helpful in understanding the method.
+    In this work we will use the solution found by \citeonline{Suzuki1983} for the longitudinal Fokker-Planck equation and another work of the same author~\cite{Suzuki1986} to the transverse plane for the estimatives of single and multi--bunch instabilities. We will not follow in detail the derivation of his formulas here, but only highlight the main approximations made, in order to establish an easy interpretation of the results which will be presented in chapter~\ref{cap:instability_studies}. We recommend to the interested reader the original works and the more recent paper written by~\citeonline{Lindberg2016}, where all the steps of the derivation are very well justified. Besides, since the Hamiltonean terms of this approach are identical to the solution of the Vlasov equation, all the references presented in the last paragraph are very helpful in understanding the method.
 
     The main ideia of the method is to describe the beam distribution as the equilibrium solution of the Fokker-Planck equation, $\Psi_0$, plus a small perturbation, $\Psi_1$, and analyse its time evolution. If the perturbation increases with time, the beam is considered unstable. Expressing this expansion mathematically we get
     \begin{align}
         \Psi\fof{\vect{J},\vect{\theta}, s} = \Psi_0\fof{\vect{J}} + \Psi_1\fof{\vect{J},\vect{\theta}, s}
     \end{align}
-    where $\vect{J}=(J_u,J_z)$ and $\vect{\theta}=(\theta_x,\theta_z)$ are the action--angle variables in both planes considered (one transverse and the longitudinal planes). The subscript $n$ was not used in the equation above only to simplify the notation, but the expasion above must be made for each bunch separately. Substituting this expression in the Fokker-Planck equation we obtain
+    where $\vect{J}=(J_u,J_z)$ and $\vect{\theta}=(\theta_u,\theta_z)$ are the action--angle variables in both planes considered (one transverse and the longitudinal planes). The subscript $n$ was not used in the equation above to identify the bunch number only to simplify the notation, but the expasion above must be made for each bunch separately. Substituting this expression in the Fokker-Planck equation we obtain
     \begin{align}
         \derpar{\Psi_1}{s} +  \poison{H_0, \Psi_0} + \poison{H_0, \Psi_1} +
         \poison{H_1, \Psi_0} \approx \mathscr{F}\fof{\Psi_0} + \mathscr{F}\fof{\Psi_1}
     \end{align}
-    where $H_0$ is Hamiltonian defined in equation~\ref{eq:current_depend_hamiltonian} considering the effective wake potential generated by $\Psi_0$ and $H_1$ is the effective wake potential generated by $\Psi_1$. The term $\poison{H_1,\Psi_1}$ was neglected because it is non--linear in $\Psi_1$. Then, the specific form for the distributions is assumed,
+    where $H_0$ is the static part of the Hamiltonian defined in equation~\eqref{eq:current_depend_hamiltonian}, calculated considering the effective wake potential generated by $\Psi_0$, and $H_1$ is the dynamic part of the Hamiltonian, with effective wake potential generated by $\Psi_1$. The term $\poison{H_1,\Psi_1}$ was neglected in the equation above because it is non--linear in $\Psi_1$, thus, much smaller than the other terms.
+
+    The next step is to assume a specific form for the distributions:
     \begin{align}
         \Psi_0(\vect{J}) = f_0(J_u)g_0(J_z) && \Psi_1(\vect{J}, \vect{\theta}) = f_1(J_u, \theta_u)g_1(J_z, \theta_z)e^{-i\Omega s/c},
     \end{align}
-    where $c$ is the light speed. This expansion is substituted in the Fokker-Planck equation
+    where $c$ is the light speed and $\Omega$ is the complex frequency which defines the stability of the beam. If the imaginary part of $\Omega$ is larger than zero, the beam will be unstable. This expansion is substituted in the Fokker-Planck equation
     \begin{align}\label{eq:perturb_fokker_planck}
         -i\frac{\Omega}{c}f_1g_1 +
         &g_0\dertot{f_0}{J_u}\derpar{H_1}{\theta_u} + f_0\dertot{g_0}{J_z}\derpar{H_1}{\theta_z} +\nonumber\\[3mm] &g_1\derpar{f_1}{\theta_u}\derpar{H_0}{J_u} +
         f_1\derpar{g_1}{\theta_z}\derpar{H_0}{J_z} = g_1\mathscr{F}(f_1) + f_1\mathscr{F}(g_1)
     \end{align}
-    where the fact that $\Psi_0$ is the equilibrium distribution of the Fokker-Planck equation was used and also that the static Hamiltonian is function only of the action variables.
+    where the facts that $\Psi_0$ is the equilibrium distribution of the Fokker-Planck equation and that the static Hamiltonian is function only of the action variables were used.
 
-    Assuming the ring is uniformly filled with $M$ equally spaced bunches, by symmetry, their equilibrium distribution must be the same and the time evolution of the perturbations in each bunch must be equal, only a phase difference between them is allowed. Since the system is periodic, we can express an arbitrary phase among the bunches in the coupled--bunch basis, in such a way that, for a pure eigenmode of this basis, the distribution of the $l$-th bunch can be written  between bunches $l$ and $n$ is given by
+    Assuming the ring is uniformly filled with $M$ equally spaced bunches, by symmetry, their equilibrium distribution must be the same and the time evolution of the perturbations in each bunch must be equal, only a phase difference between them is allowed. Since the system is periodic, we can express an arbitrary phase among the bunches in the coupled--bunch basis, in such a way that, for a pure eigenmode of this basis, the distribution of the $l$-th bunch can be written as function of the distribution of the $n$-th bunch by
     \begin{align}
         {\Psi_1}_l  = \fof{f_1g_1}_ne^{-i\Omega s/c}e^{i\mu\fof{l-n}/M}
     \end{align}
-    where $\mu \in [0,M-1]$ is the coupled--bunch mode. With this consideration, in order to solve the problem, instead of solving the Fokker-Planck equation for $M$ bunches in the ring, we need to solve for the $M$ coupled--bunch modes. This transformation does not change the form of equation~\eqref{eq:perturb_fokker_planck} because the terms affected are the wake potential, which are implicitly defined through $H_0$ and $H_1$. The eigen frequency $\Omega$ also changes the implicit subscript $n$ to the implicit subscript $\mu$.
+    where $\mu \in [0,M-1]$ is the coupled--bunch mode. With this consideration, in order to solve the problem, instead of solving the Fokker-Planck equation for $M$ bunches in the ring, we need to solve for the $M$ coupled--bunch modes. This transformation does not change the form of equation~\eqref{eq:perturb_fokker_planck} because the terms affected are the ones related to the wake potential, which are implicitly defined through $H_0$ and $H_1$. The eigen frequency $\Omega$ also changes the implicit subscript $n$ to the implicit subscript $\mu$.
 
-    Several approximations are performed at this point. First, the stationary effects of the effective wake potential are neglected and the purely quadratic potential well of equation~\eqref{eq:quadractic_potential_well} is considered in the longitudinal plane. This perfectly harmonic potential defines a gaussian distribution for $g_0$ and a constant synchrotron tune, as shown in section~\ref{ssec:fokker_planck_equation}. Even though this is a good approximation for low bunch currents which is the case of multi--bunch operations in storage rings, the terms neglected here can have a significant contribution in the current range where single--bunch instabilities happen. Besides, this approximation exclude the possibility of using the equations derived here to study instabilities in the presence of a lenghthening cavity in the ring, which creates a quartic potential well. There are generalizations of this method in literature to include synchrotron tune shifts, such as the work of~\citeonline{Chin1983b}, or to consider the quartic potential well, by~\citeonline{Chin1983}, but they will not be used in this work.
+    Several approximations are performed at this point. First, the stationary effects of the effective wake potential are neglected and the quadratic potential well of equation~\eqref{eq:quadratic_potential_well} is considered in the longitudinal plane. This perfectly harmonic potential defines a gaussian distribution for $g_0$ and a constant synchrotron tune, as shown in section~\ref{ssec:fokker_planck_equation}. Even though this is a good approximation for low bunch currents, which is the case of multi--bunch operations in storage rings, the terms neglected here can have a significant contribution in the current range where single--bunch instabilities happen. Besides, this approximation exclude the possibility of using the equations derived here to study instabilities in the presence of a lenghthening cavity in the ring, which creates a quartic potential well. There are generalizations of this method in literature to include synchrotron tune shifts, such as the work of~\citeonline{Chin1983b}, or to consider the quartic potential well, by~\citeonline{Chin1983}, but they will not be used in this work.
 
     Another approximation consists in breaking the analysis in two, one for each plane. When the longitudinal plane is analysed, the effects of the dipolar and quadrupolar terms of the wake potential are neglected and the transverse perturbation $f_1$ can be set to unit. Under this approximation, the Fokker-Planck equation reads
     \begin{align}
-        \fof{-i\frac{\Omega}{c} +\frac{\omega_z}{c}\derpar{}{\theta_z}}g_1 + \dertot{g_0}{J_z}\derpar{H_1}{\theta_z} = \mathscr{F}(g_1),
+        \fof{-i\frac{\Omega}{c} +\frac{\omega_z}{c}\derpar{}{\theta_z}}g_1 + \dertot{g_0}{J_z}\derpar{H_1}{\theta_z} = \mathscr{F}(g_1).
     \end{align}
-    which can be solved expanding the function $g_1$ in azimuthal and radial modes
+    This equation can be solved expanding the function $g_1$ in azimuthal modes $m$ and radial modes $k$:
     \begin{align}
-        g_1(J_z, \theta_z) = e^1
+        g_1(I_z, \theta_z) = e^{-I_z}\sum_{k=0}^\infty\sum_{m=-\infty}^\infty
+        a_k^{(m)} f_k^{(|m|)}(I_z)e^{im\theta_z},
     \end{align}
+    where $I_z = J_z/(\sigma_z\sigma_\delta)$ is the normalized action,
+    \begin{align}
+        f_k^{(|m|)}(I_z) = \sqrt{\frac{k!}{\fof{|m|+k}!}}I_z^{|m|/2}L_k^{|m|}(I_z),
+    \end{align}
+    and $L_k^{|m|}(I_z)$ is the generalized Laguerre polynomial~\cite{wiki2018}. The important property of this basis functions is their orthogonality. While the azimuthal expansion is orthogonal under the interval $(0, 2\pi)$, which is the domain of the phase--space angle $\theta_z$, the functions $f_k^{(|m|)}$ are orthogonal under
+    \begin{align}
+        \defint{x}{f_k^{(|m|)}(x)f_l^{(|m|)}(x)}{0}{\infty} = \delta_{kl},
+    \end{align}
+    where $\delta_{kl}$ is the Kronecker delta function.
 
 
 
