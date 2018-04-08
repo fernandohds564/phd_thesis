@@ -8,6 +8,7 @@ clean:
 
 compile: clean
 	pdflatex --interaction=nonstopmode -output-directory=compile tese.tex
+	bibtool -s -d -x compile/tese.aux ~/Documents/library.bib > library.bib
 	bibtex compile/tese.aux
 	pdflatex --interaction=nonstopmode -output-directory=compile tese.tex
 	pdflatex --interaction=nonstopmode -output-directory=compile tese.tex
