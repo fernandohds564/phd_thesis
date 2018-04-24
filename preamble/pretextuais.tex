@@ -7,31 +7,22 @@
 \imprimirfolhaderosto*
 
 
-% % Ficha Catalográfica
-% % Não sei o que é ainda, mas parece que a universidade vai me fornecer uma
-% %após a defesa da minha tese. Quando ela fizer isso, tenho que comentar as
-% %linhas abaixo e descomentar o \includepdf:
-% \begin{fichacatalografica}
-%     \vspace*{\fill}
-%     \begin{center}
-%         \textsc{Inclua aqui o pdf com a ficha catalográfica fornecida pela BAE.}
-%     \end{center}
-%     \vspace*{\fill}
-%     %\includepdf{ficha-catalografica.pdf}
-% \end{fichacatalografica}
-
+% Ficha Catalográfica
+\begin{fichacatalografica}
+    \vspace*{\fill}
+    \begin{center}
+        \includepdf{documents/ficha_catalografica.pdf}
+    \end{center}
+    \vspace*{\fill}
+\end{fichacatalografica}
 
 % Folha de aprovação
 % Na versão final, tenho que excluir essas linhas e incluir o \includepdf
-\newpage
 \vspace*{\fill}
 \begin{center}
     \includepdf[pagecommand={\thispagestyle{empty}}]{documents/capa_aprovacao.pdf}
-%     \textsc{Inclua aqui a folha de assinaturas.}
 \end{center}
 \vspace*{\fill}
-\newpage
-% \includepdf[pagecommand={\thispagestyle{plain}}]{folha-assinaturas.pdf}
 \cleardoublepage
 
 
@@ -46,8 +37,8 @@
 
 % Agradecimentos
 \begin{agradecimentos}
-    Eu agradeço a Luana pela epígrafe maravilhosa que ela inventou em cinco segundos.
-    E só.
+    Eu agradeço minha família por todo apoio emocional durante esses anos, principalmente na reta final, enquanto eu escrevia essa tese. Obrigado por entenderem os momentos que não pude passar com vocês, que isso era algo que eu precisava fazer.
+    Obrigado...
 \end{agradecimentos}
 
 % % Epígrafe
