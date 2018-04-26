@@ -25,7 +25,6 @@
 
 \input{preamble/comandos}
 
-
 \begin{document}
 	% Retira espaço extra obsoleto entre as frases
 	\frenchspacing
@@ -675,7 +674,7 @@
     \end{align}
     where $\varepsilon_x$ and $\varepsilon_y$ are the horizontal and vertical emittances, $\sigma_\delta$ is the energy spread of the beam and $A$ is a normalization constant such that
     \begin{align}
-        \udefint{z'}{\lambda(z')}=1
+        \udefint{z^*}{\lambda(z^*)}=1
     \end{align}
     It easy to see that the beam vertical size is given by
     \begin{align}
@@ -688,9 +687,9 @@
 
     For the longitudinal plane, in the simple case of a quadratic potential well, as described by equation~\eqref{eq:quadratic_potential_well}, we have
     \begin{align}
-        \sigma_z^2 = \udefint{z'}{\lambda\fof{z'}z'^2} =
-        \frac1A\udefint{z'}{
-            \exp\fof{-\frac{V'}{2L_0\alpha\sigma_\delta^2} z'^2}z'^2
+        \sigma_z^2 = \udefint{z^*}{\lambda\fof{z^*}{z^*}^2} =
+        \frac1A\udefint{z^*}{
+            \exp\fof{-\frac{V'}{2L_0\alpha\sigma_\delta^2} {z^*}^2}{z^*}^2
         } = \sigma_\delta^2\frac{L_0\alpha}{V'} = \sigma_\delta^2 \frac{c^2\alpha^2}{\omega_z^2}.
     \end{align}
 
@@ -720,8 +719,8 @@
     \end{align}
     where $\delta(\cdot)$ is the Dirac's Delta function, $x_0$ and $y_0$ defines the transverse displacement of the source particle, $\versor{s}$ is the unitary vector that defines the longitudinal direction and
     \begin{align}
-  	  	\vect{D}(t) &= \infint{t'}{\varepsilon(t-t')\vect{E}(t')}\\
-	  	\vect{B}(t) &= \infint{t'}{\mu(t-t')\vect{H}(t')},
+  	  	\vect{D}(t) &= \infint{t^*}{\varepsilon(t-t^*)\vect{E}(t^*)}\\
+	  	\vect{B}(t) &= \infint{t^*}{\mu(t-t^*)\vect{H}(t^*)},
     \end{align}
     where $\varepsilon$ and $\mu$ simplifies to the electric permittivity and magnetic permeability of the vacuum in the region inside the vacuum chamber where the source particle is, but can be any causal function that describes the dynamics of the materials of the wall. Combining these equations with the boundary conditions of continuity of the perpendicular components of $\vect{D}$ and $\vect{B}$ and of the tangential components of $\vect{H}$ and $\vect{E}$, the problem is well defined and there is an unique solution for $\vect{E}$ and $\vect{B}$ inside the vacuum chamber. For the case when the chamber is considered as a \gls{pec}, the fields inside the wall are zeroed by surface charge and currents in the inner wall, as described by~\citeonline[sec. I.5]{Jackson1975}.
 
@@ -775,7 +774,7 @@
     \begin{align}\label{eq:wake_from_potential}
    		w_s = - \derpar{W}{(-z)} = \derpar{W}{z},\qquad \vect{w}_\perp = \vect{\nabla}_{w,\perp} W,
     \end{align}
-    and, as $W \in \mathbb{C}^{\infty}$, we have the following equality
+    and, as $W \in C^{\infty}(\mathbb{R})$, we have the following equality
     \begin{align}\label{eq:panofsky_wenzel_theorem}
    		\derpar{\vect{w}_\perp}{z} = \vect{\nabla}_{w,\perp} w_s.
     \end{align}
@@ -790,7 +789,7 @@
 
     These properties are very important for calculating wake functions numerically and will be used later in this work. The Panofsky-Wenzel theorem, for example, is employed in three--dimensional simulations to calculate all wake functions from the longitudinal electric field, because the longitudinal wake function depends only on this component of the field, as given by equation~\eqref{eq:lorentz_force}. Then, from equation~\eqref{eq:panofsky_wenzel_theorem} we have:
     \begin{align}
-  	  	\vect{w}_\perp = \defint{z'}{\vect{\nabla}_\perp\left(\frac{c}{qQ}\infint{t}{E_s|_{s=ct-z'}}\right)}{-\infty}{z}.
+  	  	\vect{w}_\perp = \defint{z^*}{\vect{\nabla}_\perp\left(\frac{c}{Q}\infint{t}{E_s|_{s=ct-z^*}}\right)}{-\infty}{z}.
     \end{align}
 
 \section{The "Causality" Principle}
@@ -826,7 +825,7 @@
     \end{align}
     where the prime indicates derivation with respect to $z$.
 
-    All these components have different effects on the beam and some of them are more important than others. The component $W'_0$ generally is the only term of the expansion of $w_s$ that is considered in calculations because it dominates the rest of the expansion. So this term is responsible for all the longitudinal effects on the beam, including average energy loss, potential well-distortion, hence bunch-lengthening and bunch-shortening, coupled bunch oscillations, and even energy spread increase in some cases. For this reasons, from now on, the term longitudinal wake will always refer to $W'_0$ unless otherwise specified.
+    All these components have different effects on the beam and some of them are more important than others. The component $W'_0$ generally is the only term of the expansion of $w_s$ that is considered in calculations because it dominates the rest of the expansion. So this term is responsible for all the longitudinal effects on the beam, including average energy loss, potential--well distortion, hence bunch-lengthening and bunch-shortening, coupled bunch oscillations, and even energy spread increase in some cases. For this reasons, from now on, the term longitudinal wake will always refer to $W'_0$ unless otherwise specified.
 
     The vectors $\vect{M}_s$ and $\vect{M}_w$ are generally referred to as monopolar wakes, because they generate a transverse wake that is independent of the transverse displacement of the particles. The effect these wakes can cause on the beam is to change its closed orbit as a function of the beam current which is a static effect and cannot lead to instabilities. In addition, for most practical cases these terms are zero due to symmetries in the vacuum chamber.
     % (see appendix~\ref{app:symmetry_analysis}).
@@ -843,8 +842,8 @@
     \begin{align}\label{eq:important_wake_potential}
   	  	W(\vect{\rho}_s, \vect{\rho}_w, z) &=
 	  		W_0(z) +
-			x_w\left(W^D_X(z)x_s - W^Q(z)x_w\right) +
-			y_w\left(W^D_Y(z)y_s + W^Q(z)y_w\right)
+			x_w\left(W^D_X(z)x_s - \frac{W^Q(z)}{2}x_w\right) +
+			y_w\left(W^D_Y(z)y_s + \frac{W^Q(z)}{2}y_w\right)
     \end{align}
     and, consequently
     \begin{align}\label{eq:important_wakes}\nonumber
@@ -852,7 +851,7 @@
 		w_x(x_s, x_w, z) &= W^D_X(z)x_s - W^Q(z)x_w \\\nonumber
 		w_y(y_s, y_w, z) &= W^D_Y(z)y_s + W^Q(z)y_w
     \end{align}
-    where $W^D_X = D_{11}$, $W^D_Y = D_{22}$ and $W^Q = -Q_{22}$ and the ultra-relativistic approximation was considered.
+    where $W^D_X = D_{11}$, $W^D_Y = D_{22}$ and $W^Q = Q_{22}$ and the ultra-relativistic approximation was considered.
 
 \section{Impedances}\label{sec:impedances}
 
@@ -891,8 +890,8 @@
     \begin{align}
         Z(\vect{\rho}_s, \vect{\rho}_w, \omega) &=
 	  		\frac{c}{\omega}Z_\parallel +
-			x_w\left(Z^D_xx_s - Z^Qx_w\right) +
-			y_w\left(Z^D_yy_s + Z^Qy_w\right).
+			x_w\left(Z^D_xx_s - \frac{Z^Q}{2}x_w\right) +
+			y_w\left(Z^D_yy_s + \frac{Z^Q}{2}y_w\right).
     \end{align}
 
 \section{Potential of Bunches of Particles}\label{sec:potential_of_bunch}
@@ -903,8 +902,8 @@
     \end{align}
     where $V(\vect{\rho}_i, z_i)$ is denominated effective wake potential, because it is the net effect of the average of the point--charge wake potential over the bunch and the indices $i$ and $j$ are related to the witness and the source particles respectively. Notice the summation above is very difficult to evaluate for a real beam, because in every bunch there are dozens of billions of electrons. Moreover, this sum does not highlight properties of the beam such as time dependence. If the beam is in equilibrium or is slowly varying the \gls{lhs} of equation~\eqref{eq:def_effective_wake_potential} is approximately the same for successive turns in the ring, or over several passages by the impedance source, but each term of the \gls{rhs} can be very different from one turn to another, which means the sum must always be carried out. For all these reasons, it is important to make an approximation and consider that the effective wake potential experienced by each particle is an integral over the beam distribution:
     \begin{align}\label{eq:int_effective_wake_potential}
-  	  	V(\vect{\rho}, z, s) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
-	  			\Psi(\vect{p},\vect{\rho}',z'; s) W(\vect{\rho}',\vect{\rho},z-z')}}}
+  	  	V(\vect{\rho}, z, s) = \udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z^*}{
+	  			\Psi(\vect{p},\vect{\rho}',z^*; s) W(\vect{\rho}',\vect{\rho},z-z^*)}}}
     \end{align}
     where $\vect{p} = (x', y', \delta)$ represents the momentum coordinates and $\Psi$ is beam probability density distribution function in phase space, which is time dependent in the general case and is normalized to one.
 
@@ -912,14 +911,14 @@
 
     The equation~\eqref{eq:int_effective_wake_potential} is not general enough to take into account all the wake field forces on the particles. In some cases the wakes persist for so long that they last for a time equivalent to several turns in the ring, acting on the same particles that generate the fields in successive turns. Generally these wakes are generated by cavity-like structures in the vacuum chamber that trap their electromagnetic eigen-modes for long times. In this situation we must add a sum over the distribution in previous turns
     \begin{align}\nonumber
-  	  	V(\vect{\rho}, z, s) = \sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
-	  			&\Psi(\vect{p},\vect{\rho}',z'; s-kL_0)\times\\ &W(\vect{\rho}',\vect{\rho},z-z' + kcL_0)}}}
+  	  	V(\vect{\rho}, z, s) = \sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z^*}{
+	  			&\Psi(\vect{p},\vect{\rho}',z^*; s-kL_0)\times\\ &W(\vect{\rho}',\vect{\rho},z-z^* + kcL_0)}}}
     \end{align}
-    where the sum can be extended to infinity because the wake-potential is zero for relative positions between the source and the witness particles when there is no interaction between them. For example it does not make sense for a particle to feel the wake field it generates in the next turn. This means the wake potential must be zero for large negative values of $z-z'$. Yet, in the most general case, there is more than one bunch stored in the ring, which means it is also necessary to take the influence of other bunches into account
+    where the sum can be extended to infinity because the wake-potential is zero for relative positions between the source and the witness particles when there is no interaction between them. For example it does not make sense for a particle to feel the wake field it generates in the next turn. This means the wake potential must be zero for large negative values of $z-z^*$. Yet, in the most general case, there is more than one bunch stored in the ring, which means it is also necessary to take the influence of other bunches into account
     \begin{align}\label{eq:general_eff_wake_pot}\nonumber
-  	  	V_n(\vect{\rho}, z, s) = \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z'}{
-	  			&\Psi_l(\vect{p},\vect{\rho}',z'; s - s_r) \times\\
-				&W(\vect{\rho}',\vect{\rho},z - z' + s_r)}}}
+  	  	V_n(\vect{\rho}, z, s) = \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{\vect{p}}{\udefint{\vect{\rho}'}{\udefint{z^*}{
+	  			&\Psi_l(\vect{p},\vect{\rho}',z^*; s - s_r) \times\\
+				&W(\vect{\rho}',\vect{\rho},z - z^* + s_r)}}}
     \end{align}
     where
     \begin{align}\label{eq:retarded_time_definition}
@@ -930,11 +929,11 @@
     Combining equation~\eqref{eq:general_eff_wake_pot} with the expansion of equation~\eqref{eq:important_wakes} we can derive expressions for each component of the effective wake functions of the beam
     \begin{subequations}\label{eq:general_eff_wakes}
     \begin{align}\label{eq:general_eff_long_wake}
-	  	(V_0)_n(z, s) &= \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{\lambda_l(z'; s - s_r)W'_0(z - z' + s_r)}
+	  	(V_0')_n(z, s) &= \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z^*}{\lambda_l(z^*; s - s_r)W'_0(z - z^* + s_r)}
         \\[3mm]\label{eq:general_eff_quad_wake}
-	  	(V^Q_X)_n(x, z, s) &= x\sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{\lambda_l(z'; s - s_r)W^Q(z-z' + s_r)}
+	  	(V^Q_X)_n(x, z, s) &= x\sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z^*}{\lambda_l(z^*; s - s_r)W^Q(z-z^* + s_r)}
         \\[3mm]\label{eq:general_eff_dip_wake}
-	  	(V^D_X)_n(z, s) &= \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{d_l(z'; s - s_r)W^D_X(z-z' + s_r)}
+	  	(V^D_X)_n(z, s) &= \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z^*}{d_l(z^*; s - s_r)W^D_X(z-z^* + s_r)}
     \end{align}
     \end{subequations}
     where $\lambda_l$ is the longitudinal line distribution and $d_l$ is the horizontal dipole moment of the $l$-th bunch defined by
@@ -954,15 +953,15 @@
     \end{align*}
     where $M$ is the number of bunches stored in the ring. This way the sum reads
     \begin{align}
-	  	V_0(z) = \sum_{j=-\infty}^\infty\udefint{z'}{
-				&\lambda(z')W'_0(z-z' + jc\frac{T_0}{M})}.
+	  	V_0(z) = \sum_{j=-\infty}^\infty\udefint{z^*}{
+				&\lambda(z^*)W'_0(z-z^* + jc\frac{T_0}{M})}.
     \end{align}
     where the symbols $l$ and $n$ can be dropped due to the symmetry among bunches and the potential is time-independent. Additionally, if we substitute the wake function by its representation in terms of the impedance given in equation~\eqref{eq:wake_as_impedance} the equation above becomes
     \begin{align}\label{eq:temp1}
 	   	V_0(z) = \frac{1}{2\pi}\sum_{j=-\infty}^\infty\udefint{\omega}{
  				&\fourier{\lambda}(\omega)Z_\parallel(\omega)e^{-i\omega(z/c + j\frac{T_0}{M})}}
     \end{align}
-    where the line density $\lambda(z')$ was also substituted by its Fourier  Transform, defined as
+    where the line density $\lambda(z^*)$ was also substituted by its Fourier  Transform, defined as
     \begin{align}
   		\fourier{\lambda}(\omega) = \infint{z}{\lambda(z)e^{i\omega z/c}}.
     \end{align}
@@ -1191,8 +1190,8 @@
 
     This procedure employed to find the impedances has an intrinsic limitation: the line density used as source particle in simulations must always spread over a few grids, which means a delta-like function can never be used and the wake functions, or wake potential, cannot be obtained. Instead, the effective wake potential, given by
     \begin{align}
-        V(\vect{\rho}'_0, \vect{\rho}, z) = \udefint{z'}{
-                \lambda(z') W(\vect{\rho}'_0,\vect{\rho},z-z')},
+        V(\vect{\rho}'_0, \vect{\rho}, z) = \udefint{z^*}{
+                \lambda(z^*) W(\vect{\rho}'_0,\vect{\rho},z-z^*)},
     \end{align}
     is the result of the simulations. In principle this equation could be inverted with the aid of the convolution theorem~\cite{wiki2017a}, where after the Fourier transform on both sides of the equation one could get
     \begin{align}\label{eq:deconvolution}
@@ -1336,10 +1335,10 @@
     \end{align}
     where $\average{I}T_0$ is the average charge per bunch, the subscript $n$ indicates the $n$--th bunch and the effective wake potential is given according to the ideas developed in section~\ref{sec:potential_of_bunch}, specifically by equations~\eqref{eq:general_eff_wakes},
     \begin{align}\label{eq:generalwake}
-        V_n\fof{u, z, s} =\nonumber \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
-        &\left(\lambda_l(z'; s - s_r) W_0(z-z' + s_r) + \vphantom{\frac{u^2}{2}}\right.\\\nonumber
-        &\hphantom{u}ud_l(z'; s -s_r) W^D_u(z-z' + s_r) +\\
-        &\left. \frac{u^2}{2}\lambda_l(z'; s - s_r) W^Q(z-z' + s_r)\right)},
+        V_n\fof{u, z, s} =\nonumber \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z^*}{
+        &\left(\lambda_l(z^*; s - s_r) W_0(z-z^* + s_r) + \vphantom{\frac{u^2}{2}}\right.\\\nonumber
+        &\hphantom{u}ud_l(z^*; s -s_r) W^D_u(z-z^* + s_r) +\\
+        &\left. \frac{u^2}{2}\lambda_l(z^*; s - s_r) W^Q(z-z^* + s_r)\right)},
     \end{align}
     where $s_r$ is the retarded position defined in equation~\eqref{eq:retarded_time_definition}, $\lambda_l$ and $d_l$ are the longitudinal distribution and dipole moment of the beam, defined in equations~\eqref{eq:definition_long_distributions}, and $W_0$ is the primitive function of the longitudinal wake, $W'_0$.
 
@@ -1354,12 +1353,12 @@
     the distortions are dominated by short--range wakes, in such a way that we can neglect the multi--bunch and multi--turn contributions. Under such considerations, the Hamiltonian of the particle becomes
     \begin{align}
         H = \frac\alpha2\delta^2 + U(z) -
-            \frac{I_bT_0}{(E_0/e)L_0}\udefint{z'}{\lambda(z') W_0(z-z')},
+            \frac{I_bT_0}{(E_0/e)L_0}\udefint{z^*}{\lambda(z^*) W_0(z-z^*)},
     \end{align}
     which is time--independent. Following the same reasonings performed in section~\ref{ssec:fokker_planck_equation} we notice that equation~\eqref{eq:equilibrium_distribution} is still valid if we substitute the expression for the longitudinal distribution by
     \begin{gather}\label{eq:haissinski_equation}
         \lambda(z) = \mathscr{H}(\lambda,z) \coloneqq A\exp\fof{\frac{1}{\alpha\sigma_\delta^2}\fof{
-            -U(z) + \frac{I_bT_0}{(E_0/e)L_0}\udefint{z'}{\lambda(z') W_0(z-z')}}},\\\nonumber
+            -U(z) + \frac{I_bT_0}{(E_0/e)L_0}\udefint{z^*}{\lambda(z^*) W_0(z-z^*)}}},\\\nonumber
             \text{with}\,\,A \in \mathbb{R} \left| \infint{z}{\mathscr{H}(\lambda,z)}=1\right.,
     \end{gather}
     which is a transcendental integral equation for the longitudinal distribution. This equation was first proposed and solved by \citeonline{Haissinski1973} and for this reason carries his name. Even though analytic solutions exist for some special impedances, such as the one presented by~\citeonline{Shobuda1999}, in general it must be solved numerically.
@@ -1394,15 +1393,15 @@
     where the superscript $n$ was used because the tune shift is different for different bunches if the filling pattern is not uniform and the wakes that generate it last for multiple turns. If the distributions are in equilibrium, we can show that:
     \begin{align}
         \Delta\nu_u^n = \frac{\average{I}T_0}{2\pi(E_0/e)}
-        \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
-        &\left(\sqrt{\frac{\beta_u}{2J_u}}\cos(\mu_u)d_l(z') W^D_u(z-z' + s_r) +\right.\\
-        &\left.\phantom{\sqrt{\frac{1_1}{1_1}}}\beta_u\cos^2(\mu_u)\lambda_l(z') W^Q_u(z-z' + s_r)\right)},
+        \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z^*}{
+        &\left(\sqrt{\frac{\beta_u}{2J_u}}\cos(\mu_u)d_l(z^*) W^D_u(z-z^* + s_r) +\right.\\
+        &\left.\phantom{\sqrt{\frac{1_1}{1_1}}}\beta_u\cos^2(\mu_u)\lambda_l(z^*) W^Q_u(z-z^* + s_r)\right)},
     \end{align}
     where it was used $u = \sqrt{2J_u\beta_u}\cos(\mu_u)$. For a well centered beam, $d_l=0$ and the dipolar wake does not influence the tune, and even in the case when the beam is off centered its average effect is zero, because the term $\cos(\mu_u)$ averages to zero for each particle in the beam. The quadrupolar wake, on the other hand, creates a $z$ dependent tune shift given by,
     \begin{align}
         \Delta\nu_u^n = \beta_u(1+\cos(2\mu_u))\frac{\average{I}T_0}{4\pi(E_0/e)}
-        \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z'}{
-        \lambda_l(z') W^Q_u(z-z' + s_r)}.
+        \sum_{l\in\mathscr{B}}\frac{I_l}{\average{I}}\sum_{k=-\infty}^\infty\udefint{z^*}{
+        \lambda_l(z^*) W^Q_u(z-z^* + s_r)}.
     \end{align}
     For uniform filling paterns, with $M$ bunches, we can follow the reasonings presented in subsection~\ref{ssec:relation_with_impedance} and use equation~\eqref{eq:impedance_interpretation_quad} to show that:
     \begin{align}
@@ -1716,7 +1715,7 @@
 
 \section{Kicker Chambers}
 
-    The Sirius storage ring will have two kicker magnets, one standard dipole kicker and one non--linear kicker. While the former will be used for on--axis injection in the commissioning of the light source, and as a pinger magnet for machine studies, the later will be used for injection in top-up mode~\cite{Liu2016a}. Even though the topologies of the two magnets are very different, their vacuum chamber will be identical: a ceramic chamber, coated with \SI{10}{\micro\meter} of Titanium. This means that at high frequencies their impedance will be identical too. Below we describe the considerations on the modeling of the impedance of the dipole kicker magnet and then extrapolate to the case of the non-linear kicker. Table~\ref{tab:kicker_paramters}
+    The Sirius storage ring will have two kicker magnets, one standard dipole kicker and one non--linear kicker. While the former will be used for on--axis injection in the commissioning of the light source, and as a pinger magnet for machine studies, the latter will be used for injection in top-up mode~\cite{Liu2016a}. Even though the topologies of the two magnets are very different, their vacuum chamber will be identical: a ceramic chamber, coated with \SI{10}{\micro\meter} of Titanium. This means that at high frequencies their impedance will be identical too. Below we describe the considerations on the modeling of the impedance of the dipole kicker magnet and then extrapolate to the case of the non-linear kicker. Table~\ref{tab:kicker_paramters}
     \begin{table}
         \centering
         \caption{Main parameters of the kicker magnet for impedance modeling}
@@ -2836,7 +2835,7 @@
 %
 %
 %
-%     Due to their importance, some components of the $D$ tensor have a name: the $D_{31}$ and $D_{42}$ are called dipolar wakes; and $D_{33}$ and $D_{44}$ are the quadrupolar wakes. While the first generates coherent tune--shifts and instabilities, the later is the responsible for incoherent tune--shifts of the beam. The other terms are the skew components, which are zero for most practical cases, as we will see below.
+%     Due to their importance, some components of the $D$ tensor have a name: the $D_{31}$ and $D_{42}$ are called dipolar wakes; and $D_{33}$ and $D_{44}$ are the quadrupolar wakes. While the first generates coherent tune--shifts and instabilities, the latter is the responsible for incoherent tune--shifts of the beam. The other terms are the skew components, which are zero for most practical cases, as we will see below.
 %
 %     When the geometry has symmetry the number of independent components in $M$, $D$ and $Q$ are reduced even more.
 %     When the symmetry occurs in one plane, the number of independent components is two, five and eight, respectively.Below we list examples for the most practical cases:
@@ -3136,12 +3135,12 @@
 %     The result above can be generalized to distributions $\lambda_l(z)$ different than the point charge, $\delta(z)$. Starting from equation~\eqref{eq:general_eff_long_wake} and assuming the wake function is given by equation~\eqref{eq:longitudinal_resonator_wake}, we get an equation similar to~\eqref{eq:total_potential}, with $\hat{V}_n(z)$ given by
 %     \begin{align}
 %         \hat{V}_n(z) = e^{\beta z}\sum_{l\in\mathscr{B}}A_l I_l e^{\beta(n-l)\frac{C_0}{h}}
-%                     \overbrace{\infint{z'}{\lambda_l(z') e^{-\beta z'}}}^{B_l}
+%                     \overbrace{\infint{z^*}{\lambda_l(z^*) e^{-\beta z^*}}}^{B_l}
 %     \end{align}
-%     where the integral $B_l$ can be carried out assuming the damping factor, $\alpha$, is small, in such a way that the distribution $\lambda_l$ goes to zero in an interval much smaller than the scale where the factor $e^{-\alpha z'/c}$ have any influence:
+%     where the integral $B_l$ can be carried out assuming the damping factor, $\alpha$, is small, in such a way that the distribution $\lambda_l$ goes to zero in an interval much smaller than the scale where the factor $e^{-\alpha z^*/c}$ have any influence:
 %     \begin{align}
-%         B_l = \infint{z'}\lambda_l(z') e^{-\beta z'}\,\, \overset{\alpha z_0/c \ll1}{\approx}
-%               \infint{z'}\lambda_l(z') e^{-i\bar{\omega}_R z'} = \fourier{\lambda}^*_l(\bar{\omega}_R)
+%         B_l = \infint{z^*}\lambda_l(z^*) e^{-\beta z^*}\,\, \overset{\alpha z_0/c \ll1}{\approx}
+%               \infint{z^*}\lambda_l(z^*) e^{-i\bar{\omega}_R z^*} = \fourier{\lambda}^*_l(\bar{\omega}_R)
 %     \end{align}
 %     where $z_0$ is any characteristic length of the distribution $\lambda_l$. Finally, we can write:
 %     \begin{align}
